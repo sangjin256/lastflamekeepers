@@ -1,0 +1,3 @@
+10000	물	식수로 사용 가능한 생수	TRUE	FALSE	1	4	Sword	
+10001	목재	다용도로 사용 가능한 만능 재료	FALSE	FALSE	0	5	PickAxe	
+10002	철	다용도로 사용 가능한 만능 재료	FALSE	FALSE	0	7	PickAxe	
