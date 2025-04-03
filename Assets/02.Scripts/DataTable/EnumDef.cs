@@ -1,14 +1,16 @@
 // 툴에서 자동으로 생성하는 소스 파일입니다. 수정하지 마세요!
 public enum ToolType
 {
+    ///<summary>없음</summary>
+    None = 0,
     ///<summary>검</summary>
-    Sword = 0,
+    Sword = 1,
     ///<summary>도끼</summary>
-    Axe = 1,
+    Axe = 2,
     ///<summary>곡괭이</summary>
-    PickAxe = 2,
+    PickAxe = 3,
     ///<summary>약</summary>
-    Medicine = 3,
+    Medicine = 4,
 }
 
 public enum BuildingType
