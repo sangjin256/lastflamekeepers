@@ -18,7 +18,7 @@ public partial class DataExporterEditor
 
     // 클라이언트 Output 경로.
     private const string CLIENT_SCRIPT = "Assets/02.Scripts/DataTable";
-    private const string CLIENT_BINATY = "Assets/02.Scripts/Resources/DataTable";
+    private const string CLIENT_BINATY = "Assets/Resources/DataTable";
     private const string CLIENT_HISTORY = "Assets/Editor Default Resources/DataTable";
 
 #if UNITY_EDITOR_OSX
