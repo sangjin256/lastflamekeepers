@@ -1,0 +1,4 @@
+10000	Sword	-1	-1	-1	-1	Sword	
+10001	Axe	-1	-1	-1	-1	Axe	
+10002	PickAxe	-1	-1	-1	-1	PickAxe	
+10003	Medicine	-1	-1	-1	-1	Medicine	
