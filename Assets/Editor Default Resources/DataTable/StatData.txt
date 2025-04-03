@@ -1,0 +1,6 @@
+10000	Health	50	200	
+10001	Damage	10	50	
+10002	AttackSpeed	-1	-1	
+10003	MoveSpeed	-1	-1	
+10004	WoodSpeed	-1	-1	
+10005	RockSpeed	-1	-1	
