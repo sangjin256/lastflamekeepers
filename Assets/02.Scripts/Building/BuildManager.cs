@@ -13,13 +13,13 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
 
     // 소환된 건물들
-    private PriorityQueue<Building, float> _buildingPriorityQueue;
-    private Stack<Building> _disabledBuildingStack;
-    private Dictionary<BuildingType, List<int>> _buildingCountDicList;
+    private PriorityQueue<Building, float> _buildingPriorityQueue;          // 활성화 된 건물 관리 우선순위 큐
+    private Stack<Building> _disabledBuildingStack;                         // 비활성화 된 건물 관리 스택
+    private Dictionary<BuildingType, List<int>> _buildingCountDicList;      // 건물 타입별 레벨별 개수
     
     // 건물별 데이터 리스트
     private ReadOnlyList<BuildData> _buildDataList;
-    // 테스트용 거리 제한
+    // 건축 가능 구역 반지름 제곱
     public float MaxSquareBuildDistance = 25f;
 
     private void Start()
@@ -44,6 +44,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
         // 딕셔너리 리스트 초기화
         _buildingCountDicList = new Dictionary<BuildingType, List<int>>();
+        // TODO : 건물 추가 시 BuildingType.Count 추가 및 수정
         for (int i = 0; i <= (int)BuildingType.Forge; i++)
         {
             // 레벨의 크기만큼 리스트 초기화
@@ -64,20 +65,21 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     }
 
     // 테스트 용
-    public float FireRange = 5f;
+    // public float FireRange = 5f;
     private void Update()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            FireRange -= Time.deltaTime;
-            UpdateFireRange(FireRange);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            FireRange += Time.deltaTime;
-            UpdateFireRange(FireRange);
-        }
-
+        //  *** 범위 테스트 용 코드
+        //if (Input.GetKey(KeyCode.A))
+        //{
+        //    FireRange -= Time.deltaTime;
+        //    UpdateFireRange(FireRange);
+        //}
+        //else if (Input.GetKey(KeyCode.D))
+        //{
+        //    FireRange += Time.deltaTime;
+        //    UpdateFireRange(FireRange);
+        //}
+        // ***
 
         // 현재 건물 짓는 모드인지 확인
         if (_previewBuilding == null)
