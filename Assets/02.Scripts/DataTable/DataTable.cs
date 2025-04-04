@@ -33,56 +33,56 @@ public partial class DataTable
         }
     }
     #endregion
-    #region GoodFeature
-    private ReadOnlyList<GoodFeatureData> GoodFeatureList = null;
-    private ReadOnlyDictionary<int, GoodFeatureData> GoodFeatureTable = null;
+    #region Feature
+    private ReadOnlyList<FeatureData> FeatureList = null;
+    private ReadOnlyDictionary<int, FeatureData> FeatureTable = null;
 
-    public ReadOnlyList<GoodFeatureData> GetGoodFeatureDataList()
+    public ReadOnlyList<FeatureData> GetFeatureDataList()
     {
-        return GoodFeatureList;
+        return FeatureList;
     }
 
-    public GoodFeatureData GetGoodFeatureData(int key)
+    public FeatureData GetFeatureData(int key)
     {
         if (key == 0)
         {
             return null;
         }
 
-        if (GoodFeatureTable.TryGetValue(key, out GoodFeatureData retVal) == true)
+        if (FeatureTable.TryGetValue(key, out FeatureData retVal) == true)
         {
             return retVal;
         }
         else
         {
-            Debug.LogError($"Can not find UniqueID of GoodFeatureData: <{key}>");
+            Debug.LogError($"Can not find UniqueID of FeatureData: <{key}>");
             return null;
         }
     }
     #endregion
-    #region BadFeature
-    private ReadOnlyList<BadFeatureData> BadFeatureList = null;
-    private ReadOnlyDictionary<int, BadFeatureData> BadFeatureTable = null;
+    #region UnitName
+    private ReadOnlyList<UnitNameData> UnitNameList = null;
+    private ReadOnlyDictionary<int, UnitNameData> UnitNameTable = null;
 
-    public ReadOnlyList<BadFeatureData> GetBadFeatureDataList()
+    public ReadOnlyList<UnitNameData> GetUnitNameDataList()
     {
-        return BadFeatureList;
+        return UnitNameList;
     }
 
-    public BadFeatureData GetBadFeatureData(int key)
+    public UnitNameData GetUnitNameData(int key)
     {
         if (key == 0)
         {
             return null;
         }
 
-        if (BadFeatureTable.TryGetValue(key, out BadFeatureData retVal) == true)
+        if (UnitNameTable.TryGetValue(key, out UnitNameData retVal) == true)
         {
             return retVal;
         }
         else
         {
-            Debug.LogError($"Can not find UniqueID of BadFeatureData: <{key}>");
+            Debug.LogError($"Can not find UniqueID of UnitNameData: <{key}>");
             return null;
         }
     }
@@ -168,6 +168,33 @@ public partial class DataTable
         }
     }
     #endregion
+    #region FieldResource
+    private ReadOnlyList<FieldResourceData> FieldResourceList = null;
+    private ReadOnlyDictionary<int, FieldResourceData> FieldResourceTable = null;
+
+    public ReadOnlyList<FieldResourceData> GetFieldResourceDataList()
+    {
+        return FieldResourceList;
+    }
+
+    public FieldResourceData GetFieldResourceData(int key)
+    {
+        if (key == 0)
+        {
+            return null;
+        }
+
+        if (FieldResourceTable.TryGetValue(key, out FieldResourceData retVal) == true)
+        {
+            return retVal;
+        }
+        else
+        {
+            Debug.LogError($"Can not find UniqueID of FieldResourceData: <{key}>");
+            return null;
+        }
+    }
+    #endregion
 
     public IEnumerator LoadRoutine()
     {
@@ -181,15 +208,15 @@ public partial class DataTable
             loadedCount++;
         });
         allCount++;
-        GetBytes_FromResources("GoodFeature", (bytes) =>
+        GetBytes_FromResources("Feature", (bytes) =>
         {
-            LoadGoodFeatureData(bytes);
+            LoadFeatureData(bytes);
             loadedCount++;
         });
         allCount++;
-        GetBytes_FromResources("BadFeature", (bytes) =>
+        GetBytes_FromResources("UnitName", (bytes) =>
         {
-            LoadBadFeatureData(bytes);
+            LoadUnitNameData(bytes);
             loadedCount++;
         });
         allCount++;
@@ -210,6 +237,12 @@ public partial class DataTable
             LoadWaveData(bytes);
             loadedCount++;
         });
+        allCount++;
+        GetBytes_FromResources("FieldResource", (bytes) =>
+        {
+            LoadFieldResourceData(bytes);
+            loadedCount++;
+        });
 
         yield return new WaitUntil(() => allCount == loadedCount);
     }
@@ -218,16 +251,18 @@ public partial class DataTable
     {
         byte[] randomStatBytes = GetBytes_ForEditor("RandomStatData");
         LoadRandomStatData(randomStatBytes);
-        byte[] goodFeatureBytes = GetBytes_ForEditor("GoodFeatureData");
-        LoadGoodFeatureData(goodFeatureBytes);
-        byte[] badFeatureBytes = GetBytes_ForEditor("BadFeatureData");
-        LoadBadFeatureData(badFeatureBytes);
+        byte[] featureBytes = GetBytes_ForEditor("FeatureData");
+        LoadFeatureData(featureBytes);
+        byte[] unitNameBytes = GetBytes_ForEditor("UnitNameData");
+        LoadUnitNameData(unitNameBytes);
         byte[] toolBytes = GetBytes_ForEditor("ToolData");
         LoadToolData(toolBytes);
         byte[] buildBytes = GetBytes_ForEditor("BuildData");
         LoadBuildData(buildBytes);
         byte[] waveBytes = GetBytes_ForEditor("WaveData");
         LoadWaveData(waveBytes);
+        byte[] fieldResourceBytes = GetBytes_ForEditor("FieldResourceData");
+        LoadFieldResourceData(fieldResourceBytes);
     }
 
     private void LoadRandomStatData(byte[] bytes)
@@ -261,66 +296,66 @@ public partial class DataTable
         RandomStatTable = new ReadOnlyDictionary<int, RandomStatData>(randomStatTable);
     }
 
-    private void LoadGoodFeatureData(byte[] bytes)
+    private void LoadFeatureData(byte[] bytes)
     {
-        List<GoodFeatureData> goodFeatureList = new List<GoodFeatureData>();
-        Dictionary<int, GoodFeatureData> goodFeatureTable = new Dictionary<int, GoodFeatureData>();
+        List<FeatureData> featureList = new List<FeatureData>();
+        Dictionary<int, FeatureData> featureTable = new Dictionary<int, FeatureData>();
 
         Reader = new BinaryReader(new MemoryStream(bytes));
 
         while (Reader.BaseStream.Position < bytes.Length)
         {
-            GoodFeatureData data = new GoodFeatureData(Reader);
-            if (goodFeatureTable.ContainsKey(data.TID) == true)
+            FeatureData data = new FeatureData(Reader);
+            if (featureTable.ContainsKey(data.TID) == true)
             {
-                Debug.LogError("The duplicate TID: " + data.TID + " in GoodFeature");
+                Debug.LogError("The duplicate TID: " + data.TID + " in Feature");
                 continue;
             }
             else if (data.TID == 0)
             {
-                Debug.LogError("TID is 0 in GoodFeature");
+                Debug.LogError("TID is 0 in Feature");
                 continue;
             }
 
-            goodFeatureList.Add(data);
-            goodFeatureTable.Add(data.TID, data);
+            featureList.Add(data);
+            featureTable.Add(data.TID, data);
         }
 
         Reader.Close();
 
-        GoodFeatureList = new ReadOnlyList<GoodFeatureData>(goodFeatureList);
-        GoodFeatureTable = new ReadOnlyDictionary<int, GoodFeatureData>(goodFeatureTable);
+        FeatureList = new ReadOnlyList<FeatureData>(featureList);
+        FeatureTable = new ReadOnlyDictionary<int, FeatureData>(featureTable);
     }
 
-    private void LoadBadFeatureData(byte[] bytes)
+    private void LoadUnitNameData(byte[] bytes)
     {
-        List<BadFeatureData> badFeatureList = new List<BadFeatureData>();
-        Dictionary<int, BadFeatureData> badFeatureTable = new Dictionary<int, BadFeatureData>();
+        List<UnitNameData> unitNameList = new List<UnitNameData>();
+        Dictionary<int, UnitNameData> unitNameTable = new Dictionary<int, UnitNameData>();
 
         Reader = new BinaryReader(new MemoryStream(bytes));
 
         while (Reader.BaseStream.Position < bytes.Length)
         {
-            BadFeatureData data = new BadFeatureData(Reader);
-            if (badFeatureTable.ContainsKey(data.TID) == true)
+            UnitNameData data = new UnitNameData(Reader);
+            if (unitNameTable.ContainsKey(data.TID) == true)
             {
-                Debug.LogError("The duplicate TID: " + data.TID + " in BadFeature");
+                Debug.LogError("The duplicate TID: " + data.TID + " in UnitName");
                 continue;
             }
             else if (data.TID == 0)
             {
-                Debug.LogError("TID is 0 in BadFeature");
+                Debug.LogError("TID is 0 in UnitName");
                 continue;
             }
 
-            badFeatureList.Add(data);
-            badFeatureTable.Add(data.TID, data);
+            unitNameList.Add(data);
+            unitNameTable.Add(data.TID, data);
         }
 
         Reader.Close();
 
-        BadFeatureList = new ReadOnlyList<BadFeatureData>(badFeatureList);
-        BadFeatureTable = new ReadOnlyDictionary<int, BadFeatureData>(badFeatureTable);
+        UnitNameList = new ReadOnlyList<UnitNameData>(unitNameList);
+        UnitNameTable = new ReadOnlyDictionary<int, UnitNameData>(unitNameTable);
     }
 
     private void LoadToolData(byte[] bytes)
@@ -414,6 +449,37 @@ public partial class DataTable
 
         WaveList = new ReadOnlyList<WaveData>(waveList);
         WaveTable = new ReadOnlyDictionary<int, WaveData>(waveTable);
+    }
+
+    private void LoadFieldResourceData(byte[] bytes)
+    {
+        List<FieldResourceData> fieldResourceList = new List<FieldResourceData>();
+        Dictionary<int, FieldResourceData> fieldResourceTable = new Dictionary<int, FieldResourceData>();
+
+        Reader = new BinaryReader(new MemoryStream(bytes));
+
+        while (Reader.BaseStream.Position < bytes.Length)
+        {
+            FieldResourceData data = new FieldResourceData(Reader);
+            if (fieldResourceTable.ContainsKey(data.TID) == true)
+            {
+                Debug.LogError("The duplicate TID: " + data.TID + " in FieldResource");
+                continue;
+            }
+            else if (data.TID == 0)
+            {
+                Debug.LogError("TID is 0 in FieldResource");
+                continue;
+            }
+
+            fieldResourceList.Add(data);
+            fieldResourceTable.Add(data.TID, data);
+        }
+
+        Reader.Close();
+
+        FieldResourceList = new ReadOnlyList<FieldResourceData>(fieldResourceList);
+        FieldResourceTable = new ReadOnlyDictionary<int, FieldResourceData>(fieldResourceTable);
     }
 
 }

@@ -48,7 +48,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         for (int i = 0; i <= (int)BuildingType.Forge; i++)
         {
             // 레벨의 크기만큼 리스트 초기화
-            int upgradeCount = _buildDataList[0].Upgrade_ValueList.Count;
+            int upgradeCount = _buildDataList[0].Upgrade_AddValueList.Count;
             List<int> levelCount = new List<int>(upgradeCount);
 
             for (int j = 0; j < upgradeCount; j++)
