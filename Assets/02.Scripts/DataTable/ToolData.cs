@@ -11,32 +11,41 @@ public class ToolData
     ///<summary>도구 이름</summary>
     public readonly string ToolName;
 
+    ///<summary>설명</summary>
+    public readonly string Description;
+
+    ///<summary>기본값</summary>
+    public readonly int Value;
+
     ///<summary>업그레이드1</summary>
-    private readonly int Upgrade1_Value;
+    private readonly int Upgrade1_AddValue;
 
     ///<summary>업그레이드2</summary>
-    private readonly int Upgrade2_Value;
+    private readonly int Upgrade2_AddValue;
 
     ///<summary>업그레이드3</summary>
-    private readonly int Upgrade3_Value;
+    private readonly int Upgrade3_AddValue;
 
-    ///<summary>업그레이드4</summary>
-    private readonly int Upgrade4_Value;
+    ///<summary>최대 개수</summary>
+    public readonly int MaxCount;
 
     ///<summary>도구 종류</summary>
     public readonly ToolType ToolType;
 
-    ///<summary>Upgrade_Value 리스트</summary>
-    public readonly List<int> Upgrade_ValueList = new List<int>();
+    ///<summary>Upgrade_AddValue 리스트</summary>
+    public readonly List<int> Upgrade_AddValueList = new List<int>();
     public ToolData(BinaryReader reader)
     {
         TID = reader.ReadInt32();
         int toolname = reader.ReadInt32();
         ToolName = Encoding.UTF8.GetString(reader.ReadBytes(toolname));
-        Upgrade1_Value = reader.ReadInt32();
-        Upgrade2_Value = reader.ReadInt32();
-        Upgrade3_Value = reader.ReadInt32();
-        Upgrade4_Value = reader.ReadInt32();
+        int description = reader.ReadInt32();
+        Description = Encoding.UTF8.GetString(reader.ReadBytes(description));
+        Value = reader.ReadInt32();
+        Upgrade1_AddValue = reader.ReadInt32();
+        Upgrade2_AddValue = reader.ReadInt32();
+        Upgrade3_AddValue = reader.ReadInt32();
+        MaxCount = reader.ReadInt32();
         ToolType = (ToolType)reader.ReadInt32();
 
         LinkTable();
@@ -44,9 +53,8 @@ public class ToolData
 
     public void LinkTable()
     {
-        Upgrade_ValueList.Add(Upgrade1_Value);
-        Upgrade_ValueList.Add(Upgrade2_Value);
-        Upgrade_ValueList.Add(Upgrade3_Value);
-        Upgrade_ValueList.Add(Upgrade4_Value);
+        Upgrade_AddValueList.Add(Upgrade1_AddValue);
+        Upgrade_AddValueList.Add(Upgrade2_AddValue);
+        Upgrade_AddValueList.Add(Upgrade3_AddValue);
     }
 }
