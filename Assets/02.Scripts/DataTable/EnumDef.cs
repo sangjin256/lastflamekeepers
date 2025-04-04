@@ -1,16 +1,14 @@
 // 툴에서 자동으로 생성하는 소스 파일입니다. 수정하지 마세요!
 public enum ToolType
 {
-    ///<summary>없음</summary>
-    None = 0,
     ///<summary>검</summary>
-    Sword = 1,
+    Sword = 0,
     ///<summary>도끼</summary>
-    Axe = 2,
+    Axe = 1,
     ///<summary>곡괭이</summary>
-    PickAxe = 3,
-    ///<summary>약</summary>
-    Medicine = 4,
+    PickAxe = 2,
+    ///<summary>치료제</summary>
+    Medicine = 3,
 }
 
 public enum BuildingType
@@ -63,5 +61,19 @@ public enum FeatureType
     Nature = 10,
     ///<summary>근육통 - 채광 속도 하락</summary>
     MusclePain = 11,
+}
+
+public enum InteractType
+{
+    ///<summary>땅</summary>
+    Ground = 0,
+    ///<summary>나무</summary>
+    Wood = 1,
+    ///<summary>돌</summary>
+    Rock = 2,
+    ///<summary>적</summary>
+    Enemy = 3,
+    ///<summary> 아군 유닛</summary>
+    Unit = 4,
 }
 

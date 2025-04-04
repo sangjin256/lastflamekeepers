@@ -6,29 +6,83 @@ using UnityEngine;
 
 public partial class DataTable
 {
-    #region Stat
-    private ReadOnlyList<StatData> StatList = null;
-    private ReadOnlyDictionary<int, StatData> StatTable = null;
+    #region RandomStat
+    private ReadOnlyList<RandomStatData> RandomStatList = null;
+    private ReadOnlyDictionary<int, RandomStatData> RandomStatTable = null;
 
-    public ReadOnlyList<StatData> GetStatDataList()
+    public ReadOnlyList<RandomStatData> GetRandomStatDataList()
     {
-        return StatList;
+        return RandomStatList;
     }
 
-    public StatData GetStatData(int key)
+    public RandomStatData GetRandomStatData(int key)
     {
         if (key == 0)
         {
             return null;
         }
 
-        if (StatTable.TryGetValue(key, out StatData retVal) == true)
+        if (RandomStatTable.TryGetValue(key, out RandomStatData retVal) == true)
         {
             return retVal;
         }
         else
         {
-            Debug.LogError($"Can not find UniqueID of StatData: <{key}>");
+            Debug.LogError($"Can not find UniqueID of RandomStatData: <{key}>");
+            return null;
+        }
+    }
+    #endregion
+    #region GoodFeature
+    private ReadOnlyList<GoodFeatureData> GoodFeatureList = null;
+    private ReadOnlyDictionary<int, GoodFeatureData> GoodFeatureTable = null;
+
+    public ReadOnlyList<GoodFeatureData> GetGoodFeatureDataList()
+    {
+        return GoodFeatureList;
+    }
+
+    public GoodFeatureData GetGoodFeatureData(int key)
+    {
+        if (key == 0)
+        {
+            return null;
+        }
+
+        if (GoodFeatureTable.TryGetValue(key, out GoodFeatureData retVal) == true)
+        {
+            return retVal;
+        }
+        else
+        {
+            Debug.LogError($"Can not find UniqueID of GoodFeatureData: <{key}>");
+            return null;
+        }
+    }
+    #endregion
+    #region BadFeature
+    private ReadOnlyList<BadFeatureData> BadFeatureList = null;
+    private ReadOnlyDictionary<int, BadFeatureData> BadFeatureTable = null;
+
+    public ReadOnlyList<BadFeatureData> GetBadFeatureDataList()
+    {
+        return BadFeatureList;
+    }
+
+    public BadFeatureData GetBadFeatureData(int key)
+    {
+        if (key == 0)
+        {
+            return null;
+        }
+
+        if (BadFeatureTable.TryGetValue(key, out BadFeatureData retVal) == true)
+        {
+            return retVal;
+        }
+        else
+        {
+            Debug.LogError($"Can not find UniqueID of BadFeatureData: <{key}>");
             return null;
         }
     }
@@ -121,9 +175,21 @@ public partial class DataTable
         int loadedCount = 0;
 
         allCount++;
-        GetBytes_FromResources("Stat", (bytes) =>
+        GetBytes_FromResources("RandomStat", (bytes) =>
         {
-            LoadStatData(bytes);
+            LoadRandomStatData(bytes);
+            loadedCount++;
+        });
+        allCount++;
+        GetBytes_FromResources("GoodFeature", (bytes) =>
+        {
+            LoadGoodFeatureData(bytes);
+            loadedCount++;
+        });
+        allCount++;
+        GetBytes_FromResources("BadFeature", (bytes) =>
+        {
+            LoadBadFeatureData(bytes);
             loadedCount++;
         });
         allCount++;
@@ -150,8 +216,12 @@ public partial class DataTable
 
     public void LoadForEditor()
     {
-        byte[] statBytes = GetBytes_ForEditor("StatData");
-        LoadStatData(statBytes);
+        byte[] randomStatBytes = GetBytes_ForEditor("RandomStatData");
+        LoadRandomStatData(randomStatBytes);
+        byte[] goodFeatureBytes = GetBytes_ForEditor("GoodFeatureData");
+        LoadGoodFeatureData(goodFeatureBytes);
+        byte[] badFeatureBytes = GetBytes_ForEditor("BadFeatureData");
+        LoadBadFeatureData(badFeatureBytes);
         byte[] toolBytes = GetBytes_ForEditor("ToolData");
         LoadToolData(toolBytes);
         byte[] buildBytes = GetBytes_ForEditor("BuildData");
@@ -160,35 +230,97 @@ public partial class DataTable
         LoadWaveData(waveBytes);
     }
 
-    private void LoadStatData(byte[] bytes)
+    private void LoadRandomStatData(byte[] bytes)
     {
-        List<StatData> statList = new List<StatData>();
-        Dictionary<int, StatData> statTable = new Dictionary<int, StatData>();
+        List<RandomStatData> randomStatList = new List<RandomStatData>();
+        Dictionary<int, RandomStatData> randomStatTable = new Dictionary<int, RandomStatData>();
 
         Reader = new BinaryReader(new MemoryStream(bytes));
 
         while (Reader.BaseStream.Position < bytes.Length)
         {
-            StatData data = new StatData(Reader);
-            if (statTable.ContainsKey(data.TID) == true)
+            RandomStatData data = new RandomStatData(Reader);
+            if (randomStatTable.ContainsKey(data.TID) == true)
             {
-                Debug.LogError("The duplicate TID: " + data.TID + " in Stat");
+                Debug.LogError("The duplicate TID: " + data.TID + " in RandomStat");
                 continue;
             }
             else if (data.TID == 0)
             {
-                Debug.LogError("TID is 0 in Stat");
+                Debug.LogError("TID is 0 in RandomStat");
                 continue;
             }
 
-            statList.Add(data);
-            statTable.Add(data.TID, data);
+            randomStatList.Add(data);
+            randomStatTable.Add(data.TID, data);
         }
 
         Reader.Close();
 
-        StatList = new ReadOnlyList<StatData>(statList);
-        StatTable = new ReadOnlyDictionary<int, StatData>(statTable);
+        RandomStatList = new ReadOnlyList<RandomStatData>(randomStatList);
+        RandomStatTable = new ReadOnlyDictionary<int, RandomStatData>(randomStatTable);
+    }
+
+    private void LoadGoodFeatureData(byte[] bytes)
+    {
+        List<GoodFeatureData> goodFeatureList = new List<GoodFeatureData>();
+        Dictionary<int, GoodFeatureData> goodFeatureTable = new Dictionary<int, GoodFeatureData>();
+
+        Reader = new BinaryReader(new MemoryStream(bytes));
+
+        while (Reader.BaseStream.Position < bytes.Length)
+        {
+            GoodFeatureData data = new GoodFeatureData(Reader);
+            if (goodFeatureTable.ContainsKey(data.TID) == true)
+            {
+                Debug.LogError("The duplicate TID: " + data.TID + " in GoodFeature");
+                continue;
+            }
+            else if (data.TID == 0)
+            {
+                Debug.LogError("TID is 0 in GoodFeature");
+                continue;
+            }
+
+            goodFeatureList.Add(data);
+            goodFeatureTable.Add(data.TID, data);
+        }
+
+        Reader.Close();
+
+        GoodFeatureList = new ReadOnlyList<GoodFeatureData>(goodFeatureList);
+        GoodFeatureTable = new ReadOnlyDictionary<int, GoodFeatureData>(goodFeatureTable);
+    }
+
+    private void LoadBadFeatureData(byte[] bytes)
+    {
+        List<BadFeatureData> badFeatureList = new List<BadFeatureData>();
+        Dictionary<int, BadFeatureData> badFeatureTable = new Dictionary<int, BadFeatureData>();
+
+        Reader = new BinaryReader(new MemoryStream(bytes));
+
+        while (Reader.BaseStream.Position < bytes.Length)
+        {
+            BadFeatureData data = new BadFeatureData(Reader);
+            if (badFeatureTable.ContainsKey(data.TID) == true)
+            {
+                Debug.LogError("The duplicate TID: " + data.TID + " in BadFeature");
+                continue;
+            }
+            else if (data.TID == 0)
+            {
+                Debug.LogError("TID is 0 in BadFeature");
+                continue;
+            }
+
+            badFeatureList.Add(data);
+            badFeatureTable.Add(data.TID, data);
+        }
+
+        Reader.Close();
+
+        BadFeatureList = new ReadOnlyList<BadFeatureData>(badFeatureList);
+        BadFeatureTable = new ReadOnlyDictionary<int, BadFeatureData>(badFeatureTable);
     }
 
     private void LoadToolData(byte[] bytes)
