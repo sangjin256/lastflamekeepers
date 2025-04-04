@@ -3,6 +3,8 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
     public BuildingType BuildingType;
+    private int _level = 0;
+    public int Level => _level;
 
     private SpriteRenderer _spriteRenderer;
 

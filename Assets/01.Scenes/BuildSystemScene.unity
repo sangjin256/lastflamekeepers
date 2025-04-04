@@ -167,7 +167,8 @@ MonoBehaviour:
   - {fileID: 7750370346116196326, guid: 82f3a72d465ab0844b9f0881791fa093, type: 3}
   CanBuildColor: {r: 1, g: 1, b: 1, a: 1}
   CannotBuildColor: {r: 1, g: 0, b: 0, a: 1}
-  MaxBuildDistance: 5
+  MaxSquareBuildDistance: 25
+  FireRange: 5
 --- !u!1 &449554899
 GameObject:
   m_ObjectHideFlags: 0
