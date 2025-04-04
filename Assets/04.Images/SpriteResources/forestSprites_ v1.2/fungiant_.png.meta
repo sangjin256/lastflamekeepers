@@ -1,0 +1,1586 @@
+fileFormatVersion: 2
+guid: a2845222b51fd3340bfdfbfb9008ba46
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5213265860831467
+    second: fungiant__0
+  - first:
+      213: -1548428563558407598
+    second: fungiant__1
+  - first:
+      213: -6323771593728886734
+    second: fungiant__2
+  - first:
+      213: -5578797265080215256
+    second: fungiant__3
+  - first:
+      213: -8319353335082953923
+    second: fungiant__4
+  - first:
+      213: 1929164205116342738
+    second: fungiant__5
+  - first:
+      213: -1371795619317247437
+    second: fungiant__6
+  - first:
+      213: 4859850718041076936
+    second: fungiant__7
+  - first:
+      213: -4783831599484852880
+    second: fungiant__8
+  - first:
+      213: -3150645642165692498
+    second: fungiant__9
+  - first:
+      213: -6111562360527802985
+    second: fungiant__10
+  - first:
+      213: 5390826239215924751
+    second: fungiant__11
+  - first:
+      213: 7965785469071122728
+    second: fungiant__12
+  - first:
+      213: 946838020962624566
+    second: fungiant__13
+  - first:
+      213: 555025047532383717
+    second: fungiant__14
+  - first:
+      213: -278859879210553157
+    second: fungiant__15
+  - first:
+      213: -5948423228067020180
+    second: fungiant__16
+  - first:
+      213: 8580148820123206432
+    second: fungiant__17
+  - first:
+      213: 3626197168168926144
+    second: fungiant__18
+  - first:
+      213: -6676381865872058528
+    second: fungiant__19
+  - first:
+      213: -8692186151836926577
+    second: fungiant__20
+  - first:
+      213: -1455736181668922709
+    second: fungiant__21
+  - first:
+      213: 1532501541995243710
+    second: fungiant__22
+  - first:
+      213: 5552588053117042421
+    second: fungiant__23
+  - first:
+      213: 6640526568594968933
+    second: fungiant__24
+  - first:
+      213: -7433615868157070343
+    second: fungiant__25
+  - first:
+      213: -254660983763771710
+    second: fungiant__26
+  - first:
+      213: 5691641937525845810
+    second: fungiant__27
+  - first:
+      213: -1416287538890290466
+    second: fungiant__28
+  - first:
+      213: -6634974397188312494
+    second: fungiant__29
+  - first:
+      213: 4592596828018062866
+    second: fungiant__30
+  - first:
+      213: -1163852770636354944
+    second: fungiant__31
+  - first:
+      213: -8096854489839633735
+    second: fungiant__32
+  - first:
+      213: -9013032934019400619
+    second: fungiant__33
+  - first:
+      213: -5987418478768873705
+    second: fungiant__34
+  - first:
+      213: -5717429882002162527
+    second: fungiant__35
+  - first:
+      213: 6634129970588604634
+    second: fungiant__36
+  - first:
+      213: -872521061175372036
+    second: fungiant__37
+  - first:
+      213: 6960535700295100689
+    second: fungiant__38
+  - first:
+      213: -9066438583352282294
+    second: fungiant__39
+  - first:
+      213: -5386587636234072218
+    second: fungiant__40
+  - first:
+      213: 4549525796276219098
+    second: fungiant__41
+  - first:
+      213: -3550409518034117291
+    second: fungiant__42
+  - first:
+      213: 7546319538116588638
+    second: fungiant__43
+  - first:
+      213: 4705228643696158053
+    second: fungiant__44
+  - first:
+      213: -3431053203345532156
+    second: fungiant__45
+  - first:
+      213: 2625155508943227459
+    second: fungiant__46
+  - first:
+      213: 8241794866749711970
+    second: fungiant__47
+  - first:
+      213: -5867083059802629695
+    second: fungiant__48
+  - first:
+      213: -3250039393370921158
+    second: fungiant__49
+  - first:
+      213: 7008639937235466198
+    second: fungiant__50
+  - first:
+      213: -3294855853929505911
+    second: fungiant__51
+  - first:
+      213: 6855689906197843497
+    second: fungiant__52
+  - first:
+      213: 511249438633655404
+    second: fungiant__53
+  - first:
+      213: -7702435097154887498
+    second: fungiant__54
+  - first:
+      213: 2627158711844337737
+    second: fungiant__55
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fungiant__0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 167
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be821cb0075821000800000000000000
+      internalID: 5213265860831467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 167
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2526805ec60e28ae0800000000000000
+      internalID: -1548428563558407598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__2
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 167
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23875138d337d38a0800000000000000
+      internalID: -6323771593728886734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__3
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 167
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82919f4f1712492b0800000000000000
+      internalID: -5578797265080215256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__4
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 167
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d335b653838bb8c80800000000000000
+      internalID: -8319353335082953923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__5
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 167
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d1cb579f94c5ca10800000000000000
+      internalID: 1929164205116342738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__6
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 167
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 332982ef62766fce0800000000000000
+      internalID: -1371795619317247437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__7
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 167
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c4f34eba78a17340800000000000000
+      internalID: 4859850718041076936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 139
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 075aa6f818a6c9db0800000000000000
+      internalID: -4783831599484852880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__9
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 139
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea7d4953b78a644d0800000000000000
+      internalID: -3150645642165692498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__10
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 139
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79da71ed96e5f2ba0800000000000000
+      internalID: -6111562360527802985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__11
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 139
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06f15a17ef00da40800000000000000
+      internalID: 5390826239215924751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__12
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 139
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 821e3f8fda72c8e60800000000000000
+      internalID: 7965785469071122728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__13
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 139
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 634af4bd928d32d00800000000000000
+      internalID: 946838020962624566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__14
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 139
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5edac9f0758d3b700800000000000000
+      internalID: 555025047532383717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__15
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 139
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb0fb85da6a412cf0800000000000000
+      internalID: -278859879210553157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__16
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 111
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6202651794f27da0800000000000000
+      internalID: -5948423228067020180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__17
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 111
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0234e6f64efc21770800000000000000
+      internalID: 8580148820123206432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__18
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 111
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cb7c3eac17d25230800000000000000
+      internalID: 3626197168168926144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__19
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 111
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06716d3e01ab853a0800000000000000
+      internalID: -6676381865872058528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__20
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 111
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8db0328fb62f5780800000000000000
+      internalID: -8692186151836926577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__21
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 111
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baab0f4d7af2ccbe0800000000000000
+      internalID: -1455736181668922709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__22
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 111
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb86d5c680a844510800000000000000
+      internalID: 1532501541995243710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__23
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 111
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fe7e1a5a61ce0d40800000000000000
+      internalID: 5552588053117042421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__24
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 84
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56195aa2bb3e72c50800000000000000
+      internalID: 6640526568594968933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__25
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 85
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f37acdb0cd76d890800000000000000
+      internalID: -7433615868157070343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__26
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 83
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cedb9c3f23477cf0800000000000000
+      internalID: -254660983763771710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__27
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 83
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23fa1f2cf26ccfe40800000000000000
+      internalID: 5691641937525845810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__28
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 84
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edac1a8bcf5585ce0800000000000000
+      internalID: -1416287538890290466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__29
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 85
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25277c970f5dbe3a0800000000000000
+      internalID: -6634974397188312494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__30
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 83
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2163a928b7e2cbf30800000000000000
+      internalID: 4592596828018062866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__31
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 83
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08aad5b421a29dfe0800000000000000
+      internalID: -1163852770636354944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__32
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 55
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9baf41f8db132af80800000000000000
+      internalID: -8096854489839633735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__33
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 55
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55c70e2bc464be280800000000000000
+      internalID: -9013032934019400619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__34
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 55
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71f1f53cd9a68eca0800000000000000
+      internalID: -5987418478768873705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__35
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 55
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1acbe0780db97a0b0800000000000000
+      internalID: -5717429882002162527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__36
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 55
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad8d4b22f0a211c50800000000000000
+      internalID: 6634129970588604634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__37
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 55
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf65899b7be24e3f0800000000000000
+      internalID: -872521061175372036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__38
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 55
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 119a386475ac89060800000000000000
+      internalID: 6960535700295100689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__39
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 55
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a43346df42a8d2280800000000000000
+      internalID: -9066438583352282294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__40
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 27
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66fc1ce851ffe35b0800000000000000
+      internalID: -5386587636234072218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__41
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 27
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adc25877b99232f30800000000000000
+      internalID: 4549525796276219098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__42
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 27
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55d196eaa596abec0800000000000000
+      internalID: -3550409518034117291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__43
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 27
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e54770743a9e9b860800000000000000
+      internalID: 7546319538116588638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__44
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 27
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 565a086a5845c4140800000000000000
+      internalID: 4705228643696158053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__45
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 27
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40b9f114a437260d0800000000000000
+      internalID: -3431053203345532156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__46
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 27
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34a88b6d60d6e6420800000000000000
+      internalID: 2625155508943227459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__47
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 27
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2662140b3ccb06270800000000000000
+      internalID: 8241794866749711970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__48
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c990c0da0fe39ea0800000000000000
+      internalID: -5867083059802629695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__49
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a37a914246a85e2d0800000000000000
+      internalID: -3250039393370921158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__50
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 0
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d73989b3e0b34160800000000000000
+      internalID: 7008639937235466198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__51
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 0
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98b5a68ce025642d0800000000000000
+      internalID: -3294855853929505911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__52
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 0
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e472d85ad442f50800000000000000
+      internalID: 6855689906197843497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__53
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6c706dd7a2581700800000000000000
+      internalID: 511249438633655404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__54
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 0
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b0e490a6147b1590800000000000000
+      internalID: -7702435097154887498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fungiant__55
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 0
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 948fd0cddea857420800000000000000
+      internalID: 2627158711844337737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      fungiant__0: 5213265860831467
+      fungiant__1: -1548428563558407598
+      fungiant__10: -6111562360527802985
+      fungiant__11: 5390826239215924751
+      fungiant__12: 7965785469071122728
+      fungiant__13: 946838020962624566
+      fungiant__14: 555025047532383717
+      fungiant__15: -278859879210553157
+      fungiant__16: -5948423228067020180
+      fungiant__17: 8580148820123206432
+      fungiant__18: 3626197168168926144
+      fungiant__19: -6676381865872058528
+      fungiant__2: -6323771593728886734
+      fungiant__20: -8692186151836926577
+      fungiant__21: -1455736181668922709
+      fungiant__22: 1532501541995243710
+      fungiant__23: 5552588053117042421
+      fungiant__24: 6640526568594968933
+      fungiant__25: -7433615868157070343
+      fungiant__26: -254660983763771710
+      fungiant__27: 5691641937525845810
+      fungiant__28: -1416287538890290466
+      fungiant__29: -6634974397188312494
+      fungiant__3: -5578797265080215256
+      fungiant__30: 4592596828018062866
+      fungiant__31: -1163852770636354944
+      fungiant__32: -8096854489839633735
+      fungiant__33: -9013032934019400619
+      fungiant__34: -5987418478768873705
+      fungiant__35: -5717429882002162527
+      fungiant__36: 6634129970588604634
+      fungiant__37: -872521061175372036
+      fungiant__38: 6960535700295100689
+      fungiant__39: -9066438583352282294
+      fungiant__4: -8319353335082953923
+      fungiant__40: -5386587636234072218
+      fungiant__41: 4549525796276219098
+      fungiant__42: -3550409518034117291
+      fungiant__43: 7546319538116588638
+      fungiant__44: 4705228643696158053
+      fungiant__45: -3431053203345532156
+      fungiant__46: 2625155508943227459
+      fungiant__47: 8241794866749711970
+      fungiant__48: -5867083059802629695
+      fungiant__49: -3250039393370921158
+      fungiant__5: 1929164205116342738
+      fungiant__50: 7008639937235466198
+      fungiant__51: -3294855853929505911
+      fungiant__52: 6855689906197843497
+      fungiant__53: 511249438633655404
+      fungiant__54: -7702435097154887498
+      fungiant__55: 2627158711844337737
+      fungiant__6: -1371795619317247437
+      fungiant__7: 4859850718041076936
+      fungiant__8: -4783831599484852880
+      fungiant__9: -3150645642165692498
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

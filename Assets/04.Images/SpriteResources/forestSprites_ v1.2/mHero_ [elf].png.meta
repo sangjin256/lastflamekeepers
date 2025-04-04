@@ -1,0 +1,1378 @@
+fileFormatVersion: 2
+guid: e227c90f3c4068b4fa733706d1fc8473
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1817079651318991930
+    second: mHero_ [elf]_0
+  - first:
+      213: 1712111157025622878
+    second: mHero_ [elf]_1
+  - first:
+      213: 6000013310166690328
+    second: mHero_ [elf]_2
+  - first:
+      213: 8700454621612133963
+    second: mHero_ [elf]_3
+  - first:
+      213: -642870876553345094
+    second: mHero_ [elf]_4
+  - first:
+      213: 4660355295050923787
+    second: mHero_ [elf]_5
+  - first:
+      213: -5546711099869275850
+    second: mHero_ [elf]_6
+  - first:
+      213: 1953745605647121514
+    second: mHero_ [elf]_7
+  - first:
+      213: 1775777987606448852
+    second: mHero_ [elf]_8
+  - first:
+      213: -4329234260955563102
+    second: mHero_ [elf]_9
+  - first:
+      213: 2116322573319246916
+    second: mHero_ [elf]_10
+  - first:
+      213: -6616731659035833986
+    second: mHero_ [elf]_11
+  - first:
+      213: -7638205507224157260
+    second: mHero_ [elf]_12
+  - first:
+      213: 6401035388004918350
+    second: mHero_ [elf]_13
+  - first:
+      213: 640267916258604494
+    second: mHero_ [elf]_14
+  - first:
+      213: -1557703345215969057
+    second: mHero_ [elf]_15
+  - first:
+      213: -7103775366062461950
+    second: mHero_ [elf]_16
+  - first:
+      213: -9141623147651332011
+    second: mHero_ [elf]_17
+  - first:
+      213: -8661449920182959957
+    second: mHero_ [elf]_18
+  - first:
+      213: 1959505331702488986
+    second: mHero_ [elf]_19
+  - first:
+      213: -4183310133062062095
+    second: mHero_ [elf]_20
+  - first:
+      213: 7754489827425706416
+    second: mHero_ [elf]_21
+  - first:
+      213: -8463964962951318564
+    second: mHero_ [elf]_22
+  - first:
+      213: 1445476981388223013
+    second: mHero_ [elf]_23
+  - first:
+      213: 5620014582044368814
+    second: mHero_ [elf]_24
+  - first:
+      213: 9209906649585760332
+    second: mHero_ [elf]_25
+  - first:
+      213: 4846665727283703760
+    second: mHero_ [elf]_26
+  - first:
+      213: -9136312482848509565
+    second: mHero_ [elf]_27
+  - first:
+      213: 8096784524218726050
+    second: mHero_ [elf]_28
+  - first:
+      213: -133115942647578071
+    second: mHero_ [elf]_29
+  - first:
+      213: 5915250002347028814
+    second: mHero_ [elf]_30
+  - first:
+      213: 3107765260052108675
+    second: mHero_ [elf]_31
+  - first:
+      213: -5502890014943166599
+    second: mHero_ [elf]_32
+  - first:
+      213: -3535234719147925398
+    second: mHero_ [elf]_33
+  - first:
+      213: 1815161594243107343
+    second: mHero_ [elf]_34
+  - first:
+      213: -5811524212006090838
+    second: mHero_ [elf]_35
+  - first:
+      213: 4787847607038024765
+    second: mHero_ [elf]_36
+  - first:
+      213: -6629271496985848350
+    second: mHero_ [elf]_37
+  - first:
+      213: -8875713717880271274
+    second: mHero_ [elf]_38
+  - first:
+      213: 880215323412373491
+    second: mHero_ [elf]_39
+  - first:
+      213: -790706525089098786
+    second: mHero_ [elf]_40
+  - first:
+      213: -5597736857971451037
+    second: mHero_ [elf]_41
+  - first:
+      213: 4659767513675967302
+    second: mHero_ [elf]_42
+  - first:
+      213: -6543978370730973702
+    second: mHero_ [elf]_43
+  - first:
+      213: -1915104587779266446
+    second: mHero_ [elf]_44
+  - first:
+      213: 6909582736262141735
+    second: mHero_ [elf]_45
+  - first:
+      213: 9035853388119564326
+    second: mHero_ [elf]_46
+  - first:
+      213: 1517755245464998593
+    second: mHero_ [elf]_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mHero_ [elf]_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 119
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c37a863faf68c6e0800000000000000
+      internalID: -1817079651318991930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_1
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 119
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5bce72b604a2c710800000000000000
+      internalID: 1712111157025622878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_2
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 119
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81ae910f054544350800000000000000
+      internalID: 6000013310166690328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_3
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 119
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4ec891a1693eb870800000000000000
+      internalID: 8700454621612133963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_4
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 119
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab7089608501417f0800000000000000
+      internalID: -642870876553345094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_5
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 119
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0ffe900378eca040800000000000000
+      internalID: 4660355295050923787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_6
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 119
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 639539474af1603b0800000000000000
+      internalID: -5546711099869275850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_7
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 119
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6cb316e6491d1b10800000000000000
+      internalID: 1953745605647121514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_8
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 95
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4da8d37dba4d4a810800000000000000
+      internalID: 1775777987606448852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_9
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 95
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2abfa4e70687be3c0800000000000000
+      internalID: -4329234260955563102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_10
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 95
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44495dcea20be5d10800000000000000
+      internalID: 2116322573319246916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_11
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 95
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e798611fc95ac24a0800000000000000
+      internalID: -6616731659035833986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_12
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 95
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b3c8746f84aff590800000000000000
+      internalID: -7638205507224157260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_13
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 95
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e44ecb075cb05d850800000000000000
+      internalID: 6401035388004918350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_14
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 95
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec57cad0740b2e800800000000000000
+      internalID: 640267916258604494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_15
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 95
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd8e6f28f0de16ae0800000000000000
+      internalID: -1557703345215969057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_16
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 72
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20c2da521f15a6d90800000000000000
+      internalID: -7103775366062461950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_17
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 73
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55801cd7e2e622180800000000000000
+      internalID: -9141623147651332011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_18
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 71
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba0c8ab10395cc780800000000000000
+      internalID: -8661449920182959957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_19
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 71
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f5c9f97bf813b10800000000000000
+      internalID: 1959505331702488986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_20
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 72
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ff2b8d1995e1f5c0800000000000000
+      internalID: -4183310133062062095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_21
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 73
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b1e61ab96b7d9b60800000000000000
+      internalID: 7754489827425706416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_22
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 71
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd33fefc5b4f98a80800000000000000
+      internalID: -8463964962951318564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_23
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 71
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52226a6f7ad5f0410800000000000000
+      internalID: 1445476981388223013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_24
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 47
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaf154b7c7d4efd40800000000000000
+      internalID: 5620014582044368814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_25
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 47
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4831173d4920df70800000000000000
+      internalID: 9209906649585760332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_26
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 47
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0df2ecbdcc0d24340800000000000000
+      internalID: 4846665727283703760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_27
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 47
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 381f8def33c453180800000000000000
+      internalID: -9136312482848509565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_28
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 47
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a6ffec40ae8d5070800000000000000
+      internalID: 8096784524218726050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_29
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 47
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 922cc8461c3172ef0800000000000000
+      internalID: -133115942647578071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_30
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 47
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e41f58b6980371250800000000000000
+      internalID: 5915250002347028814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_31
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 47
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38594b2d900012b20800000000000000
+      internalID: 3107765260052108675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_32
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 23
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97fb44ddfaec1a3b0800000000000000
+      internalID: -5502890014943166599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_33
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 23
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a606f8fd0c250fec0800000000000000
+      internalID: -3535234719147925398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_34
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 23
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0acac25adfb03910800000000000000
+      internalID: 1815161594243107343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_35
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 23
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa78bcb1581595fa0800000000000000
+      internalID: -5811524212006090838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_36
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 23
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3c9430180ad17240800000000000000
+      internalID: 4787847607038024765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_37
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 23
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e5598662b81004a0800000000000000
+      internalID: -6629271496985848350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_38
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 23
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65e4fad266123d480800000000000000
+      internalID: -8875713717880271274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_39
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 23
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ff99dd4c27273c00800000000000000
+      internalID: 880215323412373491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_40
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed31b72da98d605f0800000000000000
+      internalID: -790706525089098786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_41
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 0
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36b108a5cf7d052b0800000000000000
+      internalID: -5597736857971451037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_42
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 0
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64baf8c7dd1daa040800000000000000
+      internalID: 4659767513675967302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_43
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af5adb2e75e1f25a0800000000000000
+      internalID: -6543978370730973702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_44
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 0
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27822b9268e2c65e0800000000000000
+      internalID: -1915104587779266446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_45
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 0
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 727931dd3e4c3ef50800000000000000
+      internalID: 6909582736262141735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_46
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 0
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 620606158ccc56d70800000000000000
+      internalID: 9035853388119564326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mHero_ [elf]_47
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c25de5ba56201510800000000000000
+      internalID: 1517755245464998593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mHero_ [elf]_0: -1817079651318991930
+      mHero_ [elf]_1: 1712111157025622878
+      mHero_ [elf]_10: 2116322573319246916
+      mHero_ [elf]_11: -6616731659035833986
+      mHero_ [elf]_12: -7638205507224157260
+      mHero_ [elf]_13: 6401035388004918350
+      mHero_ [elf]_14: 640267916258604494
+      mHero_ [elf]_15: -1557703345215969057
+      mHero_ [elf]_16: -7103775366062461950
+      mHero_ [elf]_17: -9141623147651332011
+      mHero_ [elf]_18: -8661449920182959957
+      mHero_ [elf]_19: 1959505331702488986
+      mHero_ [elf]_2: 6000013310166690328
+      mHero_ [elf]_20: -4183310133062062095
+      mHero_ [elf]_21: 7754489827425706416
+      mHero_ [elf]_22: -8463964962951318564
+      mHero_ [elf]_23: 1445476981388223013
+      mHero_ [elf]_24: 5620014582044368814
+      mHero_ [elf]_25: 9209906649585760332
+      mHero_ [elf]_26: 4846665727283703760
+      mHero_ [elf]_27: -9136312482848509565
+      mHero_ [elf]_28: 8096784524218726050
+      mHero_ [elf]_29: -133115942647578071
+      mHero_ [elf]_3: 8700454621612133963
+      mHero_ [elf]_30: 5915250002347028814
+      mHero_ [elf]_31: 3107765260052108675
+      mHero_ [elf]_32: -5502890014943166599
+      mHero_ [elf]_33: -3535234719147925398
+      mHero_ [elf]_34: 1815161594243107343
+      mHero_ [elf]_35: -5811524212006090838
+      mHero_ [elf]_36: 4787847607038024765
+      mHero_ [elf]_37: -6629271496985848350
+      mHero_ [elf]_38: -8875713717880271274
+      mHero_ [elf]_39: 880215323412373491
+      mHero_ [elf]_4: -642870876553345094
+      mHero_ [elf]_40: -790706525089098786
+      mHero_ [elf]_41: -5597736857971451037
+      mHero_ [elf]_42: 4659767513675967302
+      mHero_ [elf]_43: -6543978370730973702
+      mHero_ [elf]_44: -1915104587779266446
+      mHero_ [elf]_45: 6909582736262141735
+      mHero_ [elf]_46: 9035853388119564326
+      mHero_ [elf]_47: 1517755245464998593
+      mHero_ [elf]_5: 4660355295050923787
+      mHero_ [elf]_6: -5546711099869275850
+      mHero_ [elf]_7: 1953745605647121514
+      mHero_ [elf]_8: 1775777987606448852
+      mHero_ [elf]_9: -4329234260955563102
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

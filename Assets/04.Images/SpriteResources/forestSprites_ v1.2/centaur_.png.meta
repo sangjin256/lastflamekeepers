@@ -1,0 +1,1378 @@
+fileFormatVersion: 2
+guid: 14de5e34098f68a41a3848eb14a21d27
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1846058277462350343
+    second: centaur__0
+  - first:
+      213: -1635299360140306371
+    second: centaur__1
+  - first:
+      213: -4810086872645778627
+    second: centaur__2
+  - first:
+      213: -8218639260357374837
+    second: centaur__3
+  - first:
+      213: -6234663114797908985
+    second: centaur__4
+  - first:
+      213: 658073844814817113
+    second: centaur__5
+  - first:
+      213: 680882928295365446
+    second: centaur__6
+  - first:
+      213: -68105731061064726
+    second: centaur__7
+  - first:
+      213: 6885039007775584320
+    second: centaur__8
+  - first:
+      213: 6541544459736588330
+    second: centaur__9
+  - first:
+      213: 7411321816592189909
+    second: centaur__10
+  - first:
+      213: -8357104828496068310
+    second: centaur__11
+  - first:
+      213: 6062272035110114131
+    second: centaur__12
+  - first:
+      213: 1594080081155956922
+    second: centaur__13
+  - first:
+      213: -5927342384359532819
+    second: centaur__14
+  - first:
+      213: -2889140209137604417
+    second: centaur__15
+  - first:
+      213: 9134684036396266703
+    second: centaur__16
+  - first:
+      213: 7898564709684189407
+    second: centaur__17
+  - first:
+      213: -260419698213406466
+    second: centaur__18
+  - first:
+      213: -4193074748427116330
+    second: centaur__19
+  - first:
+      213: -8532181806174281116
+    second: centaur__20
+  - first:
+      213: 2040318721415906916
+    second: centaur__21
+  - first:
+      213: -3444710926075954071
+    second: centaur__22
+  - first:
+      213: -9189278746174818409
+    second: centaur__23
+  - first:
+      213: -9191002480443262687
+    second: centaur__24
+  - first:
+      213: 4266166332227669775
+    second: centaur__25
+  - first:
+      213: -3587815936893243761
+    second: centaur__26
+  - first:
+      213: 2947823778570838566
+    second: centaur__27
+  - first:
+      213: 264512266002383854
+    second: centaur__28
+  - first:
+      213: -117370409189186454
+    second: centaur__29
+  - first:
+      213: -4505610170927151777
+    second: centaur__30
+  - first:
+      213: 2190060549273329955
+    second: centaur__31
+  - first:
+      213: -6944699427281653221
+    second: centaur__32
+  - first:
+      213: 5147546801097146478
+    second: centaur__33
+  - first:
+      213: -8350642844203481593
+    second: centaur__34
+  - first:
+      213: 560900294126931354
+    second: centaur__35
+  - first:
+      213: -1568654020243719580
+    second: centaur__36
+  - first:
+      213: 5194047773073365903
+    second: centaur__37
+  - first:
+      213: -381211735934507627
+    second: centaur__38
+  - first:
+      213: 1016618831532297465
+    second: centaur__39
+  - first:
+      213: 5997387528336740686
+    second: centaur__40
+  - first:
+      213: 4729633603862991196
+    second: centaur__41
+  - first:
+      213: 826579921746404318
+    second: centaur__42
+  - first:
+      213: 9162174731277985228
+    second: centaur__43
+  - first:
+      213: 8070477532739099886
+    second: centaur__44
+  - first:
+      213: 5505442906314681074
+    second: centaur__45
+  - first:
+      213: 8557555173335816413
+    second: centaur__46
+  - first:
+      213: -5597995089104213811
+    second: centaur__47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: centaur__0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 139
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f5ef2907cb7166e0800000000000000
+      internalID: -1846058277462350343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__1
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 139
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d38d96965ef3e49e0800000000000000
+      internalID: -1635299360140306371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__2
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 139
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d33cd2969732f3db0800000000000000
+      internalID: -4810086872645778627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__3
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 139
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8cc15d032781fd80800000000000000
+      internalID: -8218639260357374837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__4
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 139
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70c7d340ee60a79a0800000000000000
+      internalID: -6234663114797908985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__5
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 139
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 957a92cdca2f12900800000000000000
+      internalID: 658073844814817113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__6
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 139
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64b4ca27a6bf27900800000000000000
+      internalID: 680882928295365446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__7
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 139
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aebdfecc23a0e0ff0800000000000000
+      internalID: -68105731061064726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 111
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 040fb23cf729c8f50800000000000000
+      internalID: 6885039007775584320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__9
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 111
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a20260d070c38ca50800000000000000
+      internalID: 6541544459736588330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__10
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 111
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d98412eced4ad660800000000000000
+      internalID: 7411321816592189909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__11
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 111
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a214ac2bf69950c80800000000000000
+      internalID: -8357104828496068310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__12
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 111
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 353d580fb44812450800000000000000
+      internalID: 6062272035110114131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__13
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 111
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab0a3d4536f4f1610800000000000000
+      internalID: 1594080081155956922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__14
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 111
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de6122e7189ddbda0800000000000000
+      internalID: -5927342384359532819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__15
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 111
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb82e008946b7e7d0800000000000000
+      internalID: -2889140209137604417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__16
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 84
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc4b4d4cbbae4ce70800000000000000
+      internalID: 9134684036396266703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__17
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 85
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd8992c41c65d9d60800000000000000
+      internalID: 7898564709684189407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__18
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 83
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef8b97b0aadc26cf0800000000000000
+      internalID: -260419698213406466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__19
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 83
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d0675f6bb43fc5c0800000000000000
+      internalID: -4193074748427116330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__20
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 84
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4626eeb4ad9979980800000000000000
+      internalID: -8532181806174281116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__21
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 85
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 466039a211ba05c10800000000000000
+      internalID: 2040318721415906916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__22
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 83
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96cf551e9ade130d0800000000000000
+      internalID: -3444710926075954071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__23
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 83
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 797f330daaf197080800000000000000
+      internalID: -9189278746174818409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 55
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 129f177a0fff27080800000000000000
+      internalID: -9191002480443262687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__25
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 55
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0f49211da7743b30800000000000000
+      internalID: 4266166332227669775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__26
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 55
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8e2ef91a64853ec0800000000000000
+      internalID: -3587815936893243761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__27
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 55
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6222a2ebb16c8e820800000000000000
+      internalID: 2947823778570838566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__28
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 55
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee34ec5218cbba300800000000000000
+      internalID: 264512266002383854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__29
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 55
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a64e2251c340f5ef0800000000000000
+      internalID: -117370409189186454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__30
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 55
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f550089db6bd871c0800000000000000
+      internalID: -4505610170927151777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__31
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 55
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 321a8045778a46e10800000000000000
+      internalID: 2190060549273329955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__32
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 27
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b12b40d5aa87f9f90800000000000000
+      internalID: -6944699427281653221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__33
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 27
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e600810fa82cf6740800000000000000
+      internalID: 5147546801097146478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__34
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 27
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7060819a39e8c1c80800000000000000
+      internalID: -8350642844203481593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__35
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 27
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d09d188d7b8c700800000000000000
+      internalID: 560900294126931354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__36
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 27
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46a72ebca750b3ae0800000000000000
+      internalID: -1568654020243719580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__37
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 27
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8b527c2ee6f41840800000000000000
+      internalID: 5194047773073365903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__38
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 27
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 595e96722f9a5baf0800000000000000
+      internalID: -381211735934507627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__39
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 27
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fc8475e071cb1e00800000000000000
+      internalID: 1016618831532297465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__40
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e419ed67e200b3350800000000000000
+      internalID: 5997387528336740686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__41
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 0
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c51110c34b803a140800000000000000
+      internalID: 4729633603862991196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__42
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 0
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed32a263f0a987b00800000000000000
+      internalID: 826579921746404318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__43
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 0
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc562e3ff55962f70800000000000000
+      internalID: 9162174731277985228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__44
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 0
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eec5faa8e88100070800000000000000
+      internalID: 8070477532739099886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__45
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 0
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2faa41a7723476c40800000000000000
+      internalID: 5505442906314681074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__46
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd8dc7c171b82c670800000000000000
+      internalID: 8557555173335816413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur__47
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 0
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc8ef8b302def42b0800000000000000
+      internalID: -5597995089104213811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      centaur__0: -1846058277462350343
+      centaur__1: -1635299360140306371
+      centaur__10: 7411321816592189909
+      centaur__11: -8357104828496068310
+      centaur__12: 6062272035110114131
+      centaur__13: 1594080081155956922
+      centaur__14: -5927342384359532819
+      centaur__15: -2889140209137604417
+      centaur__16: 9134684036396266703
+      centaur__17: 7898564709684189407
+      centaur__18: -260419698213406466
+      centaur__19: -4193074748427116330
+      centaur__2: -4810086872645778627
+      centaur__20: -8532181806174281116
+      centaur__21: 2040318721415906916
+      centaur__22: -3444710926075954071
+      centaur__23: -9189278746174818409
+      centaur__24: -9191002480443262687
+      centaur__25: 4266166332227669775
+      centaur__26: -3587815936893243761
+      centaur__27: 2947823778570838566
+      centaur__28: 264512266002383854
+      centaur__29: -117370409189186454
+      centaur__3: -8218639260357374837
+      centaur__30: -4505610170927151777
+      centaur__31: 2190060549273329955
+      centaur__32: -6944699427281653221
+      centaur__33: 5147546801097146478
+      centaur__34: -8350642844203481593
+      centaur__35: 560900294126931354
+      centaur__36: -1568654020243719580
+      centaur__37: 5194047773073365903
+      centaur__38: -381211735934507627
+      centaur__39: 1016618831532297465
+      centaur__4: -6234663114797908985
+      centaur__40: 5997387528336740686
+      centaur__41: 4729633603862991196
+      centaur__42: 826579921746404318
+      centaur__43: 9162174731277985228
+      centaur__44: 8070477532739099886
+      centaur__45: 5505442906314681074
+      centaur__46: 8557555173335816413
+      centaur__47: -5597995089104213811
+      centaur__5: 658073844814817113
+      centaur__6: 680882928295365446
+      centaur__7: -68105731061064726
+      centaur__8: 6885039007775584320
+      centaur__9: 6541544459736588330
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
