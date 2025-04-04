@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      picnicBlanket__0: -4561236273479657103
+      picnicBlanket__1: -3154871818677723042
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

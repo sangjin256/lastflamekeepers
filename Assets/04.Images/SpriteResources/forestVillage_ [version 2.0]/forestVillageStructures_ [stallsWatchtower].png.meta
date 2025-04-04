@@ -422,7 +422,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      forestVillageStructures_ [stallsWatchtower]_0: 2983317447032629401
+      forestVillageStructures_ [stallsWatchtower]_1: -8370384554056476877
+      forestVillageStructures_ [stallsWatchtower]_10: 1437378564495036670
+      forestVillageStructures_ [stallsWatchtower]_11: 7004567482637133646
+      forestVillageStructures_ [stallsWatchtower]_2: 4039214747436666267
+      forestVillageStructures_ [stallsWatchtower]_3: -3900942065050470555
+      forestVillageStructures_ [stallsWatchtower]_4: -3435491642700425583
+      forestVillageStructures_ [stallsWatchtower]_5: 1959193400003020523
+      forestVillageStructures_ [stallsWatchtower]_6: 1933561864210660121
+      forestVillageStructures_ [stallsWatchtower]_7: -7971579834349109290
+      forestVillageStructures_ [stallsWatchtower]_8: 8885233762700349173
+      forestVillageStructures_ [stallsWatchtower]_9: -2755705723341829391
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
