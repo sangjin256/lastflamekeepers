@@ -33,29 +33,63 @@ public partial class DataTable
         }
     }
     #endregion
-    #region Feature
-    private ReadOnlyList<FeatureData> FeatureList = null;
-    private ReadOnlyDictionary<int, FeatureData> FeatureTable = null;
+   
+    #region GoodFeature
+    private ReadOnlyList<GoodFeatureData> GoodFeatureList = null;
+    private ReadOnlyDictionary<int, GoodFeatureData> GoodFeatureTable = null;
 
-    public ReadOnlyList<FeatureData> GetFeatureDataList()
+    public ReadOnlyList<GoodFeatureData> GetGoodFeatureDataList()
     {
-        return FeatureList;
+        return GoodFeatureList;
     }
 
-    public FeatureData GetFeatureData(int key)
+    public GoodFeatureData GetGoodFeatureData(int key)
+
     {
         if (key == 0)
         {
             return null;
         }
 
-        if (FeatureTable.TryGetValue(key, out FeatureData retVal) == true)
+
+        if (GoodFeatureTable.TryGetValue(key, out GoodFeatureData retVal) == true)
+
         {
             return retVal;
         }
         else
         {
-            Debug.LogError($"Can not find UniqueID of FeatureData: <{key}>");
+
+
+            Debug.LogError($"Can not find UniqueID of GoodFeatureData: <{key}>");
+            return null;
+        }
+    }
+    #endregion
+    #region BadFeature
+    private ReadOnlyList<BadFeatureData> BadFeatureList = null;
+    private ReadOnlyDictionary<int, BadFeatureData> BadFeatureTable = null;
+
+    public ReadOnlyList<BadFeatureData> GetBadFeatureDataList()
+    {
+        return BadFeatureList;
+    }
+
+    public BadFeatureData GetBadFeatureData(int key)
+    {
+        if (key == 0)
+        {
+            return null;
+        }
+
+        if (BadFeatureTable.TryGetValue(key, out BadFeatureData retVal) == true)
+        {
+            return retVal;
+        }
+        else
+        {
+            Debug.LogError($"Can not find UniqueID of BadFeatureData: <{key}>");
+
             return null;
         }
     }
@@ -176,14 +210,22 @@ public partial class DataTable
 
         allCount++;
         GetBytes_FromResources("RandomStat", (bytes) =>
+
         {
             LoadRandomStatData(bytes);
             loadedCount++;
         });
         allCount++;
-        GetBytes_FromResources("Feature", (bytes) =>
+        GetBytes_FromResources("GoodFeature", (bytes) =>
         {
-            LoadFeatureData(bytes);
+            LoadGoodFeatureData(bytes);
+            loadedCount++;
+        });
+        allCount++;
+        GetBytes_FromResources("BadFeature", (bytes) =>
+        {
+            LoadBadFeatureData(bytes);
+
             loadedCount++;
         });
         allCount++;
@@ -218,8 +260,12 @@ public partial class DataTable
     {
         byte[] randomStatBytes = GetBytes_ForEditor("RandomStatData");
         LoadRandomStatData(randomStatBytes);
-        byte[] featureBytes = GetBytes_ForEditor("FeatureData");
-        LoadFeatureData(featureBytes);
+
+        byte[] goodFeatureBytes = GetBytes_ForEditor("GoodFeatureData");
+        LoadGoodFeatureData(goodFeatureBytes);
+        byte[] badFeatureBytes = GetBytes_ForEditor("BadFeatureData");
+        LoadBadFeatureData(badFeatureBytes);
+
         byte[] toolBytes = GetBytes_ForEditor("ToolData");
         LoadToolData(toolBytes);
         byte[] buildBytes = GetBytes_ForEditor("BuildData");
@@ -231,6 +277,7 @@ public partial class DataTable
     }
 
     private void LoadRandomStatData(byte[] bytes)
+
     {
         List<RandomStatData> randomStatList = new List<RandomStatData>();
         Dictionary<int, RandomStatData> randomStatTable = new Dictionary<int, RandomStatData>();
@@ -256,6 +303,74 @@ public partial class DataTable
         }
 
         Reader.Close();
+
+        RandomStatList = new ReadOnlyList<RandomStatData>(randomStatList);
+        RandomStatTable = new ReadOnlyDictionary<int, RandomStatData>(randomStatTable);
+    }
+
+    private void LoadGoodFeatureData(byte[] bytes)
+    {
+        List<GoodFeatureData> goodFeatureList = new List<GoodFeatureData>();
+        Dictionary<int, GoodFeatureData> goodFeatureTable = new Dictionary<int, GoodFeatureData>();
+
+        Reader = new BinaryReader(new MemoryStream(bytes));
+
+        while (Reader.BaseStream.Position < bytes.Length)
+        {
+            GoodFeatureData data = new GoodFeatureData(Reader);
+            if (goodFeatureTable.ContainsKey(data.TID) == true)
+            {
+                Debug.LogError("The duplicate TID: " + data.TID + " in GoodFeature");
+                continue;
+            }
+            else if (data.TID == 0)
+            {
+                Debug.LogError("TID is 0 in GoodFeature");
+                continue;
+            }
+
+            goodFeatureList.Add(data);
+            goodFeatureTable.Add(data.TID, data);
+        }
+
+        Reader.Close();
+
+        GoodFeatureList = new ReadOnlyList<GoodFeatureData>(goodFeatureList);
+        GoodFeatureTable = new ReadOnlyDictionary<int, GoodFeatureData>(goodFeatureTable);
+    }
+
+    private void LoadBadFeatureData(byte[] bytes)
+    {
+        List<BadFeatureData> badFeatureList = new List<BadFeatureData>();
+        Dictionary<int, BadFeatureData> badFeatureTable = new Dictionary<int, BadFeatureData>();
+
+
+        Reader = new BinaryReader(new MemoryStream(bytes));
+
+        while (Reader.BaseStream.Position < bytes.Length)
+        {
+
+            BadFeatureData data = new BadFeatureData(Reader);
+            if (badFeatureTable.ContainsKey(data.TID) == true)
+            {
+                Debug.LogError("The duplicate TID: " + data.TID + " in BadFeature");
+
+                continue;
+            }
+            else if (data.TID == 0)
+            {
+
+                Debug.LogError("TID is 0 in BadFeature");
+                continue;
+            }
+
+            badFeatureList.Add(data);
+            badFeatureTable.Add(data.TID, data);
+
+        }
+
+        Reader.Close();
+
 
         RandomStatList = new ReadOnlyList<RandomStatData>(randomStatList);
         RandomStatTable = new ReadOnlyDictionary<int, RandomStatData>(randomStatTable);
@@ -290,6 +405,7 @@ public partial class DataTable
 
         FeatureList = new ReadOnlyList<FeatureData>(featureList);
         FeatureTable = new ReadOnlyDictionary<int, FeatureData>(featureTable);
+
     }
 
     private void LoadToolData(byte[] bytes)
