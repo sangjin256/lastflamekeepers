@@ -1,6 +1,3 @@
-using Unity.VisualScripting;
-using UnityEngine;
-
 public class AxeTool : ATool
 {
     public AxeTool(ToolType toolType, string name, int upgradeLevel, int value) : base(toolType, name, upgradeLevel, value)
@@ -9,7 +6,7 @@ public class AxeTool : ATool
 
     public override bool IsInteractable(InteractType interactType)
     {
-        if (interactType == InteractType.Wood) return true;
+        if (interactType == InteractType.Tree) return true;
         return false;
     }
 

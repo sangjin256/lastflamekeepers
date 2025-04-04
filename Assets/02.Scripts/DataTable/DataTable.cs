@@ -195,6 +195,33 @@ public partial class DataTable
         }
     }
     #endregion
+    #region InventoryResource
+    private ReadOnlyList<InventoryResourceData> InventoryResourceList = null;
+    private ReadOnlyDictionary<int, InventoryResourceData> InventoryResourceTable = null;
+
+    public ReadOnlyList<InventoryResourceData> GetInventoryResourceDataList()
+    {
+        return InventoryResourceList;
+    }
+
+    public InventoryResourceData GetInventoryResourceData(int key)
+    {
+        if (key == 0)
+        {
+            return null;
+        }
+
+        if (InventoryResourceTable.TryGetValue(key, out InventoryResourceData retVal) == true)
+        {
+            return retVal;
+        }
+        else
+        {
+            Debug.LogError($"Can not find UniqueID of InventoryResourceData: <{key}>");
+            return null;
+        }
+    }
+    #endregion
 
     public IEnumerator LoadRoutine()
     {
@@ -243,6 +270,12 @@ public partial class DataTable
             LoadFieldResourceData(bytes);
             loadedCount++;
         });
+        allCount++;
+        GetBytes_FromResources("InventoryResource", (bytes) =>
+        {
+            LoadInventoryResourceData(bytes);
+            loadedCount++;
+        });
 
         yield return new WaitUntil(() => allCount == loadedCount);
     }
@@ -263,6 +296,8 @@ public partial class DataTable
         LoadWaveData(waveBytes);
         byte[] fieldResourceBytes = GetBytes_ForEditor("FieldResourceData");
         LoadFieldResourceData(fieldResourceBytes);
+        byte[] inventoryResourceBytes = GetBytes_ForEditor("InventoryResourceData");
+        LoadInventoryResourceData(inventoryResourceBytes);
     }
 
     private void LoadRandomStatData(byte[] bytes)
@@ -480,6 +515,37 @@ public partial class DataTable
 
         FieldResourceList = new ReadOnlyList<FieldResourceData>(fieldResourceList);
         FieldResourceTable = new ReadOnlyDictionary<int, FieldResourceData>(fieldResourceTable);
+    }
+
+    private void LoadInventoryResourceData(byte[] bytes)
+    {
+        List<InventoryResourceData> inventoryResourceList = new List<InventoryResourceData>();
+        Dictionary<int, InventoryResourceData> inventoryResourceTable = new Dictionary<int, InventoryResourceData>();
+
+        Reader = new BinaryReader(new MemoryStream(bytes));
+
+        while (Reader.BaseStream.Position < bytes.Length)
+        {
+            InventoryResourceData data = new InventoryResourceData(Reader);
+            if (inventoryResourceTable.ContainsKey(data.TID) == true)
+            {
+                Debug.LogError("The duplicate TID: " + data.TID + " in InventoryResource");
+                continue;
+            }
+            else if (data.TID == 0)
+            {
+                Debug.LogError("TID is 0 in InventoryResource");
+                continue;
+            }
+
+            inventoryResourceList.Add(data);
+            inventoryResourceTable.Add(data.TID, data);
+        }
+
+        Reader.Close();
+
+        InventoryResourceList = new ReadOnlyList<InventoryResourceData>(inventoryResourceList);
+        InventoryResourceTable = new ReadOnlyDictionary<int, InventoryResourceData>(inventoryResourceTable);
     }
 
 }
