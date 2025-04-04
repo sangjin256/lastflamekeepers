@@ -2,5 +2,5 @@
 10001	Damage	20	50	
 10002	AttackSpeed	10	20	
 10003	MoveSpeed	10	20	
-10004	WoodSpeed	-1	-1	
-10005	RockSpeed	-1	-1	
+10004	WoodSpeed	10	20	
+10005	RockSpeed	10	20	
