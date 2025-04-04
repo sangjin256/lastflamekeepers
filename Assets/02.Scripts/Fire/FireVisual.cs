@@ -15,10 +15,10 @@ public class FireVisual : MonoBehaviour
         fireLightCollider = GetComponent<CircleCollider2D>();
         fireLight = GetComponentInChildren<Light2D>();
 
-        FireManager.Instance.SubscribeToRangeChange(OnFireRangeChanged);
+        FireManager.Instance.OnFireRangeChanged += ChangeFireRange;
     }
 
-    private void OnFireRangeChanged(float newRange)
+    private void ChangeFireRange(float newRange)
     {
         // 반지름을 크기로 사용 (적절히 스케일 조절 계수 곱해도 됨)
         transform.localScale = Vector3.one * newRange;

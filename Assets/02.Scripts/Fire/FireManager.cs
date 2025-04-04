@@ -8,15 +8,15 @@ public class FireManager : BehaviourSingleton<FireManager>
 {
 
     [Header("불 범위 설정")]
-    [SerializeField]
-    float MaxRange = 20f;
-    float MinRange = 0f;
-    float CurrentRange = 0f;
+    [SerializeField] float MaxRange = 20f;
+    [SerializeField] float MinRange = 0f;
+    [SerializeField] float CurrentRange = 0f;
+    [SerializeField] float CurrentSquareRange => CurrentRange * CurrentRange;
 
     // 불의 범위가 변경될 때 발생하는 이벤트
-    event Action<float> OnFireRangeChanged;
+    public Action<float> OnFireRangeChanged;
 
-    public void SetFireRange(float range)
+    private void SetFireRange(float range)
     {
         // 범위를 설정하고 범위가 변경될 때 이벤트를 발생시킴
         CurrentRange = Mathf.Clamp(range, MinRange, MaxRange);
@@ -37,15 +37,16 @@ public class FireManager : BehaviourSingleton<FireManager>
         SetFireRange(CurrentRange - amount);
     }
 
-    public bool IsWithInFireRange(Vector3 position)
+    public bool IsWithInFireRange(Vector2 position)
     {
         // 주어진 거리가 현재 범위 내에 있는지 확인
-        float distance = Vector3.Distance(position, transform.position);
-        return distance <= CurrentRange;
+        float distance = Vector2.SqrMagnitude(position);
+        return distance <= CurrentSquareRange;
     }
 
-    public void SubscribeToRangeChange(Action<float> callback)
+    public bool IsWithInFireRange(float squareDistance)
     {
-        OnFireRangeChanged += callback;
+
+        return squareDistance <= CurrentSquareRange;
     }
 }

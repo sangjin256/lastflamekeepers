@@ -7,8 +7,9 @@ public class FireRangeController : MonoBehaviour
 
     void Start()
     {
+        // 불 범위 테스트
         // 이벤트 구독 (불 범위가 바뀔 때마다 로그 출력)
-        FireManager.Instance.SubscribeToRangeChange(OnFireRangeChanged);
+        //FireManager.Instance.SubscribeToRangeChange(OnFireRangeChanged);
     }
 
     private void Update()

@@ -7,7 +7,7 @@ public enum ToolType
     Axe = 1,
     ///<summary>곡괭이</summary>
     PickAxe = 2,
-    ///<summary>약</summary>
+    ///<summary>치료제</summary>
     Medicine = 3,
 }
 
@@ -61,5 +61,19 @@ public enum FeatureType
     Nature = 10,
     ///<summary>근육통 - 채광 속도 하락</summary>
     MusclePain = 11,
+}
+
+public enum InteractType
+{
+    ///<summary>땅</summary>
+    Ground = 0,
+    ///<summary>나무</summary>
+    Wood = 1,
+    ///<summary>돌</summary>
+    Rock = 2,
+    ///<summary>적</summary>
+    Enemy = 3,
+    ///<summary> 아군 유닛</summary>
+    Unit = 4,
 }
 
