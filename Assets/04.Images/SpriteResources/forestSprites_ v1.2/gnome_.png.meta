@@ -1,0 +1,1378 @@
+fileFormatVersion: 2
+guid: 74dd12db9691ed3409a586ad85302fc9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4251025673016813784
+    second: gnome__0
+  - first:
+      213: 1597772097898675517
+    second: gnome__1
+  - first:
+      213: -1547275787857985589
+    second: gnome__2
+  - first:
+      213: 6735551973672124104
+    second: gnome__3
+  - first:
+      213: 7519948075000767416
+    second: gnome__4
+  - first:
+      213: 2326210588674400759
+    second: gnome__5
+  - first:
+      213: 1631712948062540160
+    second: gnome__6
+  - first:
+      213: -7917617996085730743
+    second: gnome__7
+  - first:
+      213: 3519160388567980166
+    second: gnome__8
+  - first:
+      213: 2894543732919096704
+    second: gnome__9
+  - first:
+      213: 9181448690355365026
+    second: gnome__10
+  - first:
+      213: 4301437439706294185
+    second: gnome__11
+  - first:
+      213: -9222449739367108611
+    second: gnome__12
+  - first:
+      213: 1317123251563898858
+    second: gnome__13
+  - first:
+      213: 4278800852465190721
+    second: gnome__14
+  - first:
+      213: -5544651246742301950
+    second: gnome__15
+  - first:
+      213: 6883791895775145261
+    second: gnome__16
+  - first:
+      213: 1731070300866717612
+    second: gnome__17
+  - first:
+      213: -1073042584280020877
+    second: gnome__18
+  - first:
+      213: -3685617323919230829
+    second: gnome__19
+  - first:
+      213: 3769053052609501220
+    second: gnome__20
+  - first:
+      213: -7006710408407070849
+    second: gnome__21
+  - first:
+      213: -3697707637135920607
+    second: gnome__22
+  - first:
+      213: 7325743608657158124
+    second: gnome__23
+  - first:
+      213: 3414733186812082288
+    second: gnome__24
+  - first:
+      213: 3936632012735711366
+    second: gnome__25
+  - first:
+      213: 6814745138931909220
+    second: gnome__26
+  - first:
+      213: -3452535542111294016
+    second: gnome__27
+  - first:
+      213: -5131022023722520154
+    second: gnome__28
+  - first:
+      213: -573742152968729883
+    second: gnome__29
+  - first:
+      213: -5955616725257945419
+    second: gnome__30
+  - first:
+      213: 7082987962048285082
+    second: gnome__31
+  - first:
+      213: 5360684349772937006
+    second: gnome__32
+  - first:
+      213: 1877292517745501134
+    second: gnome__33
+  - first:
+      213: -3936562601818017253
+    second: gnome__34
+  - first:
+      213: 5965455989110676220
+    second: gnome__35
+  - first:
+      213: -7848868032923830787
+    second: gnome__36
+  - first:
+      213: 1659964233443533953
+    second: gnome__37
+  - first:
+      213: 6891420828115231149
+    second: gnome__38
+  - first:
+      213: -4673111329004194439
+    second: gnome__39
+  - first:
+      213: 7040926060634021074
+    second: gnome__40
+  - first:
+      213: -4946534632826068263
+    second: gnome__41
+  - first:
+      213: -8215571583596577871
+    second: gnome__42
+  - first:
+      213: -5463540351113003331
+    second: gnome__43
+  - first:
+      213: 6931385293292041122
+    second: gnome__44
+  - first:
+      213: -823409131177660057
+    second: gnome__45
+  - first:
+      213: -6062361172160912306
+    second: gnome__46
+  - first:
+      213: -7214616555733609502
+    second: gnome__47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gnome__0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 119
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82754cc5ca25105c0800000000000000
+      internalID: -4251025673016813784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 119
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3df747f14d6c2610800000000000000
+      internalID: 1597772097898675517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__2
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 119
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcf79276ed8f68ae0800000000000000
+      internalID: -1547275787857985589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__3
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 119
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ce78e465dc797d50800000000000000
+      internalID: 6735551973672124104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__4
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 119
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b3adcb8ee83c5860800000000000000
+      internalID: 7519948075000767416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__5
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 119
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f1a0b2a43c584020800000000000000
+      internalID: 2326210588674400759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__6
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 119
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0815ca4f74205a610800000000000000
+      internalID: 1631712948062540160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__7
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 119
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 942e114c168fe1290800000000000000
+      internalID: -7917617996085730743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__8
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 95
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68858346ab196d030800000000000000
+      internalID: 3519160388567980166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__9
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 95
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 085d97b603c7b2820800000000000000
+      internalID: 2894543732919096704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__10
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 95
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a46b1040fe0b6f70800000000000000
+      internalID: 9181448690355365026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__11
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 95
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a76249bf86c1bb30800000000000000
+      internalID: 4301437439706294185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__12
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 95
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dff212e13d6430080800000000000000
+      internalID: -9222449739367108611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__13
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 95
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae7afde6e9c574210800000000000000
+      internalID: 1317123251563898858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__14
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 95
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14783db84ba516b30800000000000000
+      internalID: 4278800852465190721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__15
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 95
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2039f7261117d03b0800000000000000
+      internalID: -5544651246742301950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__16
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 72
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2de36fd144288f50800000000000000
+      internalID: 6883791895775145261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__17
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 73
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca7a36c544ff50810800000000000000
+      internalID: 1731070300866717612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__18
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 71
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3784f1f6479cb11f0800000000000000
+      internalID: -1073042584280020877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__19
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 71
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 398b4c5329e0adcc0800000000000000
+      internalID: -3685617323919230829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__20
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 72
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 428146438cd5e4430800000000000000
+      internalID: 3769053052609501220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__21
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 73
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f774dd6b10a23ce90800000000000000
+      internalID: -7006710408407070849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__22
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 71
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 122b34dce7a1facc0800000000000000
+      internalID: -3697707637135920607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__23
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 71
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cef1995aff44aa560800000000000000
+      internalID: 7325743608657158124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__24
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 47
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 078fbaacdb1936f20800000000000000
+      internalID: 3414733186812082288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__25
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 47
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6880b8a55f9b1a630800000000000000
+      internalID: 3936632012735711366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__26
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 47
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4624bd80996d29e50800000000000000
+      internalID: 6814745138931909220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__27
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 47
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cdab0e77312610d0800000000000000
+      internalID: -3452535542111294016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__28
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 47
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a1305d97a2fac8b0800000000000000
+      internalID: -5131022023722520154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__29
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 47
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ea81ab3d88a908f0800000000000000
+      internalID: -573742152968729883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__30
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 47
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5beff908426695da0800000000000000
+      internalID: -5955616725257945419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__31
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 47
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9981423604db4260800000000000000
+      internalID: 7082987962048285082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__32
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 23
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e273635930af46a40800000000000000
+      internalID: 5360684349772937006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__33
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 23
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec328bb399b7d0a10800000000000000
+      internalID: 1877292517745501134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__34
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 23
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b12bc82ab258e59c0800000000000000
+      internalID: -3936562601818017253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__35
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 23
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfa1b22ad9e89c250800000000000000
+      internalID: 5965455989110676220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__36
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 23
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df5f7a0fb18331390800000000000000
+      internalID: -7848868032923830787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__37
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 23
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 184614aeca0690710800000000000000
+      internalID: 1659964233443533953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__38
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 23
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da169891bbe33af50800000000000000
+      internalID: 6891420828115231149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__39
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 23
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 975f9d66106c52fb0800000000000000
+      internalID: -4673111329004194439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__40
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dc91ed92f466b160800000000000000
+      internalID: 7040926060634021074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__41
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d22c3595f06a5bb0800000000000000
+      internalID: -4946534632826068263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__42
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 0
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bbbee43c2d6cfd80800000000000000
+      internalID: -8215571583596577871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__43
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbe75eb6ffa9d24b0800000000000000
+      internalID: -5463540351113003331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__44
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 0
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a3f900433a313060800000000000000
+      internalID: 6931385293292041122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__45
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 761b75ff1c9a294f0800000000000000
+      internalID: -823409131177660057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__46
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e446a3932aa2edba0800000000000000
+      internalID: -6062361172160912306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gnome__47
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 0
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e398dc977880eb90800000000000000
+      internalID: -7214616555733609502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      gnome__0: -4251025673016813784
+      gnome__1: 1597772097898675517
+      gnome__10: 9181448690355365026
+      gnome__11: 4301437439706294185
+      gnome__12: -9222449739367108611
+      gnome__13: 1317123251563898858
+      gnome__14: 4278800852465190721
+      gnome__15: -5544651246742301950
+      gnome__16: 6883791895775145261
+      gnome__17: 1731070300866717612
+      gnome__18: -1073042584280020877
+      gnome__19: -3685617323919230829
+      gnome__2: -1547275787857985589
+      gnome__20: 3769053052609501220
+      gnome__21: -7006710408407070849
+      gnome__22: -3697707637135920607
+      gnome__23: 7325743608657158124
+      gnome__24: 3414733186812082288
+      gnome__25: 3936632012735711366
+      gnome__26: 6814745138931909220
+      gnome__27: -3452535542111294016
+      gnome__28: -5131022023722520154
+      gnome__29: -573742152968729883
+      gnome__3: 6735551973672124104
+      gnome__30: -5955616725257945419
+      gnome__31: 7082987962048285082
+      gnome__32: 5360684349772937006
+      gnome__33: 1877292517745501134
+      gnome__34: -3936562601818017253
+      gnome__35: 5965455989110676220
+      gnome__36: -7848868032923830787
+      gnome__37: 1659964233443533953
+      gnome__38: 6891420828115231149
+      gnome__39: -4673111329004194439
+      gnome__4: 7519948075000767416
+      gnome__40: 7040926060634021074
+      gnome__41: -4946534632826068263
+      gnome__42: -8215571583596577871
+      gnome__43: -5463540351113003331
+      gnome__44: 6931385293292041122
+      gnome__45: -823409131177660057
+      gnome__46: -6062361172160912306
+      gnome__47: -7214616555733609502
+      gnome__5: 2326210588674400759
+      gnome__6: 1631712948062540160
+      gnome__7: -7917617996085730743
+      gnome__8: 3519160388567980166
+      gnome__9: 2894543732919096704
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

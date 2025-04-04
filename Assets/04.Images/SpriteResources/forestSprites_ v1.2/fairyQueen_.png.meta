@@ -1,0 +1,1170 @@
+fileFormatVersion: 2
+guid: 37012b39b80c80849827da3a5e863217
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7236016696373275821
+    second: fairyQueen__0
+  - first:
+      213: 580565841744689648
+    second: fairyQueen__1
+  - first:
+      213: 5978026559699145981
+    second: fairyQueen__2
+  - first:
+      213: 5697786887237106873
+    second: fairyQueen__3
+  - first:
+      213: -2521476337761941554
+    second: fairyQueen__4
+  - first:
+      213: -2761758743834607169
+    second: fairyQueen__5
+  - first:
+      213: 4917132685135060763
+    second: fairyQueen__6
+  - first:
+      213: 8861303605075600938
+    second: fairyQueen__7
+  - first:
+      213: -5959129628589104375
+    second: fairyQueen__8
+  - first:
+      213: 1316021420567713835
+    second: fairyQueen__9
+  - first:
+      213: 4462481722012557658
+    second: fairyQueen__10
+  - first:
+      213: 9201751624543729570
+    second: fairyQueen__11
+  - first:
+      213: 1212306981654835132
+    second: fairyQueen__12
+  - first:
+      213: -6752277319971953903
+    second: fairyQueen__13
+  - first:
+      213: 6312084337997883879
+    second: fairyQueen__14
+  - first:
+      213: 7652080457489413754
+    second: fairyQueen__15
+  - first:
+      213: 5612123872403102938
+    second: fairyQueen__16
+  - first:
+      213: -4033537947999251131
+    second: fairyQueen__17
+  - first:
+      213: -2744709130961283688
+    second: fairyQueen__18
+  - first:
+      213: 2522289183319419041
+    second: fairyQueen__19
+  - first:
+      213: -1554422940628837645
+    second: fairyQueen__20
+  - first:
+      213: -1900070906527000993
+    second: fairyQueen__21
+  - first:
+      213: 3840945352953952364
+    second: fairyQueen__22
+  - first:
+      213: 7665653906703674270
+    second: fairyQueen__23
+  - first:
+      213: -693813272654183689
+    second: fairyQueen__24
+  - first:
+      213: -5698370513260610517
+    second: fairyQueen__25
+  - first:
+      213: 3380361255234971038
+    second: fairyQueen__26
+  - first:
+      213: 2447478732297498601
+    second: fairyQueen__27
+  - first:
+      213: -2079241100109036110
+    second: fairyQueen__28
+  - first:
+      213: -7402663720674014111
+    second: fairyQueen__29
+  - first:
+      213: 3750167389960593436
+    second: fairyQueen__30
+  - first:
+      213: 3472695459100084240
+    second: fairyQueen__31
+  - first:
+      213: -7244428157797446524
+    second: fairyQueen__32
+  - first:
+      213: 298044504459053169
+    second: fairyQueen__33
+  - first:
+      213: 4478393163786840239
+    second: fairyQueen__34
+  - first:
+      213: 4675728023649866288
+    second: fairyQueen__35
+  - first:
+      213: -2364177305726412051
+    second: fairyQueen__36
+  - first:
+      213: -4081797627261692580
+    second: fairyQueen__37
+  - first:
+      213: -5362785439397565947
+    second: fairyQueen__38
+  - first:
+      213: -4756522443224147382
+    second: fairyQueen__39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fairyQueen__0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 95
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35310e71721849b90800000000000000
+      internalID: -7236016696373275821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 95
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f9faed9e859e0800800000000000000
+      internalID: 580565841744689648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__2
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 95
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df4d7bcab7736f250800000000000000
+      internalID: 5978026559699145981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__3
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 95
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bc75ab5cfa921f40800000000000000
+      internalID: 5697786887237106873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__4
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 95
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec7852251aae10dd0800000000000000
+      internalID: -2521476337761941554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__5
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 95
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb1c86e0e034ca9d0800000000000000
+      internalID: -2761758743834607169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__6
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 95
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1f10f2002a2d3440800000000000000
+      internalID: 4917132685135060763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__7
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 95
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a266b6bfdaca9fa70800000000000000
+      internalID: 8861303605075600938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 71
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 903e075fc2bec4da0800000000000000
+      internalID: -5959129628589104375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__9
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 71
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b285eb96282734210800000000000000
+      internalID: 1316021420567713835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__10
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 71
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a516b31ab7beded30800000000000000
+      internalID: 4462481722012557658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__11
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 71
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a77d4c795033bf70800000000000000
+      internalID: 9201751624543729570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__12
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 71
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbf2348d6caf2d010800000000000000
+      internalID: 1212306981654835132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__13
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 71
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11325267d871b42a0800000000000000
+      internalID: -6752277319971953903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__14
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 71
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e9aba63347099750800000000000000
+      internalID: 6312084337997883879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__15
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 71
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a767d5532a6a13a60800000000000000
+      internalID: 7652080457489413754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__16
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 47
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adc931a7de442ed40800000000000000
+      internalID: 5612123872403102938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__17
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 47
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 545527d5b9ef508c0800000000000000
+      internalID: -4033537947999251131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__18
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 47
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89518456695d8e9d0800000000000000
+      internalID: -2744709130961283688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__19
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 47
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a8609806a8f00320800000000000000
+      internalID: 2522289183319419041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__20
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 47
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fa991932949d6ae0800000000000000
+      internalID: -1554422940628837645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__21
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 47
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f565768d39791a5e0800000000000000
+      internalID: -1900070906527000993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__22
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 47
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c68f184c277cd4530800000000000000
+      internalID: 3840945352953952364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__23
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 47
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9b68202d9fd16a60800000000000000
+      internalID: 7665653906703674270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f20ff621841f56f0800000000000000
+      internalID: -693813272654183689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__25
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 23
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2c7a8e95325be0b0800000000000000
+      internalID: -5698370513260610517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__26
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 23
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9526c6d6a479ee20800000000000000
+      internalID: 3380361255234971038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__27
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 23
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef6ae190f037f120800000000000000
+      internalID: 2447478732297498601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__28
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b5cb995c3d0523e0800000000000000
+      internalID: -2079241100109036110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__29
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 23
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16ccd892194744990800000000000000
+      internalID: -7402663720674014111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__30
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 23
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c10ead63f554b0430800000000000000
+      internalID: 3750167389960593436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__31
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 23
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 018c5c4fe1e713030800000000000000
+      internalID: 3472695459100084240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__32
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48c45ad19fe967b90800000000000000
+      internalID: -7244428157797446524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__33
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 0
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1780a8fc5edd22400800000000000000
+      internalID: 298044504459053169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__34
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa86d0cdad2762e30800000000000000
+      internalID: 4478393163786840239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__35
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 0
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0325dfb4dd583e040800000000000000
+      internalID: 4675728023649866288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__36
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 0
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dea13223441c03fd0800000000000000
+      internalID: -2364177305726412051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__37
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 0
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c55d80e2faa8a57c0800000000000000
+      internalID: -4081797627261692580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__38
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 0
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50a221e5e0f8395b0800000000000000
+      internalID: -5362785439397565947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fairyQueen__39
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4a937df9007dfdb0800000000000000
+      internalID: -4756522443224147382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      fairyQueen__0: -7236016696373275821
+      fairyQueen__1: 580565841744689648
+      fairyQueen__10: 4462481722012557658
+      fairyQueen__11: 9201751624543729570
+      fairyQueen__12: 1212306981654835132
+      fairyQueen__13: -6752277319971953903
+      fairyQueen__14: 6312084337997883879
+      fairyQueen__15: 7652080457489413754
+      fairyQueen__16: 5612123872403102938
+      fairyQueen__17: -4033537947999251131
+      fairyQueen__18: -2744709130961283688
+      fairyQueen__19: 2522289183319419041
+      fairyQueen__2: 5978026559699145981
+      fairyQueen__20: -1554422940628837645
+      fairyQueen__21: -1900070906527000993
+      fairyQueen__22: 3840945352953952364
+      fairyQueen__23: 7665653906703674270
+      fairyQueen__24: -693813272654183689
+      fairyQueen__25: -5698370513260610517
+      fairyQueen__26: 3380361255234971038
+      fairyQueen__27: 2447478732297498601
+      fairyQueen__28: -2079241100109036110
+      fairyQueen__29: -7402663720674014111
+      fairyQueen__3: 5697786887237106873
+      fairyQueen__30: 3750167389960593436
+      fairyQueen__31: 3472695459100084240
+      fairyQueen__32: -7244428157797446524
+      fairyQueen__33: 298044504459053169
+      fairyQueen__34: 4478393163786840239
+      fairyQueen__35: 4675728023649866288
+      fairyQueen__36: -2364177305726412051
+      fairyQueen__37: -4081797627261692580
+      fairyQueen__38: -5362785439397565947
+      fairyQueen__39: -4756522443224147382
+      fairyQueen__4: -2521476337761941554
+      fairyQueen__5: -2761758743834607169
+      fairyQueen__6: 4917132685135060763
+      fairyQueen__7: 8861303605075600938
+      fairyQueen__8: -5959129628589104375
+      fairyQueen__9: 1316021420567713835
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

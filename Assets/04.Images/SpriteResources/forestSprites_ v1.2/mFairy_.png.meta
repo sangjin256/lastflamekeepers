@@ -1,0 +1,1378 @@
+fileFormatVersion: 2
+guid: e0ffc379345212d419ba579049cfc8ff
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7129556478845341052
+    second: mFairy__0
+  - first:
+      213: 693643833861811175
+    second: mFairy__1
+  - first:
+      213: -1260865574596585009
+    second: mFairy__2
+  - first:
+      213: 402277344786175993
+    second: mFairy__3
+  - first:
+      213: 2082585020622773269
+    second: mFairy__4
+  - first:
+      213: 7318532039558644326
+    second: mFairy__5
+  - first:
+      213: 9195337141498633488
+    second: mFairy__6
+  - first:
+      213: -8318629758100945062
+    second: mFairy__7
+  - first:
+      213: -6072361906355255082
+    second: mFairy__8
+  - first:
+      213: 8732153230837317653
+    second: mFairy__9
+  - first:
+      213: -6114339648467988193
+    second: mFairy__10
+  - first:
+      213: -7358437188256254145
+    second: mFairy__11
+  - first:
+      213: -4756400064166571324
+    second: mFairy__12
+  - first:
+      213: -1228980710611613750
+    second: mFairy__13
+  - first:
+      213: -2660978779516267968
+    second: mFairy__14
+  - first:
+      213: -8124769178007526285
+    second: mFairy__15
+  - first:
+      213: 9220021235781284436
+    second: mFairy__16
+  - first:
+      213: -3768471274268511588
+    second: mFairy__17
+  - first:
+      213: 8553484433152992438
+    second: mFairy__18
+  - first:
+      213: -6053100075793827828
+    second: mFairy__19
+  - first:
+      213: 1948797721601678659
+    second: mFairy__20
+  - first:
+      213: 6272544471511556403
+    second: mFairy__21
+  - first:
+      213: -7902311285458452303
+    second: mFairy__22
+  - first:
+      213: -8529278549029579566
+    second: mFairy__23
+  - first:
+      213: -7982296423688815369
+    second: mFairy__24
+  - first:
+      213: 8875430807198275134
+    second: mFairy__25
+  - first:
+      213: 8908630293845075714
+    second: mFairy__26
+  - first:
+      213: 6542057047462940640
+    second: mFairy__27
+  - first:
+      213: 2165814427895560517
+    second: mFairy__28
+  - first:
+      213: -8241452208209003230
+    second: mFairy__29
+  - first:
+      213: 765309164203506838
+    second: mFairy__30
+  - first:
+      213: 6048238410257339568
+    second: mFairy__31
+  - first:
+      213: -7778552106652139272
+    second: mFairy__32
+  - first:
+      213: 2771084644576190127
+    second: mFairy__33
+  - first:
+      213: -7462344441413186400
+    second: mFairy__34
+  - first:
+      213: 665282360387606831
+    second: mFairy__35
+  - first:
+      213: 1324138302275629656
+    second: mFairy__36
+  - first:
+      213: -8326932938335012305
+    second: mFairy__37
+  - first:
+      213: 1963042770057892720
+    second: mFairy__38
+  - first:
+      213: 8902627864578356100
+    second: mFairy__39
+  - first:
+      213: -3851366809057788307
+    second: mFairy__40
+  - first:
+      213: -6527197446395935604
+    second: mFairy__41
+  - first:
+      213: 4592639585286331293
+    second: mFairy__42
+  - first:
+      213: 2223074463582287917
+    second: mFairy__43
+  - first:
+      213: 3378755391217640122
+    second: mFairy__44
+  - first:
+      213: -6076622052632110475
+    second: mFairy__45
+  - first:
+      213: 5917940324687059758
+    second: mFairy__46
+  - first:
+      213: -4172280382947808500
+    second: mFairy__47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mFairy__0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 119
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 482b650182abe0d90800000000000000
+      internalID: -7129556478845341052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 119
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eb29fd446150a900800000000000000
+      internalID: 693643833861811175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__2
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 119
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc9d6a4b071808ee0800000000000000
+      internalID: -1260865574596585009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__3
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 119
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f7da2d1d1d259500800000000000000
+      internalID: 402277344786175993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__4
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 119
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51c15c0da04d6ec10800000000000000
+      internalID: 2082585020622773269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__5
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 119
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 662453f5d16a09560800000000000000
+      internalID: 7318532039558644326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__6
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 119
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01d5bf449666c9f70800000000000000
+      internalID: 9195337141498633488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__7
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 119
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a57466a1f4a4e8c80800000000000000
+      internalID: -8318629758100945062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 95
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d8c418d403aabba0800000000000000
+      internalID: -6072361906355255082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__9
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 95
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51086583917de2970800000000000000
+      internalID: 8732153230837317653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__10
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 95
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f119af02c70852ba0800000000000000
+      internalID: -6114339648467988193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__11
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 95
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3736fb2d5491e990800000000000000
+      internalID: -7358437188256254145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__12
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 95
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c2d4b5975fddfdb0800000000000000
+      internalID: -4756400064166571324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__13
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 95
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac7003c1e88c1fee0800000000000000
+      internalID: -1228980710611613750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__14
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 95
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 042941406ed421bd0800000000000000
+      internalID: -2660978779516267968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__15
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 95
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 374a1deba750f3f80800000000000000
+      internalID: -8124769178007526285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__16
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 72
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4523d44d67814ff70800000000000000
+      internalID: 9220021235781284436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__17
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 73
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9236fe9753b3bbc0800000000000000
+      internalID: -3768471274268511588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__18
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 71
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b4eaed06c414b670800000000000000
+      internalID: 8553484433152992438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__19
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 71
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c083b604d811ffba0800000000000000
+      internalID: -6053100075793827828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__20
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 72
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34d982fd3358b0b10800000000000000
+      internalID: 1948797721601678659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__21
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 73
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3316946a6fd8c0750800000000000000
+      internalID: 6272544471511556403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__22
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 71
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b040bd01c9555290800000000000000
+      internalID: -7902311285458452303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__23
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 71
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d49bb6895ae1a980800000000000000
+      internalID: -8529278549029579566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 47
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fc3826d1bf293190800000000000000
+      internalID: -7982296423688815369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__25
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 47
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e369c9b8b4ddb2b70800000000000000
+      internalID: 8875430807198275134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__26
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 47
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2076be36d00d1ab70800000000000000
+      internalID: 8908630293845075714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__27
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 47
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ef8e5e293e0aca50800000000000000
+      internalID: 6542057047462940640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__28
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 47
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54971284fb48e0e10800000000000000
+      internalID: 2165814427895560517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__29
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 47
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22df758b1ea70ad80800000000000000
+      internalID: -8241452208209003230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__30
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 47
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69c73bb41acee9a00800000000000000
+      internalID: 765309164203506838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__31
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 47
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b413480ac8afe350800000000000000
+      internalID: 6048238410257339568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__32
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f0022052180d0490800000000000000
+      internalID: -7778552106652139272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__33
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 23
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faed08a6dced47620800000000000000
+      internalID: 2771084644576190127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__34
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 23
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0acc4f9844d607890800000000000000
+      internalID: -7462344441413186400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__35
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 23
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f299c3e28ce8b3900800000000000000
+      internalID: 665282360387606831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__36
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 23
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 852b0a435c8406210800000000000000
+      internalID: 1324138302275629656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__37
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 23
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2aba0e4c9ac07c80800000000000000
+      internalID: -8326932938335012305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__38
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 23
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 073133caff02e3b10800000000000000
+      internalID: 1963042770057892720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__39
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 23
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 483ffabefdc7c8b70800000000000000
+      internalID: 8902627864578356100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__40
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6e7166ea423d8ac0800000000000000
+      internalID: -3851366809057788307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__41
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 0
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c84cbbc418cba65a0800000000000000
+      internalID: -6527197446395935604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__42
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9b9366be555cbf30800000000000000
+      internalID: 4592639585286331293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__43
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d28701f3272f9de10800000000000000
+      internalID: 2223074463582287917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__44
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 0
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab2a67c7020c3ee20800000000000000
+      internalID: 3378755391217640122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__45
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 0
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57ade8e30708baba0800000000000000
+      internalID: -6076622052632110475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__46
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 0
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2b9ee6ee5fb02250800000000000000
+      internalID: 5917940324687059758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mFairy__47
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 0
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0ba01fe8151916c0800000000000000
+      internalID: -4172280382947808500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mFairy__0: -7129556478845341052
+      mFairy__1: 693643833861811175
+      mFairy__10: -6114339648467988193
+      mFairy__11: -7358437188256254145
+      mFairy__12: -4756400064166571324
+      mFairy__13: -1228980710611613750
+      mFairy__14: -2660978779516267968
+      mFairy__15: -8124769178007526285
+      mFairy__16: 9220021235781284436
+      mFairy__17: -3768471274268511588
+      mFairy__18: 8553484433152992438
+      mFairy__19: -6053100075793827828
+      mFairy__2: -1260865574596585009
+      mFairy__20: 1948797721601678659
+      mFairy__21: 6272544471511556403
+      mFairy__22: -7902311285458452303
+      mFairy__23: -8529278549029579566
+      mFairy__24: -7982296423688815369
+      mFairy__25: 8875430807198275134
+      mFairy__26: 8908630293845075714
+      mFairy__27: 6542057047462940640
+      mFairy__28: 2165814427895560517
+      mFairy__29: -8241452208209003230
+      mFairy__3: 402277344786175993
+      mFairy__30: 765309164203506838
+      mFairy__31: 6048238410257339568
+      mFairy__32: -7778552106652139272
+      mFairy__33: 2771084644576190127
+      mFairy__34: -7462344441413186400
+      mFairy__35: 665282360387606831
+      mFairy__36: 1324138302275629656
+      mFairy__37: -8326932938335012305
+      mFairy__38: 1963042770057892720
+      mFairy__39: 8902627864578356100
+      mFairy__4: 2082585020622773269
+      mFairy__40: -3851366809057788307
+      mFairy__41: -6527197446395935604
+      mFairy__42: 4592639585286331293
+      mFairy__43: 2223074463582287917
+      mFairy__44: 3378755391217640122
+      mFairy__45: -6076622052632110475
+      mFairy__46: 5917940324687059758
+      mFairy__47: -4172280382947808500
+      mFairy__5: 7318532039558644326
+      mFairy__6: 9195337141498633488
+      mFairy__7: -8318629758100945062
+      mFairy__8: -6072361906355255082
+      mFairy__9: 8732153230837317653
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
