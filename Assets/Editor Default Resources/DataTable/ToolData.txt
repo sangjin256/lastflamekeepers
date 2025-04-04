@@ -1,4 +1,4 @@
-10000	Sword	-1	-1	-1	-1	Sword	
-10001	Axe	-1	-1	-1	-1	Axe	
-10002	PickAxe	-1	-1	-1	-1	PickAxe	
-10003	Medicine	-1	-1	-1	-1	Medicine	
+10000	Sword	검	-1	-1	-1	-1	5	Sword	
+10001	Axe	도끼	-1	-1	-1	-1	5	Axe	
+10002	PickAxe	곡괭이	-1	-1	-1	-1	5	PickAxe	
+10003	Medicine	치료제	-1	-1	-1	-1	5	Medicine	

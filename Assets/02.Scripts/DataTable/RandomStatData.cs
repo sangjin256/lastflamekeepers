@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-public class StatData
+public class RandomStatData
 {
     ///<summary>TID</summary>
     public readonly int TID;
@@ -17,7 +17,7 @@ public class StatData
     ///<summary>최대값</summary>
     public readonly int MaxValue;
 
-    public StatData(BinaryReader reader)
+    public RandomStatData(BinaryReader reader)
     {
         TID = reader.ReadInt32();
         int statname = reader.ReadInt32();
