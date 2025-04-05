@@ -28,9 +28,17 @@ public enum BuildingType
 public enum ResourceType
 {
     ///<summary>나무</summary>
-    Wood = 0,
+    Tree = 0,
     ///<summary>돌</summary>
     Rock = 1,
+}
+
+public enum InventoryResourceType
+{
+    ///<summary>목재</summary>
+    Wood = 0,
+    ///<summary>돌 자원</summary>
+    Stone = 1,
     ///<summary>잿가루</summary>
     Ash = 2,
 }
@@ -68,7 +76,7 @@ public enum InteractType
     ///<summary>땅</summary>
     Ground = 0,
     ///<summary>나무</summary>
-    Wood = 1,
+    Tree = 1,
     ///<summary>돌</summary>
     Rock = 2,
     ///<summary>적</summary>

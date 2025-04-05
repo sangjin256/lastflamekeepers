@@ -9,7 +9,7 @@ public class AxeTool : ATool
 
     public override bool IsInteractable(InteractType interactType)
     {
-        if (interactType == InteractType.Wood) return true;
+        if (interactType == InteractType.Tree) return true;
         return false;
     }
 

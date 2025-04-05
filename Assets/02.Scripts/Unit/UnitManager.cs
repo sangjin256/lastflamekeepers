@@ -5,7 +5,7 @@ using UnityEngine;
 public class UnitManager : BehaviourSingleton<UnitManager>
 {
     private List<Unit> _unitList = new List<Unit>();
-    public List<Unit> UnitList => _unitList;
+    public List<Unit> UnitList;
 
 
     [Header("À¯´Ö ÇÁ¸®ÆÕ")]
