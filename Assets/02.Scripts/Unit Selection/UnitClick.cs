@@ -34,5 +34,29 @@ public class UnitClick : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if(UnitSelectionManager.Instance.SelectedUnitList.Count != 0)
+            {
+                Vector3 WorldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(WorldMousePosition, Vector2.zero, 1f, Interactable);
+                // 땅이면 좌표 전달
+                if (hit.collider == null)
+                {
+                    // z가 -10인거 생각해야됨
+                    Debug.Log(WorldMousePosition);
+                    //UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(WorldMousePosition));
+                }
+                else if (hit.collider.CompareTag("Enemy"))
+                {
+                    Debug.Log("여기 채워야됨");
+                }
+                else if (hit.collider.CompareTag("Resource"))
+                {
+                    Debug.Log("여기 채워야됨");
+                }
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@ public class UnitSelectionManager : BehaviourSingleton<UnitSelectionManager>
 {
     public List<GameObject> SelectedUnitList = new List<GameObject>();
 
-    public bool IsDragging = false;
+    private bool IsDragging = false;
 
     public void ClickSelect(GameObject unitToAdd)
     {
@@ -70,6 +70,11 @@ public class UnitSelectionManager : BehaviourSingleton<UnitSelectionManager>
         {
             unit.GetComponent<SpriteRenderer>().color = Color.white;
         }
+    }
+
+    public void SetDrag(bool OnDrag)
+    {
+        IsDragging = OnDrag;
     }
 
     public bool GetIsDragging()

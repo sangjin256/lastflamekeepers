@@ -27,7 +27,7 @@ public class UntDrag : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            if (SelectionBox.width != 0) UnitSelectionManager.Instance.IsDragging = true;
+            if (SelectionBox.width != 0) UnitSelectionManager.Instance.SetDrag(true);
 
             SelectUnits();
             EndPosition = Input.mousePosition;
@@ -41,7 +41,7 @@ public class UntDrag : MonoBehaviour
             EndPosition = Vector2.zero;
             DrawVisual();
 
-            UnitSelectionManager.Instance.IsDragging = false;
+            UnitSelectionManager.Instance.SetDrag(false);
         }
     }
 
