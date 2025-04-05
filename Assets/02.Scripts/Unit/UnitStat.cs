@@ -61,7 +61,7 @@ public class UnitStat : MonoBehaviour
             Debug.Log($"부정적 특성: {feature.FeatureName}");
         }
     }
-    public UnitStat(int maxHealth, int damage, int attackSpeed, int moveSpeed, int woodSpeed, int rockSpeed)
+    public void UnitStatInitialize(int maxHealth, int damage, int attackSpeed, int moveSpeed, int woodSpeed, int rockSpeed)
     {
         MaxHealth = new Stat(maxHealth);
         Damage = new Stat(damage);

@@ -18,7 +18,6 @@ public class Feature
     public Feature(FeatureData data)
     {
         FeatureType = data.FeatureType;
-        ConflicitngFeatureType = GetConflictingFeature();
         FeatureName = data.FeatureName;
         Description = data.Description;
         MaxHealthValue = data.MaxHealthValue;
@@ -27,10 +26,5 @@ public class Feature
         MoveSpeedValue = data.MoveSpeedValue;
         WoodSpeedValue = data.WoodSpeedValue;
         RockSpeedValue = data.RockSpeedValue;
-    }
-
-    public FeatureType GetConflictingFeature()
-    {
-        return (FeatureType)(6 + (int)FeatureType);
     }
 }
