@@ -20,24 +20,24 @@ public class ResourceManager : BehaviourSingleton<ResourceManager>
 
 
         // 예시: DataTable에서 데이터 로드
-        var treeData = DataTable.Instance.GetFieldResourceData(10000);
+        FieldResourceData treeData = DataTable.Instance.GetFieldResourceData(10000);
         _resourceDataDict.Add(treeData.ResourceType,
             new Tree(treeData.ResourceType, treeData.Name, treeData.Durability,
                              treeData.AmountToHit, treeData.OutputAmountPerExtract,
                              treeData.OutputType, treeData.RespawnTime));
 
-        var rockData = DataTable.Instance.GetFieldResourceData(10001);
+        FieldResourceData rockData = DataTable.Instance.GetFieldResourceData(10001);
         _resourceDataDict.Add(rockData.ResourceType,
             new Rock(rockData.ResourceType, rockData.Name, rockData.Durability,
                              rockData.AmountToHit, rockData.OutputAmountPerExtract,
                              rockData.OutputType, rockData.RespawnTime));
 
-        // 추가 자원 ...
 
         Debug.Log("Field Resource Definitions Loaded");
     }
 
-    public AResource GetResourceDefinition(ResourceType type)
+    // 필드 자원 타입 조회
+    public AResource GetResource(ResourceType type)
     {
         if (_resourceDataDict.TryGetValue(type, out var resource))
             return resource;
