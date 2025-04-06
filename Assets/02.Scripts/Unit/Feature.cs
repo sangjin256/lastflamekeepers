@@ -1,7 +1,5 @@
 using System;
-using UnityEngine;
 
-[Serializable]
 public class Feature
 {
     public FeatureType FeatureType { get; private set; }

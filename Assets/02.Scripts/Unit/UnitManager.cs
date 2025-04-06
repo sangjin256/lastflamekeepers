@@ -1,7 +1,6 @@
-using JetBrains.Annotations;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class UnitManager : BehaviourSingleton<UnitManager>
 {
@@ -30,6 +29,9 @@ public class UnitManager : BehaviourSingleton<UnitManager>
     private void Start()
     {
         Global.Instance.OnDataLoaded += LoadData;
+
+        //GameManager에?
+        NavMesh.avoidancePredictionTime = 0.5f;
     }
 
 
@@ -37,9 +39,7 @@ public class UnitManager : BehaviourSingleton<UnitManager>
     {
 
         GameObject unitGameObject = Instantiate(_unitPrefabList[Random.Range(0, _unitPrefabList.Count)]);
-
         UnitStat unitStat = unitGameObject.GetComponent<UnitStat>();
-        Unit unit = unitGameObject.GetComponent<Unit>();
 
         //랜덤 이름
         unitStat.Name = _nameList[Random.Range(0, _nameList.Count)];
@@ -52,10 +52,9 @@ public class UnitManager : BehaviourSingleton<UnitManager>
         int randomWoodSpeed = Random.Range(_randomWoodSpeedData.MinValue, _randomWoodSpeedData.MaxValue + 1);
         int randomRockSpeed = Random.Range(_randomRockSpeedData.MinValue, _randomRockSpeedData.MaxValue + 1);
 
-        unitStat.UnitStatInitialize(randomMaxHealth, randomDamage, randomAttackSpeed, randomMoveSpeed, randomWoodSpeed, randomRockSpeed);
+        unitStat.Initialize(randomMaxHealth, randomDamage, randomAttackSpeed, randomMoveSpeed, randomWoodSpeed, randomRockSpeed);
 
         //랜덤 특성
-        unitStat.AllocateFeatureList();
         for (int featureCount = 0; featureCount < 3; featureCount++)
         {
             if (Random.value > _getFeatureProbabilty[featureCount])
@@ -106,6 +105,7 @@ public class UnitManager : BehaviourSingleton<UnitManager>
 
         unitGameObject.SetActive(false);
 
+        Unit unit = unitGameObject.GetComponent<Unit>();
         return unit;
     }
 
@@ -129,7 +129,7 @@ public class UnitManager : BehaviourSingleton<UnitManager>
         foreach (Unit unit in unitList)
         {
             UnitStat unitStat = unit.GetComponent<UnitStat>();
-            if (unitStat.PositiveFeatureList == null) return;
+
             count[unitStat.PositiveFeatureList.Count, 0]++;
             count[unitStat.NegativeFeatureList.Count, 1]++;
         }
@@ -173,12 +173,12 @@ public class UnitManager : BehaviourSingleton<UnitManager>
         }
 
         //테스트용
-        //List<Unit> randomUnitList = new List<Unit>();
-        //for (int i = 0; i < 100; i++)
-        //{
-        //    randomUnitList.Add(GenerateRandomUnit());
-        //}
-        //CountRandomFeatures(randomUnitList);
+        List<Unit> randomUnitList = new List<Unit>();
+        for (int i = 0; i < 20; i++)
+        {
+            randomUnitList.Add(GenerateRandomUnit());
+        }
+        CountRandomFeatures(randomUnitList);
     }
 
 
