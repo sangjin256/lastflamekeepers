@@ -1,20 +1,29 @@
 using UnityEngine;
 
-public class BaseBuilding : MonoBehaviour
+public abstract class BaseBuilding : MonoBehaviour
 {
-    public BuildingType BuildingType;
-    private BuildData _buildData;
+    // 빌딩 타입
+    private BuildingType _buildingType;
+    public BuildingType BuildingType => _buildingType;
+    protected abstract BuildingType DefineType();
+
+    // 빌딩 데이터
+    protected BuildData _buildData;
+
+    // 레벨 
     private int _level = 0;
     public int Level => _level;
 
+    // 색상 변경
     private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
+        _buildingType = DefineType();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void SetBuildData(BuildData buildData)
+    public virtual void SetBuildData(BuildData buildData)
     {
         _buildData = buildData;
     }
@@ -24,7 +33,7 @@ public class BaseBuilding : MonoBehaviour
         _spriteRenderer.color = color;
     }
     
-    public void UpgradeBuilding()
+    public virtual void UpgradeBuilding()
     {
         if (_level >= _buildData.Upgrade_AddValueList.Count - 1)
         {
