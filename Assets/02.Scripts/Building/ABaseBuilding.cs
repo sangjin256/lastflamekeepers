@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class ABaseBuilding : MonoBehaviour
@@ -14,6 +15,9 @@ public abstract class ABaseBuilding : MonoBehaviour
     private int _level = 0;
     public int Level => _level;
 
+    // 업그레이드에 필요한 자원
+    private List<List<int>> _requiredResources;
+
     // 색상 변경
     private SpriteRenderer _spriteRenderer;
 
@@ -26,6 +30,8 @@ public abstract class ABaseBuilding : MonoBehaviour
     public virtual void Initialize(BuildData buildData)
     {
         _buildData = buildData;
+
+
     }
 
     public void ChangeColor(Color color)
