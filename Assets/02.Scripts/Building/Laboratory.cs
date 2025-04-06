@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Storage : ABaseBuilding
+public class Laboratory : ABaseBuilding
 {
-    protected override BuildingType DefineType() => BuildingType.Storage;
+    protected override BuildingType DefineType() => BuildingType.Laboratory;
 
     private int _toolCapacity;
 
@@ -12,7 +12,7 @@ public class Storage : ABaseBuilding
 
         _toolCapacity = buildData.Upgrade_AddValueList[0];
 
-        Debug.Log($"Tool : {_toolCapacity}");
+        Debug.Log($"Unit : {_toolCapacity}");
     }
 
     public override void UpgradeBuilding()
@@ -26,6 +26,6 @@ public class Storage : ABaseBuilding
         }
         _toolCapacity = _buildData.Upgrade_AddValueList[Level];
 
-        Debug.Log($"Tool : {_toolCapacity}");
+        Debug.Log($"Unit : {_toolCapacity}");
     }
 }
