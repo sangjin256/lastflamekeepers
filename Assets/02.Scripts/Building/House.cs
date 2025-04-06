@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class House : BaseBuilding
+public class House : ABaseBuilding
 {
     protected override BuildingType DefineType() => BuildingType.House;
 
     private int _unitCapacity;
 
-    public override void SetBuildData(BuildData buildData)
+    public override void Initialize(BuildData buildData)
     {
-        base.SetBuildData(buildData);
+        base.Initialize(buildData);
 
         _unitCapacity = buildData.Upgrade_AddValueList[0];
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class BaseBuilding : MonoBehaviour
+public abstract class ABaseBuilding : MonoBehaviour
 {
     // ºôµù Å¸ÀÔ
     private BuildingType _buildingType;
@@ -23,7 +23,7 @@ public abstract class BaseBuilding : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public virtual void SetBuildData(BuildData buildData)
+    public virtual void Initialize(BuildData buildData)
     {
         _buildData = buildData;
     }

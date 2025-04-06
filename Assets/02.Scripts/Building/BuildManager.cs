@@ -5,7 +5,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 {
     [Header("빌딩 프리팹")]
     public List<GameObject> BuildingPrefabs;        // 배치할 건물 프립팹
-    private BaseBuilding _previewBuilding = null;       // 프리뷰용 건물
+    private ABaseBuilding _previewBuilding = null;       // 프리뷰용 건물
 
     [Header("프리뷰 건물 색")]
     public Color CanBuildColor = Color.white;
@@ -13,8 +13,8 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
 
     // 소환된 건물들
-    private PriorityQueue<BaseBuilding, float> _buildingPriorityQueue;          // 활성화 된 건물 관리 우선순위 큐
-    private Stack<(BaseBuilding, float)> _disabledBuildingStack;                // 비활성화 된 건물 관리 스택
+    private PriorityQueue<ABaseBuilding, float> _buildingPriorityQueue;          // 활성화 된 건물 관리 우선순위 큐
+    private Stack<(ABaseBuilding, float)> _disabledBuildingStack;                // 비활성화 된 건물 관리 스택
     private Dictionary<BuildingType, List<int>> _buildingCountDicList;      // 건물 타입별 레벨별 개수
     
     // 건물별 데이터 리스트
@@ -40,7 +40,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     private void Initialize()
     {
         // 우선순위 큐 초기화
-        _buildingPriorityQueue = new PriorityQueue<BaseBuilding, float>();
+        _buildingPriorityQueue = new PriorityQueue<ABaseBuilding, float>();
 
         // 딕셔너리 리스트 초기화
         _buildingCountDicList = new Dictionary<BuildingType, List<int>>();
@@ -61,7 +61,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         }
 
         // 스택 초기화
-        _disabledBuildingStack = new Stack<(BaseBuilding, float)>();
+        _disabledBuildingStack = new Stack<(ABaseBuilding, float)>();
     }
 
     private void Update()
@@ -104,7 +104,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         Collider2D[] colliders = Physics2D.OverlapBoxAll(_previewBuilding.transform.position, _previewBuilding.GetComponent<BoxCollider2D>().size, 0);
         foreach (Collider2D collider in colliders)
         {
-            BaseBuilding building = collider.GetComponent<BaseBuilding>();
+            ABaseBuilding building = collider.GetComponent<ABaseBuilding>();
             if (building && building != _previewBuilding)
             {
                 return false;
@@ -128,13 +128,13 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         newBuilding.transform.position = _previewBuilding.transform.position;
 
         // 새로운 건물 설정
-        BaseBuilding building = newBuilding.GetComponent<BaseBuilding>();
+        ABaseBuilding building = newBuilding.GetComponent<ABaseBuilding>();
         if (building == null)
         {
             return;
         }
 
-        building.SetBuildData(_buildDataList[(int)building.BuildingType]);
+        building.Initialize(_buildDataList[(int)building.BuildingType]);
 
         // 건물 관리용 우선순위 큐에 추가
         float distanceFromFire = Vector2.SqrMagnitude(_previewBuilding.transform.position);
@@ -155,7 +155,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         }
 
         GameObject newBuilding = Instantiate(BuildingPrefabs[(int)buildingType]);
-        _previewBuilding = newBuilding.GetComponent<BaseBuilding>();
+        _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
     }
 
     public void StartBuildingHouse()
@@ -166,7 +166,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         }
 
         GameObject newBuilding = Instantiate(BuildingPrefabs[(int)BuildingType.House]);
-        _previewBuilding = newBuilding.GetComponent<BaseBuilding>();
+        _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
     }
 
     public void EndBuildingMode()
@@ -186,7 +186,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
             while (_disabledBuildingStack.Count != 0)
             {
                 // 스택에서 장 상단에 있는 건물 받아오기
-                (BaseBuilding, float) building = _disabledBuildingStack.Peek();
+                (ABaseBuilding, float) building = _disabledBuildingStack.Peek();
 
                 // 거리의 측정
                 if (!FireManager.Instance.IsWithInFireRange(-building.Item2))
@@ -209,7 +209,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
             while (_buildingPriorityQueue.Count != 0)
             {
                 // 거리까지 한 번에 받아오기
-                (BaseBuilding, float) building = _buildingPriorityQueue.Dequeue();
+                (ABaseBuilding, float) building = _buildingPriorityQueue.Dequeue();
 
                 // 반지름 안쪽이면 멈추기
                 if (FireManager.Instance.IsWithInFireRange(-building.Item2))
