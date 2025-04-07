@@ -3,7 +3,7 @@ using UnityEngine;
 public class FireRangeController : MonoBehaviour
 {
     [SerializeField]
-    private float amount = 10f;
+    private float amount = 1f;
 
     private void Update()
     {

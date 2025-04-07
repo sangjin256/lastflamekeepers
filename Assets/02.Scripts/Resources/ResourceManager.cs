@@ -33,6 +33,11 @@ public class ResourceManager : BehaviourSingleton<ResourceManager>
         Debug.Log("Field Resource Definitions Loaded");
     }
 
+    public bool IsResourceDataDictNotNull()
+    {
+        return _resourceDataDict != null;
+    }
+
     // 필드 자원 타입 조회
     public FieldResourceData GetResource(ResourceType type)
     {

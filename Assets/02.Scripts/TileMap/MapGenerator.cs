@@ -5,7 +5,6 @@ public class MapGenerator : MonoBehaviour
 {
     public GameObject CenterBaseTile;
     public List<GameObject> TilePresetList;
-    public Vector2 TileSize = new Vector2(40f, 40f);
 
     public readonly Vector2Int[,] PositionGrid =
     {
@@ -29,7 +28,7 @@ public class MapGenerator : MonoBehaviour
             for(int x = 0; x < 3; x++)
             {
                 Vector2Int pos = PositionGrid[y, x];
-                Vector3 worldPos = new Vector3(pos.x * TileSize.x, pos.y * TileSize.y, 0f);
+                Vector3 worldPos = new Vector3(pos.x * Global.Instance.TileBlockSize.x, pos.y * Global.Instance.TileBlockSize.y, 0f);
 
                 GameObject selectedTile;
 
@@ -48,5 +47,7 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
+
+        ResourceSpawner.InitializeAllResourceAsync();
     }
 }

@@ -1,5 +1,7 @@
-10000	House	집	-1	-1	-1	-1	House	
-10001	Storage	창고	-1	-1	-1	-1	Storage	
-10002	Hospital	병원	-1	-1	-1	-1	Hospital	
-10003	Laboratory	연구소	-1	-1	-1	-1	Laboratory	
-10004	Forge	대장간	-1	-1	-1	-1	Forge	
+10000	집	1	-1	-1	-1	-1	House	
+10001	창고	1	-1	-1	-1	-1	Storage	
+10002	병원	1	-1	-1	-1	-1	Hospital	
+10003	대장간	1	-1	-1	-1	-1	Forge	
+10004	연구소_검	1	-1	-1	-1	-1	Laboratory	
+10005	연구소_도끼	1	-1	-1	-1	-1	Laboratory	
+10006	연구소_곡괭이	1	-1	-1	-1	-1	Laboratory	
