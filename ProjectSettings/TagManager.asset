@@ -7,6 +7,10 @@ TagManager:
   - InteractTrigger
   - SearchTrigger
   - Enemy
+  - Unit
+  - Building
+  - Resource
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -43,6 +47,18 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 2160716155
+    locked: 0
+  - name: Entity
+    uniqueID: 3287124783
+    locked: 0
+  - name: Effect
+    uniqueID: 975141679
+    locked: 0
+  - name: UI
+    uniqueID: 2618499447
     locked: 0
   m_RenderingLayers:
   - Default
