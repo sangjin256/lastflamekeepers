@@ -1,4 +1,7 @@
-public abstract class AResource
+using Unity.VisualScripting.InputSystem;
+using UnityEngine;
+
+public abstract class AResource : MonoBehaviour, IInteractable
 {
     public ResourceType ResourceType;
     public string Name;
@@ -8,17 +11,20 @@ public abstract class AResource
     public InventoryResourceType OutputType;
     public float RespawnTime;
 
-    public AResource(ResourceType resourceType, string name, int durability, int amountToHit,
-                     int outputAmountPerExtract, InventoryResourceType outputType, float respawnTime)
-
+    public void Initialize(ResourceType resourceType)
     {
-        ResourceType = resourceType;
-        Name = name;
-        Durability = durability;
-        AmountToHit = amountToHit;
-        OutputAmountPerExtract = outputAmountPerExtract;
-        OutputType = outputType;
-        RespawnTime = respawnTime;
+        AResource resource = ResourceManager.Instance.GetResource(resourceType);
+        ResourceType = resource.ResourceType;
+        Name = resource.Name;
+        Durability = resource.Durability;
+        AmountToHit = resource.AmountToHit;
+        OutputAmountPerExtract = resource.OutputAmountPerExtract;
+        OutputType = resource.OutputType;
+        RespawnTime = resource.RespawnTime;
     }
 
+    public void TakeDamage(int amount, bool isHeal)
+    {
+
+    }
 }

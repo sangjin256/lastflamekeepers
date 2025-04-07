@@ -7,7 +7,7 @@ public class ResourceSpawner : MonoBehaviour
     public List<GameObject> TreePrefabList;
     public List<GameObject> RockPrefabList;
 
-    private List<Vector3> _placedResourcePositionList = new List<Vector3>();
+    public List<Vector3> _placedResourcePositionList = new List<Vector3>();
 
     private float _minDistance = 0.1f;
 
@@ -68,7 +68,8 @@ public class ResourceSpawner : MonoBehaviour
             if (tooClose) continue;
 
             _placedResourcePositionList.Add(spawnPoint);
-            Instantiate(prefab, spawnPoint, Quaternion.identity, tile.transform);
+            GameObject resourceObject = Instantiate(prefab, spawnPoint, Quaternion.identity, tile.transform);
+            ResourceManager.Instance.FieldResourceList.Add(resourceObject.GetComponent<AResource>());
             placed++;
         }
     }
