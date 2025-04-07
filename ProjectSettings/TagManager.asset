@@ -2,18 +2,25 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - InteractTrigger
+  - SearchTrigger
+  - Enemy
+  - Unit
+  - Building
+  - Resource
+  - Fire
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
+  - InteractTrigger
+  - Interactable
+  - SearchTrigger
   - 
   - 
   - 
@@ -41,3 +48,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 2160716155
+    locked: 0
+  - name: Entity
+    uniqueID: 3287124783
+    locked: 0
+  - name: Effect
+    uniqueID: 975141679
+    locked: 0
+  - name: UI
+    uniqueID: 2618499447
+    locked: 0
+  m_RenderingLayers:
+  - Default
