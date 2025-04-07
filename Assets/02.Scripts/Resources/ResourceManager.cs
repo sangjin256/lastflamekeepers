@@ -9,6 +9,8 @@ public class ResourceManager : BehaviourSingleton<ResourceManager>
 {
     private Dictionary<ResourceType, AResource> _resourceDataDict;
 
+    private List<AResource> _FieldResourceList;
+
     private void Awake()
     {
         Global.Instance.OnDataLoaded += LoadResourceDefinitions;
@@ -44,5 +46,15 @@ public class ResourceManager : BehaviourSingleton<ResourceManager>
 
         Debug.LogWarning($"[FieldResourceManager] 정의되지 않은 ResourceType: {type}");
         return null;
+    }
+
+    public List<AResource> GetFieldResourceList()
+    {
+        return _FieldResourceList;
+    }
+
+    public void SetFieldResourceList(List<AResource> list)
+    {
+        _FieldResourceList = list;
     }
 }

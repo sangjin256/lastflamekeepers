@@ -52,7 +52,6 @@ public class ResourceSpawner : MonoBehaviour
         float radiusX = Random.Range(1f, 6f);
         float radiusY = Random.Range(1f, 4f);
 
-        Debug.Log(count + " " + radiusX + " " + radiusY);
         while(placed < count && tries < count * 10)
         {
             tries++;
