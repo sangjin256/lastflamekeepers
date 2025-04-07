@@ -1,9 +1,8 @@
-public class Wood : AInvenResource
+public class Stone : AInvenResource
 {
-    public Wood(InventoryResourceType inventoryResourceType, string name, int maxCount, string description)
+    public Stone(InventoryResourceType inventoryResourceType, string name, int maxCount, string description)
                 : base(inventoryResourceType, name, maxCount, description)
     {
         // Constructor logic can be added here if needed
     }
 }
-

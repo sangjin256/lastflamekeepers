@@ -1,6 +1,6 @@
-public class Rock : AResource
+public class Tree : AResource
 {
-    public Rock(ResourceType resourceType, string name, int durability, int amountToHit,
+    public Tree(ResourceType resourceType, string name, int durability, int amountToHit,
                 int outputAmountPerExtract, InventoryResourceType outputType, float respawnTime)
         : base(resourceType, name, durability, amountToHit, outputAmountPerExtract, outputType, respawnTime)
     {

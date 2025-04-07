@@ -1,16 +1,9 @@
-using UnityEngine;
-
-public class Ash : MonoBehaviour
+public class Ash : AInvenResource
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Ash(InventoryResourceType inventoryResourceType, string name, int maxCount, string description)
+                : base(inventoryResourceType, name, maxCount, description)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Constructor logic can be added here if needed
     }
 }
+
