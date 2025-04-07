@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UnitClick : MonoBehaviour
+public class ClickSystem : MonoBehaviour
 {
     public LayerMask Interactable;
     public LayerMask Ground;
@@ -17,13 +17,22 @@ public class UnitClick : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 1f, Interactable);
             if(hit.collider != null)
             {
-                if (Input.GetKey(KeyCode.LeftShift))
+                if (hit.collider.CompareTag("Unit"))
                 {
-                    UnitSelectionManager.Instance.ShiftClickSelect(hit.collider.gameObject);
-                }
-                else
-                {
-                    UnitSelectionManager.Instance.ClickSelect(hit.collider.gameObject);
+                    Unit unit = hit.collider.GetComponent<Unit>();
+                    if (Input.GetKey(KeyCode.LeftShift))
+                    {
+                        UnitSelectionManager.Instance.ShiftClickSelect(unit);
+                    }
+                    else
+                    {
+                        if (UnitSelectionManager.Instance.SelectedUnitList.Contains(unit))
+                        {
+                            // 유닛 더블클릭
+                            CameraManager.Instance.MoveToEntity(unit.transform);
+                        }
+                        UnitSelectionManager.Instance.ClickSelect(unit);
+                    }
                 }
             }
             else
@@ -44,12 +53,11 @@ public class UnitClick : MonoBehaviour
                 // 땅이면 좌표 전달
                 if (hit.collider == null)
                 {
-                    // z가 -10인거 생각해야됨
-                    Debug.Log(WorldMousePosition);
-                    //UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(WorldMousePosition));
+                    UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(WorldMousePosition));
                 }
                 else if (hit.collider.CompareTag("Enemy"))
                 {
+                    //UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(hit.collider.GetComponent<AInteractableEntityTest>()));
                     Debug.Log("여기 채워야됨");
                 }
                 else if (hit.collider.CompareTag("Resource"))

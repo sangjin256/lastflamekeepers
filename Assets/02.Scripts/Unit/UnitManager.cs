@@ -176,7 +176,7 @@ public class UnitManager : BehaviourSingleton<UnitManager>
         List<Unit> randomUnitList = new List<Unit>();
         for (int i = 0; i < 20; i++)
         {
-            randomUnitList.Add(GenerateRandomUnit());
+            //randomUnitList.Add(GenerateRandomUnit());
         }
         CountRandomFeatures(randomUnitList);
     }

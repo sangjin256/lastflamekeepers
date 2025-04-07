@@ -27,7 +27,7 @@ public class UntDrag : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            if (SelectionBox.width != 0) UnitSelectionManager.Instance.SetDrag(true);
+            if (SelectionBox.width >= 0.1f) UnitSelectionManager.Instance.SetDrag(true);
 
             SelectUnits();
             EndPosition = Input.mousePosition;
@@ -91,12 +91,12 @@ public class UntDrag : MonoBehaviour
             if (SelectionBox.Contains(Camera.main.WorldToScreenPoint(unit.transform.position)))
             // 테스트 코드
             {
-                UnitSelectionManager.Instance.DragSelect(unit.gameObject);
+                UnitSelectionManager.Instance.DragSelect(unit);
             }
             // 드래그 할때랑 클릭할때랑 동시에 사용되서 1프레임 내에서 select deselect가 일어남
             else
             {
-                if (UnitSelectionManager.Instance.GetIsDragging()) UnitSelectionManager.Instance.Deselect(unit.gameObject);
+                if (UnitSelectionManager.Instance.GetIsDragging()) UnitSelectionManager.Instance.Deselect(unit);
             }
         }
     }
