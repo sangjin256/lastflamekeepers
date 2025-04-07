@@ -16,7 +16,7 @@ public abstract class ABaseBuilding : MonoBehaviour
     public int Level => _level;
 
     // 업그레이드에 필요한 자원
-    private List<List<int>> _requiredResources;
+    private List<List<int>> _requiredResourcesList;
 
     // 색상 변경
     private SpriteRenderer _spriteRenderer;
