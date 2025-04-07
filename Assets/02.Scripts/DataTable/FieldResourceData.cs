@@ -20,11 +20,11 @@ public class FieldResourceData
     ///<summary>1번 얻을때까지 때리는 횟수</summary>
     public readonly int AmountToHit;
 
-    ///<summary>채집 시 생성되는 소모 자원 타입</summary>
-    public readonly InventoryResourceType OutputType;
-
     ///<summary>채집 1회 당 나오는 소모 자원 개수</summary>
     public readonly int OutputAmountPerExtract;
+
+    ///<summary>채집 시 생성되는 소모 자원 타입</summary>
+    public readonly InventoryResourceType OutputType;
 
     ///<summary>리젠되는 시간</summary>
     public readonly float RespawnTime;
@@ -37,8 +37,8 @@ public class FieldResourceData
         Name = Encoding.UTF8.GetString(reader.ReadBytes(name));
         Durability = reader.ReadInt32();
         AmountToHit = reader.ReadInt32();
-        OutputType = (InventoryResourceType)reader.ReadInt32();
         OutputAmountPerExtract = reader.ReadInt32();
+        OutputType = (InventoryResourceType)reader.ReadInt32();
         RespawnTime = reader.ReadSingle();
     }
 }

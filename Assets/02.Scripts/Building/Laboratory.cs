@@ -1,31 +1,38 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Laboratory : ABaseBuilding
 {
     protected override BuildingType DefineType() => BuildingType.Laboratory;
 
-    private int _toolCapacity;
 
     public override void Initialize(BuildData buildData)
     {
         base.Initialize(buildData);
 
-        _toolCapacity = buildData.Upgrade_AddValueList[0];
 
-        Debug.Log($"Unit : {_toolCapacity}");
     }
 
-    public override void UpgradeBuilding()
+    public void UpgradeTool(int toolTypeNumber)
     {
-        base.UpgradeBuilding();
-
-        if (Level >= _buildData.Upgrade_AddValueList.Count - 1)
+        if (toolTypeNumber > (int)ToolType.Medicine)
         {
-            Debug.Log($"Max Upgrade");
+            Debug.Log("[박우영]ToolType enum의 최댓값보다 큰 값입니다. 버튼의 값을 확인해 주세요");
             return;
         }
-        _toolCapacity = _buildData.Upgrade_AddValueList[Level];
 
-        Debug.Log($"Unit : {_toolCapacity}");
+        ToolType toolType = (ToolType)toolTypeNumber;
+        ToolManager.Instance.UpgradeTool(toolType);
+    }
+
+    public override void SetActive(bool active)
+    {
+        // 이전 상태와 같다면 return
+        if (_isActive == active)
+        {
+            return;
+        }
+
+        _isActive = active;
     }
 }

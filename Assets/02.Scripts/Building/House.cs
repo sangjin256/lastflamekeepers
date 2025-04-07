@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class House : ABaseBuilding
@@ -11,6 +12,7 @@ public class House : ABaseBuilding
         base.Initialize(buildData);
 
         _unitCapacity = buildData.Upgrade_AddValueList[0];
+        // TODO : Unit 최댓값 증가
 
         Debug.Log($"Unit : {_unitCapacity}");
     }
@@ -24,8 +26,31 @@ public class House : ABaseBuilding
             Debug.Log($"Unit : {_unitCapacity}");
             return;
         }
-        _unitCapacity = _buildData.Upgrade_AddValueList[Level];
+
+        // TODO : Unit 최댓값 증가
+        _unitCapacity += _buildData.Upgrade_AddValueList[Level];
 
         Debug.Log($"Unit : {_unitCapacity}");
+    }
+
+    public override void SetActive(bool active)
+    {
+        // 이전 상태와 같다면 return
+        if (_isActive == active)
+        {
+            return;
+        }
+
+        // 활성화 여부에 따른 전체 Unit 수 변화
+        if (active)
+        {
+            Debug.Log("[박우영]유닛 최대수 증가 함수 필요");
+        }
+        else
+        {
+            Debug.Log("[박우영]유닛 최대수 감소 함수 필요");
+        }
+
+        _isActive = active;
     }
 }
