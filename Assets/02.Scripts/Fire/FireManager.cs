@@ -11,7 +11,7 @@ public class FireManager : BehaviourSingleton<FireManager>
     [Header("불 범위 설정")]
     [SerializeField] float MaxRange = 20f;
     [SerializeField] float MinRange = 0f;
-    [SerializeField] float CurrentRange = 0f;
+    [SerializeField] float CurrentRange = 5f;
 
     private Light2D _fireLight;
     private float _innerRange;

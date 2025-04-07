@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class MapGenerator : MonoBehaviour
 {
-    public GameObject CenterBaseTile;
+    public List<GameObject> CenterBaseTile;
     public List<GameObject> TilePresetList;
 
     public readonly Vector2Int[,] PositionGrid =
@@ -32,12 +32,11 @@ public class MapGenerator : MonoBehaviour
 
                 GameObject selectedTile;
 
-                if (x == 1 && y == 1) selectedTile = Instantiate(CenterBaseTile, worldPos, Quaternion.identity, MapRoot);
+                if (x == 1 && y == 1) selectedTile = Instantiate(CenterBaseTile[Random.Range(0, CenterBaseTile.Count)], worldPos, Quaternion.identity, MapRoot);
                 else
                 {
                     GameObject preset = TilePresetList[Random.Range(0, TilePresetList.Count)];
-                    Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(0, 4) * 90);
-                    selectedTile = Instantiate(preset, worldPos, rotation, MapRoot);
+                    selectedTile = Instantiate(preset, worldPos, Quaternion.identity, MapRoot);
                 }
 
                 TileBlock block = selectedTile.GetComponent<TileBlock>();
