@@ -3,17 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - InteractTrigger
+  - SearchTrigger
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
+  - InteractTrigger
+  - Interactable
+  - SearchTrigger
   - 
   - 
   - 
@@ -40,12 +43,6 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Ground
-    uniqueID: 4137409511
-    locked: 0
-  - name: Resource
-    uniqueID: 3149159469
     locked: 0
   m_RenderingLayers:
   - Default

@@ -1,15 +1,16 @@
 using System;
 using UnityEngine;
 
-public struct Stat
+public class Stat
 {
-    public int Value;
+    public int BaisicValue;
     public int AddedValue;
 
+    public int Value => BaisicValue + AddedValue;
 
     public Stat(int value, int addedValue = 0)
     {
-        Value = value;
+        BaisicValue = value;
         AddedValue = addedValue;
     }
 }
