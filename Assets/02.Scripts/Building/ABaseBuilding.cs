@@ -38,7 +38,7 @@ public abstract class ABaseBuilding : MonoBehaviour
         _requiredResourcesList = new List<List<int>>();
         for (int i = 0; i < buildData.Upgrade_AddValueList.Count; i++)
         {
-            _requiredResourcesList[i] = new List<int>();
+            _requiredResourcesList.Add(new List<int>());
         }
     }
 
@@ -55,6 +55,8 @@ public abstract class ABaseBuilding : MonoBehaviour
         }
 
         _level += 1;
+
+        BuildManager.Instance.UpgradeBuilding(this);
     }
 
     public abstract void SetActive(bool active);

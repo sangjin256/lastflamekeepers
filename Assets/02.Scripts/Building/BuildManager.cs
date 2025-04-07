@@ -17,7 +17,6 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     private Stack<(ABaseBuilding, float)> _disabledBuildingStack;                                           // 비활성화 된 건물 관리 스택
     private Dictionary<BuildingType, List<LinkedList<ABaseBuilding>>> _buildingDicListLinkedList;           // 전체 건물 타입별 레벨 별 딕셔너리
     private bool _isLaboratoryBuilded = false;
-    private ToolType _forgeToolType;
     
     // 건물별 데이터 리스트
     private ReadOnlyList<BuildData> _buildDataList;
@@ -67,14 +66,14 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         {
             // 레벨의 크기만큼 리스트 초기화
             int upgradeCount = _buildDataList[0].Upgrade_AddValueList.Count;
-            _buildingDicListLinkedList[(BuildingType)i] = new List<LinkedList<ABaseBuilding>>();
+            List<LinkedList<ABaseBuilding>> buildingList = new List<LinkedList<ABaseBuilding>>();
 
             for (int j = 0; j < upgradeCount; j++)
             {
-                Debug.Log(j);
-                _buildingDicListLinkedList[(BuildingType)i][j] = new LinkedList<ABaseBuilding>();
+                buildingList.Add(new LinkedList<ABaseBuilding>());
             }
 
+            _buildingDicListLinkedList[(BuildingType)i] = buildingList;
         }
 
         // 스택 초기화
@@ -86,6 +85,12 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         // 현재 건물 짓는 모드인지 확인
         if (_previewBuilding == null)
         {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            EndBuildingMode();
             return;
         }
         
@@ -159,22 +164,20 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         }
 
         // 건물 초기화
+        building.Initialize(_buildDataDicList[building.BuildingType][0]);
+
         if (building.BuildingType == BuildingType.Forge)
         {
             Forge forge = (Forge)building;
-            forge.SetToolType(_forgeToolType);
-            building.Initialize(_buildDataDicList[building.BuildingType][(int)_forgeToolType]);
-        }
-        else
-        {
-            building.Initialize(_buildDataDicList[building.BuildingType][0]);
+            forge.SetButton();
+            forge.OpenSelectToolTypeUI();
         }
         
         // 건물 관리용 우선순위 큐에 추가
         float distanceFromFire = Vector2.SqrMagnitude(_previewBuilding.transform.position);
         _buildingPriorityQueue.Enqueue(building, -distanceFromFire);
 
-        // 건물 개수 리스트에 값 추가
+        // 건물 딕셔너리 리스트에 값 추가
         _buildingDicListLinkedList[building.BuildingType][building.Level].AddLast(building);
 
         if (building.BuildingType == BuildingType.Laboratory)
@@ -188,7 +191,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
     public void StartBuildingMode(int buildingTypeWithTool)
     {
-        if (buildingTypeWithTool > (int)BuildingType.Forge + (int)ToolType.PickAxe)
+        if (buildingTypeWithTool > (int)BuildingType.Forge)
         {
             Debug.Log("[박우영]BuildingType 범위 밖입니다. 실행을 종료하고, 버튼의 OnClick() 메서드를 잘 확인하세요");
             return;
@@ -207,36 +210,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
             return;
         }
 
-        // 대장간의 ToolType 정하기
-        if (buildingTypeWithTool >= (int)BuildingType.Forge)
-        {
-            _forgeToolType = (ToolType)(buildingTypeWithTool - (int)BuildingType.Forge);
-            buildingTypeWithTool -= (int)_forgeToolType;
-        }
-
         GameObject newBuilding = Instantiate(BuildingPrefabs[(int)buildingTypeWithTool]);
-        _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
-    }
-
-    public void StartBuildingHouse()
-    {
-        if (_previewBuilding != null)
-        {
-            return;
-        }
-
-        GameObject newBuilding = Instantiate(BuildingPrefabs[(int)BuildingType.House]);
-        _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
-    }
-
-    public void StartBuildingStorage()
-    {
-        if (_previewBuilding != null)
-        {
-            return;
-        }
-
-        GameObject newBuilding = Instantiate(BuildingPrefabs[(int)BuildingType.Storage]);
         _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
     }
 
@@ -304,5 +278,11 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     public List<LinkedList<ABaseBuilding>> GetBuildingCount(BuildingType type)
     {
         return _buildingDicListLinkedList[type];
+    }
+
+    public void UpgradeBuilding(ABaseBuilding building)
+    {
+        _buildingDicListLinkedList[building.BuildingType][building.Level - 1].Remove(building);
+        _buildingDicListLinkedList[building.BuildingType][building.Level].AddLast(building);
     }
 }
