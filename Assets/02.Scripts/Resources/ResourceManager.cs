@@ -36,7 +36,7 @@ public class ResourceManager : BehaviourSingleton<ResourceManager>
         Debug.Log("Field Resource Definitions Loaded");
     }
 
-    // 필드 자원 타입 조회
+    // 필드 자원 조회
     public AResource GetResource(ResourceType type)
     {
         if (_resourceDataDict.TryGetValue(type, out var resource))

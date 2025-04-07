@@ -1,4 +1,6 @@
-public abstract class AResource
+using UnityEngine;
+
+public abstract class AResource : MonoBehaviour
 {
     public ResourceType ResourceType;
     public string Name;
@@ -10,7 +12,6 @@ public abstract class AResource
 
     public AResource(ResourceType resourceType, string name, int durability, int amountToHit,
                      int outputAmountPerExtract, InventoryResourceType outputType, float respawnTime)
-
     {
         ResourceType = resourceType;
         Name = name;
@@ -20,5 +21,4 @@ public abstract class AResource
         OutputType = outputType;
         RespawnTime = respawnTime;
     }
-
 }
