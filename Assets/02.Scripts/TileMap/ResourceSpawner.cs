@@ -68,8 +68,9 @@ public class ResourceSpawner : MonoBehaviour
             if (tooClose) continue;
 
             _placedResourcePositionList.Add(spawnPoint);
-            GameObject resourceObject = Instantiate(prefab, spawnPoint, Quaternion.identity, tile.transform);
-            ResourceManager.Instance.FieldResourceList.Add(resourceObject.GetComponent<AResource>());
+            AResource resource = Instantiate(prefab, spawnPoint, Quaternion.identity, tile.transform).GetComponent<AResource>();
+            ResourceManager.Instance.FieldResourceList.Add(resource);
+            resource.Initialize(resource.ResourceType);
             placed++;
         }
     }

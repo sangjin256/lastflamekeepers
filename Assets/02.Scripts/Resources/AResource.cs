@@ -13,7 +13,7 @@ public abstract class AResource : MonoBehaviour, IInteractable
 
     public void Initialize(ResourceType resourceType)
     {
-        AResource resource = ResourceManager.Instance.GetResource(resourceType);
+        FieldResourceData resource = ResourceManager.Instance.GetResource(resourceType);
         ResourceType = resource.ResourceType;
         Name = resource.Name;
         Durability = resource.Durability;
