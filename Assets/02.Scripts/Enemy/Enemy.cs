@@ -1,16 +1,19 @@
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+using UnityEngine.AI;
 
-public class Enemy : AInteractableEntityTest
+public class Enemy : AInteractableEntity
 {
     private EnemyStat _enemyStat;
 
-    public Transform Target;
-    private Rigidbody2D _rigidbody;
+    private NavMeshAgent _navMeshAgent;
+    public NavMeshAgent NavMeshAgent => _navMeshAgent;
+    public AInteractableEntity _target;
+    public AInteractableEntity Target => _target;
+
     public float MoveSpeed;
-    public bool IsAttacking;
     public CircleCollider2D _interactCollider;
     public CircleCollider2D _searchCollider;
+    private Rigidbody2D _rigidbody;
 
     private Animator _animator;
     public Animator Animator => _animator;
@@ -19,79 +22,46 @@ public class Enemy : AInteractableEntityTest
     public bool IsFacingRight = true;
     private void Awake()
     {
+        _enemyStat = GetComponent<EnemyStat>();
+        _navMeshAgent = GetComponent<NavMeshAgent>();
+        _navMeshAgent.updateRotation = false;
+        _navMeshAgent.updateUpAxis = false;
         _interactCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
         _searchCollider = transform.GetChild(1).GetComponent<CircleCollider2D>();
 
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
     }
-
+    private void Start()
+    {
+        _interactType = InteractType.Enemy;   
+    }
     private void Update()
     {
-        _rigidbody.linearVelocity = Vector2.zero;
-        if ( Target == null)
+        if ( _target == null)
         {
-            Target = Center;
+            //Target = Center;
+            _navMeshAgent.SetDestination(Vector3.zero);
             return;
         }
 
-        if (transform.position.x < Target.transform.position.x ^ IsFacingRight)
+        _navMeshAgent.SetDestination(_target.transform.position);
+        _rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
+        _navMeshAgent.nextPosition = transform.position;
+
+        if (transform.position.x < _target.transform.position.x ^ IsFacingRight)
         {
             Flip();
         }
 
-        if (IsAttacking)
-        {
-
-            return;
-        }
-  
-
-        Vector2 direction = (Target.position - transform.position).normalized;
-
-        _rigidbody.MovePosition(transform.position + (Vector3)direction * Time.deltaTime * MoveSpeed);
-    }
-
-    public void FindTarget()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _searchCollider.radius, LayerMask.GetMask("Interactable"));
-        float minDistance = _searchCollider.radius + 1;
-        Collider2D minCollider = null;
-        foreach (Collider2D collider in colliders)
-        {
-            if (collider.transform == transform)
-            {
-                continue;
-            }
-            if (Vector2.Distance(collider.transform.position, transform.position) < minDistance)
-            {
-                minCollider = collider;
-            }
-        }
-
-        if (minCollider == null)
-        {
-            return;
-        }
-        if (CheckInteractTrigger())
-        {
-            IsAttacking = true;
-            Animator.SetBool("IsAttacking", IsAttacking);
-        }
-    }
-
-    public bool CheckInteractTrigger()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _interactCollider.radius, LayerMask.GetMask("Interactable"));
-
-        foreach (Collider2D collider in colliders)
-        {
-            if (collider.GetComponent<AInteractableEntityTest>() == Target)
-            {
-                return true;
-            }
-        }
-        return false;
+        //if (_navMeshAgent.velocity == Vector3.zero)
+        //{
+        //    _animator.SetBool("IsRunning", false);
+        //}
+        //else
+        //{
+        //    _animator.SetBool("IsRunning", true);
+        //}
     }
     public void Flip()
     {
@@ -99,13 +69,94 @@ public class Enemy : AInteractableEntityTest
         transform.Rotate(0, 180, 0);
     }
 
+    public void SetTarget(AInteractableEntity interactable)
+    {
+        _target = interactable;
+        if (CheckTargetInInteractTrigger())
+        {
+            StopNavMeshAgent();
+            Animator.SetBool("IsAttacking", true);
+        }
+    }
+
+    public void FindTarget()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _searchCollider.radius, LayerMask.GetMask("Interactable"));
+        if (colliders.Length == 0)
+        {
+            return;
+        }
+        float minDistance = _searchCollider.radius + 1;
+        Collider2D minDistanceCollider = null;
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.transform == transform)
+            {
+                continue;
+            }
+            if (!collider.CompareTag("Unit"))
+            {
+                continue;
+            }
+            if (!collider.GetComponent<AInteractableEntity>().CanInteract)
+            {
+                continue;
+            }
+            
+            if (Vector2.Distance(collider.transform.position, transform.position) < minDistance)
+            {
+                minDistanceCollider = collider;
+            }
+        }
+
+        if (minDistanceCollider == null)
+        {
+            return;
+        }
+        SetTarget(minDistanceCollider.GetComponent<AInteractableEntity>());
+    }
+
+    public bool CheckTargetInInteractTrigger()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _interactCollider.radius, LayerMask.GetMask("Interactable"));
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.GetComponent<AInteractableEntity>() == _target)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //AnimationEvent
+    public void Interact()
+    {
+        _target.TakeDamage(_enemyStat.Damage, false);
+    }
+
+    public void StopNavMeshAgent()
+    {
+        _navMeshAgent.isStopped = true;
+    }
+    public void ResumeNavMeshAgent()
+    {
+        _navMeshAgent.isStopped = false;
+    }
+
     public override void TakeDamage(int amount, bool isHeal)
     {
         base.TakeDamage(amount, isHeal);
     }
 
-    public void Destroy()
+    public void DestroyThis()
     {
         Destroy(gameObject);
+    }
+
+    public void SetTargetNull()
+    {
+        _target = null;
     }
 }

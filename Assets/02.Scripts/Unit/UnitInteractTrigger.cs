@@ -12,7 +12,7 @@ public class UnitInteractTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        AInteractableEntityTest interactableEntity = other.GetComponent<AInteractableEntityTest>();
+        AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
         if (interactableEntity == null)
         {
             return;
@@ -21,21 +21,23 @@ public class UnitInteractTrigger : MonoBehaviour
         {
             return;
         }
-        //Interact(_target) -> _tool.Interact(interactableEntity, _tool.Value);
-        _unit.StopNavMeshAgent();
 
-        _unit.Interact(_unit.Target);
+        _unit.StopNavMeshAgent();
+        _unit.ToolAnimator.SetBool("IsInteracting", true);
+        _unit.IsInteracting = true;
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        AInteractableEntityTest interactableEntity = other.GetComponent<AInteractableEntityTest>();
+        AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
         if (interactableEntity != _unit.Target)
         {
             return;
         }
 
         _unit.ToolAnimator.SetBool("IsInteracting", false);
+        _unit.IsInteracting = false;
         _unit.ResumeNavMeshAgent();
     }
 }

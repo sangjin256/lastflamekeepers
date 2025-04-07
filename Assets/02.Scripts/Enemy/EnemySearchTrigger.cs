@@ -1,17 +1,19 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
-public class UnitSearchTrigger : MonoBehaviour
+public class EnemySearchTrigger : MonoBehaviour
 {
-    private Unit _unit;
-
+    private Enemy _enemy;
+    
     private void Awake()
     {
-        _unit = GetComponentInParent<Unit>();
+        _enemy = GetComponentInParent<Enemy>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (_unit.Target != null)
+        //fire가 아니면
+        if (_enemy.Target != null)
         {
             return;
         }
@@ -19,31 +21,31 @@ public class UnitSearchTrigger : MonoBehaviour
         //{
         //    return;
         //}
-        if (!other.CompareTag("Enemy"))
+
+        if (!other.CompareTag("Unit"))
         {
+            
             return;
         }
-        if (_unit.NavMeshAgent.desiredVelocity == Vector3.zero)
-        {
-            _unit.SetTarget(other.GetComponent<AInteractableEntity>());
-        }
+
+        //if (_enemy.NavMeshAgent.desiredVelocity == Vector3.zero)
+        //{
+            _enemy.SetTarget(other.GetComponent<AInteractableEntity>());
+        //}
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
 
-        if (interactableEntity.transform != _unit.Target)
+        if (interactableEntity.transform != _enemy.Target)
         {
             return;
         }
 
         if (!interactableEntity.CanInteract)
         {
-            _unit.FindTarget();
+            _enemy.FindTarget();
         }
     }
-
-    // TODO: SearchTrigger 죽였을 때 새로 탐지, 우클릭으로 도착했을 때 새로 탐지
-
 }

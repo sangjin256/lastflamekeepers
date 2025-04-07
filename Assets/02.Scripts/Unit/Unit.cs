@@ -1,16 +1,18 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Unit : AInteractableEntityTest
+public class Unit : AInteractableEntity
 //:IInteractable
 {
     [SerializeField] private UnitStat _unitStat;
-    private ATool _tool;
+    private UnitTool _unitTool;
 
     private NavMeshAgent _navMeshAgent;
     public NavMeshAgent NavMeshAgent => _navMeshAgent;
-    public AInteractableEntityTest _target;
-    public AInteractableEntityTest Target => _target;
+    public AInteractableEntity _target;
+    public AInteractableEntity Target => _target;
     //테스트용
     //public GameObject _target;
     private CircleCollider2D _interactCollider;
@@ -22,10 +24,16 @@ public class Unit : AInteractableEntityTest
     public Animator ToolAnimator => _toolAnimator;
 
 
+    private bool IsMoving = true;
     private bool IsFacingRight = true;
+    public bool IsInteracting = false;
+    public bool IsDead = false;
+    //임시
+    public List<RuntimeAnimatorController> ToolAnimatorList;
     private void Awake()
     {
         _unitStat = GetComponent<UnitStat>();
+        _unitTool = GetComponentInChildren<UnitTool>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
@@ -38,19 +46,28 @@ public class Unit : AInteractableEntityTest
 
     private void Start()
     {
+        _interactType = InteractType.Unit;
         _navMeshAgent.speed = _unitStat.MoveSpeed.Value / 10f;
     }
     private void Update()
     {
+        if (IsDead)
+        {
+            return;
+        }
         if(_target == null)
         {
-            Debug.Log(_navMeshAgent.desiredVelocity.x);
-            Debug.Log(_navMeshAgent.desiredVelocity.y);
-            Debug.Log(_navMeshAgent.desiredVelocity.z);
-
-            if (_navMeshAgent.desiredVelocity == Vector3.zero)
+            if(_navMeshAgent.desiredVelocity != Vector3.zero)
             {
-                FindTarget();
+                IsMoving = true;
+            }
+            else
+            {
+                if (IsMoving)
+                {
+                    IsMoving = false;
+                    FindTarget();
+                }
             }
         }
         else
@@ -59,23 +76,27 @@ public class Unit : AInteractableEntityTest
             _rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
             _navMeshAgent.nextPosition = transform.position;
 
-            //땅바닥 찍었을 경우
             if (transform.position.x < _target.transform.position.x ^ IsFacingRight)
             {
-                Flip();
+                if (Mathf.Abs(transform.position.x - _target.transform.position.x) > 0.1f)
+                {
+                    Flip();
+                }
             }
         }
 
-        if (_navMeshAgent.velocity == Vector3.zero)
+        if (IsInteracting || _target == null)
         {
             _animator.SetBool("IsRunning", false);
         }
+
         else
         {
             _animator.SetBool("IsRunning", true);
         }
 
-        if (_navMeshAgent.desiredVelocity.x != 0 && (_navMeshAgent.desiredVelocity.x > 0 ^ IsFacingRight))
+        //땅바닥 찍었을 경우
+        if (_target == null &&_navMeshAgent.desiredVelocity.x != 0 && (_navMeshAgent.desiredVelocity.x > 0 ^ IsFacingRight))
         {
             Flip();
         }
@@ -91,53 +112,74 @@ public class Unit : AInteractableEntityTest
         transform.Rotate(0, 180, 0);
     }
 
-    public void SetTarget(AInteractableEntityTest interactable)
+    public void SetTarget(AInteractableEntity interactable)
     {
-        //if (!_tool.IsInteractable(interactable.InteractType))
-        //{
-        //    return;
-        //}
+        if (IsDead)
+        {
+            return;
+        }
+
+        if (!_unitTool.Tool.IsInteractable(interactable.InteractType))
+        {
+            return;
+        }
         _target = interactable;
         if (CheckTargetInInteractTrigger())
         {
             StopNavMeshAgent();
-            Interact(_target);
+            _toolAnimator.SetBool("IsInteracting", true);
+            
+            IsInteracting = true;
         }
     }
 
     public void SetTarget(Transform point)
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         _navMeshAgent.SetDestination(point.position);
         _target = null;
     }
 
-    // TODO: 마우스 클릭으로 도착했을때도 FindTarget 실행하도록
     public void FindTarget()
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _searchCollider.radius, LayerMask.GetMask("Interactable"));
+        if (colliders.Length == 0)
+        {
+            return;
+        }
         float minDistance = _searchCollider.radius + 1;
-        Collider2D minCollider = null;
+        Collider2D minDistanceCollider = null;
         foreach (Collider2D collider in colliders)
         {
             if(collider.transform == transform)
             {
                 continue;
             }
-            //if (!_tool.IsInteractable(collider.GetComponent<AInteractableEntityTest>().InteractType))
-            //{
-            //    continue;
-            //}
+            //if (!_tool.IsInteractable(collider.GetComponent<AInteractableEntity>().InteractType))
+            if(collider.CompareTag("Enemy"))
+            {
+                continue;
+            }
             if (Vector2.Distance(collider.transform.position, transform.position) < minDistance)
             {
-                minCollider = collider;
+                minDistanceCollider = collider;
             }
         }
 
-        if (minCollider == null)
+        if (minDistanceCollider == null)
         {
             return;
         }
-        SetTarget(minCollider.GetComponent<AInteractableEntityTest>());
+        SetTarget(minDistanceCollider.GetComponent<AInteractableEntity>());
     }
 
     public bool CheckTargetInInteractTrigger()
@@ -146,7 +188,7 @@ public class Unit : AInteractableEntityTest
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider.GetComponent<AInteractableEntityTest>() == _target)
+            if (collider.GetComponent<AInteractableEntity>() == _target)
             {
                 return true;
             }
@@ -157,29 +199,46 @@ public class Unit : AInteractableEntityTest
 
     public void StopNavMeshAgent()
     {
-        _navMeshAgent.isStopped = true;
+        if (_navMeshAgent.enabled)
+        {
+            _navMeshAgent.isStopped = true;
+        }
     }
     public void ResumeNavMeshAgent()
     {
-        _navMeshAgent.isStopped = false;
-    }
-
-    public void Interact(IInteractable interactable)
-    {
-        //if (_tool.IsInteractable(interactable))
-        if (true)
+        if (_navMeshAgent.enabled)
         {
-            // TODO: NAVMESH 타겟지정
-            _toolAnimator.SetBool("IsInteracting", true);
-
+            _navMeshAgent.isStopped = false;
         }
     }
+
+    //Animation event
+
 
 
 
     public override void TakeDamage(int amount, bool isHeal)
     {
-
+        base.TakeDamage(amount, isHeal);
+        if (CanInteract)
+        {
+            return;
+        }
+        GetComponent<CircleCollider2D>().enabled = false;
+        _target = null;
+        _toolAnimator.SetBool("IsInteracting", false);
+        _animator.SetTrigger("Die");
+        _navMeshAgent.enabled = false;
     }
 
+
+    public void SetTool(ATool tool)
+    {
+        _unitTool.SetTool(tool);
+    }
+
+    public void DestroyThis()
+    {
+        gameObject.SetActive(false);
+    }
 }

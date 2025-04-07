@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3313990050910468396}
   - component: {fileID: 2405573404541802703}
   - component: {fileID: 7109330558678471705}
-  - component: {fileID: 8542189496083514340}
   - component: {fileID: -2158149833447754654}
   m_Layer: 0
   m_Name: HouseWithObstacle
@@ -106,19 +105,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.125, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &8542189496083514340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6367128936733885069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a878dfef101602342a005613137692c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BuildingType: 0
 --- !u!61 &-2158149833447754654
 BoxCollider2D:
   m_ObjectHideFlags: 0

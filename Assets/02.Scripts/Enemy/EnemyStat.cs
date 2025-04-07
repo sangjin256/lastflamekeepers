@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class EnemyStat : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private int _maxHealth;
+    public int MaxHealth => _maxHealth;
+    private int _damage;
+    public int Damage => _damage;
+    public void Initialize(int health, int damage)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _maxHealth = health;
+        _damage = damage;
     }
 }

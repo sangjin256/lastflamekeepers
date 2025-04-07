@@ -12,32 +12,39 @@ public class EnemyInteractTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        AInteractableEntityTest interactableEntity = other.GetComponent<AInteractableEntityTest>();
+        AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
         if (interactableEntity == null)
         {
             return;
         }
-        if (interactableEntity.transform != _enemy.Target)
+        if (interactableEntity != _enemy.Target)
         {
             return;
         }
-        _enemy.IsAttacking = true;
-        _enemy.Animator.SetBool("IsAttacking", _enemy.IsAttacking);
+        _enemy.StopNavMeshAgent();
+        _enemy.Animator.SetBool("IsAttacking", true);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        AInteractableEntityTest interactableEntity = other.GetComponent<AInteractableEntityTest>();
+        AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
         if (interactableEntity == null)
         {
+            Debug.Log("1");
             return;
         }
-        if (interactableEntity.transform != _enemy.Target)
+        if (interactableEntity != _enemy.Target)
         {
+            Debug.Log("2");
             return;
         }
-
-        _enemy.IsAttacking = false;
-        _enemy.Animator.SetBool("IsAttacking", _enemy.IsAttacking);
+        Debug.Log("3");
+        _enemy.Animator.SetBool("IsAttacking", false);
+        if (!interactableEntity.CanInteract)
+        {
+            _enemy.SetTargetNull();
+            _enemy.FindTarget();
+        }
+        _enemy.ResumeNavMeshAgent();
     }
 }
