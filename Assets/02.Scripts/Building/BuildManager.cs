@@ -5,7 +5,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 {
     [Header("빌딩 프리팹")]
     public List<GameObject> BuildingPrefabs;        // 배치할 건물 프립팹
-    private Building _previewBuilding = null;     // 프리뷰용 건물
+    private ABaseBuilding _previewBuilding = null;       // 프리뷰용 건물
 
     [Header("프리뷰 건물 색")]
     public Color CanBuildColor = Color.white;
@@ -13,20 +13,20 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
 
     // 소환된 건물들
-    private PriorityQueue<Building, float> _buildingPriorityQueue;          // 활성화 된 건물 관리 우선순위 큐
-    private Stack<Building> _disabledBuildingStack;                         // 비활성화 된 건물 관리 스택
+    private PriorityQueue<ABaseBuilding, float> _buildingPriorityQueue;          // 활성화 된 건물 관리 우선순위 큐
+    private Stack<(ABaseBuilding, float)> _disabledBuildingStack;                // 비활성화 된 건물 관리 스택
     private Dictionary<BuildingType, List<int>> _buildingCountDicList;      // 건물 타입별 레벨별 개수
     
     // 건물별 데이터 리스트
     private ReadOnlyList<BuildData> _buildDataList;
-    // 건축 가능 구역 반지름 제곱
-    public float MaxSquareBuildDistance = 25f;
 
     private void Start()
     {
         // 데이터 받아오기
         Global.Instance.OnDataLoaded += _LoadBuildData;
 
+        // FireManager 범위 변경 이벤트 구독
+        FireManager.Instance.OnFireRangeChanged += UpdateFireRange;
     }
 
 
@@ -40,7 +40,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     private void Initialize()
     {
         // 우선순위 큐 초기화
-        _buildingPriorityQueue = new PriorityQueue<Building, float>();
+        _buildingPriorityQueue = new PriorityQueue<ABaseBuilding, float>();
 
         // 딕셔너리 리스트 초기화
         _buildingCountDicList = new Dictionary<BuildingType, List<int>>();
@@ -61,26 +61,11 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         }
 
         // 스택 초기화
-        _disabledBuildingStack = new Stack<Building>();
+        _disabledBuildingStack = new Stack<(ABaseBuilding, float)>();
     }
 
-    // 테스트 용
-    // public float FireRange = 5f;
     private void Update()
     {
-        //  *** 범위 테스트 용 코드
-        //if (Input.GetKey(KeyCode.A))
-        //{
-        //    FireRange -= Time.deltaTime;
-        //    UpdateFireRange(FireRange);
-        //}
-        //else if (Input.GetKey(KeyCode.D))
-        //{
-        //    FireRange += Time.deltaTime;
-        //    UpdateFireRange(FireRange);
-        //}
-        // ***
-
         // 현재 건물 짓는 모드인지 확인
         if (_previewBuilding == null)
         {
@@ -119,7 +104,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         Collider2D[] colliders = Physics2D.OverlapBoxAll(_previewBuilding.transform.position, _previewBuilding.GetComponent<BoxCollider2D>().size, 0);
         foreach (Collider2D collider in colliders)
         {
-            Building building = collider.GetComponent<Building>();
+            ABaseBuilding building = collider.GetComponent<ABaseBuilding>();
             if (building && building != _previewBuilding)
             {
                 return false;
@@ -128,7 +113,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
         // 2. 불에서부터의 거리 확인
         float distanceFromFire = Vector2.SqrMagnitude(_previewBuilding.transform.position);
-        if (distanceFromFire > MaxSquareBuildDistance)
+        if (!FireManager.Instance.IsWithInFireRange(distanceFromFire))
         {
             return false;
         }
@@ -143,11 +128,13 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         newBuilding.transform.position = _previewBuilding.transform.position;
 
         // 새로운 건물 설정
-        Building building = newBuilding.GetComponent<Building>();
+        ABaseBuilding building = newBuilding.GetComponent<ABaseBuilding>();
         if (building == null)
         {
             return;
         }
+
+        building.Initialize(_buildDataList[(int)building.BuildingType]);
 
         // 건물 관리용 우선순위 큐에 추가
         float distanceFromFire = Vector2.SqrMagnitude(_previewBuilding.transform.position);
@@ -168,7 +155,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         }
 
         GameObject newBuilding = Instantiate(BuildingPrefabs[(int)buildingType]);
-        _previewBuilding = newBuilding.GetComponent<Building>();
+        _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
     }
 
     public void StartBuildingHouse()
@@ -179,7 +166,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         }
 
         GameObject newBuilding = Instantiate(BuildingPrefabs[(int)BuildingType.House]);
-        _previewBuilding = newBuilding.GetComponent<Building>();
+        _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
     }
 
     public void EndBuildingMode()
@@ -188,59 +175,59 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         _previewBuilding = null;
     }
 
-    public void UpdateFireRange(float fireRadius)
+    // 업데이트 전 반지름
+    private float _lastUpdatedRange = 0f;
+    public void UpdateFireRange(float newRange)
     {
-        // 새로운 불의 반지름 제곱
-        float fireSquareRadius = Mathf.Pow(fireRadius, 2);
-
-        // 새로운 반지름이 원래 반지름보다 큰 경우 => 비활성화된 건물 활성화
-        if (fireSquareRadius > MaxSquareBuildDistance)
+        // 범위가 더 커진 경우=> 비활성화 -> 활성화
+        if (_lastUpdatedRange < newRange)
         {
+            // 비활성화 스택 검사
             while (_disabledBuildingStack.Count != 0)
             {
                 // 스택에서 장 상단에 있는 건물 받아오기
-                Building building = _disabledBuildingStack.Peek();
+                (ABaseBuilding, float) building = _disabledBuildingStack.Peek();
 
-                // 거리의 제곱 측정
-                float squareDistance = Vector2.SqrMagnitude(building.transform.position);
-                if (squareDistance > fireSquareRadius)
+                // 거리의 측정
+                if (!FireManager.Instance.IsWithInFireRange(-building.Item2))
                 {
-                    break;
+                    break;      // 제일 상단의 건물이 범위 밖이면 바로 while 문 종료
                 }
 
                 // 반지름 안쪽에 있는 경우 다시 활성화
                 _disabledBuildingStack.Pop();
-                _buildingPriorityQueue.Enqueue(building, -squareDistance);
-                building.ChangeColor(CanBuildColor);
+                _buildingPriorityQueue.Enqueue(building.Item1, building.Item2);
+                building.Item1.ChangeColor(CanBuildColor);
 
-                _buildingCountDicList[building.BuildingType][building.Level] += 1;
+                _buildingCountDicList[building.Item1.BuildingType][building.Item1.Level] += 1;
             }
         }
         else
         {
-            // 원래 반지름이 새로운 반지름보다 큰 경우 => 활성화 -> 비활성화
+            // 범위가 작아진 경우 => 활성화 -> 비활성화
+            // 활성화 우선순위 큐 검사
             while (_buildingPriorityQueue.Count != 0)
             {
                 // 거리까지 한 번에 받아오기
-                (Building, float) building = _buildingPriorityQueue.Dequeue();
+                (ABaseBuilding, float) building = _buildingPriorityQueue.Dequeue();
 
                 // 반지름 안쪽이면 멈추기
-                if (-building.Item2 <= fireSquareRadius)
+                if (FireManager.Instance.IsWithInFireRange(-building.Item2))
                 {
                     _buildingPriorityQueue.Enqueue(building.Item1, building.Item2);
-                    break;
+                    break;      // 제일 상단의 건물이 뻠위 안쪽이면 while 문 종료
                 }
 
                 // 반지름 바깥쪽이면 비활성화
-                _disabledBuildingStack.Push(building.Item1);
+                _disabledBuildingStack.Push(building);
 
                 building.Item1.ChangeColor(CannotBuildColor);
                 _buildingCountDicList[building.Item1.BuildingType][building.Item1.Level] -= 1;
-                
+
             }
         }
-        List<int> countList = _buildingCountDicList[BuildingType.House];
-        MaxSquareBuildDistance = fireSquareRadius;
+
+        _lastUpdatedRange = newRange;
     }
 
     public int GetBuildingCount(BuildingType type, int level)
