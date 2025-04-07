@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,14 +8,14 @@ public class UnitTool : MonoBehaviour
     private ATool _tool;
     public ATool Tool => _tool;
     private Unit _unit;
-    private Animator _animator;
+
+    public bool IsInteracting;
     
     private void Awake()
     {
         _unitStat = GetComponentInParent<UnitStat>();
         _unit = GetComponentInParent<Unit>();
         _tool = ToolManager.Instance.GetTool(ToolType.Sword);
-        _animator = GetComponent<Animator>();
     }
 
     public void SetTool(ATool tool)
@@ -33,16 +34,19 @@ public class UnitTool : MonoBehaviour
 
     public void StopNavMeshAgent()
     {
-        if (_unit.NavMeshAgent.enabled)
-        {
-            _unit.NavMeshAgent.isStopped = true;
-        }
+        _unit.StopNavMeshAgent();
     }
     public void ResumeNavMeshAgent()
     {
-        if (_unit.NavMeshAgent.enabled)
-        {
-            _unit.NavMeshAgent.isStopped = false;
-        }
+        _unit.ResumeNavMeshAgent();
+    }
+
+    public void StartInteract()
+    {
+        IsInteracting = true;
+    }
+    public void EndInteract()
+    {
+        IsInteracting = false;
     }
 }

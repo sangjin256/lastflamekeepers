@@ -27,7 +27,7 @@ public class AInteractableEntity : MonoBehaviour,IInteractable
     public virtual void TakeDamage(int amount, bool isHeal)
     {
         Health -= (isHeal)?-amount:amount;
-        Debug.Log($"{transform.name}: damage({amount}) health({Health})");
+        if(transform.CompareTag("Unit"))
         if(Health <= 0)
         {
             _canInteract = false;

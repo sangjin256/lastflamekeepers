@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class EnemySearchTrigger : MonoBehaviour
 {
@@ -43,9 +42,9 @@ public class EnemySearchTrigger : MonoBehaviour
             return;
         }
 
-        if (!interactableEntity.CanInteract)
-        {
-            _enemy.FindTarget();
-        }
+        //if (!interactableEntity.CanInteract)
+        //{
+        //    _enemy.FindTarget();
+        //}
     }
 }

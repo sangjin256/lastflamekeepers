@@ -28,23 +28,21 @@ public class EnemyInteractTrigger : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
+        //이럴상황이?
         if (interactableEntity == null)
         {
-            Debug.Log("1");
             return;
         }
         if (interactableEntity != _enemy.Target)
         {
-            Debug.Log("2");
             return;
         }
-        Debug.Log("3");
         _enemy.Animator.SetBool("IsAttacking", false);
-        if (!interactableEntity.CanInteract)
-        {
-            _enemy.SetTargetNull();
-            _enemy.FindTarget();
-        }
+
+        //도망가거나 죽은 경우 새로운 대상 탐색
+        //if (!interactableEntity.CanInteract)
         _enemy.ResumeNavMeshAgent();
+
+        _enemy.FindTarget();
     }
 }

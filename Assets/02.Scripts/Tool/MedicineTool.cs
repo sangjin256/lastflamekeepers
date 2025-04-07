@@ -14,6 +14,6 @@ public class MedicineTool : ATool
 
     public override void Interact(IInteractable interactObject, int damage)
     {
-        interactObject.TakeDamage(Value + damage, true);
+        interactObject.TakeDamage(Value, true);
     }
 }

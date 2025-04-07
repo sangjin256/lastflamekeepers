@@ -15,14 +15,13 @@ public class UnitSearchTrigger : MonoBehaviour
         {
             return;
         }
-        //if (!_tool.IsInteractable(interactable.InteractType))
-        //{
-        //    return;
-        //}
         if (!other.CompareTag("Enemy"))
         {
             return;
         }
+
+        _unit.SetTarget(other.GetComponent<AInteractableEntity>());
+
         if (_unit.NavMeshAgent.desiredVelocity == Vector3.zero)
         {
             _unit.SetTarget(other.GetComponent<AInteractableEntity>());
@@ -36,11 +35,6 @@ public class UnitSearchTrigger : MonoBehaviour
         if (interactableEntity.transform != _unit.Target)
         {
             return;
-        }
-
-        if (!interactableEntity.CanInteract)
-        {
-            _unit.FindTarget();
         }
     }
 

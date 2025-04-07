@@ -20,6 +20,7 @@ public class Enemy : AInteractableEntity
 
     public Transform Center;
     public bool IsFacingRight = true;
+    public bool MissTarget = false;
     private void Awake()
     {
         _enemyStat = GetComponent<EnemyStat>();
@@ -34,10 +35,27 @@ public class Enemy : AInteractableEntity
     }
     private void Start()
     {
-        _interactType = InteractType.Enemy;   
+        _interactType = InteractType.Enemy; 
+            InvokeRepeating(nameof(FindTarget),0, 1f);
+
     }
     private void Update()
     {
+        //if (MissTarget == false)
+        //{
+        //    if (_target == null)
+        //    {
+        //        MissTarget = true;
+        //    }
+        //}
+        //else
+        //{
+        //    if (MissTarget)
+        //    {
+        //        FindTarget();
+        //    }
+        //}
+        
         if ( _target == null)
         {
             //Target = Center;
@@ -114,6 +132,7 @@ public class Enemy : AInteractableEntity
             return;
         }
         SetTarget(minDistanceCollider.GetComponent<AInteractableEntity>());
+        MissTarget = false;
     }
 
     public bool CheckTargetInInteractTrigger()
@@ -148,15 +167,18 @@ public class Enemy : AInteractableEntity
     public override void TakeDamage(int amount, bool isHeal)
     {
         base.TakeDamage(amount, isHeal);
+        if (CanInteract)
+        {
+            return;
+        }
+        GetComponent<CircleCollider2D>().enabled = false;
+        _target = null;
+        _animator.SetTrigger("Die");
+        _navMeshAgent.enabled = false;
     }
 
     public void DestroyThis()
     {
         Destroy(gameObject);
-    }
-
-    public void SetTargetNull()
-    {
-        _target = null;
     }
 }

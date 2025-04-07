@@ -108,13 +108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bdb3363cff45c42bce9bee0735845a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
+  _health: 100
   _unitStat: {fileID: 0}
   _target: {fileID: 0}
-  IsInteracting: 0
-  ToolAnimatorList:
-  - {fileID: 9100000, guid: 3c74b3a3659cb88489a8726ba5c4c7c0, type: 2}
-  - {fileID: 22100000, guid: b9308088756ccfa4f9f33b7d26f036a4, type: 2}
+  MissTarget: 0
 --- !u!114 &8924370958228913697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,7 +139,7 @@ NavMeshAgent:
   m_Acceleration: 120
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.15
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
@@ -439,6 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082ca08cfcb803046a1474147dd1eb2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsInteracting: 0
 --- !u!1 &8596768775837799897
 GameObject:
   m_ObjectHideFlags: 0

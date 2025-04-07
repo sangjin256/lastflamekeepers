@@ -26,10 +26,8 @@ public class Unit : AInteractableEntity
 
     private bool IsMoving = true;
     private bool IsFacingRight = true;
-    public bool IsInteracting = false;
-    public bool IsDead = false;
-    //¿”Ω√
-    public List<RuntimeAnimatorController> ToolAnimatorList;
+    public bool MissTarget = false;
+
     private void Awake()
     {
         _unitStat = GetComponent<UnitStat>();
@@ -51,13 +49,28 @@ public class Unit : AInteractableEntity
     }
     private void Update()
     {
-        if (IsDead)
+        if (!CanInteract)
         {
             return;
         }
-        if(_target == null)
+        //if (MissTarget == false)
+        //{
+        //    if (_target == null)
+        //    {
+        //        MissTarget = true;
+        //    }
+        //}
+        //else
+        //{
+        //    if (MissTarget)
+        //    {
+                //FindTarget();
+                //Debug.Log("DDDDDD");
+            //}
+        //}
+        if (_target == null)
         {
-            if(_navMeshAgent.desiredVelocity != Vector3.zero)
+            if (_navMeshAgent.desiredVelocity != Vector3.zero)
             {
                 IsMoving = true;
             }
@@ -85,18 +98,24 @@ public class Unit : AInteractableEntity
             }
         }
 
-        if (IsInteracting || _target == null)
+        if (_target == null)
+        {
+            if (_navMeshAgent.desiredVelocity == Vector3.zero)
+            {
+                _animator.SetBool("IsRunning", false);
+            }
+        }
+        else if (_unitTool.IsInteracting)
         {
             _animator.SetBool("IsRunning", false);
         }
-
-        else
+        else if(!_unitTool.IsInteracting)
         {
             _animator.SetBool("IsRunning", true);
         }
 
         //∂•πŸ¥⁄ ¬Ôæ˙¿ª ∞ÊøÏ
-        if (_target == null &&_navMeshAgent.desiredVelocity.x != 0 && (_navMeshAgent.desiredVelocity.x > 0 ^ IsFacingRight))
+        if (_target == null && _navMeshAgent.desiredVelocity.x != 0 && (_navMeshAgent.desiredVelocity.x > 0 ^ IsFacingRight))
         {
             Flip();
         }
@@ -114,7 +133,7 @@ public class Unit : AInteractableEntity
 
     public void SetTarget(AInteractableEntity interactable)
     {
-        if (IsDead)
+        if (!CanInteract)
         {
             return;
         }
@@ -128,14 +147,23 @@ public class Unit : AInteractableEntity
         {
             StopNavMeshAgent();
             _toolAnimator.SetBool("IsInteracting", true);
-            
-            IsInteracting = true;
         }
+    }
+
+    public void SetTarget(Vector2 point)
+    {
+        if (!CanInteract)
+        {
+            return;
+        }
+
+        _navMeshAgent.SetDestination(point);
+        _target = null;
     }
 
     public void SetTarget(Transform point)
     {
-        if (IsDead)
+        if (!CanInteract)
         {
             return;
         }
@@ -144,9 +172,14 @@ public class Unit : AInteractableEntity
         _target = null;
     }
 
+    public void SetTargetNull()
+    {
+        _target = null;
+    }
+
     public void FindTarget()
     {
-        if (IsDead)
+        if (!CanInteract)
         {
             return;
         }
@@ -160,12 +193,12 @@ public class Unit : AInteractableEntity
         Collider2D minDistanceCollider = null;
         foreach (Collider2D collider in colliders)
         {
-            if(collider.transform == transform)
+            if (collider.transform == transform)
             {
                 continue;
             }
             //if (!_tool.IsInteractable(collider.GetComponent<AInteractableEntity>().InteractType))
-            if(collider.CompareTag("Enemy"))
+            if (collider.CompareTag("Enemy"))
             {
                 continue;
             }
@@ -180,6 +213,7 @@ public class Unit : AInteractableEntity
             return;
         }
         SetTarget(minDistanceCollider.GetComponent<AInteractableEntity>());
+        MissTarget = false;
     }
 
     public bool CheckTargetInInteractTrigger()
@@ -212,14 +246,11 @@ public class Unit : AInteractableEntity
         }
     }
 
-    //Animation event
-
-
-
-
     public override void TakeDamage(int amount, bool isHeal)
     {
         base.TakeDamage(amount, isHeal);
+        Debug.Log($"{transform.name}: damage({amount}) health({Health})");
+
         if (CanInteract)
         {
             return;
@@ -235,10 +266,22 @@ public class Unit : AInteractableEntity
     public void SetTool(ATool tool)
     {
         _unitTool.SetTool(tool);
+        if (_target != null && !_unitTool.Tool.IsInteractable(_target.InteractType))
+        {
+            SetTargetNull();
+            SetTarget(transform.position);
+        }
+    }
+
+    public void SetTool(int tool)
+    {
+        _unitTool.SetTool(ToolManager.Instance.GetTool((ToolType)tool));
+        SetTargetNull();
     }
 
     public void DestroyThis()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
+        UnitManager.Instance.DestroyUnit(this);
     }
 }
