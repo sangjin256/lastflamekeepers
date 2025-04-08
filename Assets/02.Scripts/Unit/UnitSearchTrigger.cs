@@ -3,15 +3,16 @@ using UnityEngine;
 public class UnitSearchTrigger : MonoBehaviour
 {
     private Unit _unit;
-
+    private UnitTool _unitTool;
     private void Awake()
     {
         _unit = GetComponentInParent<Unit>();
+        //_unitTool = GetComponenet
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(_unit.UnitTool.Tool.ToolType != ToolType.Sword)
+        if(_unitTool.Tool.ToolType != ToolType.Sword)
         {
             return;
         }

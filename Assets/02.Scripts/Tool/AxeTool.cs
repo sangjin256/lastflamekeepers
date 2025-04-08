@@ -7,6 +7,7 @@ public class AxeTool : ATool
     public override bool IsInteractable(InteractType interactType)
     {
         if (interactType == InteractType.Tree) return true;
+        // TODO: 자원 풀 확인
         return false;
     }
 

@@ -22,14 +22,4 @@ public abstract class AResource : AInteractableEntity
         OutputType = resource.OutputType;
         RespawnTime = resource.RespawnTime;
     }
-
-    public override void TakeDamage(int amount, bool isHeal)
-    {
-        base.TakeDamage(amount, isHeal);
-        if (CanInteract)
-        {
-            return;
-        }
-        gameObject.SetActive(false);
-    }
 }

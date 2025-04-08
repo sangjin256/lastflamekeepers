@@ -9,6 +9,7 @@ public class PickAxeTool : ATool
     public override bool IsInteractable(InteractType interactType)
     {
         if (interactType == InteractType.Rock) return true;
+        // TODO: 자원 풀 확인
         return false;
     }
 

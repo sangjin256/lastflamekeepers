@@ -1,3 +1,4 @@
+using NavMeshPlus.Extensions;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class UnitTool : MonoBehaviour
     public List<AnimationClip> SwordAnimationClip;
     public List<AnimationClip> AxeAnimationClip;
     public List<AnimationClip> PickaxeAnimationClip;
+
+    public AnimationClip[,,] ToolAnimationClip;
 
     private Animator _animator;
     public AnimatorOverrideController overrideController;
@@ -43,30 +46,25 @@ public class UnitTool : MonoBehaviour
         {
             case ToolType.Sword:
             {
-                overrideController["Idle"] = SwordAnimationClip[0];
-                overrideController["Interact"] = SwordAnimationClip[1];
-
                 _animator.SetFloat("InteractSpeed", _unitStat.AttackSpeed.Value / 10);
                 break;
             }
             case ToolType.Axe:
             {
-                overrideController["Idle"] = AxeAnimationClip[0];
-                overrideController["Interact"] = AxeAnimationClip[1];
                 _animator.SetFloat("InteractSpeed", _unitStat.WoodSpeed.Value / 10 + _tool.Value);
                 break;
             }
             case ToolType.PickAxe:
             {
-                overrideController["Idle"] = PickaxeAnimationClip[0];
-                overrideController["Interact"] = PickaxeAnimationClip[1];
                 _animator.SetFloat("InteractSpeed", _unitStat.RockSpeed.Value / 10 + _tool.Value);
-
                 break;
             }
         }
+        overrideController["Idle"] = ToolAnimationClip[(int)_tool.ToolType, _tool.UpgradeLevel, 0];
+        overrideController["Interact"] = ToolAnimationClip[(int)_tool.ToolType, _tool.UpgradeLevel, 1];
 
         IsInteracting = false;
+        _animator.SetBool("IsInteracting", false);
     }
 
     public void Interact()
