@@ -17,20 +17,21 @@ public class House : ABaseBuilding
         Debug.Log($"Unit : {_unitCapacity}");
     }
 
-    public override void UpgradeBuilding()
+    public override bool UpgradeBuilding()
     {
-        base.UpgradeBuilding();
+        bool upgradeSuccess = base.UpgradeBuilding();
 
-        if (Level >= _buildData.Upgrade_AddValueList.Count - 1)
+        if (!upgradeSuccess)
         {
-            Debug.Log($"Unit : {_unitCapacity}");
-            return;
+            return false;
         }
 
         // TODO : Unit 최댓값 증가
         _unitCapacity += _buildData.Upgrade_AddValueList[Level];
 
         Debug.Log($"Unit : {_unitCapacity}");
+
+        return true;
     }
 
     public override void SetActive(bool active)

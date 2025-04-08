@@ -22,14 +22,13 @@ public class Forge : ABaseBuilding
         _toolCapacity = buildData.Upgrade_AddValueList[0];
     }
 
-    public override void UpgradeBuilding()
+    public override bool UpgradeBuilding()
     {
-        base.UpgradeBuilding();
+        bool upgradeSuccess = base.UpgradeBuilding();
 
-        if (Level >= _buildData.Upgrade_AddValueList.Count - 1)
+        if (!upgradeSuccess)
         {
-            Debug.Log($"Max Upgrade");
-            return;
+            return false;
         }
 
         // ToolManager의 Tool 최댓값 증가
@@ -37,6 +36,8 @@ public class Forge : ABaseBuilding
         _toolCapacity += _buildData.Upgrade_AddValueList[Level];
 
         Debug.Log($"{_toolType} : {_toolCapacity}");
+
+        return true;
     }
 
     public override void SetActive(bool active)

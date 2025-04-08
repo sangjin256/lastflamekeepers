@@ -24,7 +24,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     private Dictionary<BuildingType, BuildData> _buildDataDic;
 
     // 건물 설치 비용
-    private Dictionary<BuildingType, List<int>> _requiredResourcesList;
+    private Dictionary<BuildingType, List<int>> _requiredResourcesDicList;
 
     public void ChangeIsCompleteSelectForgeToolType(bool isCompleteSelectForgeToolType)
     {
@@ -49,10 +49,12 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
         // BuildData를 Dictionary로 저장
         _buildDataDic = new Dictionary<BuildingType, BuildData>();
+        _requiredResourcesDicList = new Dictionary<BuildingType, List<int>>();
 
         foreach (BuildData buildData in _buildDataList)
         {
             _buildDataDic[buildData.BuildingType] = buildData;
+            _requiredResourcesDicList[buildData.BuildingType] = new List<int> { buildData.WoodCount, buildData.StoneCount };
         }
 
         Initialize();
@@ -83,6 +85,11 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
         // 스택 초기화
         _disabledBuildingStack = new Stack<(ABaseBuilding, float)>();
+
+        //// ****************** 테스트 용 ******************
+        //InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, 10);
+        //InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Stone, 10);
+        //// **********************************************
     }
 
     private void Update()
@@ -213,7 +220,9 @@ public class BuildManager : BehaviourSingleton<BuildManager>
             return;
         }
 
-        if (buildingTypeWithTool == (int)BuildingType.Laboratory && _isLaboratoryBuilded)
+        BuildingType buildingType = (BuildingType)buildingTypeWithTool;
+
+        if (buildingType == BuildingType.Laboratory && _isLaboratoryBuilded)
         {
             Debug.Log("[박우영]연구소는 한 개만 생성 가능합니다!");
             // TODO : 팝업 창으로 안내 메세지
@@ -221,7 +230,23 @@ public class BuildManager : BehaviourSingleton<BuildManager>
             return;
         }
 
-        GameObject newBuilding = Instantiate(BuildingPrefabs[(int)buildingTypeWithTool]);
+        // 자원 소모 체크
+        bool canBuild = true;
+        canBuild = InventoryResourceManager.Instance.TryRemoveCurrentResourceCount(InventoryResourceType.Wood, _requiredResourcesDicList[buildingType][0]);
+        if (!canBuild)
+        {
+            Debug.Log("나무 자원 부족");
+            return;
+        }
+        canBuild = InventoryResourceManager.Instance.TryRemoveCurrentResourceCount(InventoryResourceType.Stone, _requiredResourcesDicList[buildingType][1]);
+        if (!canBuild)
+        {
+            Debug.Log("돌 자원 부족");
+            return;
+        }
+
+
+        GameObject newBuilding = Instantiate(BuildingPrefabs[buildingTypeWithTool]);
         _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
     }
 
