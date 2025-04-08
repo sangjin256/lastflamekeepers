@@ -17,6 +17,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     private Stack<(ABaseBuilding, float)> _disabledBuildingStack;                                           // 비활성화 된 건물 관리 스택
     private Dictionary<BuildingType, List<LinkedList<ABaseBuilding>>> _buildingDicListLinkedList;           // 전체 건물 타입별 레벨 별 딕셔너리
     private bool _isLaboratoryBuilded = false;
+    private bool _isCompleteSelectForgeToolType = true;
     
     // 건물별 데이터 리스트
     private ReadOnlyList<BuildData> _buildDataList;
@@ -24,6 +25,11 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
     // 건물 설치 비용
     private Dictionary<BuildingType, List<int>> _requiredResourcesList;
+
+    public void ChangeIsCompleteSelectForgeToolType(bool isCompleteSelectForgeToolType)
+    {
+        _isCompleteSelectForgeToolType = isCompleteSelectForgeToolType;
+    }
 
     private void Start()
     {
@@ -198,6 +204,12 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
         if (_previewBuilding != null)
         {
+            return;
+        }
+
+        if (!_isCompleteSelectForgeToolType)
+        {
+            Debug.Log("[박우영] 아직 대장간의 타입을 정해주지 않았습니다.");
             return;
         }
 
