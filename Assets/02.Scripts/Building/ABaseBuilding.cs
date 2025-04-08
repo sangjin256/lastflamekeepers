@@ -14,7 +14,8 @@ public abstract class ABaseBuilding : MonoBehaviour
     // 빌딩 활성화 여부
     protected bool _isActive = true;
 
-    // 레벨 
+    // 레벨
+    private int _maxLevel;
     private int _level = 0;
     public int Level => _level;
 
@@ -36,9 +37,10 @@ public abstract class ABaseBuilding : MonoBehaviour
         _isActive = true;
 
         _requiredResourcesList = new List<List<int>>();
-        for (int i = 0; i < buildData.Upgrade_AddValueList.Count; i++)
+        _maxLevel = buildData.Upgrade_AddValueList.Count;
+        for (int i = 0; i < _maxLevel; i++)
         {
-            _requiredResourcesList.Add(new List<int>());
+            _requiredResourcesList.Add(new List<int> { buildData.Upgrade_WoodCountList[i], buildData.Upgrade_StoneCountList[i] });
         }
     }
 
@@ -47,16 +49,40 @@ public abstract class ABaseBuilding : MonoBehaviour
         _spriteRenderer.color = color;
     }
     
-    public virtual void UpgradeBuilding()
+    public virtual bool UpgradeBuilding()
     {
-        if (_level >= _buildData.Upgrade_AddValueList.Count - 1)
+        if (_level >= _maxLevel - 1)
         {
-            return;
+            Debug.Log("MaxLevel");
+            return false;
         }
 
+        if (InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, _requiredResourcesList[_level][0]))
+        {
+            Debug.Log("나무 자원 부족");
+            return false;
+        }
+
+        if (InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Stone, _requiredResourcesList[_level][1]))
+        {
+            Debug.Log("돌 자원 부족");
+            return false;
+        }
         _level += 1;
 
         BuildManager.Instance.UpgradeBuilding(this);
+
+        return true;
+    }
+
+    public List<int> GetCurrentRequiredResourcesList()
+    {
+        if (_level > _maxLevel)
+        {
+            return null;
+        }
+
+        return _requiredResourcesList[_level];
     }
 
     public abstract void SetActive(bool active);

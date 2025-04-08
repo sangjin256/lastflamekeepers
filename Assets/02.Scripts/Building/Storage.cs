@@ -17,14 +17,13 @@ public class Storage : ABaseBuilding
         Debug.Log($"Max Resource Count : {_resourceCapacity}");
     }
 
-    public override void UpgradeBuilding()
+    public override bool UpgradeBuilding()
     {
-        base.UpgradeBuilding();
+        bool upgradeSuccess = base.UpgradeBuilding();
 
-        if (Level >= _buildData.Upgrade_AddValueList.Count - 1)
+        if (!upgradeSuccess)
         {
-            Debug.Log($"Max Upgrade");
-            return;
+            return false;
         }
 
         // 모든 최대 자원 수 변경
@@ -33,6 +32,8 @@ public class Storage : ABaseBuilding
         _resourceCapacity += _buildData.Upgrade_AddValueList[Level];
 
         Debug.Log($"Max Resource Count : {_resourceCapacity}");
+        
+        return true;
     }
 
     public override void SetActive(bool active)

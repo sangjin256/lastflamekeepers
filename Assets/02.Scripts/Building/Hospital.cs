@@ -19,14 +19,13 @@ public class Hospital : ABaseBuilding
         Debug.Log($"Medicine : {_medicineCapacity}");
     }
 
-    public override void UpgradeBuilding()
+    public override bool UpgradeBuilding()
     {
-        base.UpgradeBuilding();
+        bool upgradeSuccess = base.UpgradeBuilding();
 
-        if (Level >= _buildData.Upgrade_AddValueList.Count - 1)
+        if (!upgradeSuccess)
         {
-            Debug.Log($"Max Upgrade");
-            return;
+            return false;
         }
 
         // ToolManager의 Medicine 최댓값 증가
@@ -34,6 +33,8 @@ public class Hospital : ABaseBuilding
         _medicineCapacity += _buildData.Upgrade_AddValueList[Level];
 
         Debug.Log($"Medicine : {_medicineCapacity}");
+
+        return true;
     }
 
     public override void SetActive(bool active)
