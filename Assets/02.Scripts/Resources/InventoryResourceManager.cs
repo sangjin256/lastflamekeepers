@@ -15,6 +15,21 @@ public class InventoryResourceManager : BehaviourSingleton<InventoryResourceMana
         Global.Instance.OnDataLoaded += LoadInvenResourceDefinitions;
     }
 
+    public bool IsResourceFull(InteractType type)
+    {
+        if(type == InteractType.Tree)
+        {
+            if (_currentResource[InventoryResourceType.Wood] >= _maxResource[InventoryResourceType.Wood]) return true;
+            else return false;
+        }
+        else if(type == InteractType.Rock)
+        {
+            if (_currentResource[InventoryResourceType.Stone] >= _maxResource[InventoryResourceType.Stone]) return true;
+            else return false;
+        }
+        return true;
+    }
+
     private void LoadInvenResourceDefinitions()
     {
         _invenresourceDataDict = new Dictionary<InventoryResourceType, AInvenResource>();

@@ -11,6 +11,9 @@ public abstract class AResource : AInteractableEntity
     public InventoryResourceType OutputType;
     public float RespawnTime;
 
+    public int HitCount = 0;
+    public const int HitMaxCount = 3;
+
     public void Initialize(ResourceType resourceType)
     {
         FieldResourceData resource = ResourceManager.Instance.GetResource(resourceType);
@@ -21,15 +24,5 @@ public abstract class AResource : AInteractableEntity
         OutputAmountPerExtract = resource.OutputAmountPerExtract;
         OutputType = resource.OutputType;
         RespawnTime = resource.RespawnTime;
-    }
-
-    public override void TakeDamage(int amount, bool isHeal)
-    {
-        base.TakeDamage(amount, isHeal);
-        if (CanInteract)
-        {
-            return;
-        }
-        gameObject.SetActive(false);
     }
 }
