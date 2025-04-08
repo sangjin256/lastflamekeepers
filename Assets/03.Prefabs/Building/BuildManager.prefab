@@ -46,6 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildingPrefabs:
   - {fileID: 6367128936733885069, guid: 78313ef9928485442b037cdebfaca587, type: 3}
+  - {fileID: 1069039958566866778, guid: 9ce352c06826b19468e4171bd87ba22a, type: 3}
+  - {fileID: 5710107533802132493, guid: a3853cbe8c20b1a498df99fd46dc09aa, type: 3}
+  - {fileID: 6141659355381321055, guid: 291a550f14263a64a8c9b60c29198749, type: 3}
+  - {fileID: 1302084077083264215, guid: 5533b0841bae584428711bce486cc869, type: 3}
   CanBuildColor: {r: 1, g: 1, b: 1, a: 1}
   CannotBuildColor: {r: 1, g: 0, b: 0, a: 1}
-  MaxSquareBuildDistance: 25

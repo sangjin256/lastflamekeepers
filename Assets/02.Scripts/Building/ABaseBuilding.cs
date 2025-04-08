@@ -11,6 +11,9 @@ public abstract class ABaseBuilding : MonoBehaviour
     // 빌딩 데이터
     protected BuildData _buildData;
 
+    // 빌딩 활성화 여부
+    protected bool _isActive = true;
+
     // 레벨 
     private int _level = 0;
     public int Level => _level;
@@ -30,8 +33,13 @@ public abstract class ABaseBuilding : MonoBehaviour
     public virtual void Initialize(BuildData buildData)
     {
         _buildData = buildData;
+        _isActive = true;
 
-
+        _requiredResourcesList = new List<List<int>>();
+        for (int i = 0; i < buildData.Upgrade_AddValueList.Count; i++)
+        {
+            _requiredResourcesList.Add(new List<int>());
+        }
     }
 
     public void ChangeColor(Color color)
@@ -47,5 +55,9 @@ public abstract class ABaseBuilding : MonoBehaviour
         }
 
         _level += 1;
+
+        BuildManager.Instance.UpgradeBuilding(this);
     }
+
+    public abstract void SetActive(bool active);
 }

@@ -13,12 +13,17 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
 
     // 소환된 건물들
-    private PriorityQueue<ABaseBuilding, float> _buildingPriorityQueue;          // 활성화 된 건물 관리 우선순위 큐
-    private Stack<(ABaseBuilding, float)> _disabledBuildingStack;                // 비활성화 된 건물 관리 스택
-    private Dictionary<BuildingType, List<int>> _buildingCountDicList;      // 건물 타입별 레벨별 개수
+    private PriorityQueue<ABaseBuilding, float> _buildingPriorityQueue;                                     // 활성화 된 건물 관리 우선순위 큐
+    private Stack<(ABaseBuilding, float)> _disabledBuildingStack;                                           // 비활성화 된 건물 관리 스택
+    private Dictionary<BuildingType, List<LinkedList<ABaseBuilding>>> _buildingDicListLinkedList;           // 전체 건물 타입별 레벨 별 딕셔너리
+    private bool _isLaboratoryBuilded = false;
     
     // 건물별 데이터 리스트
     private ReadOnlyList<BuildData> _buildDataList;
+    private Dictionary<BuildingType, BuildData> _buildDataDic;
+
+    // 건물 설치 비용
+    private Dictionary<BuildingType, List<int>> _requiredResourcesList;
 
     private void Start()
     {
@@ -27,12 +32,22 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
         // FireManager 범위 변경 이벤트 구독
         FireManager.Instance.OnFireRangeChanged += UpdateFireRange;
+
+        _isLaboratoryBuilded = false;
     }
 
 
     public void _LoadBuildData()
     {
         _buildDataList = DataTable.Instance.GetBuildDataList();
+
+        // BuildData를 Dictionary로 저장
+        _buildDataDic = new Dictionary<BuildingType, BuildData>();
+
+        foreach (BuildData buildData in _buildDataList)
+        {
+            _buildDataDic[buildData.BuildingType] = buildData;
+        }
 
         Initialize();
     }
@@ -43,21 +58,21 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         _buildingPriorityQueue = new PriorityQueue<ABaseBuilding, float>();
 
         // 딕셔너리 리스트 초기화
-        _buildingCountDicList = new Dictionary<BuildingType, List<int>>();
+        _buildingDicListLinkedList = new Dictionary<BuildingType, List<LinkedList<ABaseBuilding>>>();
         // TODO : 건물 추가 시 BuildingType.Count 추가 및 수정
+        Debug.Log("[박우영]BuildingType Enum의 마지막이 Forge인지 확인하시오");
         for (int i = 0; i <= (int)BuildingType.Forge; i++)
         {
             // 레벨의 크기만큼 리스트 초기화
-            int upgradeCount = _buildDataList[0].Upgrade_AddValueList.Count;
-            List<int> levelCount = new List<int>(upgradeCount);
+            int upgradeCount = _buildDataList[0].Upgrade_AddValueList.Count + 1;
+            List<LinkedList<ABaseBuilding>> buildingList = new List<LinkedList<ABaseBuilding>>();
 
             for (int j = 0; j < upgradeCount; j++)
             {
-                levelCount.Add(0);
+                buildingList.Add(new LinkedList<ABaseBuilding>());
             }
 
-            // 건물 타입별 딕셔너리 리스트 추가
-            _buildingCountDicList.Add((BuildingType)i, levelCount);
+            _buildingDicListLinkedList[(BuildingType)i] = buildingList;
         }
 
         // 스택 초기화
@@ -69,6 +84,12 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         // 현재 건물 짓는 모드인지 확인
         if (_previewBuilding == null)
         {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            EndBuildingMode();
             return;
         }
         
@@ -104,8 +125,15 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         Collider2D[] colliders = Physics2D.OverlapBoxAll(_previewBuilding.transform.position, _previewBuilding.GetComponent<BoxCollider2D>().size, 0);
         foreach (Collider2D collider in colliders)
         {
-            ABaseBuilding building = collider.GetComponent<ABaseBuilding>();
-            if (building && building != _previewBuilding)
+            if (collider.CompareTag("Building"))
+            {
+                ABaseBuilding building = collider.GetComponent<ABaseBuilding>();
+                if (building && building != _previewBuilding)
+                {
+                    return false;
+                }
+            }
+            else if (collider.CompareTag("Fire") || collider.CompareTag("Water"))
             {
                 return false;
             }
@@ -134,38 +162,54 @@ public class BuildManager : BehaviourSingleton<BuildManager>
             return;
         }
 
-        building.Initialize(_buildDataList[(int)building.BuildingType]);
+        // 건물 초기화
+        building.Initialize(_buildDataDic[building.BuildingType]);
 
+        if (building.BuildingType == BuildingType.Forge)
+        {
+            Forge forge = (Forge)building;
+            forge.SetButton();
+            forge.OpenSelectToolTypeUI();
+        }
+        
         // 건물 관리용 우선순위 큐에 추가
         float distanceFromFire = Vector2.SqrMagnitude(_previewBuilding.transform.position);
         _buildingPriorityQueue.Enqueue(building, -distanceFromFire);
 
-        // 건물 개수 리스트에 값 추가
-        _buildingCountDicList[building.BuildingType][0] += 1;
+        // 건물 딕셔너리 리스트에 값 추가
+        _buildingDicListLinkedList[building.BuildingType][building.Level].AddLast(building);
+
+        if (building.BuildingType == BuildingType.Laboratory)
+        {
+            _isLaboratoryBuilded = true;
+        }
 
         // 기존 프리뷰 건물 제거
         EndBuildingMode();
     }
 
-    public void StartBuildingMode(BuildingType buildingType)
+    public void StartBuildingMode(int buildingTypeWithTool)
     {
+        if (buildingTypeWithTool > (int)BuildingType.Forge)
+        {
+            Debug.Log("[박우영]BuildingType 범위 밖입니다. 실행을 종료하고, 버튼의 OnClick() 메서드를 잘 확인하세요");
+            return;
+        }
+
         if (_previewBuilding != null)
         {
             return;
         }
 
-        GameObject newBuilding = Instantiate(BuildingPrefabs[(int)buildingType]);
-        _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
-    }
-
-    public void StartBuildingHouse()
-    {
-        if (_previewBuilding != null)
+        if (buildingTypeWithTool == (int)BuildingType.Laboratory && _isLaboratoryBuilded)
         {
+            Debug.Log("[박우영]연구소는 한 개만 생성 가능합니다!");
+            // TODO : 팝업 창으로 안내 메세지
+
             return;
         }
 
-        GameObject newBuilding = Instantiate(BuildingPrefabs[(int)BuildingType.House]);
+        GameObject newBuilding = Instantiate(BuildingPrefabs[(int)buildingTypeWithTool]);
         _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
     }
 
@@ -199,7 +243,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
                 _buildingPriorityQueue.Enqueue(building.Item1, building.Item2);
                 building.Item1.ChangeColor(CanBuildColor);
 
-                _buildingCountDicList[building.Item1.BuildingType][building.Item1.Level] += 1;
+                building.Item1.SetActive(true);
             }
         }
         else
@@ -222,16 +266,22 @@ public class BuildManager : BehaviourSingleton<BuildManager>
                 _disabledBuildingStack.Push(building);
 
                 building.Item1.ChangeColor(CannotBuildColor);
-                _buildingCountDicList[building.Item1.BuildingType][building.Item1.Level] -= 1;
-
+                
+                building.Item1.SetActive(false);
             }
         }
 
         _lastUpdatedRange = newRange;
     }
 
-    public int GetBuildingCount(BuildingType type, int level)
+    public List<LinkedList<ABaseBuilding>> GetBuildingList(BuildingType type)
     {
-        return _buildingCountDicList[type][level];
+        return _buildingDicListLinkedList[type];
+    }
+
+    public void UpgradeBuilding(ABaseBuilding building)
+    {
+        _buildingDicListLinkedList[building.BuildingType][building.Level - 1].Remove(building);
+        _buildingDicListLinkedList[building.BuildingType][building.Level].AddLast(building);
     }
 }
