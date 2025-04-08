@@ -9,6 +9,7 @@ public class UntDrag : MonoBehaviour
     Rect SelectionBox;
 
     Vector2 StartPosition;
+    Vector2 StartWorldPosition;
     Vector2 EndPosition;
 
     private void Start()
@@ -22,6 +23,7 @@ public class UntDrag : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             StartPosition = Input.mousePosition;
+            StartWorldPosition = Camera.main.ScreenToWorldPoint(StartPosition);
             SelectionBox = new Rect();
         }
 
@@ -31,24 +33,32 @@ public class UntDrag : MonoBehaviour
 
             SelectUnits();
             EndPosition = Input.mousePosition;
-            DrawVisual();
+            DrawVisual(true);
             DrawSelection();
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            StartPosition = Vector2.zero;
+            StartPosition =  Vector2.zero;
+            StartWorldPosition = Vector2.zero;
             EndPosition = Vector2.zero;
-            DrawVisual();
+            DrawVisual(false);
 
             UnitSelectionManager.Instance.SetDrag(false);
         }
     }
 
-    private void DrawVisual()
+    private void DrawVisual(bool isEnable)
     {
-        Vector2 boxStart = StartPosition - new Vector2(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
+        Vector2 boxStart = (Vector2)Camera.main.WorldToScreenPoint(StartWorldPosition) - new Vector2(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
         Vector2 boxEnd = EndPosition - new Vector2(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
+        if (isEnable == false)
+        {
+            boxStart = StartPosition;
+            boxEnd = EndPosition;
+        }
+        
+        Debug.Log(StartWorldPosition + " " + boxEnd);
 
         Vector2 boxCenter = (boxStart + boxEnd) / 2;
         BoxVisual.anchoredPosition = boxCenter;
@@ -60,26 +70,27 @@ public class UntDrag : MonoBehaviour
 
     private void DrawSelection()
     {
+        Vector2 startScreenPosition = Camera.main.WorldToScreenPoint(StartWorldPosition);
         Vector2 InputMousePosition = Input.mousePosition;
-        if (InputMousePosition.x < StartPosition.x)
+        if (InputMousePosition.x < startScreenPosition.x)
         {
             SelectionBox.xMin = InputMousePosition.x;
-            SelectionBox.xMax = StartPosition.x;
+            SelectionBox.xMax = startScreenPosition.x;
         }
         else
         {
-            SelectionBox.xMin = StartPosition.x;
+            SelectionBox.xMin = startScreenPosition.x;
             SelectionBox.xMax = InputMousePosition.x;
         }
 
-        if (InputMousePosition.y < StartPosition.y)
+        if (InputMousePosition.y < startScreenPosition.y)
         {
             SelectionBox.yMin = InputMousePosition.y;
-            SelectionBox.yMax = StartPosition.y;
+            SelectionBox.yMax = startScreenPosition.y;
         }
         else
         {
-            SelectionBox.yMin = StartPosition.y;
+            SelectionBox.yMin = startScreenPosition.y;
             SelectionBox.yMax = InputMousePosition.y;
         }
     }
