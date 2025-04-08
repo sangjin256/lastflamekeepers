@@ -55,14 +55,15 @@ public class ClickSystem : MonoBehaviour
                 {
                     UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(WorldMousePosition));
                 }
-                else if (hit.collider.transform.CompareTag("Enemy"))
+                else if (hit.collider.transform.parent.CompareTag("Enemy"))
                 {
-                    //UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(hit.collider.GetComponent<AInteractableEntityTest>()));
+                    UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(hit.collider.GetComponentInParent<AInteractableEntity>()));
                     Debug.Log("여기 채워야됨");
                 }
-                else if (hit.collider.transform.CompareTag("Resource"))
+                else if (hit.collider.transform.parent.CompareTag("Resource"))
                 {
-                    Debug.Log("여기 채워야됨");
+                    UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(hit.collider.GetComponentInParent<AInteractableEntity>()));
+
                 }
             }
         }
