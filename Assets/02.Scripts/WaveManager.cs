@@ -32,6 +32,8 @@ public class WaveManager : BehaviourSingleton<WaveManager>
             yield return StartWave();
             CurrentWaveNum++;
 
+            while (_currentEnemyCount > 0) yield return null;
+
             if (WaveDataDic.ContainsKey(CurrentWaveNum) == false) break;
         }
     }

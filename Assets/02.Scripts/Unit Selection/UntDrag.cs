@@ -57,8 +57,6 @@ public class UntDrag : MonoBehaviour
             boxStart = StartPosition;
             boxEnd = EndPosition;
         }
-        
-        Debug.Log(StartWorldPosition + " " + boxEnd);
 
         Vector2 boxCenter = (boxStart + boxEnd) / 2;
         BoxVisual.anchoredPosition = boxCenter;

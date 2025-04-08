@@ -7,6 +7,7 @@ using UnityEngine.Rendering.Universal;
 
 public class FireManager : BehaviourSingleton<FireManager>
 {
+    private Light2D _outerLight;
 
     [Header("불 범위 설정")]
     [SerializeField] float MaxRange = 20f;
@@ -24,6 +25,7 @@ public class FireManager : BehaviourSingleton<FireManager>
     private void Start()
     {
         _fireLight = GetComponent<Light2D>();
+        _outerLight = transform.GetChild(0).GetComponent<Light2D>();
     }
 
     private void SetFireRange(float range)
@@ -34,6 +36,9 @@ public class FireManager : BehaviourSingleton<FireManager>
 
         _fireLight.pointLightInnerRadius = _innerRange;
         _fireLight.pointLightOuterRadius = CurrentRange;
+
+        _outerLight.pointLightInnerRadius = _innerRange;
+        _outerLight.pointLightOuterAngle = CurrentRange + 1.5f;
 
         // 범위 변경 이벤트 발생
         OnFireRangeChanged?.Invoke(CurrentRange);
