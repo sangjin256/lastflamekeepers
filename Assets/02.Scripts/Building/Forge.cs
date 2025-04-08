@@ -68,11 +68,12 @@ public class Forge : ABaseBuilding
 
     public void OpenSelectToolTypeUI()
     {
-
         foreach (Button button in _buttons)
         {
             button.gameObject.SetActive(true);
         }
+
+        BuildManager.Instance.ChangeIsCompleteSelectForgeToolType(false);
     }
 
     private void CloseSelectToolTypeUI()
@@ -81,6 +82,7 @@ public class Forge : ABaseBuilding
         {
             button.gameObject.SetActive(false);
         }
+
     }
 
     public void SetToolType(int toolType)
@@ -94,6 +96,8 @@ public class Forge : ABaseBuilding
 
         // ToolManager의 Tool 최댓값 증가
         ToolManager.Instance.AddMaxToolCount(_toolType, _toolCapacity);
+
+        BuildManager.Instance.ChangeIsCompleteSelectForgeToolType(true);
 
         Debug.Log($"{_toolType} : {_toolCapacity}");
 
