@@ -90,6 +90,7 @@ public class WaveManager : BehaviourSingleton<WaveManager>
 
             EnemyStat enemyStat = Instantiate(EnemyPrefab[0], spawnPoint, Quaternion.identity).GetComponent<EnemyStat>();
             enemyStat.Initialize(health, damage);
+            _currentEnemyCount++;
             spawned++;
         }
 
@@ -99,7 +100,6 @@ public class WaveManager : BehaviourSingleton<WaveManager>
     public void OnEnemyDeath()
     {
         _currentEnemyCount--;
-
     }
     private void _LoadWaveData()
     {
