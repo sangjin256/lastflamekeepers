@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class EnemyStat : MonoBehaviour
 {
-    public int Health;
-    public int Damage;
-
-    public void Initialize(int maxHealth, int damage)
+    private int _maxHealth;
+    public int MaxHealth => _maxHealth;
+    private int _damage = 20;
+    public int Damage => _damage;
+    public void Initialize(int health, int damage)
     {
-        Health = maxHealth;
-        Damage = damage;
+        _maxHealth = health;
+        _damage = damage;
     }
 }

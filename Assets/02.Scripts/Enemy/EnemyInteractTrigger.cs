@@ -12,32 +12,37 @@ public class EnemyInteractTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        AInteractableEntityTest interactableEntity = other.GetComponent<AInteractableEntityTest>();
+        AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
         if (interactableEntity == null)
         {
             return;
         }
-        if (interactableEntity.transform != _enemy.Target)
+        if (interactableEntity != _enemy.Target)
         {
             return;
         }
-        _enemy.IsAttacking = true;
-        _enemy.Animator.SetBool("IsAttacking", _enemy.IsAttacking);
+        _enemy.StopNavMeshAgent();
+        _enemy.Animator.SetBool("IsAttacking", true);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        AInteractableEntityTest interactableEntity = other.GetComponent<AInteractableEntityTest>();
+        AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
+        //이럴상황이?
         if (interactableEntity == null)
         {
             return;
         }
-        if (interactableEntity.transform != _enemy.Target)
+        if (interactableEntity != _enemy.Target)
         {
             return;
         }
+        _enemy.Animator.SetBool("IsAttacking", false);
 
-        _enemy.IsAttacking = false;
-        _enemy.Animator.SetBool("IsAttacking", _enemy.IsAttacking);
+        //도망가거나 죽은 경우 새로운 대상 탐색
+        //if (!interactableEntity.CanInteract)
+        _enemy.ResumeNavMeshAgent();
+
+        //_enemy.FindTarget();
     }
 }

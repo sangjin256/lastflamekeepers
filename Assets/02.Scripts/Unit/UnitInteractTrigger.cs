@@ -10,32 +10,35 @@ public class UnitInteractTrigger : MonoBehaviour
         _unit = GetComponentInParent<Unit>();
     }
 
-    //private void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    AInteractableEntityTest interactableEntity = other.GetComponent<AInteractableEntityTest>();
-    //    if (interactableEntity == null)
-    //    {
-    //        return;
-    //    }
-    //    if (interactableEntity != _unit.Target)
-    //    {
-    //        return;
-    //    }
-    //    //Interact(_target) -> _tool.Interact(interactableEntity, _tool.Value);
-    //    _unit.StopNavMeshAgent();
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
+        if (interactableEntity == null)
+        {
+            return;
+        }
+        if (interactableEntity != _unit.Target)
+        {
+            return;
+        }
+        _unit.StopNavMeshAgent();
+        _unit.ToolAnimator.SetBool("IsInteracting", true);
+    }
 
-    //    _unit.Interact(_unit.Target);
-    //}
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
+        if (interactableEntity == null)
+        {
+            return;
+        }
+        if (interactableEntity != _unit.Target)
+        {
+            return;
+        }
 
-    //private void OnTriggerExit2D(Collider2D other)
-    //{
-    //    AInteractableEntityTest interactableEntity = other.GetComponent<AInteractableEntityTest>();
-    //    if (interactableEntity != _unit.Target)
-    //    {
-    //        return;
-    //    }
-
-    //    _unit.ToolAnimator.SetBool("IsInteracting", false);
-    //    _unit.ResumeNavMeshAgent();
-    //}
+        _unit.UnitTool.IsInteracting = false;
+        _unit.ToolAnimator.SetBool("IsInteracting", false);
+        _unit.ResumeNavMeshAgent();
+    }
 }

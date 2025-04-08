@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ClickSystem : MonoBehaviour
 {
-    public LayerMask Interactable;
+    public LayerMask Clilckable;
     public LayerMask Ground;
 
     private void Start()
@@ -14,12 +14,12 @@ public class ClickSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 1f, Interactable);
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 1f, Clilckable);
             if(hit.collider != null)
             {
-                if (hit.collider.CompareTag("Unit"))
+                if (hit.collider.transform.parent.CompareTag("Unit"))
                 {
-                    Unit unit = hit.collider.GetComponent<Unit>();
+                    Unit unit = hit.collider.transform.GetComponentInParent<Unit>();
                     if (Input.GetKey(KeyCode.LeftShift))
                     {
                         UnitSelectionManager.Instance.ShiftClickSelect(unit);
@@ -49,18 +49,18 @@ public class ClickSystem : MonoBehaviour
             if(UnitSelectionManager.Instance.SelectedUnitList.Count != 0)
             {
                 Vector3 WorldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.Raycast(WorldMousePosition, Vector2.zero, 1f, Interactable);
+                RaycastHit2D hit = Physics2D.Raycast(WorldMousePosition, Vector2.zero, 1f, Clilckable);
                 // ¶¥ÀÌ¸é ÁÂÇ¥ Àü´Þ
                 if (hit.collider == null)
                 {
                     UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(WorldMousePosition));
                 }
-                else if (hit.collider.CompareTag("Enemy"))
+                else if (hit.collider.transform.CompareTag("Enemy"))
                 {
                     //UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(hit.collider.GetComponent<AInteractableEntityTest>()));
                     Debug.Log("¿©±â Ã¤¿ö¾ßµÊ");
                 }
-                else if (hit.collider.CompareTag("Resource"))
+                else if (hit.collider.transform.CompareTag("Resource"))
                 {
                     Debug.Log("¿©±â Ã¤¿ö¾ßµÊ");
                 }
