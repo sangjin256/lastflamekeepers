@@ -17,11 +17,15 @@ public class WaveData
     ///<summary>적 공격력</summary>
     public readonly int EnemyDamage;
 
+    ///<summary>적 수</summary>
+    public readonly int EnemyCount;
+
     public WaveData(BinaryReader reader)
     {
         TID = reader.ReadInt32();
         WaveNum = reader.ReadInt32();
         EnemyHealth = reader.ReadInt32();
         EnemyDamage = reader.ReadInt32();
+        EnemyCount = reader.ReadInt32();
     }
 }

@@ -20,7 +20,10 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     
     // 건물별 데이터 리스트
     private ReadOnlyList<BuildData> _buildDataList;
-    private Dictionary<BuildingType, List<BuildData>> _buildDataDicList;
+    private Dictionary<BuildingType, BuildData> _buildDataDic;
+
+    // 건물 설치 비용
+    private Dictionary<BuildingType, List<int>> _requiredResourcesList;
 
     private void Start()
     {
@@ -39,15 +42,11 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         _buildDataList = DataTable.Instance.GetBuildDataList();
 
         // BuildData를 Dictionary로 저장
-        _buildDataDicList = new Dictionary<BuildingType, List<BuildData>>();
+        _buildDataDic = new Dictionary<BuildingType, BuildData>();
 
         foreach (BuildData buildData in _buildDataList)
         {
-            if (!_buildDataDicList.ContainsKey(buildData.BuildingType))
-            {
-                _buildDataDicList[buildData.BuildingType] = new List<BuildData>();
-            }
-            _buildDataDicList[buildData.BuildingType].Add(buildData);
+            _buildDataDic[buildData.BuildingType] = buildData;
         }
 
         Initialize();
@@ -65,7 +64,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         for (int i = 0; i <= (int)BuildingType.Forge; i++)
         {
             // 레벨의 크기만큼 리스트 초기화
-            int upgradeCount = _buildDataList[0].Upgrade_AddValueList.Count;
+            int upgradeCount = _buildDataList[0].Upgrade_AddValueList.Count + 1;
             List<LinkedList<ABaseBuilding>> buildingList = new List<LinkedList<ABaseBuilding>>();
 
             for (int j = 0; j < upgradeCount; j++)
@@ -164,7 +163,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         }
 
         // 건물 초기화
-        building.Initialize(_buildDataDicList[building.BuildingType][0]);
+        building.Initialize(_buildDataDic[building.BuildingType]);
 
         if (building.BuildingType == BuildingType.Forge)
         {

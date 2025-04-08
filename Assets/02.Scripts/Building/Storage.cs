@@ -28,9 +28,9 @@ public class Storage : ABaseBuilding
         }
 
         // 모든 최대 자원 수 변경
-        AddInventoryResourceCapacity(_buildData.Upgrade_AddValueList[Level] - _resourceCapacity);
+        AddInventoryResourceCapacity(_buildData.Upgrade_AddValueList[Level]);
 
-        _resourceCapacity = _buildData.Upgrade_AddValueList[Level];
+        _resourceCapacity += _buildData.Upgrade_AddValueList[Level];
 
         Debug.Log($"Max Resource Count : {_resourceCapacity}");
     }
