@@ -7,12 +7,12 @@ public class UnitSearchTrigger : MonoBehaviour
     private void Awake()
     {
         _unit = GetComponentInParent<Unit>();
-        //_unitTool = GetComponenet
+        _unitTool = transform.parent.GetComponentInChildren<UnitTool>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(_unitTool.Tool.ToolType != ToolType.Sword)
+        if(_unitTool.CurrentTool.ToolType != ToolType.Sword)
         {
             return;
         }
@@ -45,7 +45,7 @@ public class UnitSearchTrigger : MonoBehaviour
         if (!interactableEntity.CanInteract)
         {
 
-            _unit.UnitTool.IsInteracting = false;
+            _unitTool.IsInteracting = false;
             _unit.ToolAnimator.SetBool("IsInteracting", false);
             _unit.NavMeshAgent.ResetPath();
             _unit.ResumeNavMeshAgent();

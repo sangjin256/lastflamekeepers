@@ -124,7 +124,7 @@ public class Unit : AInteractableEntity
             return;
         }
 
-        if (!_unitTool.Tool.IsInteractable(interactable.InteractType))
+        if (!_unitTool.CurrentTool.IsInteractable(interactable.InteractType))
         {
             return;
         }
@@ -265,7 +265,7 @@ public class Unit : AInteractableEntity
     public void SetTool(ATool tool)
     {
         _unitTool.SetTool(tool);
-        if (_target != null && !_unitTool.Tool.IsInteractable(_target.InteractType))
+        if (_target != null && !_unitTool.CurrentTool.IsInteractable(_target.InteractType))
         {
             SetTargetNull();
             SetTarget(transform.position);

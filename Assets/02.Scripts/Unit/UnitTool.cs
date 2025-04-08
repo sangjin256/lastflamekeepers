@@ -7,8 +7,8 @@ using UnityEngine.AI;
 public class UnitTool : MonoBehaviour
 {
     private UnitStat _unitStat;
-    private ATool _tool;
-    public ATool Tool => _tool;
+    private ATool _currentTool;
+    public ATool CurrentTool => _currentTool;
     private Unit _unit;
 
     public bool IsInteracting;
@@ -40,7 +40,7 @@ public class UnitTool : MonoBehaviour
 
     public void SetTool(ATool tool)
     {
-        _tool = tool;
+        _currentTool = tool;
 
         switch (tool.ToolType)
         {
@@ -51,17 +51,17 @@ public class UnitTool : MonoBehaviour
             }
             case ToolType.Axe:
             {
-                _animator.SetFloat("InteractSpeed", _unitStat.WoodSpeed.Value / 10 + _tool.Value);
+                _animator.SetFloat("InteractSpeed", _unitStat.WoodSpeed.Value / 10 + _currentTool.Value);
                 break;
             }
             case ToolType.PickAxe:
             {
-                _animator.SetFloat("InteractSpeed", _unitStat.RockSpeed.Value / 10 + _tool.Value);
+                _animator.SetFloat("InteractSpeed", _unitStat.RockSpeed.Value / 10 + _currentTool.Value);
                 break;
             }
         }
-        overrideController["Idle"] = ToolAnimationClip[(int)_tool.ToolType, _tool.UpgradeLevel, 0];
-        overrideController["Interact"] = ToolAnimationClip[(int)_tool.ToolType, _tool.UpgradeLevel, 1];
+        overrideController["Idle"] = ToolAnimationClip[(int)_currentTool.ToolType, _currentTool.UpgradeLevel, 0];
+        overrideController["Interact"] = ToolAnimationClip[(int)_currentTool.ToolType, _currentTool.UpgradeLevel, 1];
 
         IsInteracting = false;
         _animator.SetBool("IsInteracting", false);
@@ -73,7 +73,7 @@ public class UnitTool : MonoBehaviour
         {
             return;
         }
-        _tool.Interact(_unit.Target, _unitStat.Damage.Value);
+        _currentTool.Interact(_unit.Target, _unitStat.Damage.Value);
     }
 
     public void StopNavMeshAgent()
