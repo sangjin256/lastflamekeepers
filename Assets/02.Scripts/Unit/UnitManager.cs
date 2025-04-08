@@ -45,6 +45,7 @@ public class UnitManager : BehaviourSingleton<UnitManager>
         //·£´ý ÀÌ¸§
         unitStat.Name = _nameList[Random.Range(0, _nameList.Count)];
 
+        unitGameObject.name = $"Unit({unitStat.Name})";
         //·£´ý ½ºÅÈ
         int randomMaxHealth = Random.Range(_randomMaxHealthData.MinValue, _randomMaxHealthData.MaxValue + 1);
         int randomDamage = Random.Range(_randomDamageData.MinValue, _randomDamageData.MaxValue + 1);
