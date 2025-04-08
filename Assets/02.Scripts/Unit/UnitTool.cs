@@ -46,18 +46,22 @@ public class UnitTool : MonoBehaviour
                 overrideController["Idle"] = SwordAnimationClip[0];
                 overrideController["Interact"] = SwordAnimationClip[1];
 
+                _animator.SetFloat("InteractSpeed", _unitStat.AttackSpeed.Value / 10);
                 break;
             }
             case ToolType.Axe:
             {
                 overrideController["Idle"] = AxeAnimationClip[0];
                 overrideController["Interact"] = AxeAnimationClip[1];
+                _animator.SetFloat("InteractSpeed", _unitStat.WoodSpeed.Value / 10 + _tool.Value);
                 break;
             }
             case ToolType.PickAxe:
             {
                 overrideController["Idle"] = PickaxeAnimationClip[0];
                 overrideController["Interact"] = PickaxeAnimationClip[1];
+                _animator.SetFloat("InteractSpeed", _unitStat.RockSpeed.Value / 10 + _tool.Value);
+
                 break;
             }
         }

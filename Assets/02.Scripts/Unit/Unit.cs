@@ -24,7 +24,6 @@ public class Unit : AInteractableEntity
     public Animator ToolAnimator => _toolAnimator;
 
 
-    private bool IsMoving = true;
     private bool IsFacingRight = true;
     public bool MissTarget = false;
 
@@ -63,15 +62,20 @@ public class Unit : AInteractableEntity
         }
         else
         {
-            _navMeshAgent.SetDestination(_target.transform.position);
-            //_rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
-            _navMeshAgent.nextPosition = transform.position;
-
-            if (transform.position.x < _target.transform.position.x ^ IsFacingRight)
+            if (_target.CanInteract)
             {
-                if (Mathf.Abs(transform.position.x - _target.transform.position.x) > 0.1f)
+
+
+                _navMeshAgent.SetDestination(_target.transform.position);
+                //_rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
+                _navMeshAgent.nextPosition = transform.position;
+
+                if (transform.position.x < _target.transform.position.x ^ IsFacingRight)
                 {
-                    Flip();
+                    if (Mathf.Abs(transform.position.x - _target.transform.position.x) > 0.1f)
+                    {
+                        Flip();
+                    }
                 }
             }
         }
@@ -203,12 +207,13 @@ public class Unit : AInteractableEntity
 
         if (minDistanceCollider == null)
         {
-            Debug.Log("zz");
+            Debug.Log($"{gameObject.name}: zz");
             return;
         }
         Debug.Log(minDistanceCollider.gameObject);
 
         SetTarget(minDistanceCollider.GetComponent<AInteractableEntity>());
+        Debug.Log("¾Æ´ÏÁö");
     }
 
     public bool CheckTargetInInteractTrigger()
@@ -284,5 +289,6 @@ public class Unit : AInteractableEntity
     public void ResetPathTest()
     {
         _navMeshAgent.ResetPath();
+        ResumeNavMeshAgent();
     }
 }

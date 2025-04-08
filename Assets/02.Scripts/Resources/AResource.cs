@@ -1,7 +1,7 @@
 using Unity.VisualScripting.InputSystem;
 using UnityEngine;
 
-public abstract class AResource : MonoBehaviour, IInteractable
+public abstract class AResource : AInteractableEntity
 {
     public ResourceType ResourceType;
     public string Name;
@@ -23,8 +23,13 @@ public abstract class AResource : MonoBehaviour, IInteractable
         RespawnTime = resource.RespawnTime;
     }
 
-    public void TakeDamage(int amount, bool isHeal)
+    public override void TakeDamage(int amount, bool isHeal)
     {
-
+        base.TakeDamage(amount, isHeal);
+        if (CanInteract)
+        {
+            return;
+        }
+        gameObject.SetActive(false);
     }
 }

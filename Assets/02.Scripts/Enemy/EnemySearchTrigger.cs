@@ -45,8 +45,8 @@ public class EnemySearchTrigger : MonoBehaviour
         {
             _enemy.Animator.SetBool("IsAttacking", false);
             _enemy.NavMeshAgent.ResetPath();
-            _enemy.FindTarget();
             _enemy.ResumeNavMeshAgent();
+            _enemy.FindTarget();
         }
     }
 }
