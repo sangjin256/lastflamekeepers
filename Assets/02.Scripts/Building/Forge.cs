@@ -69,7 +69,6 @@ public class Forge : ABaseBuilding
     public void OpenSelectToolTypeUI()
     {
 
-        int a = 3;
         foreach (Button button in _buttons)
         {
             button.gameObject.SetActive(true);

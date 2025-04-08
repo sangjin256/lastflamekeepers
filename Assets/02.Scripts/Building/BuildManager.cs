@@ -275,7 +275,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         _lastUpdatedRange = newRange;
     }
 
-    public List<LinkedList<ABaseBuilding>> GetBuildingCount(BuildingType type)
+    public List<LinkedList<ABaseBuilding>> GetBuildingList(BuildingType type)
     {
         return _buildingDicListLinkedList[type];
     }
