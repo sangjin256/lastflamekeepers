@@ -8,6 +8,10 @@ public abstract class ABaseBuilding : MonoBehaviour
     public BuildingType BuildingType => _buildingType;
     protected abstract BuildingType DefineType();
 
+    // 업그레이드 별 건물 이미지
+    [Header("건물 레벨별 이미지")]
+    [SerializeField] private List<Sprite> _levelBuildingImage;
+
     // 빌딩 데이터
     protected BuildData _buildData;
 
@@ -42,6 +46,9 @@ public abstract class ABaseBuilding : MonoBehaviour
         {
             _requiredResourcesList.Add(new List<int> { buildData.Upgrade_WoodCountList[i], buildData.Upgrade_StoneCountList[i] });
         }
+
+        // 기본 이미지 설정
+        _spriteRenderer.sprite = _levelBuildingImage[0];
     }
 
     public void ChangeColor(Color color)
@@ -71,6 +78,11 @@ public abstract class ABaseBuilding : MonoBehaviour
         _level += 1;
 
         BuildManager.Instance.UpgradeBuilding(this);
+
+        if (_level < _levelBuildingImage.Count)
+        {
+            _spriteRenderer.sprite = _levelBuildingImage[_level];
+        }
 
         return true;
     }
