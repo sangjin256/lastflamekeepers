@@ -20,14 +20,13 @@ public class AInteractableEntity : MonoBehaviour,IInteractable
         }
     }
     //protected·Î
-    protected bool _canInteract = true;
+    [SerializeField]protected bool _canInteract = true;
     public bool CanInteract => _canInteract;
 
 
     public virtual void TakeDamage(int amount, bool isHeal)
     {
         Health -= (isHeal)?-amount:amount;
-        if(transform.CompareTag("Unit"))
         if(Health <= 0)
         {
             _canInteract = false;

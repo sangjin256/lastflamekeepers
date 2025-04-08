@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,17 +11,58 @@ public class UnitTool : MonoBehaviour
     private Unit _unit;
 
     public bool IsInteracting;
-    
+
+
+    public List<AnimationClip> SwordAnimationClip;
+    public List<AnimationClip> AxeAnimationClip;
+    public List<AnimationClip> PickaxeAnimationClip;
+
+    private Animator _animator;
+    public AnimatorOverrideController overrideController;
     private void Awake()
     {
         _unitStat = GetComponentInParent<UnitStat>();
         _unit = GetComponentInParent<Unit>();
-        _tool = ToolManager.Instance.GetTool(ToolType.Sword);
+        _animator = GetComponent<Animator>();
+
+        overrideController = new AnimatorOverrideController(_animator.runtimeAnimatorController);
+
+        _animator.runtimeAnimatorController = overrideController;
+    }
+
+    private void Start()
+    {
+        SetTool(ToolManager.Instance.GetTool(ToolType.Sword));
     }
 
     public void SetTool(ATool tool)
     {
         _tool = tool;
+
+        switch (tool.ToolType)
+        {
+            case ToolType.Sword:
+            {
+                overrideController["Idle"] = SwordAnimationClip[0];
+                overrideController["Interact"] = SwordAnimationClip[1];
+
+                break;
+            }
+            case ToolType.Axe:
+            {
+                overrideController["Idle"] = AxeAnimationClip[0];
+                overrideController["Interact"] = AxeAnimationClip[1];
+                break;
+            }
+            case ToolType.PickAxe:
+            {
+                overrideController["Idle"] = PickaxeAnimationClip[0];
+                overrideController["Interact"] = PickaxeAnimationClip[1];
+                break;
+            }
+        }
+
+        IsInteracting = false;
     }
 
     public void Interact()

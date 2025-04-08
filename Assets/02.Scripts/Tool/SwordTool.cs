@@ -14,6 +14,7 @@ public class SwordTool : ATool
 
     public override void Interact(IInteractable interactObject, int damage)
     {
-        interactObject.TakeDamage(Value + damage, false);
+        //Value + damage
+        interactObject.TakeDamage(20, false);
     }
 }

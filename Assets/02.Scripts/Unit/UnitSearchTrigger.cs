@@ -32,9 +32,26 @@ public class UnitSearchTrigger : MonoBehaviour
     {
         AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
 
-        if (interactableEntity.transform != _unit.Target)
+        if (interactableEntity != _unit.Target)
         {
             return;
+        }
+
+        if (!interactableEntity.CanInteract)
+        {
+
+            _unit.UnitTool.IsInteracting = false;
+            _unit.ToolAnimator.SetBool("IsInteracting", false);
+            _unit.NavMeshAgent.ResetPath();
+            _unit.FindTarget();
+            _unit.ResumeNavMeshAgent();
+            
+
+            //if(_unit.Target == null)
+            //{
+            //    _unit.NavMeshAgent.SetDestination(transform.position);
+            //}
+
         }
     }
 

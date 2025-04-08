@@ -35,30 +35,20 @@ public class Enemy : AInteractableEntity
     }
     private void Start()
     {
-        _interactType = InteractType.Enemy; 
-            InvokeRepeating(nameof(FindTarget),0, 1f);
-
+        _interactType = InteractType.Enemy;
     }
     private void Update()
     {
-        //if (MissTarget == false)
-        //{
-        //    if (_target == null)
-        //    {
-        //        MissTarget = true;
-        //    }
-        //}
-        //else
-        //{
-        //    if (MissTarget)
-        //    {
-        //        FindTarget();
-        //    }
-        //}
-        
-        if ( _target == null)
+
+        if (!CanInteract)
+        {
+            return;
+        }
+        if (_target == null)
         {
             //Target = Center;
+            Animator.SetBool("IsAttacking", false);
+
             _navMeshAgent.SetDestination(Vector3.zero);
             return;
         }
@@ -95,10 +85,18 @@ public class Enemy : AInteractableEntity
             StopNavMeshAgent();
             Animator.SetBool("IsAttacking", true);
         }
+        else
+        {
+            ResumeNavMeshAgent();
+        }
     }
 
     public void FindTarget()
     {
+        if (!CanInteract)
+        {
+            return;
+        }
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _searchCollider.radius, LayerMask.GetMask("Interactable"));
         if (colliders.Length == 0)
         {
@@ -120,7 +118,7 @@ public class Enemy : AInteractableEntity
             {
                 continue;
             }
-            
+
             if (Vector2.Distance(collider.transform.position, transform.position) < minDistance)
             {
                 minDistanceCollider = collider;
@@ -131,8 +129,9 @@ public class Enemy : AInteractableEntity
         {
             return;
         }
+
         SetTarget(minDistanceCollider.GetComponent<AInteractableEntity>());
-        MissTarget = false;
+        //MissTarget = false;
     }
 
     public bool CheckTargetInInteractTrigger()
@@ -167,6 +166,8 @@ public class Enemy : AInteractableEntity
     public override void TakeDamage(int amount, bool isHeal)
     {
         base.TakeDamage(amount, isHeal);
+        //Debug.Log($"{transform.name}: damage({amount}) health({Health})");
+
         if (CanInteract)
         {
             return;
@@ -180,5 +181,13 @@ public class Enemy : AInteractableEntity
     public void DestroyThis()
     {
         Destroy(gameObject);
+    }
+
+    public void FindTargetRepaeat()
+    {
+        if (_target == null)
+        {
+            FindTarget();
+        }
     }
 }

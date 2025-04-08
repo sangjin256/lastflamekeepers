@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
+  _canInteract: 1
   _unitStat: {fileID: 0}
   _target: {fileID: 0}
   MissTarget: 0
@@ -139,7 +140,7 @@ NavMeshAgent:
   m_Acceleration: 120
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0.15
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
@@ -391,7 +392,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -8692310111583574704, guid: 62a63240ef9287143a8b32841021dd45, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -399,7 +400,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!95 &8480649585112406131
@@ -412,7 +413,7 @@ Animator:
   m_GameObject: {fileID: 7585635627993564213}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3c74b3a3659cb88489a8726ba5c4c7c0, type: 2}
+  m_Controller: {fileID: 22100000, guid: b9308088756ccfa4f9f33b7d26f036a4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -437,6 +438,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteracting: 0
+  SwordAnimationClip:
+  - {fileID: 7400000, guid: 634d735fce0586a46b0b34d47371278d, type: 2}
+  - {fileID: 7400000, guid: 6b16d0796ab86574fa1516cf2cb6b220, type: 2}
+  AxeAnimationClip:
+  - {fileID: 7400000, guid: 209853b6931efdc4c9f9c45edbcc9bab, type: 2}
+  - {fileID: 7400000, guid: 3b63203220103b64e97f2379d4fe1fd1, type: 2}
+  PickaxeAnimationClip:
+  - {fileID: 7400000, guid: 13ffc8aabd3eb9444b8eac4ce9ba128a, type: 2}
+  - {fileID: 7400000, guid: 87a2f531bb59c7c48834d575bfcaf7f1, type: 2}
+  overrideController: {fileID: 0}
 --- !u!1 &8596768775837799897
 GameObject:
   m_ObjectHideFlags: 0

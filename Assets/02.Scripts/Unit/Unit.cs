@@ -8,7 +8,7 @@ public class Unit : AInteractableEntity
 {
     [SerializeField] private UnitStat _unitStat;
     private UnitTool _unitTool;
-
+    public UnitTool UnitTool => _unitTool;
     private NavMeshAgent _navMeshAgent;
     public NavMeshAgent NavMeshAgent => _navMeshAgent;
     public AInteractableEntity _target;
@@ -46,6 +46,7 @@ public class Unit : AInteractableEntity
     {
         _interactType = InteractType.Unit;
         _navMeshAgent.speed = _unitStat.MoveSpeed.Value / 10f;
+        Health = _unitStat.MaxHealth.Value;
     }
     private void Update()
     {
@@ -70,18 +71,20 @@ public class Unit : AInteractableEntity
         //}
         if (_target == null)
         {
-            if (_navMeshAgent.desiredVelocity != Vector3.zero)
-            {
-                IsMoving = true;
-            }
-            else
-            {
-                if (IsMoving)
-                {
-                    IsMoving = false;
-                    FindTarget();
-                }
-            }
+            ToolAnimator.SetBool("IsInteracting", false);
+
+            //if (_navMeshAgent.desiredVelocity != Vector3.zero)
+            //{
+            //    IsMoving = true;
+            //}
+            //else
+            //{
+            //    if (IsMoving)
+            //    {
+            //        IsMoving = false;
+            //        FindTarget();
+            //    }
+            //}
         }
         else
         {
@@ -115,10 +118,10 @@ public class Unit : AInteractableEntity
         }
 
         //¶¥¹Ù´Ú Âï¾úÀ» °æ¿ì
-        if (_target == null && _navMeshAgent.desiredVelocity.x != 0 && (_navMeshAgent.desiredVelocity.x > 0 ^ IsFacingRight))
-        {
-            Flip();
-        }
+        //if (_target == null && _navMeshAgent.desiredVelocity.x != 0 && (_navMeshAgent.desiredVelocity.x > 0 ^ IsFacingRight))
+        //{
+        //    Flip();
+        //}
 
 
 
@@ -148,6 +151,10 @@ public class Unit : AInteractableEntity
             StopNavMeshAgent();
             _toolAnimator.SetBool("IsInteracting", true);
         }
+        else
+        {
+            ResumeNavMeshAgent();
+        }
     }
 
     public void SetTarget(Vector2 point)
@@ -157,8 +164,15 @@ public class Unit : AInteractableEntity
             return;
         }
 
-        _navMeshAgent.SetDestination(point);
+        Vector2 randomPoint = point + Random.insideUnitCircle / 2;
+        _navMeshAgent.SetDestination(randomPoint);
         _target = null;
+
+        if(transform.position.x < randomPoint.x ^ IsFacingRight)
+        {
+            Flip();
+        }
+
     }
 
     public void SetTarget(Transform point)
@@ -198,7 +212,7 @@ public class Unit : AInteractableEntity
                 continue;
             }
             //if (!_tool.IsInteractable(collider.GetComponent<AInteractableEntity>().InteractType))
-            if (collider.CompareTag("Enemy"))
+            if (!collider.CompareTag("Enemy"))
             {
                 continue;
             }
@@ -210,10 +224,12 @@ public class Unit : AInteractableEntity
 
         if (minDistanceCollider == null)
         {
+            Debug.Log("zz");
             return;
         }
+        Debug.Log(minDistanceCollider.gameObject);
+
         SetTarget(minDistanceCollider.GetComponent<AInteractableEntity>());
-        MissTarget = false;
     }
 
     public bool CheckTargetInInteractTrigger()
@@ -249,7 +265,6 @@ public class Unit : AInteractableEntity
     public override void TakeDamage(int amount, bool isHeal)
     {
         base.TakeDamage(amount, isHeal);
-        Debug.Log($"{transform.name}: damage({amount}) health({Health})");
 
         if (CanInteract)
         {

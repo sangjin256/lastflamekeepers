@@ -36,13 +36,9 @@ public class UnitInteractTrigger : MonoBehaviour
         {
             return;
         }
-        
+
+        _unit.UnitTool.IsInteracting = false;
         _unit.ToolAnimator.SetBool("IsInteracting", false);
         _unit.ResumeNavMeshAgent();
-        if (!interactableEntity.CanInteract)
-        {
-            return;
-        }
-        _unit.FindTarget();
     }
 }

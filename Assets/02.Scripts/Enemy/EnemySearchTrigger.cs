@@ -37,14 +37,16 @@ public class EnemySearchTrigger : MonoBehaviour
     {
         AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
 
-        if (interactableEntity.transform != _enemy.Target)
+        if (interactableEntity != _enemy.Target)
         {
             return;
         }
-
-        //if (!interactableEntity.CanInteract)
-        //{
-        //    _enemy.FindTarget();
-        //}
+        if (!interactableEntity.CanInteract)
+        {
+            _enemy.Animator.SetBool("IsAttacking", false);
+            _enemy.NavMeshAgent.SetDestination(transform.position);
+            _enemy.FindTarget();
+            _enemy.ResumeNavMeshAgent();
+        }
     }
 }
