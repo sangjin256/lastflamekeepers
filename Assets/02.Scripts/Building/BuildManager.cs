@@ -92,6 +92,13 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         //// **********************************************
     }
 
+    [ContextMenu("AddResource")]
+    public void AddResourceTest()
+    {
+        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, 10);
+        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Stone, 10);
+    }
+
     private void Update()
     {
         // 현재 건물 짓는 모드인지 확인
