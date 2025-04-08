@@ -7,5 +7,7 @@ public class NavMeshManager : BehaviourSingleton<NavMeshManager>
     public void BakeSurface()
     {
         navMeshSurface.BuildNavMesh();
+
+        
     }
 }

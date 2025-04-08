@@ -82,6 +82,10 @@ public class Unit : AInteractableEntity
             {
                 _animator.SetBool("IsRunning", false);
             }
+            else
+            {
+                _animator.SetBool("IsRunning", true);
+            }
         }
         else if (_unitTool.IsInteracting)
         {

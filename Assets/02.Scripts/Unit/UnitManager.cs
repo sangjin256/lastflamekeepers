@@ -187,7 +187,6 @@ public class UnitManager : BehaviourSingleton<UnitManager>
         {
             randomUnitList.Add(GenerateRandomUnit());
         }
-        _unitList = randomUnitList;
 
         CountRandomFeatures(randomUnitList);
     }
