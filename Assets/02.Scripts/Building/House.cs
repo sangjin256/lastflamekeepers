@@ -12,7 +12,8 @@ public class House : ABaseBuilding
         base.Initialize(buildData);
 
         _unitCapacity = buildData.Value;
-        // TODO : Unit 최댓값 증가
+        // Unit 최댓값 증가
+        UnitManager.Instance.AddMaxCountUnit(_unitCapacity);
 
         Debug.Log($"Unit : {_unitCapacity}");
     }
@@ -26,7 +27,8 @@ public class House : ABaseBuilding
             return false;
         }
 
-        // TODO : Unit 최댓값 증가
+        // Unit 최댓값 증가
+        UnitManager.Instance.AddMaxCountUnit(_buildData.Upgrade_AddValueList[Level - 1]);
         _unitCapacity += _buildData.Upgrade_AddValueList[Level - 1];
 
         Debug.Log($"Unit : {_unitCapacity}");
@@ -45,11 +47,11 @@ public class House : ABaseBuilding
         // 활성화 여부에 따른 전체 Unit 수 변화
         if (active)
         {
-            Debug.Log("[박우영]유닛 최대수 증가 함수 필요");
+            UnitManager.Instance.AddMaxCountUnit(_unitCapacity);
         }
         else
         {
-            Debug.Log("[박우영]유닛 최대수 감소 함수 필요");
+            UnitManager.Instance.RemoveMaxCountUnit(_unitCapacity);
         }
 
         _isActive = active;
