@@ -45,12 +45,12 @@ public class UnitSearchTrigger : MonoBehaviour
             _unit.NavMeshAgent.ResetPath();
             _unit.FindTarget();
             _unit.ResumeNavMeshAgent();
-            
 
-            //if(_unit.Target == null)
-            //{
-            //    _unit.NavMeshAgent.SetDestination(transform.position);
-            //}
+
+            if (_unit.Target == null)
+            {
+                _unit.NavMeshAgent.ResetPath();
+            }
 
         }
     }

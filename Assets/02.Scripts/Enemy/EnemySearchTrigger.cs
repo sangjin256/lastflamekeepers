@@ -44,7 +44,7 @@ public class EnemySearchTrigger : MonoBehaviour
         if (!interactableEntity.CanInteract)
         {
             _enemy.Animator.SetBool("IsAttacking", false);
-            _enemy.NavMeshAgent.SetDestination(transform.position);
+            _enemy.NavMeshAgent.ResetPath();
             _enemy.FindTarget();
             _enemy.ResumeNavMeshAgent();
         }
