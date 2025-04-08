@@ -11,6 +11,9 @@ public abstract class AResource : AInteractableEntity
     public InventoryResourceType OutputType;
     public float RespawnTime;
 
+    public int HitCount = 0;
+    public const int HitMaxCount = 3;
+
     public void Initialize(ResourceType resourceType)
     {
         FieldResourceData resource = ResourceManager.Instance.GetResource(resourceType);
