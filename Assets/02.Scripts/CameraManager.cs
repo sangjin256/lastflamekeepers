@@ -46,7 +46,7 @@ public class CameraManager : BehaviourSingleton<CameraManager>
         if (viewPortMousePosition.y > 0.98f || Input.GetKey(KeyCode.W))
         {
             movePosition = transform.position + Vector3.up;
-            if (BoundaryCheck(movePosition))
+            if (Global.Instance.BoundaryCheck(movePosition))
             {
                 transform.position = Vector3.Lerp(transform.position, movePosition, Speed * Time.deltaTime);
             }
@@ -54,7 +54,7 @@ public class CameraManager : BehaviourSingleton<CameraManager>
         if (viewPortMousePosition.x < 0.02f || Input.GetKey(KeyCode.A))
         {
             movePosition = transform.position + Vector3.left;
-            if (BoundaryCheck(movePosition))
+            if (Global.Instance.BoundaryCheck(movePosition))
             {
                 transform.position = Vector3.Lerp(transform.position, movePosition, Speed * Time.deltaTime);
             }
@@ -62,7 +62,7 @@ public class CameraManager : BehaviourSingleton<CameraManager>
         if (viewPortMousePosition.y < 0.02f || Input.GetKey(KeyCode.S))
         {
             movePosition = transform.position + Vector3.down;
-            if (BoundaryCheck(movePosition))
+            if (Global.Instance.BoundaryCheck(movePosition))
             {
                 transform.position = Vector3.Lerp(transform.position, movePosition, Speed * Time.deltaTime);
             }
@@ -70,7 +70,7 @@ public class CameraManager : BehaviourSingleton<CameraManager>
         if (viewPortMousePosition.x > 0.98f || Input.GetKey(KeyCode.D))
         {
             movePosition = transform.position + Vector3.right;
-            if (BoundaryCheck(movePosition))
+            if (Global.Instance.BoundaryCheck(movePosition))
             {
                 transform.position = Vector3.Lerp(transform.position, movePosition, Speed * Time.deltaTime);
             }
@@ -91,16 +91,5 @@ public class CameraManager : BehaviourSingleton<CameraManager>
             MainCamera.orthographicSize = Mathf.Lerp(MainCamera.orthographicSize, MinOrthographicSize, Speed * Time.deltaTime);
             yield return null;
         }
-    }
-
-    public bool BoundaryCheck(Vector3 position)
-    {
-        float MaxX = Global.Instance.MapSize.x / 2;
-        float MinX = -Global.Instance.MapSize.x / 2;
-        float MaxY = Global.Instance.MapSize.y / 2;
-        float MinY = -Global.Instance.MapSize.y / 2;
-
-        if (position.x < MaxX && position.x > MinX && position.y < MaxY && position.y > MinY) return true;
-        return false;
     }
 }

@@ -13,6 +13,47 @@ public class ResourceSpawner : MonoBehaviour
     private float _minDistance = 0.1f;
     private List<ResourceType> TypeListForInit = new List<ResourceType>();
 
+    public void SpawnBaseResources(TileBlock tile)
+    {
+        bool isTreeFirst = Random.Range(0, 2) > 1f ? true : false;
+        for (int i = 0; i < tile.ResourceSpawnPoints.Count; i++)
+        {
+            Transform point = tile.ResourceSpawnPoints[i];
+            if (i == 0)
+            {
+                if (isTreeFirst) ClusterInstantiate(point.position, tile.gameObject, ResourceType.Tree, Random.Range(1f, 3f), Random.Range(1f, 2f), TreePrefabList);
+                else ClusterInstantiate(point.position, tile.gameObject, ResourceType.Rock, Random.Range(1f, 3f), Random.Range(1f, 2f), RockPrefabList);
+            }
+            else if (i == 1)
+            {
+                if(isTreeFirst) ClusterInstantiate(point.position, tile.gameObject, ResourceType.Rock, Random.Range(1f, 3f), Random.Range(1f, 2f), RockPrefabList);
+                else ClusterInstantiate(point.position, tile.gameObject, ResourceType.Tree, Random.Range(1f, 3f), Random.Range(1f, 2f), TreePrefabList);
+            }
+            else
+            {
+                float roll = Random.value;
+
+                // 30% 확률로 바위 생성 40% 확률로 나무 생성 30% 확률로 아무것도 안함
+                if (roll < 0.3f)
+                {
+                    ClusterInstantiate(point.position, tile.gameObject, ResourceType.Rock, Random.Range(1f, 6f), Random.Range(1f, 4f), RockPrefabList);
+
+                    //GameObject rock = Instantiate(GetRandomPrefab(RockPrefabList), point.position, Quaternion.identity, tile.transform);
+
+                    // 리소스매니저에 넣기
+                }
+                else if (roll < 0.75f)
+                {
+                    ClusterInstantiate(point.position, tile.gameObject, ResourceType.Tree, Random.Range(2f, 6f), Random.Range(1f, 4f), TreePrefabList);
+
+                    //GameObject wood = Instantiate(GetRandomPrefab(TreePrefabList), point.position, Quaternion.identity, tile.transform);
+
+                    // 리소스매니저에 넣기
+                }
+            }
+        }
+    }
+
     public void SpawnResources(TileBlock tile)
     {
         foreach(Transform point in tile.ResourceSpawnPoints)
@@ -22,15 +63,15 @@ public class ResourceSpawner : MonoBehaviour
             // 30% 확률로 바위 생성 40% 확률로 나무 생성 30% 확률로 아무것도 안함
             if(roll < 0.3f)
             {
-                ClusterInstantiate(point.position, tile.gameObject, ResourceType.Rock, RockPrefabList);
+                ClusterInstantiate(point.position, tile.gameObject, ResourceType.Rock, Random.Range(1f, 6f), Random.Range(1f, 4f), RockPrefabList);
 
                 //GameObject rock = Instantiate(GetRandomPrefab(RockPrefabList), point.position, Quaternion.identity, tile.transform);
 
                 // 리소스매니저에 넣기
             }
-            else if(roll < 0.7f)
+            else if(roll < 0.75f)
             {
-                ClusterInstantiate(point.position, tile.gameObject, ResourceType.Tree, TreePrefabList);
+                ClusterInstantiate(point.position, tile.gameObject, ResourceType.Tree, Random.Range(2f, 6f), Random.Range(1f, 4f), TreePrefabList);
 
                 //GameObject wood = Instantiate(GetRandomPrefab(TreePrefabList), point.position, Quaternion.identity, tile.transform);
 
@@ -44,15 +85,11 @@ public class ResourceSpawner : MonoBehaviour
         return prefabList[Random.Range(0, prefabList.Count)];
     }
 
-    private void ClusterInstantiate(Vector3 center, GameObject tile, ResourceType resourceType, List<GameObject> prefabList)
+    private void ClusterInstantiate(Vector3 center, GameObject tile, ResourceType resourceType, float radiusX, float radiusY, List<GameObject> prefabList)
     {
-        GameObject prefab = GetRandomPrefab(prefabList);
-
         int tries = 0;
         int placed = 0;
         int count = Random.Range(5, 24);
-        float radiusX = Random.Range(1f, 6f);
-        float radiusY = Random.Range(1f, 4f);
 
         while(placed < count && tries < count * 10)
         {
@@ -65,11 +102,13 @@ public class ResourceSpawner : MonoBehaviour
 
             Vector3 offset = SnapToGrid(new Vector3(x, y, 0f));
             Vector3 spawnPoint = center + offset;
-
+            if (Global.Instance.BoundaryCheck(spawnPoint) == false) continue;
+            
             bool tooClose = _placedResourcePositionList.Any(pos => Vector3.Distance(pos, spawnPoint) < _minDistance);
             if (tooClose) continue;
 
             _placedResourcePositionList.Add(spawnPoint);
+            GameObject prefab = GetRandomPrefab(prefabList);
             AResource resource = Instantiate(prefab, spawnPoint, Quaternion.identity, tile.transform).GetComponent<AResource>();
             ResourceManager.Instance.FieldResourceList.Add(resource);
             TypeListForInit.Add(resourceType);

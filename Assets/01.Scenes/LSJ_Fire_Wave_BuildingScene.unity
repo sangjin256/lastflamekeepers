@@ -602,9 +602,9 @@ MonoBehaviour:
   m_ComponentVersion: 2
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.25
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.6
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 7be9c9802f8bedc32f7b1f3a
@@ -686,9 +686,9 @@ MonoBehaviour:
   m_ComponentVersion: 2
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.25
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.4
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 000000007be9c9802f8bedc32f7b1f3a7721139c
@@ -712,7 +712,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 6
-  m_PointLightOuterRadius: 9.5
+  m_PointLightOuterRadius: 10
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -1272,7 +1272,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962212432}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c8c3515994d6e84cbcf45baaadfb029, type: 3}
   m_Name: 
@@ -1315,8 +1315,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TreePrefabList:
   - {fileID: 1413061942490225082, guid: d0b43fd324ff3f9499f903b8d3d1434b, type: 3}
+  - {fileID: 1413061942490225082, guid: 845241793c4cc384e865ab0c6cb250ef, type: 3}
   RockPrefabList:
   - {fileID: 2353196807227275509, guid: 30ad30f2c52194243bdd96f0715ead50, type: 3}
+  - {fileID: 2353196807227275509, guid: 45f1819a4fb8823459c90e1abef1e6be, type: 3}
+  - {fileID: 2353196807227275509, guid: 47c0de76efef73f41b09fcaaa2195a2e, type: 3}
   _placedResourcePositionList: []
 --- !u!114 &979784877
 MonoBehaviour:
