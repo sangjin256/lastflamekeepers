@@ -4,41 +4,41 @@ using System.Collections.Generic;
 
 public class UnitSelectionManager : BehaviourSingleton<UnitSelectionManager>
 {
-    public List<GameObject> SelectedUnitList = new List<GameObject>();
+    public List<Unit> SelectedUnitList = new List<Unit>();
 
     private bool IsDragging = false;
 
-    public void ClickSelect(GameObject unitToAdd)
+    public void ClickSelect(Unit unitToAdd)
     {
         DeselectAll();
         SelectedUnitList.Add(unitToAdd);
 
-        SelectTest(unitToAdd);
+        SelectTest(unitToAdd.gameObject);
     }
 
-    public void ShiftClickSelect(GameObject unitToAdd)
+    public void ShiftClickSelect(Unit unitToAdd)
     {
         if (!SelectedUnitList.Contains(unitToAdd))
         {
             SelectedUnitList.Add(unitToAdd);
 
-            SelectTest(unitToAdd);
+            SelectTest(unitToAdd.gameObject);
         }
         else
         {
             SelectedUnitList.Remove(unitToAdd);
 
-            DeSelectTest(unitToAdd);
+            DeSelectTest(unitToAdd.gameObject);
         }
     }
 
-    public void DragSelect(GameObject unitToAdd)
+    public void DragSelect(Unit unitToAdd)
     {
         if (!SelectedUnitList.Contains(unitToAdd))
         {
             SelectedUnitList.Add(unitToAdd);
 
-            SelectTest(unitToAdd);
+            SelectTest(unitToAdd.gameObject);
         }
     }
 
@@ -48,11 +48,11 @@ public class UnitSelectionManager : BehaviourSingleton<UnitSelectionManager>
         SelectedUnitList.Clear();
     }
 
-    public void Deselect(GameObject unitToSelect)
+    public void Deselect(Unit unitToSelect)
     {
         SelectedUnitList.Remove(unitToSelect);
 
-        DeSelectTest(unitToSelect);
+        DeSelectTest(unitToSelect.gameObject);
     }
 
     public void SelectTest(GameObject unitSelect)
@@ -66,7 +66,7 @@ public class UnitSelectionManager : BehaviourSingleton<UnitSelectionManager>
 
     public void DeselectAllTest()
     {
-        foreach(GameObject unit in SelectedUnitList)
+        foreach(Unit unit in SelectedUnitList)
         {
             unit.GetComponent<SpriteRenderer>().color = Color.white;
         }

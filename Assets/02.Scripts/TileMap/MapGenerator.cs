@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 public class MapGenerator : MonoBehaviour
 {
-    public GameObject CenterBaseTile;
+    public List<GameObject> CenterBaseTile;
     public List<GameObject> TilePresetList;
-    public Vector2 TileSize = new Vector2(40f, 40f);
 
     public readonly Vector2Int[,] PositionGrid =
     {
@@ -29,16 +28,15 @@ public class MapGenerator : MonoBehaviour
             for(int x = 0; x < 3; x++)
             {
                 Vector2Int pos = PositionGrid[y, x];
-                Vector3 worldPos = new Vector3(pos.x * TileSize.x, pos.y * TileSize.y, 0f);
+                Vector3 worldPos = new Vector3(pos.x * Global.Instance.TileBlockSize.x, pos.y * Global.Instance.TileBlockSize.y, 0f);
 
                 GameObject selectedTile;
 
-                if (x == 1 && y == 1) selectedTile = Instantiate(CenterBaseTile, worldPos, Quaternion.identity, MapRoot);
+                if (x == 1 && y == 1) selectedTile = Instantiate(CenterBaseTile[Random.Range(0, CenterBaseTile.Count)], worldPos, Quaternion.identity, MapRoot);
                 else
                 {
                     GameObject preset = TilePresetList[Random.Range(0, TilePresetList.Count)];
-                    Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(0, 4) * 90);
-                    selectedTile = Instantiate(preset, worldPos, rotation, MapRoot);
+                    selectedTile = Instantiate(preset, worldPos, Quaternion.identity, MapRoot);
                 }
 
                 TileBlock block = selectedTile.GetComponent<TileBlock>();
@@ -48,5 +46,7 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
+
+        ResourceSpawner.InitializeAllResourceAsync();
     }
 }

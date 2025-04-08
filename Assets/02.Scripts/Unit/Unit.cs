@@ -105,9 +105,9 @@ public class Unit : AInteractableEntityTest
         }
     }
 
-    public void SetTarget(Transform point)
+    public void SetTarget(Vector3 point)
     {
-        _navMeshAgent.SetDestination(point.position);
+        _navMeshAgent.SetDestination(point);
         _target = null;
     }
 

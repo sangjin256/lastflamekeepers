@@ -1,15 +1,17 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 public class ResourceSpawner : MonoBehaviour
 {
     public List<GameObject> TreePrefabList;
     public List<GameObject> RockPrefabList;
 
-    private List<Vector3> _placedResourcePositionList = new List<Vector3>();
+    public List<Vector3> _placedResourcePositionList = new List<Vector3>();
 
     private float _minDistance = 0.1f;
+    private List<ResourceType> TypeListForInit = new List<ResourceType>();
 
     public void SpawnResources(TileBlock tile)
     {
@@ -20,7 +22,7 @@ public class ResourceSpawner : MonoBehaviour
             // 30% 확률로 바위 생성 40% 확률로 나무 생성 30% 확률로 아무것도 안함
             if(roll < 0.3f)
             {
-                ClusterInstantiate(point.position, tile.gameObject, RockPrefabList);
+                ClusterInstantiate(point.position, tile.gameObject, ResourceType.Rock, RockPrefabList);
 
                 //GameObject rock = Instantiate(GetRandomPrefab(RockPrefabList), point.position, Quaternion.identity, tile.transform);
 
@@ -28,7 +30,7 @@ public class ResourceSpawner : MonoBehaviour
             }
             else if(roll < 0.7f)
             {
-                ClusterInstantiate(point.position, tile.gameObject, TreePrefabList);
+                ClusterInstantiate(point.position, tile.gameObject, ResourceType.Tree, TreePrefabList);
 
                 //GameObject wood = Instantiate(GetRandomPrefab(TreePrefabList), point.position, Quaternion.identity, tile.transform);
 
@@ -42,7 +44,7 @@ public class ResourceSpawner : MonoBehaviour
         return prefabList[Random.Range(0, prefabList.Count)];
     }
 
-    private void ClusterInstantiate(Vector3 center, GameObject tile, List<GameObject> prefabList)
+    private void ClusterInstantiate(Vector3 center, GameObject tile, ResourceType resourceType, List<GameObject> prefabList)
     {
         GameObject prefab = GetRandomPrefab(prefabList);
 
@@ -52,7 +54,6 @@ public class ResourceSpawner : MonoBehaviour
         float radiusX = Random.Range(1f, 6f);
         float radiusY = Random.Range(1f, 4f);
 
-        Debug.Log(count + " " + radiusX + " " + radiusY);
         while(placed < count && tries < count * 10)
         {
             tries++;
@@ -69,8 +70,28 @@ public class ResourceSpawner : MonoBehaviour
             if (tooClose) continue;
 
             _placedResourcePositionList.Add(spawnPoint);
-            Instantiate(prefab, spawnPoint, Quaternion.identity, tile.transform);
+            AResource resource = Instantiate(prefab, spawnPoint, Quaternion.identity, tile.transform).GetComponent<AResource>();
+            ResourceManager.Instance.FieldResourceList.Add(resource);
+            TypeListForInit.Add(resourceType);
             placed++;
+        }
+    }
+
+    public async void InitializeAllResourceAsync()
+    {
+        Task _init = Task.Factory.StartNew(() =>
+        {
+            for (; ; )
+            {
+                if (ResourceManager.Instance.IsResourceDataDictNotNull()) break;
+            }
+        });
+
+        await _init;
+
+        for(int i = 0; i < TypeListForInit.Count; i++)
+        {
+            ResourceManager.Instance.FieldResourceList[i].Initialize(TypeListForInit[i]);
         }
     }
 
