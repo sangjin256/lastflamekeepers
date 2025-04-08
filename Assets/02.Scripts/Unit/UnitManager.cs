@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class UnitManager : BehaviourSingleton<UnitManager>
 {
     private List<Unit> _unitList = new List<Unit>();
-    public List<Unit> UnitList;
+    public List<Unit> UnitList => _unitList;
 
     private int _maxCoutUnit;
     public int MaxCountUnit => _maxCoutUnit;
@@ -185,8 +185,10 @@ public class UnitManager : BehaviourSingleton<UnitManager>
         List<Unit> randomUnitList = new List<Unit>();
         for (int i = 0; i < 20; i++)
         {
-            //randomUnitList.Add(GenerateRandomUnit());
+            randomUnitList.Add(GenerateRandomUnit());
         }
+        _unitList = randomUnitList;
+
         CountRandomFeatures(randomUnitList);
     }
 
