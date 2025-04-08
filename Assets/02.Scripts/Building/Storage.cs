@@ -11,7 +11,7 @@ public class Storage : ABaseBuilding
     {
         base.Initialize(buildData);
 
-        _resourceCapacity = buildData.Upgrade_AddValueList[0];
+        _resourceCapacity = buildData.Value;
 
         AddInventoryResourceCapacity(_resourceCapacity);
         Debug.Log($"Max Resource Count : {_resourceCapacity}");
@@ -27,9 +27,9 @@ public class Storage : ABaseBuilding
         }
 
         // 모든 최대 자원 수 변경
-        AddInventoryResourceCapacity(_buildData.Upgrade_AddValueList[Level]);
+        AddInventoryResourceCapacity(_buildData.Upgrade_AddValueList[Level - 1]);
 
-        _resourceCapacity += _buildData.Upgrade_AddValueList[Level];
+        _resourceCapacity += _buildData.Upgrade_AddValueList[Level - 1];
 
         Debug.Log($"Max Resource Count : {_resourceCapacity}");
         

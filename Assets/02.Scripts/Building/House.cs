@@ -11,7 +11,7 @@ public class House : ABaseBuilding
     {
         base.Initialize(buildData);
 
-        _unitCapacity = buildData.Upgrade_AddValueList[0];
+        _unitCapacity = buildData.Value;
         // TODO : Unit 최댓값 증가
 
         Debug.Log($"Unit : {_unitCapacity}");
@@ -27,7 +27,7 @@ public class House : ABaseBuilding
         }
 
         // TODO : Unit 최댓값 증가
-        _unitCapacity += _buildData.Upgrade_AddValueList[Level];
+        _unitCapacity += _buildData.Upgrade_AddValueList[Level - 1];
 
         Debug.Log($"Unit : {_unitCapacity}");
 
