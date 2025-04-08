@@ -49,6 +49,11 @@ public class ClickSystem : MonoBehaviour
             if(UnitSelectionManager.Instance.SelectedUnitList.Count != 0)
             {
                 Vector3 WorldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                if (FireManager.Instance.IsWithInFireRange(WorldMousePosition) == false)
+                {
+                    return;
+                }
+
                 RaycastHit2D hit = Physics2D.Raycast(WorldMousePosition, Vector2.zero, 1f, Clilckable);
                 // ¶¥ÀÌ¸é ÁÂÇ¥ Àü´Þ
                 if (hit.collider == null)

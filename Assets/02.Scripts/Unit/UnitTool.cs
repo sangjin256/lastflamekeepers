@@ -32,7 +32,7 @@ public class UnitTool : MonoBehaviour
 
     private void Start()
     {
-        SetTool(ToolManager.Instance.GetTool(ToolType.Axe));
+        SetTool(ToolManager.Instance.GetTool(ToolType.Sword));
     }
 
     public void SetTool(ATool tool)

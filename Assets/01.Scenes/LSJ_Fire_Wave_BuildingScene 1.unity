@@ -1279,11 +1279,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScrollSpeed: 140
-  Speed: 12
+  Speed: 15
   MaxOrthographicSize: 15
-  MinOrthographicSize: 5
+  MinOrthographicSize: 3
   MousePosition: {x: 0, y: 0, z: 0}
   CameraTarget: {fileID: 0}
+  SmoothTime: 0.12
+  Velocity: {x: 0, y: 0, z: 0}
 --- !u!1 &979784875
 GameObject:
   m_ObjectHideFlags: 0
@@ -2264,7 +2266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c4095bb6f301d4a821a583b2dfc29c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaveInterval: 600
+  WaveInterval: 5
   LastWaveEndTime: 0
   CurrentWaveNum: 1
   EnemyPrefab:
