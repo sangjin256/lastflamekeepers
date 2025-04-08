@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public abstract class ABaseBuilding : MonoBehaviour
@@ -17,6 +18,7 @@ public abstract class ABaseBuilding : MonoBehaviour
 
     // 빌딩 활성화 여부
     protected bool _isActive = true;
+    public bool IsActive => _isActive;
 
     // 레벨
     private int _maxLevel;
@@ -105,4 +107,16 @@ public abstract class ABaseBuilding : MonoBehaviour
     }
 
     public abstract void SetActive(bool active);
+
+    // ***********************************************************
+    // UI 용 함수들
+    public BuildingType GetBuildingType()
+    {
+        return _buildingType;
+    }
+
+    public string GetBuildingDescription()
+    {
+        return _buildData.Description;
+    }
 }

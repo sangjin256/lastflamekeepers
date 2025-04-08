@@ -92,7 +92,6 @@ public class InventoryResourceManager : BehaviourSingleton<InventoryResourceMana
 
     public bool TryRemoveCurrentResourceCount(InventoryResourceType type, int amount)
     {
-        Debug.Log($"현재 자원 수 : {_currentResource[InventoryResourceType.Wood]}, {_currentResource[InventoryResourceType.Wood]}");
         if (_currentResource.TryGetValue(type, out int currentAmount))
         {
             if (currentAmount - amount < 0)
