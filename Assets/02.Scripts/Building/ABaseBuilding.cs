@@ -55,22 +55,29 @@ public abstract class ABaseBuilding : MonoBehaviour
     {
         _spriteRenderer.color = color;
     }
-    
+
+    public void OnClikcUpgradeButton()
+    {
+        UpgradeBuilding();
+    }
+
     public virtual bool UpgradeBuilding()
     {
-        if (_level >= _maxLevel - 1)
+        if (_level >= _maxLevel)
         {
             Debug.Log("MaxLevel");
             return false;
         }
 
-        if (InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, _requiredResourcesList[_level][0]))
+        Debug.Log($"필요 자원 나무 : {_requiredResourcesList[_level][0]}, 돌 : {_requiredResourcesList[_level][0]}");
+
+        if (!InventoryResourceManager.Instance.TryRemoveCurrentResourceCount(InventoryResourceType.Wood, _requiredResourcesList[_level][0]))
         {
             Debug.Log("나무 자원 부족");
             return false;
         }
 
-        if (InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Stone, _requiredResourcesList[_level][1]))
+        if (!InventoryResourceManager.Instance.TryRemoveCurrentResourceCount(InventoryResourceType.Stone, _requiredResourcesList[_level][1]))
         {
             Debug.Log("돌 자원 부족");
             return false;
