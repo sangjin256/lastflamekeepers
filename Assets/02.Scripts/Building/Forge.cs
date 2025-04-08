@@ -104,4 +104,14 @@ public class Forge : ABaseBuilding
 
         CloseSelectToolTypeUI();
     }
+
+    public int GetNextLevelToolCount()
+    {
+        if (Level >= _buildData.Upgrade_AddValueList.Count)
+        {
+            return 0;
+        }
+
+        return _buildData.Upgrade_AddValueList[Level];
+    }
 }

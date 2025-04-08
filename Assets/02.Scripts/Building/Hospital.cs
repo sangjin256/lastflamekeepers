@@ -6,6 +6,7 @@ public class Hospital : ABaseBuilding
     protected override BuildingType DefineType() => BuildingType.Hospital;
 
     private int _medicineCapacity;
+    public ToolType ToolType => ToolType.Medicine;
 
     public override void Initialize(BuildData buildData)
     {
@@ -56,5 +57,15 @@ public class Hospital : ABaseBuilding
         }
 
         _isActive = active;
+    }
+
+    public int GetNextLevelToolCount()
+    {
+        if (Level >= _buildData.Upgrade_AddValueList.Count)
+        {
+            return 0;
+        }
+
+        return _buildData.Upgrade_AddValueList[Level];
     }
 }
