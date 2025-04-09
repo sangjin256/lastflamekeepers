@@ -13,31 +13,57 @@ public class UnitTool : MonoBehaviour
 
     public bool IsInteracting;
 
+    private AnimationClip[,,] _toolAnimationClip = new AnimationClip[3,4,2];
 
-    public List<AnimationClip> SwordAnimationClip;
-    public List<AnimationClip> AxeAnimationClip;
-    public List<AnimationClip> PickaxeAnimationClip;
+    public AnimationClip[] SwordAnimationClip;
+    public AnimationClip[] AxeAnimationClip;
+    public AnimationClip[] PickaxeAnimationClip;
 
-    public AnimationClip[,,] ToolAnimationClip;
 
     private Animator _animator;
-    public AnimatorOverrideController overrideController;
+    private AnimatorOverrideController _overrideController;
     private void Awake()
     {
         _unitStat = GetComponentInParent<UnitStat>();
         _unit = GetComponentInParent<Unit>();
         _animator = GetComponent<Animator>();
 
-        overrideController = new AnimatorOverrideController(_animator.runtimeAnimatorController);
+        _overrideController = new AnimatorOverrideController(_animator.runtimeAnimatorController);
 
-        _animator.runtimeAnimatorController = overrideController;
+        _animator.runtimeAnimatorController = _overrideController;
     }
 
     private void Start()
     {
-        SetTool(ToolManager.Instance.GetTool(ToolType.Sword));
+        InitializeAnimationClip();
     }
 
+    public void InitializeAnimationClip()
+    {
+
+        for(int toolType = 0; toolType < _toolAnimationClip.GetLength(0); toolType++)
+        {
+            for (int toolLevel = 0; toolLevel < _toolAnimationClip.GetLength(1); toolLevel++)
+            {
+                for (int state= 0; state< _toolAnimationClip.GetLength(2); state++)
+                {
+                    if (toolType == 0)
+                    {
+                        _toolAnimationClip[toolType, toolLevel, state] = SwordAnimationClip[toolLevel * 2 + state];
+                    }
+                    else if (toolType == 1)
+                    {
+                        _toolAnimationClip[toolType, toolLevel, state] = AxeAnimationClip[toolLevel * 2 + state];
+                    }
+                    else if (toolType == 2)
+                    {
+                        _toolAnimationClip[toolType, toolLevel, state] = PickaxeAnimationClip[toolLevel * 2 + state];
+                    }
+                }
+            }
+        }
+
+    }
     public void SetTool(ATool tool)
     {
         _currentTool = tool;
@@ -60,9 +86,10 @@ public class UnitTool : MonoBehaviour
                 break;
             }
         }
-        overrideController["Idle"] = ToolAnimationClip[(int)_currentTool.ToolType, _currentTool.UpgradeLevel, 0];
-        overrideController["Interact"] = ToolAnimationClip[(int)_currentTool.ToolType, _currentTool.UpgradeLevel, 1];
+        _overrideController["Idle"] = _toolAnimationClip[(int)_currentTool.ToolType, _currentTool.UpgradeLevel, 0];
+        _overrideController["Interact"] = _toolAnimationClip[(int)_currentTool.ToolType, _currentTool.UpgradeLevel, 1];
 
+        Debug.Log($"{tool.ToolType}");
         IsInteracting = false;
         _animator.SetBool("IsInteracting", false);
     }
