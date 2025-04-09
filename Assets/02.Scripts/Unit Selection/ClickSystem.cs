@@ -51,7 +51,7 @@ public class ClickSystem : MonoBehaviour
                     else
                     {
                         FireClicked = true;
-                        Debug.Log("불 업글창");
+                        UIManager.Instance.OnClickFire();
                     }
                 }
                 #endregion

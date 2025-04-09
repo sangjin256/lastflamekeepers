@@ -347,7 +347,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FireUI_0: 3753029148331324719
+      FireUI_1: 2065296033166030871
+      FireUI_2: 5463154319896975593
+      FireUI_3: 4673749133584204709
+      FireUI_4: 232582163646285461
+      FireUI_5: 7573809467336284379
+      FireUI_6: 7352452248523305847
+      FireUI_7: 3327023477374441119
+      FireUI_8: -3384092018209288831
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

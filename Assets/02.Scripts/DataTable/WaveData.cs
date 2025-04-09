@@ -20,6 +20,9 @@ public class WaveData
     ///<summary>적 수</summary>
     public readonly int EnemyCount;
 
+    ///<summary>잿가루 수</summary>
+    public readonly int EnemyAsh;
+
     public WaveData(BinaryReader reader)
     {
         TID = reader.ReadInt32();
@@ -27,5 +30,6 @@ public class WaveData
         EnemyHealth = reader.ReadInt32();
         EnemyDamage = reader.ReadInt32();
         EnemyCount = reader.ReadInt32();
+        EnemyAsh = reader.ReadInt32();
     }
 }

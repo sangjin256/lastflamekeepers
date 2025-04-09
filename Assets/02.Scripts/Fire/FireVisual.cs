@@ -10,7 +10,7 @@ public class FireVisual : MonoBehaviour
         FireManager.Instance.OnFireRangeChanged += SpriteChange;
     }
 
-    public void SpriteChange(float range)
+    public void SpriteChange()
     {
         float rangeRate = FireManager.Instance.GetRange() / FireManager.Instance.GetMaxRange();
         AnimController.SetFloat("RangeRate", rangeRate);

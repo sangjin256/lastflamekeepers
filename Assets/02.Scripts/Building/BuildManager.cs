@@ -95,8 +95,9 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     [ContextMenu("AddResource")]
     public void AddResourceTest()
     {
-        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, 10);
-        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Stone, 10);
+        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, 100);
+        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Stone, 100);
+        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Ash, 100);
     }
 
     private void Update()
@@ -265,10 +266,10 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
     // 업데이트 전 반지름
     private float _lastUpdatedRange = 0f;
-    public void UpdateFireRange(float newRange)
+    public void UpdateFireRange()
     {
         // 범위가 더 커진 경우=> 비활성화 -> 활성화
-        if (_lastUpdatedRange < newRange)
+        if (_lastUpdatedRange < FireManager.Instance.GetRange())
         {
             // 비활성화 스택 검사
             while (_disabledBuildingStack.Count != 0)
@@ -315,7 +316,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
             }
         }
 
-        _lastUpdatedRange = newRange;
+        _lastUpdatedRange = FireManager.Instance.GetRange();
     }
 
     public List<LinkedList<ABaseBuilding>> GetBuildingList(BuildingType type)

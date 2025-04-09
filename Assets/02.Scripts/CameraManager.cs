@@ -33,7 +33,7 @@ public class CameraManager : BehaviourSingleton<CameraManager>
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
         if (Mathf.Abs(scrollInput) > 0.01f)
         {
-            float targetSize = MainCamera.orthographicSize - scrollInput * ScrollSpeed * Time.deltaTime;
+            float targetSize = MainCamera.orthographicSize - scrollInput * ScrollSpeed * Time.unscaledDeltaTime;
             MainCamera.orthographicSize = Mathf.Clamp(targetSize, MinOrthographicSize, MaxOrthographicSize);
         }
 
@@ -45,8 +45,8 @@ public class CameraManager : BehaviourSingleton<CameraManager>
         if (IsFollowing)
         {
             Vector3 targetPos = new Vector3(FollowTarget.position.x, FollowTarget.position.y, -10f);
-            transform.position = Vector3.Lerp(transform.position, targetPos, Speed * Time.deltaTime);
-            //MainCamera.orthographicSize = Mathf.Lerp(MainCamera.orthographicSize, MinOrthographicSize, Speed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, targetPos, Speed * Time.unscaledDeltaTime);
+            //MainCamera.orthographicSize = Mathf.Lerp(MainCamera.orthographicSize, MinOrthographicSize, Speed * Time.unscaledDeltaTime);
         }
 
         // 카메라 이동
@@ -88,7 +88,7 @@ public class CameraManager : BehaviourSingleton<CameraManager>
             }
         }
 
-        transform.position = Vector3.SmoothDamp(transform.position, TargetPosition, ref Velocity, SmoothTime, Speed);
+        transform.position = Vector3.SmoothDamp(transform.position, TargetPosition, ref Velocity, SmoothTime, Speed, Time.unscaledDeltaTime);
     }
 
     public void MoveToEntity(Transform targetTransform)

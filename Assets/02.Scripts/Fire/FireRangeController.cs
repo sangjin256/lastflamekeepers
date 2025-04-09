@@ -7,14 +7,14 @@ public class FireRangeController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            FireManager.Instance.ExpandFire(amount);
-        }
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    FireManager.Instance.ExpandFire(amount);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            FireManager.Instance.ReduceFire(amount);
-        }
+        //if (Input.GetKeyDown(KeyCode.G))
+        //{
+        //    FireManager.Instance.ReduceFire(amount);
+        //}
     }
 }
