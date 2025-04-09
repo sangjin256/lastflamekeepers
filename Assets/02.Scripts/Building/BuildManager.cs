@@ -6,6 +6,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     [Header("빌딩 프리팹")]
     public List<GameObject> BuildingPrefabs;        // 배치할 건물 프립팹
     private ABaseBuilding _previewBuilding = null;       // 프리뷰용 건물
+    private BoxCollider2D _previewBuildingCollider = null;
 
     [Header("프리뷰 건물 색")]
     public Color CanBuildColor = Color.white;
@@ -136,7 +137,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        _previewBuilding.transform.position = mousePosition;
+        _previewBuilding.transform.position = mousePosition - _previewBuildingCollider.offset;
     }
 
     private bool CheckBuildCondition()
@@ -160,7 +161,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         }
 
         // 2. 불에서부터의 거리 확인
-        float distanceFromFire = Vector2.SqrMagnitude(_previewBuilding.transform.position);
+        float distanceFromFire = Vector2.SqrMagnitude((Vector2)_previewBuilding.transform.position + _previewBuildingCollider.offset);
         if (!FireManager.Instance.IsWithInFireRange(distanceFromFire))
         {
             return false;
@@ -193,7 +194,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         }
         
         // 건물 관리용 우선순위 큐에 추가
-        float distanceFromFire = Vector2.SqrMagnitude(_previewBuilding.transform.position);
+        float distanceFromFire = Vector2.SqrMagnitude((Vector2)_previewBuilding.transform.position + _previewBuildingCollider.offset);
         _buildingPriorityQueue.Enqueue(building, -distanceFromFire);
 
         // 건물 딕셔너리 리스트에 값 추가
@@ -225,6 +226,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         if (!_isCompleteSelectForgeToolType)
         {
             Debug.Log("[박우영] 아직 대장간의 타입을 정해주지 않았습니다.");
+            UIManager.Instance.SetCanBuildStart(false);
             return;
         }
 
@@ -233,7 +235,9 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         if (buildingType == BuildingType.Laboratory && _isLaboratoryBuilded)
         {
             Debug.Log("[박우영]연구소는 한 개만 생성 가능합니다!");
+
             // TODO : 팝업 창으로 안내 메세지
+            UIManager.Instance.SetCanBuildStart(false);
 
             return;
         }
@@ -244,24 +248,28 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         if (!canBuild)
         {
             Debug.Log("나무 자원 부족");
+            UIManager.Instance.SetCanBuildStart(false);
             return;
         }
         canBuild = InventoryResourceManager.Instance.TryRemoveCurrentResourceCount(InventoryResourceType.Stone, _requiredResourcesDicList[buildingType][1]);
         if (!canBuild)
         {
             Debug.Log("돌 자원 부족");
+            UIManager.Instance.SetCanBuildStart(false);
             return;
         }
 
-
+        UIManager.Instance.SetCanBuildStart(true);
         GameObject newBuilding = Instantiate(BuildingPrefabs[buildingTypeWithTool]);
         _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
+        _previewBuildingCollider = newBuilding.GetComponent<BoxCollider2D>();
     }
 
     public void EndBuildingMode()
     {
         Destroy(_previewBuilding.gameObject);
         _previewBuilding = null;
+        _previewBuildingCollider = null;
     }
 
     // 업데이트 전 반지름
