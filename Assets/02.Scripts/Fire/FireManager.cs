@@ -1,3 +1,4 @@
+using FunkyCode;
 using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -7,14 +8,12 @@ using UnityEngine.Rendering.Universal;
 
 public class FireManager : BehaviourSingleton<FireManager>
 {
-    private Light2D _outerLight;
-
     [Header("불 범위 설정")]
     [SerializeField] float MaxRange = 43f;
     [SerializeField] float MinRange = 0f;
     [SerializeField] float CurrentRange = 5f;
 
-    private Light2D _fireLight;
+    private FunkyCode.Light2D _fireLight;
     private float _innerRange;
 
     [SerializeField] float CurrentSquareRange => CurrentRange * CurrentRange;
@@ -24,8 +23,7 @@ public class FireManager : BehaviourSingleton<FireManager>
 
     private void Start()
     {
-        _fireLight = GetComponent<Light2D>();
-        _outerLight = transform.GetChild(0).GetComponent<Light2D>();
+        _fireLight = transform.GetChild(0).GetComponent<FunkyCode.Light2D>();
     }
 
     private void SetFireRange(float range)
@@ -34,11 +32,13 @@ public class FireManager : BehaviourSingleton<FireManager>
         CurrentRange = Mathf.Clamp(range, MinRange, MaxRange);
         _innerRange = Mathf.Clamp(CurrentRange - 2, MinRange, MaxRange);
 
-        _fireLight.pointLightInnerRadius = _innerRange;
-        _fireLight.pointLightOuterRadius = CurrentRange;
+        _fireLight.size = CurrentRange;
 
-        _outerLight.pointLightInnerRadius = _innerRange;
-        _outerLight.pointLightOuterRadius = CurrentRange + 2f;
+        //_fireLight.pointLightInnerRadius = _innerRange;
+        //_fireLight.pointLightOuterRadius = CurrentRange;
+
+        //_outerLight.pointLightInnerRadius = _innerRange;
+        //_outerLight.pointLightOuterRadius = CurrentRange + 2f;
 
         // 범위 변경 이벤트 발생
         OnFireRangeChanged?.Invoke(CurrentRange);
