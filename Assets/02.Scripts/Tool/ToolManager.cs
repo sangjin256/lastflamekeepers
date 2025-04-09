@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class ToolManager : BehaviourSingleton<ToolManager>
 {
@@ -10,6 +11,7 @@ public class ToolManager : BehaviourSingleton<ToolManager>
     public readonly int MaxUpgradeLevel = 3;
     public readonly int StartTid = 10000;
 
+    public Action<Unit> OnToolChanged;
     private void Awake()
     {
         Global.Instance.OnDataLoaded += _LoadTool;
@@ -19,6 +21,10 @@ public class ToolManager : BehaviourSingleton<ToolManager>
     {
         _toolList = new List<ATool>();
         _maxToolCountList = new List<int>();
+
+        //맨손
+        _toolList.Add(new NoneTool(ToolType.None, "맨손", 0, 0));
+        _maxToolCountList.Add(999);
 
         ToolData data = DataTable.Instance.GetToolData(10000);
         _toolList.Add(new SwordTool(data.ToolType, data.ToolName, 0, data.Value));
@@ -49,6 +55,12 @@ public class ToolManager : BehaviourSingleton<ToolManager>
     public ATool GetTool(ToolType toolType)
     {
         return _toolList[(int)toolType];
+    }
+
+    public void SetTool(Unit unit, ToolType toolType)
+    {
+        unit.SetTool(GetTool(toolType));
+        OnToolChanged?.Invoke(unit);
     }
 
     public void UpgradeTool(ToolType toolType)

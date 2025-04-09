@@ -19,6 +19,10 @@ public class EnemyInteractTrigger : MonoBehaviour
         }
         if (interactableEntity != _enemy.Target)
         {
+            if (Vector2.Distance(other.transform.position, transform.position) < Vector2.Distance(_enemy.Target.transform.position, transform.position))
+            {
+                _enemy.SetTarget(interactableEntity);
+            }
             return;
         }
         _enemy.StopNavMeshAgent();

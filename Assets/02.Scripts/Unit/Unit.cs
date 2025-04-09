@@ -1,5 +1,4 @@
-using NUnit.Framework;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,7 +16,6 @@ public class Unit : AInteractableEntity
     //public GameObject _target;
     private CircleCollider2D _interactCollider;
     private CircleCollider2D _searchCollider;
-    private Rigidbody2D _rigidbody;
 
     private Animator _animator;
     private Animator _toolAnimator;
@@ -27,6 +25,7 @@ public class Unit : AInteractableEntity
     private bool IsFacingRight = true;
     public bool MissTarget = false;
 
+    public Action<Unit> OnDamaged;
     private void Awake()
     {
         _unitStat = GetComponent<UnitStat>();
@@ -36,7 +35,6 @@ public class Unit : AInteractableEntity
         _navMeshAgent.updateUpAxis = false;
         _interactCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
         _searchCollider = transform.GetChild(1).GetComponent<CircleCollider2D>();
-        _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _toolAnimator = transform.GetChild(2).GetComponent<Animator>();
     }
@@ -140,6 +138,7 @@ public class Unit : AInteractableEntity
         }
     }
 
+    // TODO: 인원 수 전달해서 그에 따른 랜덤 도착 범위 설정
     public void SetTarget(Vector2 point)
     {
         if (!CanInteract)
@@ -147,7 +146,7 @@ public class Unit : AInteractableEntity
             return;
         }
 
-        Vector2 randomPoint = point + Random.insideUnitCircle / 2;
+        Vector2 randomPoint = point + UnityEngine.Random.insideUnitCircle / 2;
         _navMeshAgent.SetDestination(randomPoint);
         _target = null;
 
@@ -249,7 +248,7 @@ public class Unit : AInteractableEntity
     public override void TakeDamage(int amount, bool isHeal)
     {
         base.TakeDamage(amount, isHeal);
-
+        OnDamaged?.Invoke(this);
         if (CanInteract)
         {
             return;

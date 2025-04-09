@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class UnitManager : BehaviourSingleton<UnitManager>
 {
@@ -28,6 +30,8 @@ public class UnitManager : BehaviourSingleton<UnitManager>
     private List<Feature> _negativeFeatureList = new List<Feature>();
 
     private float[] _getFeatureProbabilty = { 0.9f, 0.3f, 0.3f };
+
+    public Action<Unit> OnUnitListChanged;
     private void Start()
     {
         Global.Instance.OnDataLoaded += LoadData;
@@ -39,34 +43,34 @@ public class UnitManager : BehaviourSingleton<UnitManager>
 
     public Unit GenerateRandomUnit()
     {
-        GameObject unitGameObject = Instantiate(_unitPrefabList[Random.Range(0, _unitPrefabList.Count)]);
+        GameObject unitGameObject = Instantiate(_unitPrefabList[UnityEngine.Random.Range(0, _unitPrefabList.Count)]);
         UnitStat unitStat = unitGameObject.GetComponent<UnitStat>();
 
         //·£´ý ÀÌ¸§
-        unitStat.Name = _nameList[Random.Range(0, _nameList.Count)];
+        unitStat.Name = _nameList[UnityEngine.Random.Range(0, _nameList.Count)];
 
         unitGameObject.name = $"Unit({unitStat.Name})";
         //·£´ý ½ºÅÈ
-        int randomMaxHealth = Random.Range(_randomMaxHealthData.MinValue, _randomMaxHealthData.MaxValue + 1);
-        int randomDamage = Random.Range(_randomDamageData.MinValue, _randomDamageData.MaxValue + 1);
-        int randomAttackSpeed = Random.Range(_randomAttackSpeedData.MinValue, _randomAttackSpeedData.MaxValue + 1);
-        int randomMoveSpeed = Random.Range(_randomMoveSpeedData.MinValue, _randomMoveSpeedData.MaxValue + 1);
-        int randomWoodSpeed = Random.Range(_randomWoodSpeedData.MinValue, _randomWoodSpeedData.MaxValue + 1);
-        int randomRockSpeed = Random.Range(_randomRockSpeedData.MinValue, _randomRockSpeedData.MaxValue + 1);
+        int randomMaxHealth = UnityEngine.Random.Range(_randomMaxHealthData.MinValue, _randomMaxHealthData.MaxValue + 1);
+        int randomDamage = UnityEngine.Random.Range(_randomDamageData.MinValue, _randomDamageData.MaxValue + 1);
+        int randomAttackSpeed = UnityEngine.Random.Range(_randomAttackSpeedData.MinValue, _randomAttackSpeedData.MaxValue + 1);
+        int randomMoveSpeed = UnityEngine.Random.Range(_randomMoveSpeedData.MinValue, _randomMoveSpeedData.MaxValue + 1);
+        int randomWoodSpeed = UnityEngine.Random.Range(_randomWoodSpeedData.MinValue, _randomWoodSpeedData.MaxValue + 1);
+        int randomRockSpeed = UnityEngine.Random.Range(_randomRockSpeedData.MinValue, _randomRockSpeedData.MaxValue + 1);
 
         unitStat.Initialize(randomMaxHealth, randomDamage, randomAttackSpeed, randomMoveSpeed, randomWoodSpeed, randomRockSpeed);
 
         //·£´ý Æ¯¼º
         for (int featureCount = 0; featureCount < 3; featureCount++)
         {
-            if (Random.value > _getFeatureProbabilty[featureCount])
+            if (UnityEngine.Random.value > _getFeatureProbabilty[featureCount])
             {
                 break;
             }
 
 
         retry:
-            int randomIndex = Random.Range(0, _positiveFeatureList.Count);
+            int randomIndex = UnityEngine.Random.Range(0, _positiveFeatureList.Count);
             Feature randomFeature = _positiveFeatureList[randomIndex];
 
             //Áßº¹°Ë»ç
@@ -80,7 +84,7 @@ public class UnitManager : BehaviourSingleton<UnitManager>
 
         for (int featureCount = 0; featureCount < 3; featureCount++)
         {
-            if (Random.value > _getFeatureProbabilty[featureCount])
+            if (UnityEngine.Random.value > _getFeatureProbabilty[featureCount])
             {
                 break;
             }
@@ -116,6 +120,7 @@ public class UnitManager : BehaviourSingleton<UnitManager>
         unit.gameObject.SetActive(true);
         unit.transform.position = position;
         _unitList.Add(unit);
+        OnUnitListChanged?.Invoke(unit);
     }
 
     public void DestroyUnit(Unit unit)
