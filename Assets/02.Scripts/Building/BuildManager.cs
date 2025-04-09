@@ -212,6 +212,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     {
         if (buildingTypeWithTool > (int)BuildingType.Forge)
         {
+            Debug.Log(buildingTypeWithTool);
             Debug.Log("[박우영]BuildingType 범위 밖입니다. 실행을 종료하고, 버튼의 OnClick() 메서드를 잘 확인하세요");
             return;
         }
