@@ -7,7 +7,7 @@ public class ToolManager : BehaviourSingleton<ToolManager>
     private List<int> _currentToolCountList;
     private List<int> _maxToolCountList;
 
-    public readonly int MaxUpgradeLevel = 4;
+    public readonly int MaxUpgradeLevel = 3;
     public readonly int StartTid = 10000;
 
     private void Awake()
@@ -21,19 +21,19 @@ public class ToolManager : BehaviourSingleton<ToolManager>
         _maxToolCountList = new List<int>();
 
         ToolData data = DataTable.Instance.GetToolData(10000);
-        _toolList.Add(new SwordTool(data.ToolType, data.ToolName, 1, data.Value));
+        _toolList.Add(new SwordTool(data.ToolType, data.ToolName, 0, data.Value));
         _maxToolCountList.Add(data.MaxCount);
 
         data = DataTable.Instance.GetToolData(10001);
-        _toolList.Add(new AxeTool(data.ToolType, data.ToolName, 1, data.Value));
+        _toolList.Add(new AxeTool(data.ToolType, data.ToolName, 0, data.Value));
         _maxToolCountList.Add(data.MaxCount);
 
         data = DataTable.Instance.GetToolData(10002);
-        _toolList.Add(new PickAxeTool(data.ToolType, data.ToolName, 1, data.Value));
+        _toolList.Add(new PickAxeTool(data.ToolType, data.ToolName, 0, data.Value));
         _maxToolCountList.Add(data.MaxCount);
 
         data = DataTable.Instance.GetToolData(10003);
-        _toolList.Add(new MedicineTool(data.ToolType, data.ToolName, 1, data.Value));
+        _toolList.Add(new MedicineTool(data.ToolType, data.ToolName, 0, data.Value));
         _maxToolCountList.Add(data.MaxCount);
 
         _currentToolCountList = new List<int>(_toolList.Count);

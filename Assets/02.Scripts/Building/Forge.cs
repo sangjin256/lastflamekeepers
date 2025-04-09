@@ -18,8 +18,8 @@ public class Forge : ABaseBuilding
     public override void Initialize(BuildData buildData)
     {
         base.Initialize(buildData);
-        
-        _toolCapacity = buildData.Upgrade_AddValueList[0];
+
+        _toolCapacity = buildData.Value;
     }
 
     public override bool UpgradeBuilding()
@@ -32,8 +32,8 @@ public class Forge : ABaseBuilding
         }
 
         // ToolManager의 Tool 최댓값 증가
-        ToolManager.Instance.AddMaxToolCount(_toolType,_buildData.Upgrade_AddValueList[Level]);
-        _toolCapacity += _buildData.Upgrade_AddValueList[Level];
+        ToolManager.Instance.AddMaxToolCount(_toolType,_buildData.Upgrade_AddValueList[Level - 1]);
+        _toolCapacity += _buildData.Upgrade_AddValueList[Level - 1];
 
         Debug.Log($"{_toolType} : {_toolCapacity}");
 
@@ -103,5 +103,15 @@ public class Forge : ABaseBuilding
         Debug.Log($"{_toolType} : {_toolCapacity}");
 
         CloseSelectToolTypeUI();
+    }
+
+    public int GetNextLevelToolCount()
+    {
+        if (Level >= _buildData.Upgrade_AddValueList.Count)
+        {
+            return 0;
+        }
+
+        return _buildData.Upgrade_AddValueList[Level];
     }
 }

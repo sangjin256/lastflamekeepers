@@ -6,12 +6,13 @@ public class Hospital : ABaseBuilding
     protected override BuildingType DefineType() => BuildingType.Hospital;
 
     private int _medicineCapacity;
+    public ToolType ToolType => ToolType.Medicine;
 
     public override void Initialize(BuildData buildData)
     {
         base.Initialize(buildData);
 
-        _medicineCapacity = buildData.Upgrade_AddValueList[0];
+        _medicineCapacity = buildData.Value;
 
         // ToolManager의 Tool 최댓값 증가
         ToolManager.Instance.AddMaxToolCount(ToolType.Medicine, _medicineCapacity);
@@ -56,5 +57,15 @@ public class Hospital : ABaseBuilding
         }
 
         _isActive = active;
+    }
+
+    public int GetNextLevelToolCount()
+    {
+        if (Level >= _buildData.Upgrade_AddValueList.Count)
+        {
+            return 0;
+        }
+
+        return _buildData.Upgrade_AddValueList[Level];
     }
 }
