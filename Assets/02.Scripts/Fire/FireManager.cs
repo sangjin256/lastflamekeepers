@@ -38,7 +38,7 @@ public class FireManager : BehaviourSingleton<FireManager>
         _fireLight.pointLightOuterRadius = CurrentRange;
 
         _outerLight.pointLightInnerRadius = _innerRange;
-        _outerLight.pointLightOuterAngle = CurrentRange + 1.5f;
+        _outerLight.pointLightOuterRadius = CurrentRange + 2f;
 
         // 범위 변경 이벤트 발생
         OnFireRangeChanged?.Invoke(CurrentRange);

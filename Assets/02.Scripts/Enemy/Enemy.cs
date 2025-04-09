@@ -54,7 +54,7 @@ public class Enemy : AInteractableEntity
         }
 
         _navMeshAgent.SetDestination(_target.transform.position);
-        _rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
+        //_rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
         _navMeshAgent.nextPosition = transform.position;
 
         if (transform.position.x < _target.transform.position.x ^ IsFacingRight)

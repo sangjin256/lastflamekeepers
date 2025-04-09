@@ -11,6 +11,10 @@ public class UnitSearchTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if(_unit.UnitTool.Tool.ToolType != ToolType.Sword)
+        {
+            return;
+        }
         if (_unit.Target != null)
         {
             return;
@@ -43,15 +47,8 @@ public class UnitSearchTrigger : MonoBehaviour
             _unit.UnitTool.IsInteracting = false;
             _unit.ToolAnimator.SetBool("IsInteracting", false);
             _unit.NavMeshAgent.ResetPath();
-            _unit.FindTarget();
             _unit.ResumeNavMeshAgent();
-            
-
-            //if(_unit.Target == null)
-            //{
-            //    _unit.NavMeshAgent.SetDestination(transform.position);
-            //}
-
+            _unit.FindTarget();
         }
     }
 

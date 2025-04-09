@@ -42,11 +42,13 @@ public class MapGenerator : MonoBehaviour
                 TileBlock block = selectedTile.GetComponent<TileBlock>();
                 if(block != null)
                 {
-                    ResourceSpawner.SpawnResources(block);
+                    if (x == 1 && y == 1) ResourceSpawner.SpawnBaseResources(block);
+                    else ResourceSpawner.SpawnResources(block);
                 }
             }
         }
 
         ResourceSpawner.InitializeAllResourceAsync();
+        NavMeshManager.Instance.BakeSurface();
     }
 }

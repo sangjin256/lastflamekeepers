@@ -5,76 +5,56 @@ using Unity.VisualScripting;
 public class CameraManager : BehaviourSingleton<CameraManager>
 {
     public float ScrollSpeed = 120.0f;
-    public float Speed = 10.0f;
+    public float Speed = 15.0f;
     public float MaxOrthographicSize = 15f;
-    public float MinOrthographicSize = 5f;
+    public float MinOrthographicSize = 3f;
     public Vector3 MousePosition;
 
     public Transform CameraTarget;
 
+    public float SmoothTime = 0.12f;
+    public Vector3 Velocity;
+
     private Camera MainCamera;
+    private Vector3 TargetPosition;
 
     private void Start()
     {
         CameraTarget = this.transform;
         MainCamera = Camera.main;
+        TargetPosition = this.transform.position;
     }
 
     private void Update()
     {
-        float scroll = -Input.GetAxis("Mouse ScrollWheel") * ScrollSpeed * Time.deltaTime;
-
-        if (MainCamera.orthographicSize < MinOrthographicSize && scroll < 0)
+        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+        if (Mathf.Abs(scrollInput) > 0.01f)
         {
-            MainCamera.orthographicSize = MinOrthographicSize;
-        }
-        else if (MainCamera.orthographicSize >= MaxOrthographicSize && scroll > 0)
-        {
-            MainCamera.orthographicSize = MaxOrthographicSize;
-        }
-        else
-        {
-            MainCamera.orthographicSize += scroll;
+            float targetSize = MainCamera.orthographicSize - scrollInput * ScrollSpeed * Time.deltaTime;
+            MainCamera.orthographicSize = Mathf.Clamp(targetSize, MinOrthographicSize, MaxOrthographicSize);
         }
 
         MousePosition = Input.mousePosition;
 
         Vector3 viewPortMousePosition = MainCamera.ScreenToViewportPoint(MousePosition);
-        Vector3 movePosition; 
+        Vector3 movePosition = Vector3.zero;
 
         // 카메라 이동
-        if (viewPortMousePosition.y > 0.98f || Input.GetKey(KeyCode.W))
+        if (viewPortMousePosition.y > 0.98f || Input.GetKey(KeyCode.W)) movePosition += Vector3.up;
+        if (viewPortMousePosition.x < 0.02f || Input.GetKey(KeyCode.A)) movePosition += Vector3.left;
+        if (viewPortMousePosition.y < 0.02f || Input.GetKey(KeyCode.S)) movePosition += Vector3.down;
+        if (viewPortMousePosition.x > 0.98f || Input.GetKey(KeyCode.D)) movePosition += Vector3.right;
+
+        if (movePosition != Vector3.zero)
         {
-            movePosition = transform.position + Vector3.up;
-            if (BoundaryCheck(movePosition))
+            Vector3 nextPosition = transform.position + movePosition.normalized;
+            if (Global.Instance.BoundaryCheck(nextPosition))
             {
-                transform.position = Vector3.Lerp(transform.position, movePosition, Speed * Time.deltaTime);
+                TargetPosition = nextPosition;
             }
         }
-        if (viewPortMousePosition.x < 0.02f || Input.GetKey(KeyCode.A))
-        {
-            movePosition = transform.position + Vector3.left;
-            if (BoundaryCheck(movePosition))
-            {
-                transform.position = Vector3.Lerp(transform.position, movePosition, Speed * Time.deltaTime);
-            }
-        }
-        if (viewPortMousePosition.y < 0.02f || Input.GetKey(KeyCode.S))
-        {
-            movePosition = transform.position + Vector3.down;
-            if (BoundaryCheck(movePosition))
-            {
-                transform.position = Vector3.Lerp(transform.position, movePosition, Speed * Time.deltaTime);
-            }
-        }
-        if (viewPortMousePosition.x > 0.98f || Input.GetKey(KeyCode.D))
-        {
-            movePosition = transform.position + Vector3.right;
-            if (BoundaryCheck(movePosition))
-            {
-                transform.position = Vector3.Lerp(transform.position, movePosition, Speed * Time.deltaTime);
-            }
-        }
+
+        transform.position = Vector3.SmoothDamp(transform.position, TargetPosition, ref Velocity, SmoothTime, Speed);
     }
 
     public void MoveToEntity(Transform targetTransform)
@@ -91,16 +71,5 @@ public class CameraManager : BehaviourSingleton<CameraManager>
             MainCamera.orthographicSize = Mathf.Lerp(MainCamera.orthographicSize, MinOrthographicSize, Speed * Time.deltaTime);
             yield return null;
         }
-    }
-
-    public bool BoundaryCheck(Vector3 position)
-    {
-        float MaxX = Global.Instance.MapSize.x / 2;
-        float MinX = -Global.Instance.MapSize.x / 2;
-        float MaxY = Global.Instance.MapSize.y / 2;
-        float MinY = -Global.Instance.MapSize.y / 2;
-
-        if (position.x < MaxX && position.x > MinX && position.y < MaxY && position.y > MinY) return true;
-        return false;
     }
 }
