@@ -46,7 +46,7 @@ public class CameraManager : BehaviourSingleton<CameraManager>
         {
             Vector3 targetPos = new Vector3(FollowTarget.position.x, FollowTarget.position.y, -10f);
             transform.position = Vector3.Lerp(transform.position, targetPos, Speed * Time.deltaTime);
-            MainCamera.orthographicSize = Mathf.Lerp(MainCamera.orthographicSize, MinOrthographicSize, Speed * Time.deltaTime);
+            //MainCamera.orthographicSize = Mathf.Lerp(MainCamera.orthographicSize, MinOrthographicSize, Speed * Time.deltaTime);
         }
 
         // 카메라 이동
@@ -61,12 +61,23 @@ public class CameraManager : BehaviourSingleton<CameraManager>
         {
             movePosition += Vector3.left;
 
+            FollowTarget = null;
+            IsFollowing = false;
         }
         if (viewPortMousePosition.y < 0.02f || Input.GetKey(KeyCode.S))
         {
             movePosition += Vector3.down;
+
+            FollowTarget = null;
+            IsFollowing = false;
         }
-        if (viewPortMousePosition.x > 0.98f || Input.GetKey(KeyCode.D)) movePosition += Vector3.right;
+        if (viewPortMousePosition.x > 0.98f || Input.GetKey(KeyCode.D))
+        {
+            movePosition += Vector3.right;
+
+            FollowTarget = null;
+            IsFollowing = false;
+        }
 
         if (movePosition != Vector3.zero)
         {
