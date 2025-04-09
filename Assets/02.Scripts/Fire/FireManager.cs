@@ -10,7 +10,7 @@ public class FireManager : BehaviourSingleton<FireManager>
     private Light2D _outerLight;
 
     [Header("불 범위 설정")]
-    [SerializeField] float MaxRange = 20f;
+    [SerializeField] float MaxRange = 43f;
     [SerializeField] float MinRange = 0f;
     [SerializeField] float CurrentRange = 5f;
 
@@ -47,6 +47,11 @@ public class FireManager : BehaviourSingleton<FireManager>
     public float GetRange()
     {
         return CurrentRange;
+    }
+
+    public float GetMaxRange()
+    {
+        return MaxRange;
     }
 
     public void ExpandFire(float amount)

@@ -18,6 +18,9 @@ public class CameraManager : BehaviourSingleton<CameraManager>
     private Camera MainCamera;
     private Vector3 TargetPosition;
 
+    private Transform FollowTarget;
+    private bool IsFollowing = false;
+
     private void Start()
     {
         CameraTarget = this.transform;
@@ -39,10 +42,30 @@ public class CameraManager : BehaviourSingleton<CameraManager>
         Vector3 viewPortMousePosition = MainCamera.ScreenToViewportPoint(MousePosition);
         Vector3 movePosition = Vector3.zero;
 
+        if (IsFollowing)
+        {
+            Vector3 targetPos = new Vector3(FollowTarget.position.x, FollowTarget.position.y, -10f);
+            transform.position = Vector3.Lerp(transform.position, targetPos, Speed * Time.deltaTime);
+            MainCamera.orthographicSize = Mathf.Lerp(MainCamera.orthographicSize, MinOrthographicSize, Speed * Time.deltaTime);
+        }
+
         // 카메라 이동
-        if (viewPortMousePosition.y > 0.98f || Input.GetKey(KeyCode.W)) movePosition += Vector3.up;
-        if (viewPortMousePosition.x < 0.02f || Input.GetKey(KeyCode.A)) movePosition += Vector3.left;
-        if (viewPortMousePosition.y < 0.02f || Input.GetKey(KeyCode.S)) movePosition += Vector3.down;
+        if (viewPortMousePosition.y > 0.98f || Input.GetKey(KeyCode.W))
+        {
+            movePosition += Vector3.up;
+
+            FollowTarget = null;
+            IsFollowing = false;
+        }
+        if (viewPortMousePosition.x < 0.02f || Input.GetKey(KeyCode.A))
+        {
+            movePosition += Vector3.left;
+
+        }
+        if (viewPortMousePosition.y < 0.02f || Input.GetKey(KeyCode.S))
+        {
+            movePosition += Vector3.down;
+        }
         if (viewPortMousePosition.x > 0.98f || Input.GetKey(KeyCode.D)) movePosition += Vector3.right;
 
         if (movePosition != Vector3.zero)
@@ -59,17 +82,7 @@ public class CameraManager : BehaviourSingleton<CameraManager>
 
     public void MoveToEntity(Transform targetTransform)
     {
-        StartCoroutine(MoveCameraToEnemy(targetTransform));
-    }
-
-    public IEnumerator MoveCameraToEnemy(Transform targetTransform)
-    {
-        Vector3 targetPos = new Vector3(targetTransform.position.x, targetTransform.position.y, -10f);
-        while (Vector3.Distance(transform.position, targetPos) > 0.1f)
-        {
-            transform.position = Vector3.Lerp(transform.position, targetPos, Speed * Time.deltaTime);
-            MainCamera.orthographicSize = Mathf.Lerp(MainCamera.orthographicSize, MinOrthographicSize, Speed * Time.deltaTime);
-            yield return null;
-        }
+        FollowTarget = targetTransform;
+        IsFollowing = true;
     }
 }

@@ -5,6 +5,9 @@ public class ClickSystem : MonoBehaviour
     public LayerMask Clilckable;
     public LayerMask Ground;
 
+    private bool FireClicked = false;
+    private GameObject ClickedBuildObject;
+
     private void Start()
     {
         
@@ -17,6 +20,7 @@ public class ClickSystem : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 1f, Clilckable);
             if(hit.collider != null)
             {
+                #region Unit 클릭
                 if (hit.collider.transform.parent.CompareTag("Unit"))
                 {
                     Unit unit = hit.collider.transform.GetComponentInParent<Unit>();
@@ -34,6 +38,38 @@ public class ClickSystem : MonoBehaviour
                         UnitSelectionManager.Instance.ClickSelect(unit);
                     }
                 }
+                #endregion
+
+                #region 불 클릭
+                if (hit.collider.transform.parent.CompareTag("Fire"))
+                {
+                    if (FireClicked)
+                    {
+                        CameraManager.Instance.MoveToEntity(hit.collider.transform.parent);
+                        FireClicked = false;
+                    }
+                    else
+                    {
+                        FireClicked = true;
+                        Debug.Log("불 업글창");
+                    }
+                }
+                #endregion
+
+                #region 건물 클릭
+                if (hit.collider.transform.parent.CompareTag("Building"))
+                {
+                    if(ClickedBuildObject != null && ClickedBuildObject.GetInstanceID() == hit.collider.transform.parent.GetInstanceID())
+                    {
+                        CameraManager.Instance.MoveToEntity(hit.collider.transform.parent);
+                    }
+                    else
+                    {
+                        ClickedBuildObject = hit.collider.transform.parent.gameObject;
+                        Debug.Log("빌딩 창");
+                    }
+                }
+                #endregion
             }
             else
             {
@@ -68,7 +104,6 @@ public class ClickSystem : MonoBehaviour
                 else if (hit.collider.transform.parent.CompareTag("Resource"))
                 {
                     UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(hit.collider.GetComponentInParent<AInteractableEntity>()));
-
                 }
             }
         }
