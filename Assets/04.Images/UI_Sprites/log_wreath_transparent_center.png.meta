@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      log_wreath_transparent_center_0: 6913641871820932526
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
