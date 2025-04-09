@@ -13,4 +13,15 @@ public class Global : BehaviourSingleton<Global>
         yield return DataTable.Instance.Load_Routine();
         OnDataLoaded?.Invoke();
     }
+
+    public bool BoundaryCheck(Vector3 position)
+    {
+        float MaxX = MapSize.x / 2;
+        float MinX = -MapSize.x / 2;
+        float MaxY = MapSize.y / 2;
+        float MinY = -MapSize.y / 2;
+
+        if (position.x < MaxX && position.x > MinX && position.y < MaxY && position.y > MinY) return true;
+        return false;
+    }
 }

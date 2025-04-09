@@ -49,20 +49,26 @@ public class ClickSystem : MonoBehaviour
             if(UnitSelectionManager.Instance.SelectedUnitList.Count != 0)
             {
                 Vector3 WorldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                if (FireManager.Instance.IsWithInFireRange(WorldMousePosition) == false)
+                {
+                    return;
+                }
+
                 RaycastHit2D hit = Physics2D.Raycast(WorldMousePosition, Vector2.zero, 1f, Clilckable);
                 // ¶¥ÀÌ¸é ÁÂÇ¥ Àü´Þ
                 if (hit.collider == null)
                 {
                     UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(WorldMousePosition));
                 }
-                else if (hit.collider.transform.CompareTag("Enemy"))
+                else if (hit.collider.transform.parent.CompareTag("Enemy"))
                 {
-                    //UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(hit.collider.GetComponent<AInteractableEntityTest>()));
+                    UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(hit.collider.GetComponentInParent<AInteractableEntity>()));
                     Debug.Log("¿©±â Ã¤¿ö¾ßµÊ");
                 }
-                else if (hit.collider.transform.CompareTag("Resource"))
+                else if (hit.collider.transform.parent.CompareTag("Resource"))
                 {
-                    Debug.Log("¿©±â Ã¤¿ö¾ßµÊ");
+                    UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(hit.collider.GetComponentInParent<AInteractableEntity>()));
+
                 }
             }
         }

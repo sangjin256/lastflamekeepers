@@ -11,7 +11,7 @@ public class WaveManager : BehaviourSingleton<WaveManager>
 
     public List<GameObject> EnemyPrefab;
 
-    private int _currentEnemyCount;
+    public int _currentEnemyCount;
     private Dictionary<int, WaveData> WaveDataDic;
     private List<Vector3> _placedEnemyPositionList;
 
@@ -29,7 +29,7 @@ public class WaveManager : BehaviourSingleton<WaveManager>
 
             _placedEnemyPositionList = new List<Vector3>();
 
-            yield return StartWave();
+            yield return StartCoroutine(StartWave());
             CurrentWaveNum++;
 
             while (_currentEnemyCount > 0) yield return null;
@@ -51,11 +51,14 @@ public class WaveManager : BehaviourSingleton<WaveManager>
         while (spawned < enemyCount)
         {
             int spawnCount = Random.Range(enemyCount / 3, enemyCount / 2);
-            spawnCount = Mathf.Min(spawnCount, enemyCount - spawnCount);
+            if (spawned + spawnCount > enemyCount)
+            {
+                spawnCount = enemyCount - spawned;
+            }
+            spawned += SpawnEnemyCluster(enemyHealth, enemyDamage, spawnCount);
 
-            spawned = SpawnEnemyCluster(enemyHealth, enemyDamage, spawnCount);
 
-            yield return new WaitForSeconds(Random.Range(1f, 2f));
+            yield return new WaitForSeconds(Random.Range(4f, 6f));
         }
     }
 

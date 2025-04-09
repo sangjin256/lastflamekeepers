@@ -24,7 +24,6 @@ public class Unit : AInteractableEntity
     public Animator ToolAnimator => _toolAnimator;
 
 
-    private bool IsMoving = true;
     private bool IsFacingRight = true;
     public bool MissTarget = false;
 
@@ -47,6 +46,8 @@ public class Unit : AInteractableEntity
         _interactType = InteractType.Unit;
         _navMeshAgent.speed = _unitStat.MoveSpeed.Value / 10f;
         Health = _unitStat.MaxHealth.Value;
+
+        _navMeshAgent.SetDestination(Vector3.zero);
     }
     private void Update()
     {
@@ -54,49 +55,27 @@ public class Unit : AInteractableEntity
         {
             return;
         }
-        //if (MissTarget == false)
-        //{
-        //    if (_target == null)
-        //    {
-        //        MissTarget = true;
-        //    }
-        //}
-        //else
-        //{
-        //    if (MissTarget)
-        //    {
-                //FindTarget();
-                //Debug.Log("DDDDDD");
-            //}
-        //}
+
         if (_target == null)
         {
             ToolAnimator.SetBool("IsInteracting", false);
-
-            //if (_navMeshAgent.desiredVelocity != Vector3.zero)
-            //{
-            //    IsMoving = true;
-            //}
-            //else
-            //{
-            //    if (IsMoving)
-            //    {
-            //        IsMoving = false;
-            //        FindTarget();
-            //    }
-            //}
         }
         else
         {
-            _navMeshAgent.SetDestination(_target.transform.position);
-            _rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
-            _navMeshAgent.nextPosition = transform.position;
-
-            if (transform.position.x < _target.transform.position.x ^ IsFacingRight)
+            if (_target.CanInteract)
             {
-                if (Mathf.Abs(transform.position.x - _target.transform.position.x) > 0.1f)
+
+
+                _navMeshAgent.SetDestination(_target.transform.position);
+                //_rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
+                _navMeshAgent.nextPosition = transform.position;
+
+                if (transform.position.x < _target.transform.position.x ^ IsFacingRight)
                 {
-                    Flip();
+                    if (Mathf.Abs(transform.position.x - _target.transform.position.x) > 0.1f)
+                    {
+                        Flip();
+                    }
                 }
             }
         }
@@ -106,6 +85,10 @@ public class Unit : AInteractableEntity
             if (_navMeshAgent.desiredVelocity == Vector3.zero)
             {
                 _animator.SetBool("IsRunning", false);
+            }
+            else
+            {
+                _animator.SetBool("IsRunning", true);
             }
         }
         else if (_unitTool.IsInteracting)
@@ -224,12 +207,13 @@ public class Unit : AInteractableEntity
 
         if (minDistanceCollider == null)
         {
-            Debug.Log("zz");
+            Debug.Log($"{gameObject.name}: zz");
             return;
         }
         Debug.Log(minDistanceCollider.gameObject);
 
         SetTarget(minDistanceCollider.GetComponent<AInteractableEntity>());
+        Debug.Log("¾Æ´ÏÁö");
     }
 
     public bool CheckTargetInInteractTrigger()
@@ -292,11 +276,19 @@ public class Unit : AInteractableEntity
     {
         _unitTool.SetTool(ToolManager.Instance.GetTool((ToolType)tool));
         SetTargetNull();
+        FindTarget();
     }
 
     public void DestroyThis()
     {
         Destroy(gameObject);
         UnitManager.Instance.DestroyUnit(this);
+    }
+
+
+    public void ResetPathTest()
+    {
+        _navMeshAgent.ResetPath();
+        ResumeNavMeshAgent();
     }
 }

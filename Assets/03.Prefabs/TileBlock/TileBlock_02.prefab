@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3245419878694808677}
   - component: {fileID: 4584128989082198097}
   - component: {fileID: 7153612661412208537}
-  m_Layer: 0
+  - component: {fileID: 465486365667374484}
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4203,6 +4204,22 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &465486365667374484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332824354303795684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &2823587339788786469
 GameObject:
   m_ObjectHideFlags: 0
@@ -4217,7 +4234,8 @@ GameObject:
   - component: {fileID: 2679245855822451364}
   - component: {fileID: 742244143515975656}
   - component: {fileID: 9160994551802224752}
-  m_Layer: 0
+  - component: {fileID: 2328458089032766733}
+  m_Layer: 4
   m_Name: Water
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -4282,7 +4300,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 7
-      m_TileSpriteIndex: 7
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4292,7 +4310,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileSpriteIndex: 11
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4302,7 +4320,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 6
-      m_TileSpriteIndex: 6
+      m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4479,20 +4497,20 @@ Tilemap:
     m_Data: {fileID: 1912508253, guid: 35cf2f5b0bccd6543ad0f6be82e9e5cd, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -20198310, guid: 35cf2f5b0bccd6543ad0f6be82e9e5cd, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -403998589, guid: 35cf2f5b0bccd6543ad0f6be82e9e5cd, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -2065759056, guid: 35cf2f5b0bccd6543ad0f6be82e9e5cd, type: 3}
-  - m_RefCount: 1
     m_Data: {fileID: -1414563074, guid: 35cf2f5b0bccd6543ad0f6be82e9e5cd, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -2065759056, guid: 35cf2f5b0bccd6543ad0f6be82e9e5cd, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 19
     m_Data:
@@ -4733,6 +4751,22 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &2328458089032766733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2823587339788786469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &2960508549460255163
 GameObject:
   m_ObjectHideFlags: 0

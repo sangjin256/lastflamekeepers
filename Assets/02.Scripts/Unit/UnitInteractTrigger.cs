@@ -37,6 +37,7 @@ public class UnitInteractTrigger : MonoBehaviour
             return;
         }
 
+        Debug.Log($"{transform.parent.gameObject.name}: SSSS");
         _unit.UnitTool.IsInteracting = false;
         _unit.ToolAnimator.SetBool("IsInteracting", false);
         _unit.ResumeNavMeshAgent();
