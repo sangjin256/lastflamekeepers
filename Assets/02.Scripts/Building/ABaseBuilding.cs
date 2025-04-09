@@ -29,6 +29,7 @@ public abstract class ABaseBuilding : MonoBehaviour
     private int _maxLevel;
     private int _level = 0;
     public int Level => _level;
+    public bool IsMaxLevel => _level >= _maxLevel;
 
     // 업그레이드에 필요한 자원
     private List<List<int>> _requiredResourcesList;
