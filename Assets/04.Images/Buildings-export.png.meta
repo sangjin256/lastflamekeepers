@@ -497,7 +497,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Buildings-export_0: -3213660205160723446
+      Buildings-export_1: 210759816273628360
+      Buildings-export_10: -4447647885962734840
+      Buildings-export_11: 3452997019139973494
+      Buildings-export_12: -7891427484383607915
+      Buildings-export_13: -3386482506226751615
+      Buildings-export_14: -3509911522665177808
+      Buildings-export_2: 9081308308411355327
+      Buildings-export_3: 7670487611026880641
+      Buildings-export_4: -4091278681434604394
+      Buildings-export_5: -5754575847385976417
+      Buildings-export_6: 5746568934512624532
+      Buildings-export_7: 2755186312583809411
+      Buildings-export_8: 8175423588555274999
+      Buildings-export_9: 5344272924535229584
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
