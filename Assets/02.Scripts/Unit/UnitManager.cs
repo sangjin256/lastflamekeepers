@@ -121,6 +121,7 @@ public class UnitManager : BehaviourSingleton<UnitManager>
     public void DestroyUnit(Unit unit)
     {
         UnitList.Remove(unit);
+        Destroy(unit.gameObject);
     }
 
     //확률 체크용 함수
@@ -183,16 +184,16 @@ public class UnitManager : BehaviourSingleton<UnitManager>
         }
 
         //테스트용
-        List<Unit> randomUnitList = new List<Unit>();
-        for (int i = 0; i < 20; i++)
-        {
-            randomUnitList.Add(GenerateRandomUnit());
-        }
+        //List<Unit> randomUnitList = new List<Unit>();
+        //for (int i = 0; i < 20; i++)
+        //{
+        //    randomUnitList.Add(GenerateRandomUnit());
+        //}
 
         // 테스트!!!!!!!!!!!!!!!!
-        _unitList = randomUnitList;
+        //_unitList = randomUnitList;
 
-        CountRandomFeatures(randomUnitList);
+        //CountRandomFeatures(randomUnitList);
     }
 
 
