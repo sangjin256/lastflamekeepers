@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BuildManager : BehaviourSingleton<BuildManager>
 {
@@ -12,11 +14,13 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     public Color CanBuildColor = Color.white;
     public Color CannotBuildColor = Color.red;
 
+    public Action<ABaseBuilding> OnChangeBuildingList;
+
 
     // 소환된 건물들
     private PriorityQueue<ABaseBuilding, float> _buildingPriorityQueue;                                     // 활성화 된 건물 관리 우선순위 큐
     private Stack<(ABaseBuilding, float)> _disabledBuildingStack;                                           // 비활성화 된 건물 관리 스택
-    private Dictionary<BuildingType, List<LinkedList<ABaseBuilding>>> _buildingDicListLinkedList;           // 전체 건물 타입별 레벨 별 딕셔너리
+    private Dictionary<BuildingType, List<ABaseBuilding>> _buildingDicList;                                 // 전체 건물 타입별 레벨 별 딕셔너리
     private bool _isLaboratoryBuilded = false;
     private bool _isCompleteSelectForgeToolType = true;
     
@@ -67,29 +71,26 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         _buildingPriorityQueue = new PriorityQueue<ABaseBuilding, float>();
 
         // 딕셔너리 리스트 초기화
-        _buildingDicListLinkedList = new Dictionary<BuildingType, List<LinkedList<ABaseBuilding>>>();
+        _buildingDicList = new Dictionary<BuildingType, List<ABaseBuilding>>();
         // TODO : 건물 추가 시 BuildingType.Count 추가 및 수정
         Debug.Log("[박우영]BuildingType Enum의 마지막이 Forge인지 확인하시오");
         for (int i = 0; i <= (int)BuildingType.Forge; i++)
         {
             // 레벨의 크기만큼 리스트 초기화
             int upgradeCount = _buildDataList[0].Upgrade_AddValueList.Count + 1;
-            List<LinkedList<ABaseBuilding>> buildingList = new List<LinkedList<ABaseBuilding>>();
+            List<ABaseBuilding> buildingList = new List<ABaseBuilding>();
 
-            for (int j = 0; j < upgradeCount; j++)
-            {
-                buildingList.Add(new LinkedList<ABaseBuilding>());
-            }
-
-            _buildingDicListLinkedList[(BuildingType)i] = buildingList;
+            _buildingDicList[(BuildingType)i] = buildingList;
         }
 
         // 스택 초기화
         _disabledBuildingStack = new Stack<(ABaseBuilding, float)>();
 
         //// ****************** 테스트 용 ******************
-        //InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, 10);
-        //InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Stone, 10);
+        InventoryResourceManager.Instance.TryAddMaxResourceCount(InventoryResourceType.Wood, 300);
+        InventoryResourceManager.Instance.TryAddMaxResourceCount(InventoryResourceType.Stone, 300);
+        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, 300);
+        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Stone, 300);
         //// **********************************************
     }
 
@@ -198,7 +199,9 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         _buildingPriorityQueue.Enqueue(building, -distanceFromFire);
 
         // 건물 딕셔너리 리스트에 값 추가
-        _buildingDicListLinkedList[building.BuildingType][building.Level].AddLast(building);
+        _buildingDicList[building.BuildingType].Add(building);
+
+        OnChangeBuildingList.Invoke(building);
 
         if (building.BuildingType == BuildingType.Laboratory)
         {
@@ -327,14 +330,13 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         _lastUpdatedRange = newRange;
     }
 
-    public List<LinkedList<ABaseBuilding>> GetBuildingList(BuildingType type)
+    public Dictionary<BuildingType, List<ABaseBuilding>> GetBuildingDictionary()
     {
-        return _buildingDicListLinkedList[type];
+        return _buildingDicList;
     }
 
     public void UpgradeBuilding(ABaseBuilding building)
     {
-        _buildingDicListLinkedList[building.BuildingType][building.Level - 1].Remove(building);
-        _buildingDicListLinkedList[building.BuildingType][building.Level].AddLast(building);
+        OnChangeBuildingList.Invoke(building);
     }
 }
