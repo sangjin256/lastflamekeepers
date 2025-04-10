@@ -23,7 +23,7 @@ public class ClickSystem : MonoBehaviour
             if(hitList.Count != 0)
             {
                 #region Unit Å¬¸¯
-                RaycastHit2D unitObject = hitList.Find(x => x.transform.parent.CompareTag("Unit"));
+                RaycastHit2D unitObject = hitList.Find(x => x.collider.transform.parent.CompareTag("Unit"));
                 if (unitObject)
                 {
                     Unit unit = unitObject.collider.transform.GetComponentInParent<Unit>();

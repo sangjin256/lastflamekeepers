@@ -41,6 +41,7 @@ public class UI_UnitListElement : MonoBehaviour
     }
     public void Refresh()
     {
+        Debug.Log("리프레시");
         ToolImage.sprite = ToolSpriteArray[(int)_unit.UnitTool.CurrentTool.ToolType][(int)_unit.UnitTool.CurrentTool.UpgradeLevel];
         UnitHealthSlider.value = _unit.Health;
         if(_unit.Health < 0)

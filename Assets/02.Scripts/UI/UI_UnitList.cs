@@ -65,15 +65,15 @@ public class UI_UnitList : MonoBehaviour
 
     public void ReRocate(Unit unit)
     {
-        ToolType prevUnitToolType = unit.gameObject.GetComponent<UnitTool>().PrevTool.ToolType;
-        ToolType currentUnitToolType = unit.gameObject.GetComponent<UnitTool>().CurrentTool.ToolType;
+        ToolType prevUnitToolType = unit.gameObject.GetComponentInChildren<UnitTool>().PrevTool.ToolType;
+        ToolType currentUnitToolType = unit.gameObject.GetComponentInChildren<UnitTool>().CurrentTool.ToolType;
 
         if (prevUnitToolType == currentUnitToolType)
         {
             return;
         }
         List<UI_UnitListElement> currentList = _unitElements[prevUnitToolType];
-        List<UI_UnitListElement> destinationList = _unitElements[prevUnitToolType];
+        List<UI_UnitListElement> destinationList = _unitElements[currentUnitToolType];
 
 
         for (int i = 0; i < currentList.Count; i++)
@@ -81,8 +81,11 @@ public class UI_UnitList : MonoBehaviour
             //Equals?
             if (currentList[i].Unit == unit)
             {
-                currentList[i].transform.SetParent(UnitPrefab_Layout.transform);
+                //currentList[i].transform.SetParent(UnitPrefab_Layout.transform);
                 currentList[i].Refresh();
+                destinationList.Add(currentList[i]);
+                currentList.RemoveAt(i);
+                
                 return;
             }
             Debug.LogError("도구 전환 but 재배치 실패");
