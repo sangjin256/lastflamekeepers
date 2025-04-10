@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8071971007353572508}
   - component: {fileID: 8895139886422338886}
   - component: {fileID: -3823960264680887943}
-  - component: {fileID: 2902037208394904620}
+  - component: {fileID: 1172693514589992240}
   m_Layer: 7
   m_Name: Unit_0
   m_TagString: Unit
@@ -212,7 +212,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &2902037208394904620
+--- !u!95 &1172693514589992240
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
