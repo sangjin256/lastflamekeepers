@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8071971007353572508}
   - component: {fileID: 8895139886422338886}
   - component: {fileID: -3823960264680887943}
-  - component: {fileID: -7843201936579336401}
+  - component: {fileID: 458320170453991239}
   m_Layer: 7
   m_Name: Unit_1
   m_TagString: Unit
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_SortingLayerID: -1007842513
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 9389d597a7300cd4dbfa15b660b80a0d, type: 3}
+  m_Sprite: {fileID: -7554498494277832466, guid: 21a665fdee58c5449920f053ff38fcde, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -212,7 +212,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &-7843201936579336401
+--- !u!95 &458320170453991239
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ Animator:
   m_GameObject: {fileID: 1962782918411964420}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e95ffb08419d60844a332e780485d209, type: 2}
+  m_Controller: {fileID: 22100000, guid: 4c24bdad4ebb22241a13c8db5ca97064, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
