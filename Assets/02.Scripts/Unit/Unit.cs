@@ -44,7 +44,6 @@ public class Unit : AInteractableEntity
         _interactType = InteractType.Unit;
         _navMeshAgent.speed = _unitStat.MoveSpeed.Value / 10f;
         Health = _unitStat.MaxHealth.Value;
-
         _navMeshAgent.ResetPath();
     }
     private void Update()
@@ -145,7 +144,6 @@ public class Unit : AInteractableEntity
         {
             return;
         }
-       
 
         Vector2 randomPoint = point + UnityEngine.Random.insideUnitCircle / 2;
         _navMeshAgent.SetDestination(randomPoint);
