@@ -120,6 +120,9 @@ public class UnitManager : BehaviourSingleton<UnitManager>
         unit.gameObject.SetActive(true);
         unit.transform.position = position;
         _unitList.Add(unit);
+
+        FireManager.Instance.AshChangedAfterUnitCreate();
+
         OnUnitListChanged?.Invoke(unit);
     }
 

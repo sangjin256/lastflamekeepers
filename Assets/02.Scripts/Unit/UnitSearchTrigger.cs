@@ -42,6 +42,11 @@ public class UnitSearchTrigger : MonoBehaviour
             return;
         }
 
+        if(interactableEntity == null)
+        {
+            return;
+        }
+
         if (!interactableEntity.CanInteract)
         {
 
