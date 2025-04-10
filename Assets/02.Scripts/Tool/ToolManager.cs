@@ -14,11 +14,37 @@ public class ToolManager : BehaviourSingleton<ToolManager>
     public Action<Unit> OnToolChanged;
 
     public Action OnToolCountChanged;
+
+
+    private AnimationClip[,,] _toolAnimationClip = new AnimationClip[4, 4, 2];
+    public AnimationClip[,,] ToolAnimationClip => _toolAnimationClip;
+
+    public AnimationClip[] NoneAnimatinoClip;
+    public AnimationClip[] SwordAnimationClip;
+    public AnimationClip[] AxeAnimationClip;
+    public AnimationClip[] PickaxeAnimationClip;
+
+    private AnimationClip[][] _animationClipArray;
+
+    public ATool HandOverTool;
     private void Awake()
     {
         Global.Instance.OnDataLoaded += _LoadTool;
+        InitializeAnimationClip();
     }
-
+    private void Update()
+    {
+        if (HandOverTool == null)
+        {
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            EndHandOverToolMode();
+            return;
+        }
+        MoveToolToMouse();
+    }
     private void _LoadTool()
     {
         _toolList = new List<ATool>();
@@ -142,5 +168,59 @@ public class ToolManager : BehaviourSingleton<ToolManager>
 
         _maxToolCountList[(int)toolType] -= amount;
         OnToolCountChanged?.Invoke();
+    }
+
+    public void InitializeAnimationClip()
+    {
+        _animationClipArray = new AnimationClip[][] { NoneAnimatinoClip, SwordAnimationClip, AxeAnimationClip, PickaxeAnimationClip };
+
+        for (int toolType = 0; toolType < _toolAnimationClip.GetLength(0); toolType++)
+        {
+            for (int toolLevel = 0; toolLevel < _toolAnimationClip.GetLength(1); toolLevel++)
+            {
+                for (int state = 0; state < _toolAnimationClip.GetLength(2); state++)
+                {
+                    _toolAnimationClip[toolType, toolLevel, state] = _animationClipArray[toolType][toolLevel * 2 + state];
+                }
+            }
+        }
+
+    }
+
+    public void StartHandOverToolMode(int toolType)
+    {
+        if (toolType > (int)ToolType.Medicine)
+        {
+            Debug.Log("[심형준]핸드오버툴 오류");
+            return;
+        }
+
+        if (HandOverTool == null)
+        {
+            return;
+        }
+
+        bool canHandOver = false;
+        //툴 사용 가능 개수 검사
+        //canHandOver = 
+
+        if (!canHandOver)
+        {
+            Debug.Log("도구 수 부족");
+        }
+
+        //도구 이미지 오브젝트 생성
+    }
+    public void EndHandOverToolMode()
+    {
+        HandOverTool = null;
+    }
+
+    private void MoveToolToMouse()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        //도구 이미지 오브젝트
+        //.transform.position = mousePosition;
     }
 }
