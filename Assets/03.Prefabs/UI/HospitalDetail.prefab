@@ -716,7 +716,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2370504535846326209}
         m_TargetAssemblyTypeName: UI_BuildingData, Assembly-CSharp
         m_MethodName: OnClickUpgradeButton
         m_Mode: 1

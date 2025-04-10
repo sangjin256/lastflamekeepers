@@ -74,6 +74,9 @@ public class ClickSystem : MonoBehaviour
                             {
                                 ClickedObject = BuildObject.collider.gameObject;
                                 Debug.Log("ºôµù Ã¢");
+                                ABaseBuilding building = ClickedObject.GetComponentInParent<ABaseBuilding>();
+                                
+                                UIManager.Instance.OpenBuildingDetail(building);
                             }
                         }
                         #endregion

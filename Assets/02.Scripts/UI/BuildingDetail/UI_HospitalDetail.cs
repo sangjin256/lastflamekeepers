@@ -16,8 +16,7 @@ public class UI_HospitalDetail : UI_BuildingData
 
         MedicineImage.sprite = MedicineSprite;
 
-        MedicineCountText.text = 
-            $"{ToolManager.Instance.GetCurrentToolCount(ToolType.Medicine)} / {ToolManager.Instance.GetMaxToolCount(ToolType.Medicine)}";
+        RefreshUI();
     }
 
     protected override void RefreshUI()

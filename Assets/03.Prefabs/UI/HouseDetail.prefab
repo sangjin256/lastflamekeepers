@@ -938,7 +938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &511211175253557835
 RectTransform:
   m_ObjectHideFlags: 0
@@ -977,7 +977,7 @@ MonoBehaviour:
   UpgradeResourceWoodText: {fileID: 9062849250546611649}
   UpgradeResourceStoneText: {fileID: 7461717544876375178}
   UpgradeButton: {fileID: 6978024610171576001}
-  UnitCountText: {fileID: 0}
+  UnitCountText: {fileID: 5665239052899441381}
 --- !u!1 &6403185077153715908
 GameObject:
   m_ObjectHideFlags: 0

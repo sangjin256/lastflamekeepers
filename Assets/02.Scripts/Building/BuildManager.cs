@@ -268,6 +268,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
         UIManager.Instance.SetCanBuildStart(true);
         GameObject newBuilding = Instantiate(BuildingPrefabs[buildingTypeWithTool]);
+        newBuilding.tag = "Untagged";
         _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
         _previewBuildingCollider = newBuilding.GetComponent<BoxCollider2D>();
     }

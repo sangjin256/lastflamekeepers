@@ -10,7 +10,7 @@ public class UI_HouseDetail : UI_BuildingData
     {
         base.Initialize(building);
 
-        UnitCountText.text = $"{UnitManager.Instance.UnitList.Count} / {UnitManager.Instance.MaxCountUnit}";    
+        RefreshUI();   
     }
 
     protected override void RefreshUI()

@@ -25,7 +25,7 @@ public class UI_ForgeDetail : UI_BuildingData
 
         ToolImage.sprite = ToolSprites[(int)_forge.ToolType];
 
-        ToolCountText.text = $"{ToolManager.Instance.GetCurrentToolCount(_forge.ToolType)} / {ToolManager.Instance.GetMaxToolCount(_forge.ToolType)}";
+        RefreshUI();
     }
 
     protected override void RefreshUI()
