@@ -1,10 +1,10 @@
-using System;
 using UnityEngine;
 
 public class AInteractableEntity : MonoBehaviour,IInteractable
 {
     protected InteractType _interactType;
     public InteractType InteractType => _interactType;
+
 
     [SerializeField]protected int _health;
     public int Health
@@ -22,6 +22,7 @@ public class AInteractableEntity : MonoBehaviour,IInteractable
     //protected·Î
     [SerializeField]protected bool _canInteract = true;
     public bool CanInteract => _canInteract;
+
 
     public virtual void TakeDamage(int amount, bool isHeal)
     {

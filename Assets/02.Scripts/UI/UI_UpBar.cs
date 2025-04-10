@@ -19,14 +19,14 @@ public class UI_UpBar : MonoBehaviour
 
     private void Start()
     {
-        UnitManager.Instance.OnUnitListChanged += UnitCountRefresh;
-        ToolManager.Instance.OnToolCountChanged += ToolCountRefresh;
+        UnitManager.Instance.OnUnitCountChanged += UnitCountRefresh;
+        ToolManager.Instance.OnToolDataChanged += ToolCountRefresh;
         InventoryResourceManager.Instance.OnInvenDataChanged += InvenResourceRefresh;
 
         WaveManager.Instance.OnEnemyDeadAction += WaveStateRefresh;
     }
 
-    public void UnitCountRefresh(Unit unit)
+    public void UnitCountRefresh()
     {
         UnitCount.text = UnitManager.Instance.UnitList.Count.ToString();
     }

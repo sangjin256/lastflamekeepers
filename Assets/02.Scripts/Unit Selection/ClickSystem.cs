@@ -41,10 +41,8 @@ public class ClickSystem : MonoBehaviour
                         UnitSelectionManager.Instance.ClickSelect(unit);
                     }
                 }
-                #endregion
                 else
                 {
-                    #region 불 클릭
                     RaycastHit2D FireObject = hitList.Find(x => x.transform.parent.CompareTag("Fire"));
                     if (FireObject)
                     {
@@ -59,10 +57,8 @@ public class ClickSystem : MonoBehaviour
                             UIManager.Instance.OnClickFire();
                         }
                     }
-                    #endregion
                     else
                     {
-                        #region 건물 클릭
                         RaycastHit2D BuildObject = hitList.Find(x => x.transform.parent.CompareTag("Building"));
                         if (BuildObject)
                         {
@@ -76,9 +72,11 @@ public class ClickSystem : MonoBehaviour
                                 Debug.Log("빌딩 창");
                             }
                         }
-                        #endregion
                     }
+
                 }
+#endregion
+
             }
             else
             {

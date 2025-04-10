@@ -336,6 +336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4943399626481868397}
+  - component: {fileID: 1905100159691146349}
   m_Layer: 5
   m_Name: ForgeDetail
   m_TagString: Untagged
@@ -363,6 +364,29 @@ RectTransform:
   m_AnchoredPosition: {x: 649, y: 410}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1905100159691146349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380972822496994071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a067a27acfe2ede41a20bda5757c06ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuildingImage: {fileID: 5764645741564916592}
+  BuildingLevelText: {fileID: 6508486596092679486}
+  BuildingDescriptionText: {fileID: 2820344557760369905}
+  UpgradeResourceWoodText: {fileID: 6735730945741845419}
+  UpgradeResourceStoneText: {fileID: 8255532097424413854}
+  UpgradeButton: {fileID: 15511106767056160}
+  ToolImage: {fileID: 6924103548847737587}
+  ToolSprites:
+  - {fileID: 21300000, guid: bf3702e182f46cf44b76c32539192d9b, type: 3}
+  - {fileID: 21300000, guid: 070f22318553b4042903f48a8b36ac11, type: 3}
+  - {fileID: 21300000, guid: 6958a47d4679ee0408adb1a47e805248, type: 3}
 --- !u!1 &2503685764048623387
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,7 +837,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9011774384316070806}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1905100159691146349}
+        m_TargetAssemblyTypeName: UI_BuildingData, Assembly-CSharp
+        m_MethodName: OnClickUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4409473901981585622
 GameObject:
   m_ObjectHideFlags: 0
