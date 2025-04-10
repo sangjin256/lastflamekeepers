@@ -36,6 +36,7 @@ public class ClickSystem : MonoBehaviour
                         {
                             // 유닛 더블클릭
                             CameraManager.Instance.MoveToEntity(unit.transform);
+                            UIManager.Instance.OpenUnitDetail(unit);
                         }
                         UnitSelectionManager.Instance.ClickSelect(unit);
                     }
@@ -114,6 +115,10 @@ public class ClickSystem : MonoBehaviour
                     Debug.Log("여기 채워야됨");
                 }
                 else if (hit.collider.transform.parent.CompareTag("Resource"))
+                {
+                    UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(hit.collider.GetComponentInParent<AInteractableEntity>()));
+                }
+                else if (hit.collider.transform.parent.CompareTag("Unit"))
                 {
                     UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(hit.collider.GetComponentInParent<AInteractableEntity>()));
                 }

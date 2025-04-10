@@ -15,6 +15,6 @@ public class PickAxeTool : ATool
 
     public override void Interact(IInteractable interactObject, int damage)
     {
-        interactObject.TakeDamage(Value, false);
+        interactObject.TakeDamage(1, false);
     }
 }

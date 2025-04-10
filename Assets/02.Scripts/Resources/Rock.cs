@@ -6,6 +6,7 @@ public class Rock : AResource
         ResourceType = resource.ResourceType;
         Name = resource.Name;
         Durability = resource.Durability;
+        Health = Durability;
         AmountToHit = resource.AmountToHit;
         OutputAmountPerExtract = resource.OutputAmountPerExtract;
         OutputType = resource.OutputType;

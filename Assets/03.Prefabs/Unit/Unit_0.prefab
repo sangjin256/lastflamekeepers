@@ -300,8 +300,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.42}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: 0, y: 0.3}
+  m_Size: {x: 0.5, y: 0.7}
   m_Direction: 0
 --- !u!1 &7084335456621584062
 GameObject:
@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 2332182887623752893}
   - component: {fileID: 8210681098281139461}
   - component: {fileID: 7106648295430363272}
-  - component: {fileID: 5397834318185276964}
+  - component: {fileID: 3668680153815686321}
   m_Layer: 0
   m_Name: Tool
   m_TagString: Untagged
@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteracting: 0
---- !u!95 &5397834318185276964
+--- !u!95 &3668680153815686321
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0

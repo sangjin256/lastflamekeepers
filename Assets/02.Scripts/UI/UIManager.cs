@@ -20,6 +20,9 @@ public class UIManager : BehaviourSingleton<UIManager>
     public UI_LaboratoryDetail UILaboratory;
     private GameObject _currentOpenUI = null;
 
+    [Header("À¯´Ö µðÅ×ÀÏ ÆË¾÷")]
+    public UI_UnitData UnitDetail;
+
     public void SetCanBuildStart(bool canBuildStart)
     {
         _canBuildStart = canBuildStart;
@@ -43,6 +46,8 @@ public class UIManager : BehaviourSingleton<UIManager>
             UnitToolManageButtons[i].onClick.AddListener(() => ToolManager.Instance.StartHandOverToolMode(index));
             UnitToolManageButtons[i].onClick.AddListener(TryCloseToolListPopup);
         }
+
+        ToolListPopup.GetComponent<UI_UnitList>().Initialize();
     }
 
     private void Update()
@@ -113,5 +118,11 @@ public class UIManager : BehaviourSingleton<UIManager>
         }
 
         _currentOpenUI = newPopUpUI;
+    }
+
+    public void OpenUnitDetail(Unit unit)
+    {
+        UnitDetail.Initialize(unit);
+        UnitDetail.transform.parent.gameObject.SetActive(true);
     }
 }

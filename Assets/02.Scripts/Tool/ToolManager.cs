@@ -17,13 +17,15 @@ public class ToolManager : BehaviourSingleton<ToolManager>
 
     public Action OnToolCountChanged;
 
-    private AnimationClip[,,] _toolAnimationClip = new AnimationClip[4, 4, 2];
+    private AnimationClip[,,] _toolAnimationClip = new AnimationClip[5, 4, 2];
     public AnimationClip[,,] ToolAnimationClip => _toolAnimationClip;
 
     public AnimationClip[] NoneAnimatinoClip;
     public AnimationClip[] SwordAnimationClip;
     public AnimationClip[] AxeAnimationClip;
     public AnimationClip[] PickaxeAnimationClip;
+    public AnimationClip[] CrossAnimationClip;
+
 
     private AnimationClip[][] _animationClipArray;
 
@@ -35,11 +37,19 @@ public class ToolManager : BehaviourSingleton<ToolManager>
 
     public GameObject handOverToolImage;
 
+
+    public Sprite[] NoneImage;
+    public Sprite[] SwordImage;
+    public Sprite[] AxeImage;
+    public Sprite[] PickaxeImage;
+    public Sprite[] CrossImage;
+    private Sprite[][] _imageArray;
     private List<ToolData> _toolDataList = new List<ToolData>();
     private void Awake()
     {
         Global.Instance.OnDataLoaded += _LoadTool;
         InitializeAnimationClip();
+        InitializeImage();
     }
     private void Update()
     {
@@ -63,15 +73,12 @@ public class ToolManager : BehaviourSingleton<ToolManager>
                 if (unitObject)
                 {
                     Unit unit = unitObject.transform.GetComponent<Unit>();
-                    Debug.Log("ㅋㄹㄴㅋ");
                     TrySetTool(unit, HandOverTool.ToolType);
                     EndHandOverToolMode();
                     return;
                 }
                 else
                 {
-                    Debug.Log("ㅋㄹㄴㅋ");
-
                     EndHandOverToolMode();
                     return;
                 }
@@ -179,6 +186,14 @@ public class ToolManager : BehaviourSingleton<ToolManager>
         // 스탯 늘리기
         Tool.UpgradeLevel++;
         Tool.Value += _toolDataList[(int)toolType].Upgrade_AddValueList[Tool.UpgradeLevel];
+
+        foreach(Unit unit  in UnitManager.Instance.UnitList)
+        {
+            if(unit.UnitTool.CurrentTool == Tool)
+            {
+                TrySetTool(unit, toolType);
+            }
+        }
     }
 
     public void AddCurrentToolCount(ToolType toolType, int amount)
@@ -233,7 +248,7 @@ public class ToolManager : BehaviourSingleton<ToolManager>
 
     public void InitializeAnimationClip()
     {
-        _animationClipArray = new AnimationClip[][] { NoneAnimatinoClip, SwordAnimationClip, AxeAnimationClip, PickaxeAnimationClip };
+        _animationClipArray = new AnimationClip[][] { NoneAnimatinoClip, SwordAnimationClip, AxeAnimationClip, PickaxeAnimationClip, CrossAnimationClip };
 
         for (int toolType = 0; toolType < _toolAnimationClip.GetLength(0); toolType++)
         {
@@ -248,9 +263,13 @@ public class ToolManager : BehaviourSingleton<ToolManager>
 
     }
 
+    public void InitializeImage()
+    {
+        _imageArray = new Sprite[][] { NoneImage, SwordImage, AxeImage, PickaxeImage, CrossImage };
+    }
+
     public void StartHandOverToolMode(int toolType)
     {
-        Debug.Log("ㅋㅊㅍㅋㅊㅌㅍㅋㅌ");
         if (toolType > (int)ToolType.Medicine)
         {
             Debug.Log("[심형준]핸드오버툴 오류");
@@ -272,16 +291,16 @@ public class ToolManager : BehaviourSingleton<ToolManager>
             return;
         }
 
-        Debug.Log("됐어");
 
         //도구 이미지 오브젝트 생성
         HandOverTool = GetTool((ToolType)toolType);
         handOverToolImage = Instantiate(ToolImagePrefab[toolType]);
 
+        handOverToolImage.GetComponent<SpriteRenderer>().sprite = _imageArray[toolType][HandOverTool.UpgradeLevel]; 
+
     }
     public void EndHandOverToolMode()
     {
-        Debug.Log("endnendn");
         HandOverTool = null;
         Destroy(handOverToolImage);
     }
