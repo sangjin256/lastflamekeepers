@@ -42,6 +42,15 @@ public class UI_BuildingList : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        if (_buildingElements == null)
+        {
+            return;
+        }    
+        UpdateFilter(-1);
+    }
+
 
     private void RefreshBuildingList(ABaseBuilding building)
     {
