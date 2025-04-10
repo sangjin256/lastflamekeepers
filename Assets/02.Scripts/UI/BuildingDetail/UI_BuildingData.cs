@@ -40,7 +40,7 @@ public class UI_BuildingData : MonoBehaviour
         }
     }
 
-    private void RefreshUI()
+    protected virtual void RefreshUI()
     {
         BuildingLevelText.text = $"Level {_building.Level}";
         

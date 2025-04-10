@@ -894,13 +894,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 237011586136090925}
+  - component: {fileID: 2370504535846326209}
   m_Layer: 5
   m_Name: HospitalDetail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &237011586136090925
 RectTransform:
   m_ObjectHideFlags: 0
@@ -921,6 +922,27 @@ RectTransform:
   m_AnchoredPosition: {x: 932, y: 16}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2370504535846326209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4073376524698918650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46346e7a13c33e4fb2088f64cf8999b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuildingImage: {fileID: 7977459547784613509}
+  BuildingLevelText: {fileID: 6386777777336944595}
+  BuildingDescriptionText: {fileID: 7136562982412922732}
+  UpgradeResourceWoodText: {fileID: 6373404712366399804}
+  UpgradeResourceStoneText: {fileID: 9032063319557849543}
+  UpgradeButton: {fileID: 5298183258248754046}
+  MedicineImage: {fileID: 387593257557283397}
+  MedicineSprite: {fileID: 21300000, guid: 9cd7376239104764997fe7fa1a4b5f58, type: 3}
+  MedicineCountText: {fileID: 4990890034514215744}
 --- !u!1 &4228565889496162791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -211571347060018459, guid: 5e5abf16fd6c90c40a46bb45d1615b6b, type: 3}
+  m_Sprite: {fileID: 5344272924535229584, guid: 9af7b92ab6d04984284344b17a5837a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
