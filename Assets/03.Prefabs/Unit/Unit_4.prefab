@@ -524,6 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteracting: 0
+  NoneAnimatinoClip: []
   SwordAnimationClip:
   - {fileID: 7400000, guid: 634d735fce0586a46b0b34d47371278d, type: 2}
   - {fileID: 7400000, guid: 6b16d0796ab86574fa1516cf2cb6b220, type: 2}

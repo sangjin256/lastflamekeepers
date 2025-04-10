@@ -12,6 +12,8 @@ public class UIManager : BehaviourSingleton<UIManager>
     public List<Button> UnitToolManageButtons;
 
     private bool _canBuildStart;
+    public GameObject FireObject;
+
     public void SetCanBuildStart(bool canBuildStart)
     {
         _canBuildStart = canBuildStart;
@@ -38,8 +40,6 @@ public class UIManager : BehaviourSingleton<UIManager>
 
         BuildingListPopup.SetActive(false);
     }
-
-    public GameObject FireObject;
 
     public void OnClickFire()
     {

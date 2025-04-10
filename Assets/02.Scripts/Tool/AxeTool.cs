@@ -15,4 +15,9 @@ public class AxeTool : ATool
     {
         interactObject.TakeDamage(1, false);
     }
+
+    //public override float CalcAnimSpeed(int stat)
+    //{
+    //    return stat / 10;
+    //}
 }
