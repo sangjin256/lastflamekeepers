@@ -715,19 +715,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8750128225291186367}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 441314889922406622}
-        m_TargetAssemblyTypeName: UI_BuildingData, Assembly-CSharp
-        m_MethodName: OnClickUpgradeButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &2565506840429504423
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,7 +882,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 237011586136090925}
-  - component: {fileID: 441314889922406622}
   m_Layer: 5
   m_Name: HospitalDetail
   m_TagString: Untagged
@@ -922,24 +909,6 @@ RectTransform:
   m_AnchoredPosition: {x: 932, y: 16}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &441314889922406622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4073376524698918650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46346e7a13c33e4fb2088f64cf8999b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BuildingImage: {fileID: 7977459547784613509}
-  BuildingLevelText: {fileID: 6386777777336944595}
-  BuildingDescriptionText: {fileID: 7136562982412922732}
-  UpgradeResourceWoodText: {fileID: 6373404712366399804}
-  UpgradeResourceStoneText: {fileID: 9032063319557849543}
-  UpgradeButton: {fileID: 5298183258248754046}
 --- !u!1 &4228565889496162791
 GameObject:
   m_ObjectHideFlags: 0

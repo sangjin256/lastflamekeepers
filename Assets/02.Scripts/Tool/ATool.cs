@@ -20,4 +20,6 @@ public abstract class ATool
     public abstract bool IsInteractable(InteractType interactType);
 
     public abstract void Interact(IInteractable InteractableObject, int damage);
+
+    //public abstract float CalcAnimSpeed(int stat);
 }
