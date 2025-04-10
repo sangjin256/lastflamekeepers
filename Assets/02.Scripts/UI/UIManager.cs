@@ -15,6 +15,11 @@ public class UIManager : BehaviourSingleton<UIManager>
     private bool _canBuildStart;
     public GameObject FireObject;
 
+    [Header("건물 디테일 팝업")]
+    public List<UI_BuildingData> UIBuildingList;
+    public UI_LaboratoryDetail UILaboratory;
+    private GameObject _currentOpenUI = null;
+
     public void SetCanBuildStart(bool canBuildStart)
     {
         _canBuildStart = canBuildStart;
@@ -39,6 +44,20 @@ public class UIManager : BehaviourSingleton<UIManager>
             UnitToolManageButtons[i].onClick.AddListener(TryCloseToolListPopup);
         }
     }
+
+    private void Update()
+    {
+        if (_currentOpenUI == null)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ChangePopUpUI(null);
+        }
+    }
+
     public void TryCloseToolListPopup()
     {
         ToolListPopup.SetActive(false);
@@ -57,5 +76,42 @@ public class UIManager : BehaviourSingleton<UIManager>
     public void OnClickFire()
     {
         FireObject.SetActive(true);
+    }
+
+    public void OpenBuildingDetail(ABaseBuilding building)
+    {
+        if (building.BuildingType == BuildingType.Laboratory)
+        {
+            //UILaboratory.gameObject.SetActive(true);
+            ChangePopUpUI(UILaboratory.gameObject);
+            UILaboratory.Initialize(building);
+            return;
+        }
+
+        if (building.BuildingType == BuildingType.Forge)
+        {
+            // UIBuildingList[(int)BuildingType.Forge - 1].gameObject.SetActive(true);
+            ChangePopUpUI(UIBuildingList[(int)BuildingType.Forge - 1].gameObject);
+            UIBuildingList[(int)BuildingType.Forge - 1].Initialize(building);
+            return;
+        }
+
+        ChangePopUpUI(UIBuildingList[(int)building.BuildingType].gameObject);
+        UIBuildingList[(int)building.BuildingType].Initialize(building);
+    }
+
+    public void ChangePopUpUI(GameObject newPopUpUI)
+    {
+        if (_currentOpenUI != null)
+        {
+            _currentOpenUI.SetActive(false);
+        }
+
+        if (newPopUpUI != null)
+        {
+            newPopUpUI.SetActive(true);
+        }
+
+        _currentOpenUI = newPopUpUI;
     }
 }

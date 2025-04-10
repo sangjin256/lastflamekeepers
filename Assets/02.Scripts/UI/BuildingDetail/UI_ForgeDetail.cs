@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,18 +11,27 @@ public class UI_ForgeDetail : UI_BuildingData
     public List<Sprite> ToolSprites;
     public TextMeshProUGUI ToolCountText;
 
+    private Forge _forge;
+
     public override void Initialize(ABaseBuilding building)
     {
         base.Initialize(building);
 
-        Forge forge = (Forge)building;
-        if (forge == null)
+        _forge = (Forge)building;
+        if (_forge == null)
         {
             return;
         }
 
-        ToolImage.sprite = ToolSprites[(int)forge.ToolType];
+        ToolImage.sprite = ToolSprites[(int)_forge.ToolType];
 
-        ToolCountText.text = $"{ToolManager.Instance.GetCurrentToolCount(forge.ToolType)} / {ToolManager.Instance.GetMaxToolCount(forge.ToolType)}";
+        RefreshUI();
+    }
+
+    protected override void RefreshUI()
+    {
+        base.RefreshUI();
+
+        ToolCountText.text = $"{ToolManager.Instance.GetCurrentToolCount(_forge.ToolType)} / {ToolManager.Instance.GetMaxToolCount(_forge.ToolType)}";
     }
 }

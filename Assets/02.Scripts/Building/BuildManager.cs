@@ -41,6 +41,9 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         // 데이터 받아오기
         Global.Instance.OnDataLoaded += _LoadBuildData;
 
+        // FireManager 범위 변경 이벤트 구독
+        FireManager.Instance.OnFireRangeChanged += UpdateFireRange;
+
         _isLaboratoryBuilded = false;
     }
 
@@ -82,9 +85,6 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
         // 스택 초기화
         _disabledBuildingStack = new Stack<(ABaseBuilding, float)>();
-
-        // FireManager 범위 변경 이벤트 구독
-        FireManager.Instance.OnFireRangeChanged += UpdateFireRange;
 
         //// ****************** 테스트 용 ******************
         InventoryResourceManager.Instance.TryAddMaxResourceCount(InventoryResourceType.Wood, 300);
@@ -268,6 +268,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
         UIManager.Instance.SetCanBuildStart(true);
         GameObject newBuilding = Instantiate(BuildingPrefabs[buildingTypeWithTool]);
+        newBuilding.tag = "Untagged";
         _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
         _previewBuildingCollider = newBuilding.GetComponent<BoxCollider2D>();
     }

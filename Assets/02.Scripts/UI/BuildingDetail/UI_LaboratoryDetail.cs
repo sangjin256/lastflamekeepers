@@ -42,6 +42,6 @@ public class UI_LaboratoryDetail : MonoBehaviour
 
     private void RefreshUI()
     {
-        
+
     }
 }
