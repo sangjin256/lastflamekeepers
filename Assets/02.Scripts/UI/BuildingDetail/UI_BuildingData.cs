@@ -27,7 +27,10 @@ public class UI_BuildingData : MonoBehaviour
 
         BuildingDescriptionText.text = $"{building.GetBuildingDescription()}";
 
-        RefreshUI();
+        if (!building.IsMaxLevel)
+        {
+            UpgradeButton.gameObject.SetActive(true);
+        }
     }
 
     public void OnClickUpgradeButton()
@@ -40,10 +43,12 @@ public class UI_BuildingData : MonoBehaviour
         }
     }
 
-    private void RefreshUI()
+    protected virtual void RefreshUI()
     {
-        BuildingLevelText.text = $"Level {_building.Level}";
-        
+        BuildingLevelText.text = $"Level {_building.Level + 1}";
+
+        BuildingImage.sprite = _building.GetCurrentLevelSprite();
+
         if (_building.IsMaxLevel)
         {
             UpgradeButton.gameObject.SetActive(false);

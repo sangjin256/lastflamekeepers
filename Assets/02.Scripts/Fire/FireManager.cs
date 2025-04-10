@@ -30,6 +30,7 @@ public class FireManager : BehaviourSingleton<FireManager>
     // 불의 범위가 변경될 때 발생하는 이벤트
     public Action OnAddWood;
     public Action OnFireRangeChanged;
+    public Action OnPercentChanged;
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class FireManager : BehaviourSingleton<FireManager>
         AshLevel = DataTable.Instance.GetFireUnitData(StartTID + CurrentRange - MinRange).Level;
 
         OnAddWood?.Invoke();
+        OnPercentChanged?.Invoke();
     }
 
     public bool CheckCanLvUP()
@@ -78,6 +80,7 @@ public class FireManager : BehaviourSingleton<FireManager>
         {
             CurrentWood = 0;
             CurrentFirePercent++;
+            OnPercentChanged?.Invoke();
         }
 
         TryToLvUP();

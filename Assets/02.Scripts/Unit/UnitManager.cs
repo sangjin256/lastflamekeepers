@@ -9,7 +9,7 @@ public class UnitManager : BehaviourSingleton<UnitManager>
     private List<Unit> _unitList = new List<Unit>();
     public List<Unit> UnitList => _unitList;
 
-    private int _maxCoutUnit;
+    private int _maxCoutUnit = 3;
     public int MaxCountUnit => _maxCoutUnit;
 
     [Header("À¯´Ö ÇÁ¸®ÆÕ")]
