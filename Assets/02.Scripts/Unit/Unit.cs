@@ -44,7 +44,8 @@ public class Unit : AInteractableEntity
         _interactType = InteractType.Unit;
         _navMeshAgent.speed = _unitStat.MoveSpeed.Value / 10f;
         Health = _unitStat.MaxHealth.Value;
-        _navMeshAgent.ResetPath();
+        _navMeshAgent.enabled = false;
+        _navMeshAgent.enabled = true;
     }
     private void Update()
     {

@@ -27,19 +27,26 @@ public class UI_UnitList : MonoBehaviour
         }
 
         _filterButtonList[0].onClick.AddListener(() => UpdateFilter(-1));
-        if (_filterButtonList.Count != (int)(BuildingType.Forge) + 2)
-        {
-            Debug.Log("UI_BuildingList의 버튼을 할당했는지 체크하시오");
-            return;
-        }
+        //if (_filterButtonList.Count != (int)(ToolType.Medicine) + 2)
+        //{
+        //    Debug.Log("UI_BuildingList의 버튼을 할당했는지 체크하시오");
+        //    return;
+        //}
 
-        for (int i = 0; i <= (int)BuildingType.Forge; i++)
+        for (int i = 0; i <= (int)ToolType.Medicine; i++)
         {
             int index = i;
             _filterButtonList[i + 1].onClick.AddListener(() => UpdateFilter(index));
         }
     }
-
+    private void OnEnable()
+    {
+        if (_unitElements == null)
+        {
+            return;
+        }
+        UpdateFilter(-1);
+    }
     private void Refresh(Unit unit)
     {
         Debug.Log("ㄴㄴㄴ");
