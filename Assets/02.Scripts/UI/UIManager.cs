@@ -10,6 +10,7 @@ public class UIManager : BehaviourSingleton<UIManager>
 
     [Header("À¯´Ö Åø ¹öÆ°")]
     public List<Button> UnitToolManageButtons;
+    public GameObject ToolListPopup;
 
     private bool _canBuildStart;
     public GameObject FireObject;
@@ -29,6 +30,18 @@ public class UIManager : BehaviourSingleton<UIManager>
         }
 
         _canBuildStart = false;
+
+
+        for (int i = 0; i <= (int)ToolType.Medicine; i++)
+        {
+            int index = i;
+            UnitToolManageButtons[i].onClick.AddListener(() => ToolManager.Instance.StartHandOverToolMode(index));
+            UnitToolManageButtons[i].onClick.AddListener(TryCloseToolListPopup);
+        }
+    }
+    public void TryCloseToolListPopup()
+    {
+        ToolListPopup.SetActive(false);
     }
 
     public void TryCloseBuildingListPopup()
