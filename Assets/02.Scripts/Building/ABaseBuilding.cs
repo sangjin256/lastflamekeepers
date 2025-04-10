@@ -13,6 +13,11 @@ public abstract class ABaseBuilding : MonoBehaviour
     [Header("건물 레벨별 이미지")]
     [SerializeField] private List<Sprite> _levelBuildingImage;
 
+    public Sprite GetCurrentLevelSprite()
+    {
+        return _levelBuildingImage[_level];
+    }
+
     // 빌딩 데이터
     protected BuildData _buildData;
 

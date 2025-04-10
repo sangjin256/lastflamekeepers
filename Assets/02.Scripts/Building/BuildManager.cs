@@ -1,21 +1,26 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BuildManager : BehaviourSingleton<BuildManager>
 {
     [Header("빌딩 프리팹")]
     public List<GameObject> BuildingPrefabs;        // 배치할 건물 프립팹
     private ABaseBuilding _previewBuilding = null;       // 프리뷰용 건물
+    private BoxCollider2D _previewBuildingCollider = null;
 
     [Header("프리뷰 건물 색")]
     public Color CanBuildColor = Color.white;
     public Color CannotBuildColor = Color.red;
 
+    public Action<ABaseBuilding> OnChangeBuildingList;
+
 
     // 소환된 건물들
     private PriorityQueue<ABaseBuilding, float> _buildingPriorityQueue;                                     // 활성화 된 건물 관리 우선순위 큐
     private Stack<(ABaseBuilding, float)> _disabledBuildingStack;                                           // 비활성화 된 건물 관리 스택
-    private Dictionary<BuildingType, List<LinkedList<ABaseBuilding>>> _buildingDicListLinkedList;           // 전체 건물 타입별 레벨 별 딕셔너리
+    private Dictionary<BuildingType, List<ABaseBuilding>> _buildingDicList;                                 // 전체 건물 타입별 레벨 별 딕셔너리
     private bool _isLaboratoryBuilded = false;
     private bool _isCompleteSelectForgeToolType = true;
     
@@ -66,29 +71,26 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         _buildingPriorityQueue = new PriorityQueue<ABaseBuilding, float>();
 
         // 딕셔너리 리스트 초기화
-        _buildingDicListLinkedList = new Dictionary<BuildingType, List<LinkedList<ABaseBuilding>>>();
+        _buildingDicList = new Dictionary<BuildingType, List<ABaseBuilding>>();
         // TODO : 건물 추가 시 BuildingType.Count 추가 및 수정
         Debug.Log("[박우영]BuildingType Enum의 마지막이 Forge인지 확인하시오");
         for (int i = 0; i <= (int)BuildingType.Forge; i++)
         {
             // 레벨의 크기만큼 리스트 초기화
             int upgradeCount = _buildDataList[0].Upgrade_AddValueList.Count + 1;
-            List<LinkedList<ABaseBuilding>> buildingList = new List<LinkedList<ABaseBuilding>>();
+            List<ABaseBuilding> buildingList = new List<ABaseBuilding>();
 
-            for (int j = 0; j < upgradeCount; j++)
-            {
-                buildingList.Add(new LinkedList<ABaseBuilding>());
-            }
-
-            _buildingDicListLinkedList[(BuildingType)i] = buildingList;
+            _buildingDicList[(BuildingType)i] = buildingList;
         }
 
         // 스택 초기화
         _disabledBuildingStack = new Stack<(ABaseBuilding, float)>();
 
         //// ****************** 테스트 용 ******************
-        //InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, 10);
-        //InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Stone, 10);
+        InventoryResourceManager.Instance.TryAddMaxResourceCount(InventoryResourceType.Wood, 300);
+        InventoryResourceManager.Instance.TryAddMaxResourceCount(InventoryResourceType.Stone, 300);
+        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, 300);
+        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Stone, 300);
         //// **********************************************
     }
 
@@ -137,7 +139,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        _previewBuilding.transform.position = mousePosition;
+        _previewBuilding.transform.position = mousePosition - _previewBuildingCollider.offset;
     }
 
     private bool CheckBuildCondition()
@@ -161,7 +163,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         }
 
         // 2. 불에서부터의 거리 확인
-        float distanceFromFire = Vector2.SqrMagnitude(_previewBuilding.transform.position);
+        float distanceFromFire = Vector2.SqrMagnitude((Vector2)_previewBuilding.transform.position + _previewBuildingCollider.offset);
         if (!FireManager.Instance.IsWithInFireRange(distanceFromFire))
         {
             return false;
@@ -194,11 +196,13 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         }
         
         // 건물 관리용 우선순위 큐에 추가
-        float distanceFromFire = Vector2.SqrMagnitude(_previewBuilding.transform.position);
+        float distanceFromFire = Vector2.SqrMagnitude((Vector2)_previewBuilding.transform.position + _previewBuildingCollider.offset);
         _buildingPriorityQueue.Enqueue(building, -distanceFromFire);
 
         // 건물 딕셔너리 리스트에 값 추가
-        _buildingDicListLinkedList[building.BuildingType][building.Level].AddLast(building);
+        _buildingDicList[building.BuildingType].Add(building);
+
+        OnChangeBuildingList.Invoke(building);
 
         if (building.BuildingType == BuildingType.Laboratory)
         {
@@ -213,6 +217,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     {
         if (buildingTypeWithTool > (int)BuildingType.Forge)
         {
+            Debug.Log(buildingTypeWithTool);
             Debug.Log("[박우영]BuildingType 범위 밖입니다. 실행을 종료하고, 버튼의 OnClick() 메서드를 잘 확인하세요");
             return;
         }
@@ -225,6 +230,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         if (!_isCompleteSelectForgeToolType)
         {
             Debug.Log("[박우영] 아직 대장간의 타입을 정해주지 않았습니다.");
+            UIManager.Instance.SetCanBuildStart(false);
             return;
         }
 
@@ -233,7 +239,9 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         if (buildingType == BuildingType.Laboratory && _isLaboratoryBuilded)
         {
             Debug.Log("[박우영]연구소는 한 개만 생성 가능합니다!");
+
             // TODO : 팝업 창으로 안내 메세지
+            UIManager.Instance.SetCanBuildStart(false);
 
             return;
         }
@@ -244,24 +252,28 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         if (!canBuild)
         {
             Debug.Log("나무 자원 부족");
+            UIManager.Instance.SetCanBuildStart(false);
             return;
         }
         canBuild = InventoryResourceManager.Instance.TryRemoveCurrentResourceCount(InventoryResourceType.Stone, _requiredResourcesDicList[buildingType][1]);
         if (!canBuild)
         {
             Debug.Log("돌 자원 부족");
+            UIManager.Instance.SetCanBuildStart(false);
             return;
         }
 
-
+        UIManager.Instance.SetCanBuildStart(true);
         GameObject newBuilding = Instantiate(BuildingPrefabs[buildingTypeWithTool]);
         _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
+        _previewBuildingCollider = newBuilding.GetComponent<BoxCollider2D>();
     }
 
     public void EndBuildingMode()
     {
         Destroy(_previewBuilding.gameObject);
         _previewBuilding = null;
+        _previewBuildingCollider = null;
     }
 
     // 업데이트 전 반지름
@@ -319,14 +331,13 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         _lastUpdatedRange = FireManager.Instance.GetRange();
     }
 
-    public List<LinkedList<ABaseBuilding>> GetBuildingList(BuildingType type)
+    public Dictionary<BuildingType, List<ABaseBuilding>> GetBuildingDictionary()
     {
-        return _buildingDicListLinkedList[type];
+        return _buildingDicList;
     }
 
     public void UpgradeBuilding(ABaseBuilding building)
     {
-        _buildingDicListLinkedList[building.BuildingType][building.Level - 1].Remove(building);
-        _buildingDicListLinkedList[building.BuildingType][building.Level].AddLast(building);
+        OnChangeBuildingList.Invoke(building);
     }
 }

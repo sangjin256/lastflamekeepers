@@ -14,11 +14,11 @@ public class UI_Fire : MonoBehaviour
 
     private void Start()
     {
-        UnitManager.Instance.OnUnitCountChanged += UnitRefresh;
+        UnitManager.Instance.OnUnitListChanged += UnitRefresh;
         FireManager.Instance.OnFireRangeChanged += FireRefresh;
     }
 
-    public void UnitRefresh()
+    public void UnitRefresh(Unit unit)
     {
         UnitCount.text = $"½Åµµ ¼ö {UnitManager.Instance.UnitList.Count} / {UnitManager.Instance.MaxCountUnit}";
     }
