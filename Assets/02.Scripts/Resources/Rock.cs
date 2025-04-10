@@ -10,6 +10,7 @@ public class Rock : AResource
         OutputAmountPerExtract = resource.OutputAmountPerExtract;
         OutputType = resource.OutputType;
         RespawnTime = resource.RespawnTime;
+        _health = Durability;
 
         _interactType = InteractType.Rock;
     }

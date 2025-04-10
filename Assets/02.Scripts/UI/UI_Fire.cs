@@ -33,7 +33,7 @@ public class UI_Fire : MonoBehaviour
 
     public void FireRefresh()
     {
-        FireAmount.text = $"¹àÈû Á¤µµ {FireManager.Instance.GetCurrentFirePercent()} / {100}";
+        FireAmount.text = $"¹àÈû Á¤µµ {FireManager.Instance.GetCurrentFirePercentStr()} / {100}";
         NeedWoodCount.text = $"ÇÊ¿äÇÑ ³ª¹« ¼ö {FireManager.Instance.GetCurrentWoodCount()} / {FireManager.Instance.GetWoodCountToLvUP()}";
 
         UnitCount.text = $"½Åµµ ¼ö {UnitManager.Instance.UnitList.Count} / {UnitManager.Instance.MaxCountUnit}";
