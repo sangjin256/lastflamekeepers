@@ -156,7 +156,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
                     return false;
                 }
             }
-            else if (collider.CompareTag("Fire") || collider.CompareTag("Water"))
+            else if (collider.CompareTag("Fire") || collider.CompareTag("Water") || collider.CompareTag("Resource"))
             {
                 return false;
             }

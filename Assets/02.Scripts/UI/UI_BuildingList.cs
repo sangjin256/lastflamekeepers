@@ -15,6 +15,9 @@ public class UI_BuildingList : MonoBehaviour
     [Header("필터링 버튼")]
     [SerializeField] private List<Button> _filterButtonList;
 
+    [Header("빌딩 디테일 팝업 창")]
+    public GameObject PopUpDetail;
+
     private void Start()
     {
         BuildManager.Instance.OnChangeBuildingList += RefreshBuildingList;

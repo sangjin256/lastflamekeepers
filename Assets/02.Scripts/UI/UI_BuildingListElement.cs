@@ -13,9 +13,13 @@ public class UI_BuildingListElement : MonoBehaviour
     // 레벨 텍스트
     private TextMeshProUGUI _levelText;
 
+    // 팝업 용 버튼
+    private Button _popUpButton;
+
     private void Awake()
     {
         _levelText = GetComponentInChildren<TextMeshProUGUI>();
+        _popUpButton = GetComponentInChildren<Button>();
     }
 
     public void SetBuilding(ABaseBuilding building)
