@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public class ClickSystem : MonoBehaviour
 {
@@ -17,13 +19,14 @@ public class ClickSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 1f, Clilckable);
-            if(hit.collider != null)
+            List<RaycastHit2D> hitList = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 1f, Clilckable).ToList();
+            if(hitList.Count != 0)
             {
                 #region Unit 클릭
-                if (hit.collider.transform.parent.CompareTag("Unit"))
+                RaycastHit2D unitObject = hitList.Find(x => x.transform.parent.CompareTag("Unit"));
+                if (unitObject)
                 {
-                    Unit unit = hit.collider.transform.GetComponentInParent<Unit>();
+                    Unit unit = unitObject.collider.transform.GetComponentInParent<Unit>();
                     if (Input.GetKey(KeyCode.LeftShift))
                     {
                         UnitSelectionManager.Instance.ShiftClickSelect(unit);
@@ -41,11 +44,12 @@ public class ClickSystem : MonoBehaviour
                 #endregion
 
                 #region 불 클릭
-                if (hit.collider.transform.parent.CompareTag("Fire"))
+                RaycastHit2D FireObject = hitList.Find(x => x.transform.parent.CompareTag("Fire"));
+                if (FireObject)
                 {
                     if (FireClicked)
                     {
-                        CameraManager.Instance.MoveToEntity(hit.collider.transform.parent);
+                        CameraManager.Instance.MoveToEntity(FireObject.collider.transform.parent);
                         FireClicked = false;
                     }
                     else
@@ -57,15 +61,16 @@ public class ClickSystem : MonoBehaviour
                 #endregion
 
                 #region 건물 클릭
-                if (hit.collider.transform.parent.CompareTag("Building"))
+                RaycastHit2D BuildObject = hitList.Find(x => x.transform.parent.CompareTag("Building"));
+                if (BuildObject)
                 {
-                    if(ClickedBuildObject != null && ClickedBuildObject.GetInstanceID() == hit.collider.transform.parent.GetInstanceID())
+                    if(ClickedBuildObject != null && ClickedBuildObject.GetInstanceID() == BuildObject.collider.transform.parent.GetInstanceID())
                     {
-                        CameraManager.Instance.MoveToEntity(hit.collider.transform.parent);
+                        CameraManager.Instance.MoveToEntity(BuildObject.collider.transform.parent);
                     }
                     else
                     {
-                        ClickedBuildObject = hit.collider.transform.parent.gameObject;
+                        ClickedBuildObject = BuildObject.collider.transform.parent.gameObject;
                         Debug.Log("빌딩 창");
                     }
                 }

@@ -51,6 +51,11 @@ public class ToolManager : BehaviourSingleton<ToolManager>
         return _currentToolCountList[(int)toolType];
     }
 
+    public int GetMaxToolCount(ToolType toolType)
+    {
+        return _maxToolCountList[(int)toolType];
+    }
+
     public ATool GetTool(ToolType toolType)
     {
         return _toolList[(int)toolType];
