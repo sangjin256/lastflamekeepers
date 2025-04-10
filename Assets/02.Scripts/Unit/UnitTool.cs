@@ -36,12 +36,9 @@ public class UnitTool : MonoBehaviour
 
         _animator.runtimeAnimatorController = _overrideController;
 
-        SetTool(ToolManager.Instance.GetTool(ToolType.None));
-    }
-
-    private void Start()
-    {
         InitializeAnimationClip();
+        SetTool(ToolManager.Instance.GetTool(ToolType.None));
+
     }
 
     public void InitializeAnimationClip()

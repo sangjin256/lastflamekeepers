@@ -12,9 +12,25 @@ public class ToolManager : BehaviourSingleton<ToolManager>
     public readonly int StartTid = 10000;
 
     public Action<Unit> OnToolChanged;
+
+    public ATool HandOverTool;
     private void Awake()
     {
         Global.Instance.OnDataLoaded += _LoadTool;
+    }
+
+    private void Update()
+    {
+        if(HandOverTool == null)
+        {
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            EndHandOverToolMode();
+            return;
+        }
+        MoveToolToMouse();
     }
 
     private void _LoadTool()
@@ -117,5 +133,41 @@ public class ToolManager : BehaviourSingleton<ToolManager>
         }
 
         _maxToolCountList[(int)toolType] -= amount;
+    }
+    public void StartHandOverToolMode(int toolType)
+    {
+        if(toolType > (int)ToolType.Medicine)
+        {
+            Debug.Log("[심형준]핸드오버툴 오류");
+            return;
+        }
+
+        if(HandOverTool == null)
+        {
+            return;
+        }
+
+        bool canHandOver = false;
+        //툴 사용 가능 개수 검사
+        //canHandOver = 
+
+        if (!canHandOver)
+        {
+            Debug.Log("도구 수 부족");
+        }
+
+        //도구 이미지 오브젝트 생성
+    }
+    public void EndHandOverToolMode()
+    {
+        HandOverTool = null;
+    }
+
+    private void MoveToolToMouse()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        //도구 이미지 오브젝트
+        //.transform.position = mousePosition;
     }
 }
