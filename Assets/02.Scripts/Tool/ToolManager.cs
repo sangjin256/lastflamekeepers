@@ -62,12 +62,15 @@ public class ToolManager : BehaviourSingleton<ToolManager>
                 if (unitObject)
                 {
                     Unit unit = unitObject.transform.GetComponent<Unit>();
+                    Debug.Log("せぉいせ");
                     TrySetTool(unit, HandOverTool.ToolType);
                     EndHandOverToolMode();
                     return;
                 }
                 else
                 {
+                    Debug.Log("せぉいせ");
+
                     EndHandOverToolMode();
                     return;
                 }
