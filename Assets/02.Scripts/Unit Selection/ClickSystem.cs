@@ -55,7 +55,7 @@ public class ClickSystem : MonoBehaviour
                     else
                     {
                         FireClicked = true;
-                        //UIManager.Instance.OnClickFire();
+                        UIManager.Instance.OnClickFire();
                     }
                 }
                 #endregion
