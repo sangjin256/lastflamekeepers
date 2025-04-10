@@ -15,15 +15,6 @@ public class UnitTool : MonoBehaviour
 
     public bool IsInteracting;
 
-    private AnimationClip[,,] _toolAnimationClip = new AnimationClip[4,4,2];
-
-    public AnimationClip[] NoneAnimatinoClip;
-    public AnimationClip[] SwordAnimationClip;
-    public AnimationClip[] AxeAnimationClip;
-    public AnimationClip[] PickaxeAnimationClip;
-
-    private AnimationClip[][] _animationClipArray;
-
     private Animator _animator;
     private AnimatorOverrideController _overrideController;
     private void Awake()
@@ -39,27 +30,7 @@ public class UnitTool : MonoBehaviour
         SetTool(ToolManager.Instance.GetTool(ToolType.None));
     }
 
-    private void Start()
-    {
-        InitializeAnimationClip();
-    }
-
-    public void InitializeAnimationClip()
-    {
-        _animationClipArray = new AnimationClip[][] { NoneAnimatinoClip, SwordAnimationClip, AxeAnimationClip, PickaxeAnimationClip} ;
-
-        for(int toolType = 0; toolType < _toolAnimationClip.GetLength(0); toolType++)
-        {
-            for (int toolLevel = 0; toolLevel < _toolAnimationClip.GetLength(1); toolLevel++)
-            {
-                for (int state= 0; state< _toolAnimationClip.GetLength(2); state++)
-                {
-                    _toolAnimationClip[toolType, toolLevel, state] = _animationClipArray[toolType][toolLevel * 2 + state];
-                }
-            }
-        }
-
-    }
+    
     public void SetTool(ATool tool)
     {
         _prevTool = _currentTool;
@@ -84,8 +55,8 @@ public class UnitTool : MonoBehaviour
                 break;
             }
         }
-        _overrideController["Idle"] = _toolAnimationClip[(int)_currentTool.ToolType, _currentTool.UpgradeLevel, 0];
-        _overrideController["Interact"] = _toolAnimationClip[(int)_currentTool.ToolType, _currentTool.UpgradeLevel, 1];
+        _overrideController["Idle"] = ToolManager.Instance.ToolAnimationClip[(int)_currentTool.ToolType, _currentTool.UpgradeLevel, 0];
+        _overrideController["Interact"] = ToolManager.Instance.ToolAnimationClip[(int)_currentTool.ToolType, _currentTool.UpgradeLevel, 1];
 
         Debug.Log($"{tool.ToolType}");
         IsInteracting = false;
