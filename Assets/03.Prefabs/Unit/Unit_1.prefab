@@ -15,8 +15,7 @@ GameObject:
   - component: {fileID: 8071971007353572508}
   - component: {fileID: 8895139886422338886}
   - component: {fileID: -3823960264680887943}
-  - component: {fileID: -7843201936579336401}
-  - component: {fileID: -7198810448244747280}
+  - component: {fileID: 458320170453991239}
   m_Layer: 7
   m_Name: Unit_1
   m_TagString: Unit
@@ -87,7 +86,7 @@ SpriteRenderer:
   m_SortingLayerID: -1007842513
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 9389d597a7300cd4dbfa15b660b80a0d, type: 3}
+  m_Sprite: {fileID: -7554498494277832466, guid: 21a665fdee58c5449920f053ff38fcde, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -184,7 +183,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.11}
+  m_Offset: {x: 0, y: 0}
   m_Radius: 0.15
 --- !u!50 &-3823960264680887943
 Rigidbody2D:
@@ -213,7 +212,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &-7843201936579336401
+--- !u!95 &458320170453991239
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -223,7 +222,7 @@ Animator:
   m_GameObject: {fileID: 1962782918411964420}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e95ffb08419d60844a332e780485d209, type: 2}
+  m_Controller: {fileID: 22100000, guid: 4c24bdad4ebb22241a13c8db5ca97064, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -235,43 +234,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-7198810448244747280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1962782918411964420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5783dbbad6a59184fa58aa75d79bcc02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shadowType: 3
-  shadowLayer: 0
-  shadowDistance: 1
-  shadowDistanceMin: 1.0106384
-  shadowDistanceMax: 2.787234
-  shadowTranslucency: 0.3
-  maskType: 1
-  maskLit: 0
-  maskPivot: 0
-  maskLayer: 0
-  maskLitCustom: 1
-  bumpMapMode:
-    type: 0
-    textureType: 0
-    texture: {fileID: 0}
-    sprite: {fileID: 0}
-    invertX: 0
-    invertY: 0
-    depth: 1
-    spriteRenderer: {fileID: 8901572825364784215}
-  mainShape:
-    shadowType: 3
-    maskType: 1
-    maskPivot: 0
-    transform: {fileID: 4090786052005056672}
 --- !u!1 &3520208857647346021
 GameObject:
   m_ObjectHideFlags: 0
