@@ -99,7 +99,6 @@ public class ToolManager : BehaviourSingleton<ToolManager>
 
     public bool TrySetTool(Unit unit, ToolType toolType)
     {
-        if (CheckCanTool(toolType) == false) return false;
         RemoveCurrentToolCount(unit.UnitTool.CurrentTool.ToolType, 1);
         AddCurrentToolCount(toolType, 1);
         unit.SetTool(GetTool(toolType));
