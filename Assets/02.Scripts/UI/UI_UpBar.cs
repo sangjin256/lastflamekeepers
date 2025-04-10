@@ -20,7 +20,9 @@ public class UI_UpBar : MonoBehaviour
 
     public RectTransform FireImage;
 
-    public float MaximumScreenPositionY = 166f;
+    public TextMeshProUGUI FirePercent;
+
+    private const float MaximumScreenPositionY = 37f;
 
     private void Start()
     {
@@ -29,7 +31,14 @@ public class UI_UpBar : MonoBehaviour
         InventoryResourceManager.Instance.OnInvenDataChanged += InvenResourceRefresh;
         FireManager.Instance.OnFireRangeChanged += FireShadowRefresh;
 
+        FireManager.Instance.OnPercentChanged += FirePercentRefresh;
+
         WaveManager.Instance.OnEnemyDeadAction += WaveStateRefresh;
+    }
+
+    public void FirePercentRefresh()
+    {
+        FirePercent.text = FireManager.Instance.GetCurrentFirePercent().ToString();
     }
 
     public void FireShadowRefresh()

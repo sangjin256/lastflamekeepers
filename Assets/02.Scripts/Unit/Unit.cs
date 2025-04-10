@@ -78,6 +78,11 @@ public class Unit : AInteractableEntity
             }
         }
 
+        if(_navMeshAgent.hasPath && _navMeshAgent.remainingDistance < _navMeshAgent.stoppingDistance)
+        {
+            _navMeshAgent.avoidancePriority = 60;
+            _navMeshAgent.ResetPath();
+        }
         if (_target == null)
         {
             if (_navMeshAgent.desiredVelocity == Vector3.zero)
@@ -117,6 +122,7 @@ public class Unit : AInteractableEntity
 
     public void SetTarget(AInteractableEntity interactable)
     {
+        _navMeshAgent.avoidancePriority = 50;
         if (!CanInteract)
         {
             return;
@@ -141,10 +147,13 @@ public class Unit : AInteractableEntity
     // TODO: 인원 수 전달해서 그에 따른 랜덤 도착 범위 설정
     public void SetTarget(Vector2 point)
     {
+        _navMeshAgent.avoidancePriority = 50;
+
         if (!CanInteract)
         {
             return;
         }
+       
 
         Vector2 randomPoint = point + UnityEngine.Random.insideUnitCircle / 2;
         _navMeshAgent.SetDestination(randomPoint);
@@ -159,6 +168,8 @@ public class Unit : AInteractableEntity
 
     public void SetTarget(Transform point)
     {
+        _navMeshAgent.avoidancePriority = 50;
+
         if (!CanInteract)
         {
             return;

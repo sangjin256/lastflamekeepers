@@ -254,7 +254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5291092035738157117
 Transform:
   m_ObjectHideFlags: 0
@@ -499,7 +499,7 @@ MonoBehaviour:
     invertX: 0
     invertY: 0
     depth: 1
-    spriteRenderer: {fileID: 0}
+    spriteRenderer: {fileID: 4471192953369871049}
   mainShape:
     shadowType: 3
     maskType: 1

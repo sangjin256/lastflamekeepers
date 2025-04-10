@@ -141,7 +141,7 @@ NavMeshAgent:
   m_Acceleration: 120
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.15
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
@@ -486,33 +486,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteracting: 0
-  SwordAnimationClip:
-  - {fileID: 7400000, guid: 634d735fce0586a46b0b34d47371278d, type: 2}
-  - {fileID: 7400000, guid: 6b16d0796ab86574fa1516cf2cb6b220, type: 2}
-  - {fileID: 7400000, guid: 2b83a5503c9f8fa4d9cc0af6a4ba9094, type: 2}
-  - {fileID: 7400000, guid: 6b05425fa150e20418232230db2ad88d, type: 2}
-  - {fileID: 7400000, guid: 3aeba1caa9c40514c883180c9e1bff80, type: 2}
-  - {fileID: 7400000, guid: bd4210d0774845b4eb450e9958dcf45d, type: 2}
-  - {fileID: 7400000, guid: 5d0c7e854c22bae419b0fe662f8efc40, type: 2}
-  - {fileID: 7400000, guid: fe596a0d1e6c6be47a5d3ce095a62ed6, type: 2}
-  AxeAnimationClip:
-  - {fileID: 7400000, guid: 209853b6931efdc4c9f9c45edbcc9bab, type: 2}
-  - {fileID: 7400000, guid: 3b63203220103b64e97f2379d4fe1fd1, type: 2}
-  - {fileID: 7400000, guid: 5cf34ed680c76994b86f2a6b3b63d63e, type: 2}
-  - {fileID: 7400000, guid: ab6adbc2ea3c307418b02e3540c0dfe2, type: 2}
-  - {fileID: 7400000, guid: bd16fa2526578094eba013ab5c8ab293, type: 2}
-  - {fileID: 7400000, guid: 8115918718d3b63449f7b0a14ccdfbba, type: 2}
-  - {fileID: 7400000, guid: 643a6a68492d5534d97efc868e5f7a45, type: 2}
-  - {fileID: 7400000, guid: b179f567be60222499e96debffbdbfa4, type: 2}
-  PickaxeAnimationClip:
-  - {fileID: 7400000, guid: 13ffc8aabd3eb9444b8eac4ce9ba128a, type: 2}
-  - {fileID: 7400000, guid: 87a2f531bb59c7c48834d575bfcaf7f1, type: 2}
-  - {fileID: 7400000, guid: 46f015e458f66ed4f91c7c8e5c7e6ba1, type: 2}
-  - {fileID: 7400000, guid: f188ef8c41cf648469b8a64ecc8cdf83, type: 2}
-  - {fileID: 7400000, guid: 2db72494c680e084c9ebb75d51cf0faa, type: 2}
-  - {fileID: 7400000, guid: 6eb469cd1f983a84db969a08645ee5a9, type: 2}
-  - {fileID: 7400000, guid: d6cfac22ec8d3934aab8639b42d25733, type: 2}
-  - {fileID: 7400000, guid: 7058c48deb50b81458e33ab64b309403, type: 2}
 --- !u!95 &5397834318185276964
 Animator:
   serializedVersion: 7

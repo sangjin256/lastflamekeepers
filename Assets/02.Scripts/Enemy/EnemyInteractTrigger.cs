@@ -12,8 +12,13 @@ public class EnemyInteractTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
         if (interactableEntity == null)
+        {
+            return;
+        }
+        if (!interactableEntity.CompareTag("Unit"))
         {
             return;
         }
@@ -34,6 +39,10 @@ public class EnemyInteractTrigger : MonoBehaviour
         AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
         //¿Ã∑≤ªÛ»≤¿Ã?
         if (interactableEntity == null)
+        {
+            return;
+        }
+        if (!interactableEntity.CompareTag("Unit"))
         {
             return;
         }
