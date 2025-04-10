@@ -270,10 +270,10 @@ MonoBehaviour:
   UnitName: {fileID: 3606738786373060167}
   UnitHealthSlider: {fileID: 9105429829334072257}
   NoneSpriteArray:
-  - {fileID: 8995154407686431259, guid: 24f5b03f854f2ab4286718b9cbf5c6a9, type: 3}
-  - {fileID: 8995154407686431259, guid: 24f5b03f854f2ab4286718b9cbf5c6a9, type: 3}
-  - {fileID: 8995154407686431259, guid: 24f5b03f854f2ab4286718b9cbf5c6a9, type: 3}
-  - {fileID: 8995154407686431259, guid: 24f5b03f854f2ab4286718b9cbf5c6a9, type: 3}
+  - {fileID: 21300000, guid: 24f5b03f854f2ab4286718b9cbf5c6a9, type: 3}
+  - {fileID: 21300000, guid: 24f5b03f854f2ab4286718b9cbf5c6a9, type: 3}
+  - {fileID: 21300000, guid: 24f5b03f854f2ab4286718b9cbf5c6a9, type: 3}
+  - {fileID: 21300000, guid: 24f5b03f854f2ab4286718b9cbf5c6a9, type: 3}
   SwordSpriteArray:
   - {fileID: -23826677821667255, guid: 62a63240ef9287143a8b32841021dd45, type: 3}
   - {fileID: -5813401907056065051, guid: fbf1ee341fa09264d94c01a56a53dfd6, type: 3}
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 070f22318553b4042903f48a8b36ac11, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24f5b03f854f2ab4286718b9cbf5c6a9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

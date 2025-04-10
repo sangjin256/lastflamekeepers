@@ -41,18 +41,17 @@ public class UnitSearchTrigger : MonoBehaviour
         {
             return;
         }
-
-        if(interactableEntity == null)
+        if( interactableEntity == null)
         {
             return;
         }
-
         if (!interactableEntity.CanInteract)
         {
 
             _unitTool.IsInteracting = false;
             _unit.ToolAnimator.SetBool("IsInteracting", false);
             _unit.NavMeshAgent.ResetPath();
+            
             _unit.ResumeNavMeshAgent();
             _unit.FindTarget();
         }

@@ -28,6 +28,7 @@ public class UnitTool : MonoBehaviour
         _animator.runtimeAnimatorController = _overrideController;
 
         SetTool(ToolManager.Instance.GetTool(ToolType.None));
+        SetTool(ToolManager.Instance.GetTool(ToolType.None));
     }
 
     
