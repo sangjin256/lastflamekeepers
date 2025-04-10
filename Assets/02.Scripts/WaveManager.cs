@@ -12,8 +12,13 @@ public class WaveManager : BehaviourSingleton<WaveManager>
     public List<GameObject> EnemyPrefab;
 
     public int _currentEnemyCount;
+    public int WaveMaxEnemyCount;
+
+    public int KillCount = 0;
     private Dictionary<int, WaveData> WaveDataDic;
     private List<Vector3> _placedEnemyPositionList;
+
+    public System.Action OnEnemyDeadAction;
 
     public void Start()
     {
@@ -30,9 +35,10 @@ public class WaveManager : BehaviourSingleton<WaveManager>
             _placedEnemyPositionList = new List<Vector3>();
 
             yield return StartCoroutine(StartWave());
-            CurrentWaveNum++;
-
             while (_currentEnemyCount > 0) yield return null;
+
+            CurrentWaveNum++;
+            KillCount = 0;
 
             if (WaveDataDic.ContainsKey(CurrentWaveNum) == false) break;
         }
@@ -42,21 +48,20 @@ public class WaveManager : BehaviourSingleton<WaveManager>
     {
         int enemyHealth = WaveDataDic[CurrentWaveNum].EnemyHealth;
         int enemyDamage = WaveDataDic[CurrentWaveNum].EnemyDamage;
-        int enemyCount = WaveDataDic[CurrentWaveNum].EnemyCount;
+        WaveMaxEnemyCount = WaveDataDic[CurrentWaveNum].EnemyCount;
 
         int termCount = Random.Range(1, 3);
         float termTimer = Random.Range(2f, 5f);
         int spawned = 0;
 
-        while (spawned < enemyCount)
+        while (spawned < WaveMaxEnemyCount)
         {
-            int spawnCount = Random.Range(enemyCount / 3, enemyCount / 2);
-            if (spawned + spawnCount > enemyCount)
+            int spawnCount = Random.Range(WaveMaxEnemyCount / 3, WaveMaxEnemyCount / 2);
+            if (spawned + spawnCount > WaveMaxEnemyCount)
             {
-                spawnCount = enemyCount - spawned;
+                spawnCount = WaveMaxEnemyCount - spawned;
             }
             spawned += SpawnEnemyCluster(enemyHealth, enemyDamage, spawnCount);
-
 
             yield return new WaitForSeconds(Random.Range(4f, 6f));
         }
@@ -103,6 +108,8 @@ public class WaveManager : BehaviourSingleton<WaveManager>
     public void OnEnemyDeath()
     {
         _currentEnemyCount--;
+        KillCount++;
+        OnEnemyDeadAction?.Invoke();
     }
     private void _LoadWaveData()
     {

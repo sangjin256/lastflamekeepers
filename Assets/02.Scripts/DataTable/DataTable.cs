@@ -222,6 +222,60 @@ public partial class DataTable
         }
     }
     #endregion
+    #region FireLight
+    private ReadOnlyList<FireLightData> FireLightList = null;
+    private ReadOnlyDictionary<int, FireLightData> FireLightTable = null;
+
+    public ReadOnlyList<FireLightData> GetFireLightDataList()
+    {
+        return FireLightList;
+    }
+
+    public FireLightData GetFireLightData(int key)
+    {
+        if (key == 0)
+        {
+            return null;
+        }
+
+        if (FireLightTable.TryGetValue(key, out FireLightData retVal) == true)
+        {
+            return retVal;
+        }
+        else
+        {
+            Debug.LogError($"Can not find UniqueID of FireLightData: <{key}>");
+            return null;
+        }
+    }
+    #endregion
+    #region FireUnit
+    private ReadOnlyList<FireUnitData> FireUnitList = null;
+    private ReadOnlyDictionary<int, FireUnitData> FireUnitTable = null;
+
+    public ReadOnlyList<FireUnitData> GetFireUnitDataList()
+    {
+        return FireUnitList;
+    }
+
+    public FireUnitData GetFireUnitData(int key)
+    {
+        if (key == 0)
+        {
+            return null;
+        }
+
+        if (FireUnitTable.TryGetValue(key, out FireUnitData retVal) == true)
+        {
+            return retVal;
+        }
+        else
+        {
+            Debug.LogError($"Can not find UniqueID of FireUnitData: <{key}>");
+            return null;
+        }
+    }
+    #endregion
 
     public IEnumerator LoadRoutine()
     {
@@ -276,6 +330,18 @@ public partial class DataTable
             LoadInventoryResourceData(bytes);
             loadedCount++;
         });
+        allCount++;
+        GetBytes_FromResources("FireLight", (bytes) =>
+        {
+            LoadFireLightData(bytes);
+            loadedCount++;
+        });
+        allCount++;
+        GetBytes_FromResources("FireUnit", (bytes) =>
+        {
+            LoadFireUnitData(bytes);
+            loadedCount++;
+        });
 
         yield return new WaitUntil(() => allCount == loadedCount);
     }
@@ -298,6 +364,10 @@ public partial class DataTable
         LoadFieldResourceData(fieldResourceBytes);
         byte[] inventoryResourceBytes = GetBytes_ForEditor("InventoryResourceData");
         LoadInventoryResourceData(inventoryResourceBytes);
+        byte[] fireLightBytes = GetBytes_ForEditor("FireLightData");
+        LoadFireLightData(fireLightBytes);
+        byte[] fireUnitBytes = GetBytes_ForEditor("FireUnitData");
+        LoadFireUnitData(fireUnitBytes);
     }
 
     private void LoadRandomStatData(byte[] bytes)
@@ -546,6 +616,68 @@ public partial class DataTable
 
         InventoryResourceList = new ReadOnlyList<InventoryResourceData>(inventoryResourceList);
         InventoryResourceTable = new ReadOnlyDictionary<int, InventoryResourceData>(inventoryResourceTable);
+    }
+
+    private void LoadFireLightData(byte[] bytes)
+    {
+        List<FireLightData> fireLightList = new List<FireLightData>();
+        Dictionary<int, FireLightData> fireLightTable = new Dictionary<int, FireLightData>();
+
+        Reader = new BinaryReader(new MemoryStream(bytes));
+
+        while (Reader.BaseStream.Position < bytes.Length)
+        {
+            FireLightData data = new FireLightData(Reader);
+            if (fireLightTable.ContainsKey(data.TID) == true)
+            {
+                Debug.LogError("The duplicate TID: " + data.TID + " in FireLight");
+                continue;
+            }
+            else if (data.TID == 0)
+            {
+                Debug.LogError("TID is 0 in FireLight");
+                continue;
+            }
+
+            fireLightList.Add(data);
+            fireLightTable.Add(data.TID, data);
+        }
+
+        Reader.Close();
+
+        FireLightList = new ReadOnlyList<FireLightData>(fireLightList);
+        FireLightTable = new ReadOnlyDictionary<int, FireLightData>(fireLightTable);
+    }
+
+    private void LoadFireUnitData(byte[] bytes)
+    {
+        List<FireUnitData> fireUnitList = new List<FireUnitData>();
+        Dictionary<int, FireUnitData> fireUnitTable = new Dictionary<int, FireUnitData>();
+
+        Reader = new BinaryReader(new MemoryStream(bytes));
+
+        while (Reader.BaseStream.Position < bytes.Length)
+        {
+            FireUnitData data = new FireUnitData(Reader);
+            if (fireUnitTable.ContainsKey(data.TID) == true)
+            {
+                Debug.LogError("The duplicate TID: " + data.TID + " in FireUnit");
+                continue;
+            }
+            else if (data.TID == 0)
+            {
+                Debug.LogError("TID is 0 in FireUnit");
+                continue;
+            }
+
+            fireUnitList.Add(data);
+            fireUnitTable.Add(data.TID, data);
+        }
+
+        Reader.Close();
+
+        FireUnitList = new ReadOnlyList<FireUnitData>(fireUnitList);
+        FireUnitTable = new ReadOnlyDictionary<int, FireUnitData>(fireUnitTable);
     }
 
 }

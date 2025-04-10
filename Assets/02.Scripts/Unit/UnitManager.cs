@@ -27,6 +27,8 @@ public class UnitManager : BehaviourSingleton<UnitManager>
     private List<Feature> _positiveFeatureList = new List<Feature>();
     private List<Feature> _negativeFeatureList = new List<Feature>();
 
+    public System.Action OnUnitCountChanged;
+
     private float[] _getFeatureProbabilty = { 0.9f, 0.3f, 0.3f };
     private void Start()
     {
@@ -116,11 +118,13 @@ public class UnitManager : BehaviourSingleton<UnitManager>
         unit.gameObject.SetActive(true);
         unit.transform.position = position;
         _unitList.Add(unit);
+        OnUnitCountChanged?.Invoke();
     }
 
     public void DestroyUnit(Unit unit)
     {
         UnitList.Remove(unit);
+        OnUnitCountChanged?.Invoke();
         Destroy(unit.gameObject);
     }
 
@@ -194,6 +198,8 @@ public class UnitManager : BehaviourSingleton<UnitManager>
         //_unitList = randomUnitList;
 
         //CountRandomFeatures(randomUnitList);
+
+        OnUnitCountChanged?.Invoke();
     }
 
 

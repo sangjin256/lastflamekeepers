@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3981703660441011887}
   - component: {fileID: 1541440158974829247}
   - component: {fileID: -1465449865118611611}
-  - component: {fileID: -640636537527723533}
+  - component: {fileID: 1551768606757277076}
+  - component: {fileID: 6628579408875464317}
   m_Layer: 7
   m_Name: Rock_3
   m_TagString: Resource
@@ -129,8 +130,45 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0.22, z: 0}
   m_TimeToStationary: 0.5
---- !u!61 &-640636537527723533
-BoxCollider2D:
+--- !u!114 &1551768606757277076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353196807227275509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5783dbbad6a59184fa58aa75d79bcc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shadowType: 3
+  shadowLayer: 0
+  shadowDistance: 1
+  shadowDistanceMin: 0.7553191
+  shadowDistanceMax: 4.1489363
+  shadowTranslucency: 0.3
+  maskType: 1
+  maskLit: 0
+  maskPivot: 0
+  maskLayer: 0
+  maskLitCustom: 1
+  bumpMapMode:
+    type: 0
+    textureType: 0
+    texture: {fileID: 0}
+    sprite: {fileID: 0}
+    invertX: 0
+    invertY: 0
+    depth: 1
+    spriteRenderer: {fileID: 3981703660441011887}
+  mainShape:
+    shadowType: 3
+    maskType: 1
+    maskPivot: 0
+    transform: {fileID: 3592404572316404908}
+--- !u!70 &6628579408875464317
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -163,18 +201,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.25}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.75, y: 0.875}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.68, y: 0.45}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.000000003345141, y: 0.34}
+  m_Size: {x: 0.77, y: 0.45}
+  m_Direction: 1
 --- !u!1 &7512146384065059592
 GameObject:
   m_ObjectHideFlags: 0

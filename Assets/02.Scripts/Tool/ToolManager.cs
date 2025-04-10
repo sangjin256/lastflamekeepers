@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class ToolManager : BehaviourSingleton<ToolManager>
 {
@@ -9,6 +10,8 @@ public class ToolManager : BehaviourSingleton<ToolManager>
 
     public readonly int MaxUpgradeLevel = 3;
     public readonly int StartTid = 10000;
+
+    public Action OnToolDataChanged;
 
     private void Awake()
     {
@@ -36,7 +39,9 @@ public class ToolManager : BehaviourSingleton<ToolManager>
         _toolList.Add(new MedicineTool(data.ToolType, data.ToolName, 0, data.Value));
         _maxToolCountList.Add(data.MaxCount);
 
-        _currentToolCountList = new List<int>(_toolList.Count);
+        _currentToolCountList = new List<int>(new int[_toolList.Count]);
+
+        OnToolDataChanged?.Invoke();
 
         Debug.Log("Tool Data Loaded");
     }
@@ -44,6 +49,11 @@ public class ToolManager : BehaviourSingleton<ToolManager>
     public int GetCurrentToolCount(ToolType toolType)
     {
         return _currentToolCountList[(int)toolType];
+    }
+
+    public int GetMaxToolCount(ToolType toolType)
+    {
+        return _maxToolCountList[(int)toolType];
     }
 
     public ATool GetTool(ToolType toolType)
@@ -71,6 +81,7 @@ public class ToolManager : BehaviourSingleton<ToolManager>
 
         if (_currentToolCountList[(int)toolType] + amount > _maxToolCountList[(int)toolType]) _currentToolCountList[(int)toolType] = _maxToolCountList[(int)toolType];
         else _currentToolCountList[(int)toolType] += amount;
+        OnToolDataChanged?.Invoke();
     }
 
     public void RemoveCurrentToolCount(ToolType toolType, int amount)
@@ -83,6 +94,7 @@ public class ToolManager : BehaviourSingleton<ToolManager>
 
         if (_currentToolCountList[(int)toolType] < amount) _currentToolCountList[(int)toolType] = 0;
         else _currentToolCountList[(int)toolType] -= amount;
+        OnToolDataChanged?.Invoke();
     }
 
     public void AddMaxToolCount(ToolType toolType, int amount)
@@ -94,6 +106,7 @@ public class ToolManager : BehaviourSingleton<ToolManager>
         }
 
         _maxToolCountList[(int)toolType] += amount;
+        OnToolDataChanged?.Invoke();
     }
 
     public void RemoveMaxToolCount(ToolType toolType, int amount)
@@ -105,5 +118,6 @@ public class ToolManager : BehaviourSingleton<ToolManager>
         }
 
         _maxToolCountList[(int)toolType] -= amount;
+        OnToolDataChanged?.Invoke();
     }
 }

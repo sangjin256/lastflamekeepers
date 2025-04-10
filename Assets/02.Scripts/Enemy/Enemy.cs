@@ -172,6 +172,8 @@ public class Enemy : AInteractableEntity
         {
             return;
         }
+        WaveManager.Instance.OnEnemyDeath();
+
         GetComponent<CircleCollider2D>().enabled = false;
         _target = null;
         _animator.SetTrigger("Die");
