@@ -14,10 +14,10 @@ public class UI_UnitList : MonoBehaviour
 
     [Header("필터링 버튼")]
     [SerializeField] private List<Button> _filterButtonList;
+
+    public UI_UnitData UnitDetail;
     private void Start()
     {
-        Debug.Log("ㅇㅇ");
-
         UnitManager.Instance.OnUnitListChanged += Refresh;
         ToolManager.Instance.OnToolChanged += ReRocate;
         _unitElements = new Dictionary<ToolType, List<UI_UnitListElement>>();
@@ -68,6 +68,8 @@ public class UI_UnitList : MonoBehaviour
         //추가
         GameObject unitElementObject = Instantiate(UnitListUnitPrefab);
         UI_UnitListElement unitElement = unitElementObject.GetComponent<UI_UnitListElement>();
+        unitElementObject.GetComponent<Button>().onClick.AddListener(() => UnitDetail.Initialize(unit));
+        unitElementObject.GetComponent<Button>().onClick.AddListener(() => UnitDetail.transform.parent.gameObject.SetActive(true));
 
         if (unitElement == null)
         {
