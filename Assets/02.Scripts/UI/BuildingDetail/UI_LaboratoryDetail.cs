@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,10 +39,28 @@ public class UI_LaboratoryDetail : MonoBehaviour
     public void OnClickUpgradeButton(int toolTypeNumber)
     {
         _laboratory.UpgradeTool(toolTypeNumber);
+
+        RefreshUI();
     }
 
     private void RefreshUI()
     {
+        for (int i = 0; i < UpgradeResourceWoodTextList.Count; i++)
+        {
+            int woodCount = ToolManager.Instance.GetWoodCountToUpgrade((ToolType)i + 1);
+            if (woodCount == -1)
+            {
+                UpgradeResourceWoodTextList[i].text = $"";
+                UpgradeResourceStoneTextList[i].text = $"";
+                UpgradeButton[i].gameObject.SetActive(false);
+                continue;
+            }
+            int stoneCount = ToolManager.Instance.GetStoneCountToUpgrade((ToolType)i + 1);
+            
 
+            UpgradeResourceWoodTextList[i].text = $"X {woodCount}";
+            UpgradeResourceStoneTextList[i].text = $"X {stoneCount}";
+            UpgradeButton[i].gameObject.SetActive(true);
+        }
     }
 }

@@ -157,13 +157,13 @@ public class ToolManager : BehaviourSingleton<ToolManager>
     public int GetWoodCountToUpgrade(ToolType type)
     {
         if (CheckCanUpgrade(type) == false) return -1;
-        return _toolDataList[(int)type].Upgrade_WoodCountList[_toolList[(int)type].UpgradeLevel + 1];
+        return _toolDataList[(int)type].Upgrade_WoodCountList[_toolList[(int)type].UpgradeLevel];
     }
 
     public int GetStoneCountToUpgrade(ToolType type)
     {
         if (CheckCanUpgrade(type) == false) return -1;
-        return _toolDataList[(int)type].Upgrade_StoneCountList[_toolList[(int)type].UpgradeLevel + 1];
+        return _toolDataList[(int)type].Upgrade_StoneCountList[_toolList[(int)type].UpgradeLevel];
     }
 
     public int GetCurrentLevel(ToolType type)
@@ -177,8 +177,8 @@ public class ToolManager : BehaviourSingleton<ToolManager>
 
         if (CheckCanUpgrade(toolType) == false) return;
         // Ω∫≈» ¥√∏Æ±‚
-        Tool.UpgradeLevel++;
         Tool.Value += _toolDataList[(int)toolType].Upgrade_AddValueList[Tool.UpgradeLevel];
+        Tool.UpgradeLevel++;
     }
 
     public void AddCurrentToolCount(ToolType toolType, int amount)
