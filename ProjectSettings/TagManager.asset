@@ -58,6 +58,9 @@ TagManager:
   - name: Effect
     uniqueID: 975141679
     locked: 0
+  - name: Fire
+    uniqueID: 952173959
+    locked: 0
   - name: UI
     uniqueID: 2618499447
     locked: 0

@@ -75,7 +75,7 @@ public class UI_UnitDrawSystem : MonoBehaviour
 
         randomUnitList.Clear();
         _selectedIndex = -1;
-
+        _toggleGroup.SetAllTogglesOff();
         _toggleGroup.gameObject.SetActive(false);
     }
 

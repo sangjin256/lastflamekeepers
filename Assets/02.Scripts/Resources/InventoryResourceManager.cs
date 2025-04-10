@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 // 게임 내 소모 자원 관리
 // 필드 자원 : 목재(Wood), 돌 자원(Stone), 잿가루(Ash)
@@ -9,6 +10,8 @@ public class InventoryResourceManager : BehaviourSingleton<InventoryResourceMana
     private Dictionary<InventoryResourceType, AInvenResource> _invenresourceDataDict;
     private Dictionary<InventoryResourceType, int> _currentResource;
     private Dictionary<InventoryResourceType, int> _maxResource;
+
+    public Action OnInvenDataChanged;
 
     private void Awake()
     {
@@ -42,6 +45,8 @@ public class InventoryResourceManager : BehaviourSingleton<InventoryResourceMana
             _currentResource[data.InventoryResourceType] = 0;
             _maxResource[data.InventoryResourceType] = data.MaxCount;
         }
+
+        OnInvenDataChanged?.Invoke();
 
         Debug.Log("Inventory Resource Loaded");
     }
@@ -84,6 +89,8 @@ public class InventoryResourceManager : BehaviourSingleton<InventoryResourceMana
                 return false;
             }
             _currentResource[type] += amount;
+            OnInvenDataChanged?.Invoke();
+
             return true;
         }
         Debug.LogWarning($"[InvenResourceManager] 정의되지 않은 ResourceType: {type}");
@@ -100,6 +107,8 @@ public class InventoryResourceManager : BehaviourSingleton<InventoryResourceMana
                 return false;
             }
             _currentResource[type] -= amount;
+            OnInvenDataChanged?.Invoke();
+
             return true;
         }
         Debug.LogWarning($"[InvenResourceManager] 정의되지 않은 ResourceType: {type}");
@@ -116,6 +125,8 @@ public class InventoryResourceManager : BehaviourSingleton<InventoryResourceMana
         if (_maxResource.TryGetValue(type, out int currentMax))
         {
             _maxResource[type] += amount;
+            OnInvenDataChanged?.Invoke();
+
             return true;
         }
         Debug.LogWarning($"[InvenResourceManager] 정의되지 않은 ResourceType: {type}");
@@ -139,6 +150,8 @@ public class InventoryResourceManager : BehaviourSingleton<InventoryResourceMana
             }
 
             _maxResource[type] = Mathf.Max(currentMaxAmount - amount, 0);
+            OnInvenDataChanged?.Invoke();
+
             return true;
         }
 

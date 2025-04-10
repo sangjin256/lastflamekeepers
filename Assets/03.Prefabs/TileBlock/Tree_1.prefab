@@ -90,7 +90,8 @@ GameObject:
   - component: {fileID: 9173097339832854583}
   - component: {fileID: 5184633368324263975}
   - component: {fileID: -6802930052742275150}
-  - component: {fileID: 8111827804177553837}
+  - component: {fileID: 3962812675970302770}
+  - component: {fileID: 60164173449029180}
   m_Layer: 7
   m_Name: Tree_1
   m_TagString: Resource
@@ -207,8 +208,45 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0.17, z: 0}
   m_TimeToStationary: 0.5
---- !u!61 &8111827804177553837
-BoxCollider2D:
+--- !u!114 &3962812675970302770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413061942490225082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5783dbbad6a59184fa58aa75d79bcc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shadowType: 3
+  shadowLayer: 0
+  shadowDistance: 1
+  shadowDistanceMin: 0.7553191
+  shadowDistanceMax: 4.1489363
+  shadowTranslucency: 0.3
+  maskType: 1
+  maskLit: 0
+  maskPivot: 0
+  maskLayer: 0
+  maskLitCustom: 1
+  bumpMapMode:
+    type: 0
+    textureType: 0
+    texture: {fileID: 0}
+    sprite: {fileID: 0}
+    invertX: 0
+    invertY: 0
+    depth: 1
+    spriteRenderer: {fileID: 9173097339832854583}
+  mainShape:
+    shadowType: 3
+    maskType: 1
+    maskPivot: 0
+    transform: {fileID: 435614418965999736}
+--- !u!70 &60164173449029180
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -242,14 +280,5 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.16}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.125, y: 2.25}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.52, y: 0.38}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.5, y: 0.35}
+  m_Direction: 1
