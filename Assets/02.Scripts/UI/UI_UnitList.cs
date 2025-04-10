@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+using Button = UnityEngine.UI.Button;
 
 public class UI_UnitList : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class UI_UnitList : MonoBehaviour
     public GameObject UnitListUnitPrefab;
     private Dictionary<ToolType, List<UI_UnitListElement>> _unitElements;
 
+    [Header("필터링 버튼")]
+    [SerializeField] private List<Button> _filterButtonList;
     private void Start()
     {
         Debug.Log("ㅇㅇ");
@@ -21,6 +24,19 @@ public class UI_UnitList : MonoBehaviour
         for (int i = 0; i <= (int)ToolType.Medicine; i++)
         {
             _unitElements[(ToolType)i] = new List<UI_UnitListElement>();
+        }
+
+        _filterButtonList[0].onClick.AddListener(() => UpdateFilter(-1));
+        if (_filterButtonList.Count != (int)(BuildingType.Forge) + 2)
+        {
+            Debug.Log("UI_BuildingList의 버튼을 할당했는지 체크하시오");
+            return;
+        }
+
+        for (int i = 0; i <= (int)BuildingType.Forge; i++)
+        {
+            int index = i;
+            _filterButtonList[i + 1].onClick.AddListener(() => UpdateFilter(index));
         }
     }
 
@@ -89,6 +105,23 @@ public class UI_UnitList : MonoBehaviour
                 return;
             }
             Debug.LogError("도구 전환 but 재배치 실패");
+        }
+    }
+
+    public void UpdateFilter(int toolTypeNumber)
+    {
+        for (int i = 0; i <= (int)ToolType.Medicine; i++)
+        {
+            bool isActive = false;
+            if (toolTypeNumber == -1 || toolTypeNumber == i)
+            {
+                isActive = true;
+            }
+
+            foreach (UI_UnitListElement unitNode in _unitElements[(ToolType)i])
+            {
+                unitNode.gameObject.SetActive(isActive);
+            }
         }
     }
 
