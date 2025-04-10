@@ -28,7 +28,15 @@ public class UI_BuildingListElement : MonoBehaviour
 
         BuildingImage.sprite = building.GetCurrentLevelSprite();
         _levelText.text = $"Level {building.Level + 1}";
+
+        _popUpButton.onClick.AddListener(() => OpenBuildingDetailPopUp());
     }
+
+    private void OpenBuildingDetailPopUp()
+    {
+        Debug.Log("UI Manager ¿¬°á");
+    }
+
     public void Refresh()
     {
         BuildingImage.sprite = _building.GetCurrentLevelSprite();
