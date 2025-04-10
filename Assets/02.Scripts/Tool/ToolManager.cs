@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using UnityEngine.UIElements;
+using System.Linq;
 
 public class ToolManager : BehaviourSingleton<ToolManager>
 {
@@ -27,6 +29,12 @@ public class ToolManager : BehaviourSingleton<ToolManager>
     private AnimationClip[][] _animationClipArray;
 
     public ATool HandOverTool;
+
+    public LayerMask Clilckable;
+
+    public GameObject[] ToolImagePrefab;
+   
+    public GameObject handOverToolImage;
     private void Awake()
     {
         Global.Instance.OnDataLoaded += _LoadTool;
@@ -44,6 +52,29 @@ public class ToolManager : BehaviourSingleton<ToolManager>
             return;
         }
         MoveToolToMouse();
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            List<RaycastHit2D> hitList = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 1f, Clilckable).ToList();
+            if (hitList.Count != 0)
+            {
+                RaycastHit2D unitObject = hitList.Find(x => x.collider.transform.parent.CompareTag("Unit"));
+                if (unitObject)
+                {
+                    Unit unit = unitObject.transform.GetComponent<Unit>();
+                    TrySetTool(unit, HandOverTool.ToolType);
+                    EndHandOverToolMode();
+                    return;
+                }
+                else
+                {
+                    EndHandOverToolMode();
+                    return;
+                }
+            }
+            EndHandOverToolMode();
+            return;
+        }
     }
     private void _LoadTool()
     {
@@ -188,38 +219,46 @@ public class ToolManager : BehaviourSingleton<ToolManager>
 
     public void StartHandOverToolMode(int toolType)
     {
+        Debug.Log("ㅋㅊㅍㅋㅊㅌㅍㅋㅌ");
         if (toolType > (int)ToolType.Medicine)
         {
             Debug.Log("[심형준]핸드오버툴 오류");
             return;
         }
 
-        if (HandOverTool == null)
+        if (HandOverTool != null)
         {
             return;
         }
 
         bool canHandOver = false;
         //툴 사용 가능 개수 검사
-        //canHandOver = 
+        canHandOver = ToolManager.Instance.CheckCanTool((ToolType)toolType);
 
         if (!canHandOver)
         {
             Debug.Log("도구 수 부족");
+            return;
         }
 
+        Debug.Log("됐어");
+
         //도구 이미지 오브젝트 생성
+        HandOverTool = GetTool((ToolType)toolType);
+        handOverToolImage = Instantiate(ToolImagePrefab[toolType]);
+
     }
     public void EndHandOverToolMode()
     {
+        Debug.Log("endnendn");
         HandOverTool = null;
+        Destroy(handOverToolImage);
     }
 
     private void MoveToolToMouse()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
         //도구 이미지 오브젝트
-        //.transform.position = mousePosition;
+        handOverToolImage.transform.position = mousePosition;
     }
 }
