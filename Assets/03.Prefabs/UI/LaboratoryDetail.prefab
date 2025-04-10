@@ -1114,7 +1114,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8769107539452334911}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -6902245196000390235}
+        m_TargetAssemblyTypeName: UI_LaboratoryDetail, Assembly-CSharp
+        m_MethodName: OnClickUpgradeButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2087150247950944536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,7 +1676,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4225280721369833078}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -6902245196000390235}
+        m_TargetAssemblyTypeName: UI_LaboratoryDetail, Assembly-CSharp
+        m_MethodName: OnClickUpgradeButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4005552697923249358
 GameObject:
   m_ObjectHideFlags: 0
@@ -2703,7 +2727,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9026157392640556438}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -6902245196000390235}
+        m_TargetAssemblyTypeName: UI_LaboratoryDetail, Assembly-CSharp
+        m_MethodName: OnClickUpgradeButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6455372350708153333
 GameObject:
   m_ObjectHideFlags: 0
@@ -3049,7 +3085,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 937386825951173423}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -6902245196000390235}
+        m_TargetAssemblyTypeName: UI_LaboratoryDetail, Assembly-CSharp
+        m_MethodName: OnClickUpgradeButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7073921714748436334
 GameObject:
   m_ObjectHideFlags: 0
@@ -3715,6 +3763,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4956300210550853110}
+  - component: {fileID: -6902245196000390235}
   m_Layer: 5
   m_Name: LaboratoryDetail
   m_TagString: Untagged
@@ -3742,6 +3791,35 @@ RectTransform:
   m_AnchoredPosition: {x: 648.99994, y: 16}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &-6902245196000390235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8736773065976102089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87bd5af5333d5474ba7a90be8e78aa1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuildingImage: {fileID: 2660969378904841473}
+  BuildingDescriptionText: {fileID: 1262854363563245993}
+  UpgradeResourceWoodTextList:
+  - {fileID: 2391257567103377088}
+  - {fileID: 8064734357134963782}
+  - {fileID: 6265875695520741054}
+  - {fileID: 1012475762621981748}
+  UpgradeResourceStoneTextList:
+  - {fileID: 2302532165738712480}
+  - {fileID: 7126136228431060661}
+  - {fileID: 1552051075212309319}
+  - {fileID: 5647734192258007287}
+  UpgradeButton:
+  - {fileID: 3662601820875330288}
+  - {fileID: 6448784369016140961}
+  - {fileID: 562572934835498606}
+  - {fileID: 6580222556113806723}
 --- !u!1 &8901883009023457453
 GameObject:
   m_ObjectHideFlags: 0

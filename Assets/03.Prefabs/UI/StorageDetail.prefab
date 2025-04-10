@@ -392,7 +392,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2204961148218495860}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -346177357164699384}
+        m_TargetAssemblyTypeName: UI_BuildingData, Assembly-CSharp
+        m_MethodName: OnClickUpgradeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2448422945560526974
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,6 +550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8700272167875824314}
+  - component: {fileID: -346177357164699384}
   m_Layer: 5
   m_Name: StorageDetail
   m_TagString: Untagged
@@ -565,6 +578,28 @@ RectTransform:
   m_AnchoredPosition: {x: 932, y: 410}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &-346177357164699384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2686218693335746617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e5825d341c7b549877c2194cb96601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuildingImage: {fileID: 2955465564885243786}
+  BuildingLevelText: {fileID: 5924329279776743422}
+  BuildingDescriptionText: {fileID: 6952949039573993615}
+  UpgradeResourceWoodText: {fileID: 6096577072670054377}
+  UpgradeResourceStoneText: {fileID: 5669771884739992471}
+  UpgradeButton: {fileID: 4013231692188111499}
+  ResourceAmountTextList:
+  - {fileID: 7293095269925580926}
+  - {fileID: 1602117938412530339}
+  - {fileID: 7512798742775827659}
 --- !u!1 &3610469517000037828
 GameObject:
   m_ObjectHideFlags: 0
