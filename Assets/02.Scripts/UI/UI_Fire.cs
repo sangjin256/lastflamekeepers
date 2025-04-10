@@ -1,5 +1,8 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
+using System.Collections;
+using UnityEngine.UI;
 
 public class UI_Fire : MonoBehaviour
 {
@@ -12,21 +15,28 @@ public class UI_Fire : MonoBehaviour
     public GameObject UI_FireObject;
     public GameObject UI_CreateUnit;
 
+    public Button targetButton; // 클릭 처리할 버튼
+    private Coroutine clickCoroutine;
+    private bool isHolding = false;
+
     private void Start()
     {
         UnitManager.Instance.OnUnitListChanged += UnitRefresh;
-        FireManager.Instance.OnFireRangeChanged += FireRefresh;
+        FireManager.Instance.OnAddWood += FireRefresh;
     }
 
     public void UnitRefresh(Unit unit)
     {
         UnitCount.text = $"신도 수 {UnitManager.Instance.UnitList.Count} / {UnitManager.Instance.MaxCountUnit}";
+        AshCount.text = $"필요한 잿가루 수 {InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Ash)} / {FireManager.Instance.GetAshToUnit()}";
     }
 
     public void FireRefresh()
     {
-        FireAmount.text = $"밝힘 정도 {FireManager.Instance.GetFirePercent()} / {100}";
-        NeedWoodCount.text = $"필요한 나무 수 {FireManager.Instance.GetWoodCountToLvUP()}";
+        FireAmount.text = $"밝힘 정도 {FireManager.Instance.GetCurrentFirePercent()} / {100}";
+        NeedWoodCount.text = $"필요한 나무 수 {FireManager.Instance.GetCurrentWoodCount()} / {FireManager.Instance.GetWoodCountToLvUP()}";
+
+        UnitCount.text = $"신도 수 {UnitManager.Instance.UnitList.Count} / {UnitManager.Instance.MaxCountUnit}";
         AshCount.text = $"필요한 잿가루 수 {InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Ash)} / {FireManager.Instance.GetAshToUnit()}";
     }
 
@@ -37,13 +47,13 @@ public class UI_Fire : MonoBehaviour
 
     public void OnClickAddWood()
     {
-        if(FireManager.Instance.CheckCanLvUP() == false)
+        if (FireManager.Instance.TryAddWood())
         {
-            Debug.Log("버튼 동작");
+
         }
         else
         {
-            FireManager.Instance.TryToLvUP();
+            Debug.Log("버튼 동작");
         }
     }
 
@@ -56,6 +66,38 @@ public class UI_Fire : MonoBehaviour
         else
         {
             UI_CreateUnit.SetActive(true);
+        }
+    }
+
+    public void OnPointerDown()
+    {
+        isHolding = true;
+        clickCoroutine = StartCoroutine(HoldClickRoutine());
+    }
+
+    public void OnPointerUp()
+    {
+        isHolding = false;
+        if (clickCoroutine != null)
+        {
+            StopCoroutine(clickCoroutine);
+        }
+    }
+
+    private IEnumerator HoldClickRoutine()
+    {
+        float delay = 0.4f; // 첫 클릭까지 대기 시간
+        float minDelay = 0.05f; // 최대 속도 한계
+        float speedUpFactor = 0.85f; // 매번 속도가 얼마나 빨라질지
+
+        yield return new WaitForSeconds(delay); // 첫 대기
+
+        while (isHolding)
+        {
+            targetButton.onClick.Invoke(); // 버튼 클릭 호출
+            delay *= speedUpFactor; // 클릭 속도 증가
+            delay = Mathf.Max(delay, minDelay);
+            yield return new WaitForSeconds(delay);
         }
     }
 }

@@ -18,11 +18,17 @@ public class FireManager : BehaviourSingleton<FireManager>
     private const int StartTID = 10000;
     private int WoodToLvUp = 0;
     private int AshToUnit = 0;
-    private int FirePercent = 0;
+    private int AshLevel = 0;
+
+
+    private int CurrentFirePercent = 1;
+    private int NextFirePercent = 0;
+    private int CurrentWood = 0;
 
     [SerializeField] float CurrentSquareRange => CurrentRange * CurrentRange;
 
     // 불의 범위가 변경될 때 발생하는 이벤트
+    public Action OnAddWood;
     public Action OnFireRangeChanged;
 
     private void Start()
@@ -34,10 +40,11 @@ public class FireManager : BehaviourSingleton<FireManager>
     public void _LoadFire()
     {
         WoodToLvUp = DataTable.Instance.GetFireLightData(StartTID + CurrentRange - MinRange).WoodAmout;
-        FirePercent = DataTable.Instance.GetFireLightData(StartTID + CurrentRange - MinRange).FirePercent;
+        NextFirePercent = DataTable.Instance.GetFireLightData(StartTID + CurrentRange - MinRange).NextFirePercent;
         AshToUnit = DataTable.Instance.GetFireUnitData(StartTID + CurrentRange - MinRange).AshAmout;
+        AshLevel = DataTable.Instance.GetFireUnitData(StartTID + CurrentRange - MinRange).Level;
 
-        OnFireRangeChanged?.Invoke();
+        OnAddWood?.Invoke();
     }
 
     public bool CheckCanLvUP()
@@ -51,11 +58,31 @@ public class FireManager : BehaviourSingleton<FireManager>
 
     public bool TryToLvUP()
     {
-        if (CheckCanLvUP() == false) return false;
-        if (InventoryResourceManager.Instance.TryRemoveCurrentResourceCount(InventoryResourceType.Wood, WoodToLvUp) == false) return false;
+        if (CurrentFirePercent >= NextFirePercent)
+        {
+            CurrentFirePercent = NextFirePercent;
+            CurrentWood = 0;
+            ExpandFire();
+            return true;
+        }
+        else return false;
+    }
 
+    public bool TryAddWood()
+    {
+        if (InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Wood) < 1) return false;
 
-        ExpandFire();
+        CurrentWood++;
+
+        if(CurrentWood >= WoodToLvUp)
+        {
+            CurrentWood = 0;
+            CurrentFirePercent++;
+        }
+
+        TryToLvUP();
+
+        OnAddWood?.Invoke();
         return true;
     }
 
@@ -68,21 +95,26 @@ public class FireManager : BehaviourSingleton<FireManager>
         return false;
     }
 
-    //public bool TryToAddUnit()
-    //{
-    //    if (CheckCanAddUnit() == false) return false;
-
-    //    UnitManager.Instance.SpawnUnit
-    //}
+    public void AshChangedAfterUnitCreate()
+    {
+        InventoryResourceManager.Instance.TryRemoveCurrentResourceCount(InventoryResourceType.Ash, AshToUnit);
+        AshToUnit = DataTable.Instance.GetFireUnitData(StartTID + AshLevel).AshAmout;
+        AshLevel++;
+    }
 
     public int GetWoodCountToLvUP()
     {
         return WoodToLvUp;
     }
 
-    public int GetFirePercent()
+    public int GetCurrentWoodCount()
     {
-        return FirePercent;
+        return CurrentWood;
+    }
+
+    public int GetCurrentFirePercent()
+    {
+        return CurrentFirePercent;
     }
 
     public int GetAshToUnit()
@@ -100,7 +132,7 @@ public class FireManager : BehaviourSingleton<FireManager>
         _fireLight.size = CurrentRange;
 
         WoodToLvUp = DataTable.Instance.GetFireLightData(StartTID + CurrentRange - MinRange).WoodAmout;
-        FirePercent = DataTable.Instance.GetFireLightData(StartTID + CurrentRange - MinRange).FirePercent;
+        NextFirePercent = DataTable.Instance.GetFireLightData(StartTID + CurrentRange - MinRange).NextFirePercent;
 
         // 범위 변경 이벤트 발생
         OnFireRangeChanged?.Invoke();
