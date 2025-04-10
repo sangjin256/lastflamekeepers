@@ -34,7 +34,7 @@ public class UI_BuildingListElement : MonoBehaviour
 
     private void OpenBuildingDetailPopUp()
     {
-        Debug.Log("UI Manager ¿¬°á");
+        UIManager.Instance.OpenBuildingDetail(_building, true);
     }
 
     public void Refresh()
