@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using UnityEngine.UIElements;
 
 public class ToolManager : BehaviourSingleton<ToolManager>
 {
@@ -44,6 +45,35 @@ public class ToolManager : BehaviourSingleton<ToolManager>
             return;
         }
         MoveToolToMouse();
+
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    List<RaycastHit2D> hitList = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 1f, Clilckable).ToList();
+        //    if (hitList.Count != 0)
+        //    {
+        //        #region Unit 클릭
+        //        RaycastHit2D unitObject = hitList.Find(x => x.transform.parent.CompareTag("Unit"));
+        //        if (unitObject)
+        //        {
+        //            Unit unit = unitObject.collider.transform.GetComponentInParent<Unit>();
+        //            if (Input.GetKey(KeyCode.LeftShift))
+        //            {
+        //                UnitSelectionManager.Instance.ShiftClickSelect(unit);
+        //            }
+        //            else
+        //            {
+        //                if (UnitSelectionManager.Instance.SelectedUnitList.Contains(unit))
+        //                {
+        //                    // 유닛 더블클릭
+        //                    CameraManager.Instance.MoveToEntity(unit.transform);
+        //                }
+        //                UnitSelectionManager.Instance.ClickSelect(unit);
+        //            }
+        //        }
+
+
+        //    }
+        //}
     }
     private void _LoadTool()
     {
