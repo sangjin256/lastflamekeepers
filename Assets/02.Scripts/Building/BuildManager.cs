@@ -110,8 +110,11 @@ public class BuildManager : BehaviourSingleton<BuildManager>
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Mouse1))
         {
+            // 취소하면 소모 자원 반환
+            InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, _requiredResourcesDicList[_previewBuilding.BuildingType][0]);
+            InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Stone, _requiredResourcesDicList[_previewBuilding.BuildingType][1]);
             EndBuildingMode();
             return;
         }
@@ -156,7 +159,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
                     return false;
                 }
             }
-            else if (collider.CompareTag("Fire") || collider.CompareTag("Water"))
+            else if (collider.CompareTag("Fire") || collider.CompareTag("Water") || collider.CompareTag("Resource"))
             {
                 return false;
             }

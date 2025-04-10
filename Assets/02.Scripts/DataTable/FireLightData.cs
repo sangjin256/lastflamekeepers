@@ -11,8 +11,8 @@ public class FireLightData
     ///<summary>불 레벨</summary>
     public readonly int FireLevel;
 
-    ///<summary>불 밝힌 정도</summary>
-    public readonly int FirePercent;
+    ///<summary>다음 레벨 밝기</summary>
+    public readonly int NextFirePercent;
 
     ///<summary>필요 장작 수</summary>
     public readonly int WoodAmout;
@@ -21,7 +21,7 @@ public class FireLightData
     {
         TID = reader.ReadInt32();
         FireLevel = reader.ReadInt32();
-        FirePercent = reader.ReadInt32();
+        NextFirePercent = reader.ReadInt32();
         WoodAmout = reader.ReadInt32();
     }
 }

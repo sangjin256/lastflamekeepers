@@ -65,7 +65,7 @@ public class UI_UnitDrawSystem : MonoBehaviour
         {
             return;
         }
-        UnitManager.Instance.SpawnUnit(randomUnitList[_selectedIndex], Vector2.zero);
+        UnitManager.Instance.SpawnUnit(randomUnitList[_selectedIndex], Vector2.left * 3);
         randomUnitList.Remove(randomUnitList[_selectedIndex]);
         
         for(int i = randomUnitList.Count - 1; i>= 0; i--)

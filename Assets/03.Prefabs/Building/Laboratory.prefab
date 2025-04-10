@@ -120,12 +120,12 @@ MonoBehaviour:
     invertX: 0
     invertY: 0
     depth: 1
-    spriteRenderer: {fileID: 8255281391956492808}
+    spriteRenderer: {fileID: 7069854713469170888}
   mainShape:
     shadowType: 3
     maskType: 1
     maskPivot: 0
-    transform: {fileID: 5959666501401659840}
+    transform: {fileID: 9087539843522381822}
 --- !u!70 &8800688908210089303
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -371,7 +371,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.27, y: 0.175, z: 0.5}
+  m_Extents: {x: 1, y: 0.5, z: 0.5}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -421,7 +421,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -435,5 +435,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.9468751, y: 2.8500001}
+  m_Size: {x: 3, y: 3.5}
   m_EdgeRadius: 0

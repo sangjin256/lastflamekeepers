@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class UI_UpBar : MonoBehaviour
 {
@@ -17,13 +18,24 @@ public class UI_UpBar : MonoBehaviour
     public TextMeshProUGUI WaveCount;
     public Slider WaveSlider;
 
+    public RectTransform FireImage;
+
+    public float MaximumScreenPositionY = 166f;
+
     private void Start()
     {
         UnitManager.Instance.OnUnitListChanged += UnitCountRefresh;
         ToolManager.Instance.OnToolCountChanged += ToolCountRefresh;
         InventoryResourceManager.Instance.OnInvenDataChanged += InvenResourceRefresh;
+        FireManager.Instance.OnFireRangeChanged += FireShadowRefresh;
 
         WaveManager.Instance.OnEnemyDeadAction += WaveStateRefresh;
+    }
+
+    public void FireShadowRefresh()
+    {
+        float nextY = FireManager.Instance.GetCurrentFirePercent() * MaximumScreenPositionY / 100;
+        FireImage.DOAnchorPosY(nextY, 0.2f);
     }
 
     public void UnitCountRefresh(Unit unit)
