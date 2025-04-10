@@ -42,39 +42,43 @@ public class ClickSystem : MonoBehaviour
                     }
                 }
                 #endregion
-
-                #region 불 클릭
-                RaycastHit2D FireObject = hitList.Find(x => x.transform.parent.CompareTag("Fire"));
-                if (FireObject)
+                else
                 {
-                    if (FireClicked)
+                    #region 불 클릭
+                    RaycastHit2D FireObject = hitList.Find(x => x.transform.parent.CompareTag("Fire"));
+                    if (FireObject)
                     {
-                        CameraManager.Instance.MoveToEntity(FireObject.collider.transform.parent);
-                        FireClicked = false;
+                        if (FireClicked)
+                        {
+                            CameraManager.Instance.MoveToEntity(FireObject.collider.transform.parent);
+                            FireClicked = false;
+                        }
+                        else
+                        {
+                            FireClicked = true;
+                            UIManager.Instance.OnClickFire();
+                        }
                     }
+                    #endregion
                     else
                     {
-                        FireClicked = true;
-                        UIManager.Instance.OnClickFire();
+                        #region 건물 클릭
+                        RaycastHit2D BuildObject = hitList.Find(x => x.transform.parent.CompareTag("Building"));
+                        if (BuildObject)
+                        {
+                            if (ClickedBuildObject != null && ClickedBuildObject.GetInstanceID() == BuildObject.collider.transform.parent.GetInstanceID())
+                            {
+                                CameraManager.Instance.MoveToEntity(BuildObject.collider.transform.parent);
+                            }
+                            else
+                            {
+                                ClickedBuildObject = BuildObject.collider.transform.parent.gameObject;
+                                Debug.Log("빌딩 창");
+                            }
+                        }
+                        #endregion
                     }
                 }
-                #endregion
-
-                #region 건물 클릭
-                RaycastHit2D BuildObject = hitList.Find(x => x.transform.parent.CompareTag("Building"));
-                if (BuildObject)
-                {
-                    if(ClickedBuildObject != null && ClickedBuildObject.GetInstanceID() == BuildObject.collider.transform.parent.GetInstanceID())
-                    {
-                        CameraManager.Instance.MoveToEntity(BuildObject.collider.transform.parent);
-                    }
-                    else
-                    {
-                        ClickedBuildObject = BuildObject.collider.transform.parent.gameObject;
-                        Debug.Log("빌딩 창");
-                    }
-                }
-                #endregion
             }
             else
             {
