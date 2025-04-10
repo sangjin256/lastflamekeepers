@@ -14,9 +14,22 @@ public class ToolManager : BehaviourSingleton<ToolManager>
     public Action<Unit> OnToolChanged;
 
     public Action OnToolCountChanged;
+
+
+    private AnimationClip[,,] _toolAnimationClip = new AnimationClip[4, 4, 2];
+    public AnimationClip[,,] ToolAnimationClip => _toolAnimationClip;
+
+    public AnimationClip[] NoneAnimatinoClip;
+    public AnimationClip[] SwordAnimationClip;
+    public AnimationClip[] AxeAnimationClip;
+    public AnimationClip[] PickaxeAnimationClip;
+
+    private AnimationClip[][] _animationClipArray;
+
     private void Awake()
     {
         Global.Instance.OnDataLoaded += _LoadTool;
+        InitializeAnimationClip();
     }
 
     private void _LoadTool()
@@ -142,5 +155,22 @@ public class ToolManager : BehaviourSingleton<ToolManager>
 
         _maxToolCountList[(int)toolType] -= amount;
         OnToolCountChanged?.Invoke();
+    }
+
+    public void InitializeAnimationClip()
+    {
+        _animationClipArray = new AnimationClip[][] { NoneAnimatinoClip, SwordAnimationClip, AxeAnimationClip, PickaxeAnimationClip };
+
+        for (int toolType = 0; toolType < _toolAnimationClip.GetLength(0); toolType++)
+        {
+            for (int toolLevel = 0; toolLevel < _toolAnimationClip.GetLength(1); toolLevel++)
+            {
+                for (int state = 0; state < _toolAnimationClip.GetLength(2); state++)
+                {
+                    _toolAnimationClip[toolType, toolLevel, state] = _animationClipArray[toolType][toolLevel * 2 + state];
+                }
+            }
+        }
+
     }
 }
