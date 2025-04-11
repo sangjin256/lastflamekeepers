@@ -16,7 +16,7 @@ public class ClickSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0))
         {
             List<RaycastHit2D> hitList = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 1f, Clilckable).ToList();
             if(hitList.Count != 0)
@@ -36,6 +36,7 @@ public class ClickSystem : MonoBehaviour
                         {
                             // À¯´Ö ´õºíÅ¬¸¯
                             CameraManager.Instance.MoveToEntity(unit.transform);
+                            UIManager.Instance.OpenUnitDetail(unit);
                         }
                         UnitSelectionManager.Instance.ClickSelect(unit);
                     }
@@ -76,7 +77,7 @@ public class ClickSystem : MonoBehaviour
                                 Debug.Log("ºôµù Ã¢");
                                 ABaseBuilding building = ClickedObject.GetComponentInParent<ABaseBuilding>();
                                 
-                                UIManager.Instance.OpenBuildingDetail(building);
+                                UIManager.Instance.OpenBuildingDetail(building, false);
                             }
                         }
                         #endregion
@@ -114,6 +115,10 @@ public class ClickSystem : MonoBehaviour
                     Debug.Log("¿©±â Ã¤¿ö¾ßµÊ");
                 }
                 else if (hit.collider.transform.parent.CompareTag("Resource"))
+                {
+                    UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(hit.collider.GetComponentInParent<AInteractableEntity>()));
+                }
+                else if (hit.collider.transform.parent.CompareTag("Unit"))
                 {
                     UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(hit.collider.GetComponentInParent<AInteractableEntity>()));
                 }

@@ -12,8 +12,13 @@ public class EnemyInteractTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
         if (interactableEntity == null)
+        {
+            return;
+        }
+        if (!interactableEntity.CompareTag("Unit"))
         {
             return;
         }
@@ -37,6 +42,10 @@ public class EnemyInteractTrigger : MonoBehaviour
         {
             return;
         }
+        if (!interactableEntity.CompareTag("Unit"))
+        {
+            return;
+        }
         if (interactableEntity != _enemy.Target)
         {
             return;
@@ -45,7 +54,14 @@ public class EnemyInteractTrigger : MonoBehaviour
 
         //µµ¸Á°¡°Å³ª Á×Àº °æ¿ì »õ·Î¿î ´ë»ó Å½»ö
         //if (!interactableEntity.CanInteract)
-        _enemy.ResumeNavMeshAgent();
+        
+        
+        
+        //
+        //_enemy.ResumeNavMeshAgent();
+        //
+
+
 
         //_enemy.FindTarget();
     }

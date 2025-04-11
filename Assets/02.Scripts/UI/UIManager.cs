@@ -20,6 +20,17 @@ public class UIManager : BehaviourSingleton<UIManager>
     public UI_LaboratoryDetail UILaboratory;
     private GameObject _currentOpenUI = null;
 
+
+    [Header("À¯´Ö µðÅ×ÀÏ ÆË¾÷")]
+    public UI_UnitData UnitDetail;
+
+    [Header("ÆË¾÷ À§Ä¡")]
+    public Vector2 BasicPopUpPosition = new Vector2(530, - 110);
+    public Vector2 BulidingListPopUpPosition = new Vector2(-235, -210);
+    private Vector2 _centerPivot = new Vector2(0.5f, 0.5f);
+    private Vector2 _middleLeftPivot = new Vector2(0, 0.5f);
+
+
     public void SetCanBuildStart(bool canBuildStart)
     {
         _canBuildStart = canBuildStart;
@@ -43,6 +54,8 @@ public class UIManager : BehaviourSingleton<UIManager>
             UnitToolManageButtons[i].onClick.AddListener(() => ToolManager.Instance.StartHandOverToolMode(index));
             UnitToolManageButtons[i].onClick.AddListener(TryCloseToolListPopup);
         }
+
+        ToolListPopup.GetComponent<UI_UnitList>().Initialize();
     }
 
     private void Update()
@@ -54,7 +67,7 @@ public class UIManager : BehaviourSingleton<UIManager>
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ChangePopUpUI(null);
+            ChangePopUpUI(null, false);
         }
     }
 
@@ -70,6 +83,8 @@ public class UIManager : BehaviourSingleton<UIManager>
             return;
         }
 
+        ChangePopUpUI(null, false);
+
         BuildingListPopup.SetActive(false);
     }
 
@@ -78,26 +93,60 @@ public class UIManager : BehaviourSingleton<UIManager>
         FireObject.SetActive(true);
     }
 
-    public void OpenBuildingDetail(ABaseBuilding building)
+    public void OpenBuildingDetail(ABaseBuilding building, bool isUseBuildingList)
     {
         if (building.BuildingType == BuildingType.Laboratory)
         {
-            //UILaboratory.gameObject.SetActive(true);
-            ChangePopUpUI(UILaboratory.gameObject);
+            ChangePopUpUI(UILaboratory.gameObject, isUseBuildingList);
             UILaboratory.Initialize(building);
             return;
         }
 
         if (building.BuildingType == BuildingType.Forge)
         {
-            // UIBuildingList[(int)BuildingType.Forge - 1].gameObject.SetActive(true);
-            ChangePopUpUI(UIBuildingList[(int)BuildingType.Forge - 1].gameObject);
+            if (!BuildManager.Instance.IsCompleteSelectForgeToolType)
+            {
+                ChangePopUpUI(null);
+                return;
+            }
+            ChangePopUpUI(UIBuildingList[(int)BuildingType.Forge - 1].gameObject, isUseBuildingList);
             UIBuildingList[(int)BuildingType.Forge - 1].Initialize(building);
             return;
         }
 
-        ChangePopUpUI(UIBuildingList[(int)building.BuildingType].gameObject);
+        ChangePopUpUI(UIBuildingList[(int)building.BuildingType].gameObject, isUseBuildingList);
         UIBuildingList[(int)building.BuildingType].Initialize(building);
+    }
+
+    public void ChangePopUpUI(GameObject newPopUpUI, bool isUseBuildingList)
+    {
+        if (_currentOpenUI != null)
+        {
+            _currentOpenUI.SetActive(false);
+        }
+
+        if (newPopUpUI != null)
+        {
+            newPopUpUI.SetActive(true);
+        }
+
+        _currentOpenUI = newPopUpUI;
+
+        if (_currentOpenUI == null)
+        {
+            return;
+        }
+
+        if (isUseBuildingList)
+        {
+            _currentOpenUI.GetComponent<RectTransform>().pivot = _middleLeftPivot;
+            _currentOpenUI.transform.localPosition = BulidingListPopUpPosition;
+        }
+        else
+        {
+            _currentOpenUI.GetComponent<RectTransform>().pivot = _centerPivot;
+            _currentOpenUI.transform.localPosition = BasicPopUpPosition;
+        }
     }
 
     public void ChangePopUpUI(GameObject newPopUpUI)
@@ -113,5 +162,16 @@ public class UIManager : BehaviourSingleton<UIManager>
         }
 
         _currentOpenUI = newPopUpUI;
+
+        if (_currentOpenUI == null)
+        {
+            return;
+        }
+    }
+
+    public void OpenUnitDetail(Unit unit)
+    {
+        UnitDetail.Initialize(unit);
+        UnitDetail.transform.parent.gameObject.SetActive(true);
     }
 }

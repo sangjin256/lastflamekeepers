@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.AI;
 
 public abstract class ABaseBuilding : MonoBehaviour
 {
@@ -36,11 +37,13 @@ public abstract class ABaseBuilding : MonoBehaviour
 
     // 색상 변경
     private SpriteRenderer _spriteRenderer;
+    private NavMeshObstacle _navMeshObstacle;
 
     private void Awake()
     {
         _buildingType = DefineType();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _navMeshObstacle = GetComponent<NavMeshObstacle>();
     }
 
     public virtual void Initialize(BuildData buildData)
@@ -62,6 +65,11 @@ public abstract class ABaseBuilding : MonoBehaviour
     public void ChangeColor(Color color)
     {
         _spriteRenderer.color = color;
+    }
+
+    public void SetNavMeshObstacle(bool isActive)
+    {
+        _navMeshObstacle.enabled = isActive;
     }
 
     public void OnClikcUpgradeButton()

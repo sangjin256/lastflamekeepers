@@ -20,7 +20,9 @@ public class UI_UpBar : MonoBehaviour
 
     public RectTransform FireImage;
 
-    public float MaximumScreenPositionY = 166f;
+    public TextMeshProUGUI FirePercent;
+
+    private const float MaximumScreenPositionY = 37f;
 
     private void Start()
     {
@@ -29,7 +31,16 @@ public class UI_UpBar : MonoBehaviour
         InventoryResourceManager.Instance.OnInvenDataChanged += InvenResourceRefresh;
         FireManager.Instance.OnFireRangeChanged += FireShadowRefresh;
 
+        FireManager.Instance.OnPercentChanged += FirePercentRefresh;
+
+        FireManager.Instance.OnAddWood += InvenResourceRefresh;
+
         WaveManager.Instance.OnEnemyDeadAction += WaveStateRefresh;
+    }
+
+    public void FirePercentRefresh()
+    {
+        FirePercent.text = FireManager.Instance.GetCurrentFirePercentStr();
     }
 
     public void FireShadowRefresh()
@@ -45,17 +56,20 @@ public class UI_UpBar : MonoBehaviour
 
     public void ToolCountRefresh()
     {
-        SwordCount.text = ToolManager.Instance.GetCurrentToolCount(ToolType.Sword).ToString();
-        AxeCount.text = ToolManager.Instance.GetCurrentToolCount(ToolType.Axe).ToString();
-        PickAxeCount.text = ToolManager.Instance.GetCurrentToolCount(ToolType.PickAxe).ToString();
-        MedicineCount.text = ToolManager.Instance.GetCurrentToolCount(ToolType.Medicine).ToString();
+        SwordCount.text = $"{ToolManager.Instance.GetCurrentToolCount(ToolType.Sword).ToString()} / {ToolManager.Instance.GetMaxToolCount(ToolType.Sword).ToString()}";
+        AxeCount.text = $"{ToolManager.Instance.GetCurrentToolCount(ToolType.Axe).ToString()} / {ToolManager.Instance.GetMaxToolCount(ToolType.Axe).ToString()}";
+        PickAxeCount.text = $"{ToolManager.Instance.GetCurrentToolCount(ToolType.PickAxe).ToString()} / {ToolManager.Instance.GetMaxToolCount(ToolType.PickAxe).ToString()}";    
+        MedicineCount.text = $"{ToolManager.Instance.GetCurrentToolCount(ToolType.Medicine).ToString()} / {ToolManager.Instance.GetMaxToolCount(ToolType.Medicine).ToString()}";
     }
 
     public void InvenResourceRefresh()
     {
-        WoodCount.text = InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Wood).ToString();
-        StoneCount.text = InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Stone).ToString();
-        AshCount.text = InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Ash).ToString();
+        WoodCount.text = $"{InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Wood).ToString()} " +
+            $"/ {InventoryResourceManager.Instance.GetMaxResourceCount(InventoryResourceType.Wood).ToString()}";
+        StoneCount.text = $"{InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Stone).ToString()} " +
+            $"/ {InventoryResourceManager.Instance.GetMaxResourceCount(InventoryResourceType.Stone)}";
+        AshCount.text = $"{InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Ash).ToString()} " +
+            $"/ {InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Ash).ToString()}";
     }
 
     public void WaveStateRefresh()

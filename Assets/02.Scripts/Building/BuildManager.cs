@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -9,6 +10,8 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     public List<GameObject> BuildingPrefabs;        // 배치할 건물 프립팹
     private ABaseBuilding _previewBuilding = null;       // 프리뷰용 건물
     private BoxCollider2D _previewBuildingCollider = null;
+
+    public bool IsCreateMode = false;
 
     [Header("프리뷰 건물 색")]
     public Color CanBuildColor = Color.white;
@@ -22,7 +25,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     private Stack<(ABaseBuilding, float)> _disabledBuildingStack;                                           // 비활성화 된 건물 관리 스택
     private Dictionary<BuildingType, List<ABaseBuilding>> _buildingDicList;                                 // 전체 건물 타입별 레벨 별 딕셔너리
     private bool _isLaboratoryBuilded = false;
-    private bool _isCompleteSelectForgeToolType = true;
+    public bool IsCompleteSelectForgeToolType = true;
     
     // 건물별 데이터 리스트
     private ReadOnlyList<BuildData> _buildDataList;
@@ -31,10 +34,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     // 건물 설치 비용
     private Dictionary<BuildingType, List<int>> _requiredResourcesDicList;
 
-    public void ChangeIsCompleteSelectForgeToolType(bool isCompleteSelectForgeToolType)
-    {
-        _isCompleteSelectForgeToolType = isCompleteSelectForgeToolType;
-    }
+    private List<string> _compareTapStringList = new List<string>{ "Fire", "Water", "Resource", "Unit", "Enemy"};
 
     private void Start()
     {
@@ -159,9 +159,13 @@ public class BuildManager : BehaviourSingleton<BuildManager>
                     return false;
                 }
             }
-            else if (collider.CompareTag("Fire") || collider.CompareTag("Water") || collider.CompareTag("Resource"))
+
+            foreach (string tag in _compareTapStringList)
             {
-                return false;
+                if (collider.CompareTag(tag))
+                {
+                    return false;
+                }
             }
         }
 
@@ -230,7 +234,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
             return;
         }
 
-        if (!_isCompleteSelectForgeToolType)
+        if (!IsCompleteSelectForgeToolType)
         {
             Debug.Log("[박우영] 아직 대장간의 타입을 정해주지 않았습니다.");
             UIManager.Instance.SetCanBuildStart(false);
@@ -266,11 +270,19 @@ public class BuildManager : BehaviourSingleton<BuildManager>
             return;
         }
 
+        IsCreateMode = true;
+
+        // UI 건물 설정
         UIManager.Instance.SetCanBuildStart(true);
         GameObject newBuilding = Instantiate(BuildingPrefabs[buildingTypeWithTool]);
-        newBuilding.tag = "Untagged";
+
+        // 프리뷰 건물
         _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
         _previewBuildingCollider = newBuilding.GetComponent<BoxCollider2D>();
+
+        // 프리뷰 건물 설정
+        newBuilding.tag = "Untagged";
+        _previewBuilding.SetNavMeshObstacle(false);
     }
 
     public void EndBuildingMode()
@@ -278,6 +290,14 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         Destroy(_previewBuilding.gameObject);
         _previewBuilding = null;
         _previewBuildingCollider = null;
+
+        StartCoroutine("StopCreateMode");
+    }
+
+    private IEnumerator StopCreateMode()
+    {
+        yield return new WaitForSeconds(0.1f);
+        IsCreateMode = false;
     }
 
     // 업데이트 전 반지름
