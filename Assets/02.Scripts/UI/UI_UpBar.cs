@@ -51,7 +51,7 @@ public class UI_UpBar : MonoBehaviour
 
     public void UnitCountRefresh(Unit unit)
     {
-        UnitCount.text = UnitManager.Instance.UnitList.Count.ToString();
+        UnitCount.text = $"{UnitManager.Instance.UnitList.Count.ToString()} / {UnitManager.Instance.MaxCountUnit}";
     }
 
     public void ToolCountRefresh()
