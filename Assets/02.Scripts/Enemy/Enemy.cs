@@ -39,17 +39,21 @@ public class Enemy : AInteractableEntity
     }
     private void Update()
     {
-
+     
         if (!CanInteract)
         {
             return;
+        }
+        if (IsWithInFireRange != FireManager.Instance.IsWithInFireRange(transform.position))
+        {
+            IsWithInFireRange = !IsWithInFireRange;
         }
         if (_target == null)
         {
             //Target = Center;
             Animator.SetBool("IsAttacking", false);
 
-            _navMeshAgent.SetDestination(Vector3.zero);
+            SetTarget(FireManager.Instance.GetFire());
             return;
         }
 
@@ -173,6 +177,7 @@ public class Enemy : AInteractableEntity
             return;
         }
         WaveManager.Instance.OnEnemyDeath();
+        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Ash, _enemyStat.DropAshCount);
 
         GetComponent<CircleCollider2D>().enabled = false;
         _target = null;

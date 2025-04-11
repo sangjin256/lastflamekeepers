@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class UnitSelectionManager : BehaviourSingleton<UnitSelectionManager>
 {
@@ -74,7 +75,14 @@ public class UnitSelectionManager : BehaviourSingleton<UnitSelectionManager>
 
     public void SetDrag(bool OnDrag)
     {
-        IsDragging = OnDrag;
+        if (OnDrag == false) StartCoroutine(LateDragOff());
+        else IsDragging = OnDrag;
+    }
+
+    public IEnumerator LateDragOff()
+    {
+        yield return new WaitForSeconds(0.1f);
+        IsDragging = false;
     }
 
     public bool GetIsDragging()

@@ -170,7 +170,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &3435892620967039048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65adca819fe2b0849aa1c40efa41acd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 1
+  _health: 0
+  _canInteract: 1
+  IsWithInFireRange: 0
 --- !u!208 &8795282983051895391
 NavMeshObstacle:
   m_ObjectHideFlags: 0

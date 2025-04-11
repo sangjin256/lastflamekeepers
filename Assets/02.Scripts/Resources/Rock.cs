@@ -1,3 +1,6 @@
+using System.Numerics;
+using UnityEngine.AI;
+
 public class Rock : AResource
 {
     public override void Initialize(ResourceType resourceType)
@@ -14,8 +17,25 @@ public class Rock : AResource
         _health = Durability;
 
         _interactType = InteractType.Rock;
+        IsWithInFireRange = true;
+        FireManager.Instance.OnFireRangeChanged += CheckWithInRange;
     }
+    private NavMeshObstacle _navMeshObstacle;
+    private UnityEngine.Vector2 centerPos;
+    private void Start()
+    {
+        _navMeshObstacle = GetComponent<NavMeshObstacle>();
+        centerPos = transform.position + _navMeshObstacle.center;
 
+        CheckWithInRange();
+    }
+    public void CheckWithInRange()
+    {
+        if (IsWithInFireRange != FireManager.Instance.IsWithInFireRange(centerPos))
+        {
+            IsWithInFireRange = !IsWithInFireRange;
+        }
+    }
     public override void TakeDamage(int amount, bool isHeal)
     {
         base.TakeDamage(amount, isHeal);

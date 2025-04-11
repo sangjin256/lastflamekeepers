@@ -22,6 +22,7 @@ public class AInteractableEntity : MonoBehaviour,IInteractable
     //protected·Î
     [SerializeField]protected bool _canInteract = true;
     public bool CanInteract => _canInteract;
+    public bool IsWithInFireRange = true;
 
     public virtual void TakeDamage(int amount, bool isHeal)
     {

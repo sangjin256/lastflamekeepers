@@ -184,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 0
   _canInteract: 1
+  IsWithInFireRange: 1
   ResourceType: 0
   Name: 
   Durability: 0
