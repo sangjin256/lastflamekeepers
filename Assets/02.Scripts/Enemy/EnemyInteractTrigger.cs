@@ -54,15 +54,13 @@ public class EnemyInteractTrigger : MonoBehaviour
 
         //µµ¸Á°¡°Å³ª Á×Àº °æ¿ì »õ·Î¿î ´ë»ó Å½»ö
         //if (!interactableEntity.CanInteract)
-        
-        
-        
-        //
+
+
+
+
         //_enemy.ResumeNavMeshAgent();
-        //
 
 
-
-        //_enemy.FindTarget();
+        _enemy.FindTarget();
     }
 }

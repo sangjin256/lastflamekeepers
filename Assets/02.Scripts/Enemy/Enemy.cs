@@ -89,12 +89,12 @@ public class Enemy : AInteractableEntity
             StopNavMeshAgent();
             Animator.SetBool("IsAttacking", true);
         }
-        else
-        {
-            ResumeNavMeshAgent();
-        }
     }
 
+    public void SetTargetNull()
+    {
+        _target = null;
+    }
     public void FindTarget()
     {
         if (!CanInteract)

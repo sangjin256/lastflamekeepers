@@ -301,7 +301,6 @@ public class Unit : AInteractableEntity
 
         //시체 사라진 후가 아닌 쓰러졌을 때 바로?
         UnitSelectionManager.Instance.Deselect(this);
-        UnitManager.Instance.DestroyUnit(this);
     }
 
 
@@ -312,6 +311,10 @@ public class Unit : AInteractableEntity
         {
             SetTargetNull();
             _navMeshAgent.ResetPath();
+            if (_unitTool.CurrentTool.ToolType == ToolType.Sword)
+            {
+                FindTarget();
+            }
         }
     }
 
@@ -320,10 +323,14 @@ public class Unit : AInteractableEntity
         _unitTool.SetTool(ToolManager.Instance.GetTool((ToolType)tool));
         SetTargetNull();
         _navMeshAgent.ResetPath();
+        if (_unitTool.CurrentTool.ToolType == ToolType.Sword)
+        {
+            FindTarget();
+        }
     }
 
     public void DestroyThis()
     {
-        Destroy(gameObject);
+        UnitManager.Instance.DestroyUnit(this);
     }
 }

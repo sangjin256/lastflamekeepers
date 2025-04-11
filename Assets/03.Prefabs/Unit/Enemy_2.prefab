@@ -427,6 +427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 200
   _canInteract: 1
+  IsWithInFireRange: 1
   _target: {fileID: 0}
   MoveSpeed: 3
   _interactCollider: {fileID: 0}
