@@ -148,7 +148,8 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     private bool CheckBuildCondition()
     {
         // 1. 다른 건물과 충돌 여부 확인
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(_previewBuilding.transform.position, _previewBuilding.GetComponent<BoxCollider2D>().size, 0);
+        Vector2 centerOfBuilding = (Vector2)_previewBuilding.transform.position + _previewBuildingCollider.offset;
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(centerOfBuilding, _previewBuildingCollider.size, 0);
         foreach (Collider2D collider in colliders)
         {
             if (collider.CompareTag("Building"))
@@ -170,7 +171,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         }
 
         // 2. 불에서부터의 거리 확인
-        float distanceFromFire = Vector2.SqrMagnitude((Vector2)_previewBuilding.transform.position + _previewBuildingCollider.offset);
+        float distanceFromFire = Vector2.SqrMagnitude(centerOfBuilding);
         if (!FireManager.Instance.IsWithInFireRange(distanceFromFire))
         {
             return false;
