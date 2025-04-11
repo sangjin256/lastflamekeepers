@@ -24,7 +24,7 @@ public class Unit : AInteractableEntity
 
     private bool IsFacingRight = true;
     public bool MissTarget = false;
-
+    public bool Runaway = false;
     public Action<Unit> OnDamaged;
     private void Awake()
     {
@@ -54,6 +54,10 @@ public class Unit : AInteractableEntity
         {
             return;
         }
+        if (IsWithInFireRange != FireManager.Instance.IsUnitWithInFireRange(transform.position))
+        {
+            IsWithInFireRange = !IsWithInFireRange;
+        }
 
         if (_target == null || !_target.isActiveAndEnabled)
         {
@@ -63,18 +67,23 @@ public class Unit : AInteractableEntity
         {
             if (_target.CanInteract)
             {
-
-
-                _navMeshAgent.SetDestination(_target.transform.position);
-                //_rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
-                _navMeshAgent.nextPosition = transform.position;
-
-                if (transform.position.x < _target.transform.position.x ^ IsFacingRight)
+                if (_target.IsWithInFireRange)
                 {
-                    if (Mathf.Abs(transform.position.x - _target.transform.position.x) > 0.1f)
+                    _navMeshAgent.SetDestination(_target.transform.position);
+                    //_rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
+                    _navMeshAgent.nextPosition = transform.position;
+
+                    if (transform.position.x < _target.transform.position.x ^ IsFacingRight)
                     {
-                        Flip();
+                        if (Mathf.Abs(transform.position.x - _target.transform.position.x) > 0.1f)
+                        {
+                            Flip();
+                        }
                     }
+                }
+                else
+                {
+                    _navMeshAgent.ResetPath();
                 }
             }
         }
@@ -109,7 +118,23 @@ public class Unit : AInteractableEntity
         //{
         //    Flip();
         //}
-
+        if (!IsWithInFireRange)
+        {
+            if (!Runaway)
+            {
+                Runaway = true;
+                _navMeshAgent.ResetPath();
+                _navMeshAgent.SetDestination(Vector2.zero);
+            }
+        }
+        else
+        {
+            if (Runaway)
+            {
+                Runaway = false;
+                _navMeshAgent.ResetPath();
+            }
+        }
 
 
 
@@ -273,6 +298,10 @@ public class Unit : AInteractableEntity
         _animator.SetTrigger("Die");
         _navMeshAgent.enabled = false;
         ToolManager.Instance.RemoveCurrentToolCount(_unitTool.CurrentTool.ToolType, 1);
+
+        //시체 사라진 후가 아닌 쓰러졌을 때 바로?
+        UnitSelectionManager.Instance.Deselect(this);
+        UnitManager.Instance.DestroyUnit(this);
     }
 
 
@@ -296,13 +325,5 @@ public class Unit : AInteractableEntity
     public void DestroyThis()
     {
         Destroy(gameObject);
-        UnitManager.Instance.DestroyUnit(this);
-    }
-
-
-    public void ResetPathTest()
-    {
-        _navMeshAgent.ResetPath();
-        ResumeNavMeshAgent();
     }
 }

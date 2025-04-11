@@ -39,10 +39,14 @@ public class Enemy : AInteractableEntity
     }
     private void Update()
     {
-
+     
         if (!CanInteract)
         {
             return;
+        }
+        if (IsWithInFireRange != FireManager.Instance.IsWithInFireRange(transform.position))
+        {
+            IsWithInFireRange = !IsWithInFireRange;
         }
         if (_target == null)
         {
