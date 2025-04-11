@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 public class ClickSystem : MonoBehaviour
 {
@@ -16,10 +17,10 @@ public class ClickSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             List<RaycastHit2D> hitList = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 1f, Clilckable).ToList();
-            if(hitList.Count != 0)
+            if (hitList.Count != 0)
             {
                 #region Unit 클릭
                 RaycastHit2D unitObject = hitList.Find(x => x.collider.transform.parent.CompareTag("Unit"));
@@ -42,58 +43,63 @@ public class ClickSystem : MonoBehaviour
                     }
                 }
                 #endregion
-                else
-                {
-                    #region 불 클릭
-                    RaycastHit2D FireObject = hitList.Find(x => x.collider.transform.parent.CompareTag("Fire"));
-                    if (FireObject)
-                    {
-                        if (ClickedObject != null && ClickedObject.GetInstanceID() == FireObject.collider.GetInstanceID())
-                        {
-                            ClickedObject = null;
-                            CameraManager.Instance.MoveToEntity(FireObject.collider.transform.parent);
-                        }
-                        else
-                        {
-                            ClickedObject = FireObject.collider.gameObject;
-                            UIManager.Instance.OnClickFire();
-                        }
-                    }
-                    #endregion
-                    else
-                    {
-                        #region 건물 클릭
-                        RaycastHit2D BuildObject = hitList.Find(x => x.collider.transform.parent.CompareTag("Building"));
-                        if (BuildObject)
-                        {
-                            if (ClickedObject != null && ClickedObject.GetInstanceID() == BuildObject.collider.transform.parent.GetInstanceID())
-                            {
-                                ClickedObject = null;
-                                CameraManager.Instance.MoveToEntity(BuildObject.collider.transform.parent);
-                            }
-                            else
-                            {
-                                ClickedObject = BuildObject.collider.gameObject;
-                                Debug.Log("빌딩 창");
-                                ABaseBuilding building = ClickedObject.GetComponentInParent<ABaseBuilding>();
-                                
-                                UIManager.Instance.OpenBuildingDetail(building, false);
-                            }
-                        }
-                        #endregion
-                    }
-                }
             }
             else
             {
                 if (!Input.GetKey(KeyCode.LeftShift))
                 {
-                    if(UnitSelectionManager.Instance.GetIsDragging() == false) UnitSelectionManager.Instance.DeselectAll();
+                    if (UnitSelectionManager.Instance.GetIsDragging() == false) UnitSelectionManager.Instance.DeselectAll();
                 }
             }
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject() && UnitSelectionManager.Instance.GetIsDragging() == false)
+        {
+            List<RaycastHit2D> hitList = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 1f, Clilckable).ToList();
+            if(hitList.Count != 0)
+            {
+                #region 불 클릭
+                RaycastHit2D FireObject = hitList.Find(x => x.collider.transform.parent.CompareTag("Fire"));
+                if (FireObject)
+                {
+                    if (ClickedObject != null && ClickedObject.GetInstanceID() == FireObject.collider.GetInstanceID())
+                    {
+                        ClickedObject = null;
+                        CameraManager.Instance.MoveToEntity(FireObject.collider.transform.parent);
+                    }
+                    else
+                    {
+                        ClickedObject = FireObject.collider.gameObject;
+                        UIManager.Instance.OnClickFire();
+                    }
+                }
+                #endregion
+                else
+                {
+                    #region 건물 클릭
+                    RaycastHit2D BuildObject = hitList.Find(x => x.collider.transform.parent.CompareTag("Building"));
+                    if (BuildObject)
+                    {
+                        if (ClickedObject != null && ClickedObject.GetInstanceID() == BuildObject.collider.transform.parent.GetInstanceID())
+                        {
+                            ClickedObject = null;
+                            CameraManager.Instance.MoveToEntity(BuildObject.collider.transform.parent);
+                        }
+                        else
+                        {
+                            ClickedObject = BuildObject.collider.gameObject;
+                            Debug.Log("빌딩 창");
+                            ABaseBuilding building = ClickedObject.GetComponentInParent<ABaseBuilding>();
+
+                            UIManager.Instance.OpenBuildingDetail(building, false);
+                        }
+                    }
+                    #endregion
+                }
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
         {
             if(UnitSelectionManager.Instance.SelectedUnitList.Count != 0)
             {
