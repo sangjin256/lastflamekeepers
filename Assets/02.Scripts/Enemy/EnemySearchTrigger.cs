@@ -21,7 +21,7 @@ public class EnemySearchTrigger : MonoBehaviour
         //    return;
         //}
 
-        if (!other.CompareTag("Unit"))
+        if (!other.CompareTag("Unit") && !other.CompareTag("Fire"))
         {
             
             return;
