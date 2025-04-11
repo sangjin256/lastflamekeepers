@@ -44,7 +44,7 @@ public class ClickSystem : MonoBehaviour
                         {
                             // 유닛 더블클릭
                             CameraManager.Instance.MoveToEntity(unit.transform);
-                            UIManager.Instance.OpenUnitDetail(unit);
+                            UIManager.Instance.OpenUnitDetail(unit, false);
                         }
                         UnitSelectionManager.Instance.ClickSelect(unit);
                     }

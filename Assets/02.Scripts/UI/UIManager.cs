@@ -30,6 +30,8 @@ public class UIManager : BehaviourSingleton<UIManager>
     private Vector2 _centerPivot = new Vector2(0.5f, 0.5f);
     private Vector2 _middleLeftPivot = new Vector2(0, 0.5f);
 
+    private GameObject _clickedObject = null;
+
 
     public void SetCanBuildStart(bool canBuildStart)
     {
@@ -95,6 +97,12 @@ public class UIManager : BehaviourSingleton<UIManager>
 
     public void OpenBuildingDetail(ABaseBuilding building, bool isUseBuildingList)
     {
+        if (isUseBuildingList)
+        {
+            TryMoveCameraToObject(building.gameObject);
+        }
+        
+
         if (building.BuildingType == BuildingType.Laboratory)
         {
             ChangePopUpUI(UILaboratory.gameObject, isUseBuildingList);
@@ -169,9 +177,24 @@ public class UIManager : BehaviourSingleton<UIManager>
         }
     }
 
-    public void OpenUnitDetail(Unit unit)
+    public void OpenUnitDetail(Unit unit, bool isUseUnitList)
     {
+        if (isUseUnitList)
+        {
+            TryMoveCameraToObject(unit.gameObject);
+        }
         UnitDetail.Initialize(unit);
         UnitDetail.transform.parent.gameObject.SetActive(true);
+    }
+
+    private void TryMoveCameraToObject(GameObject clickedObject)
+    {
+        if (_clickedObject != clickedObject)
+        {
+            _clickedObject = clickedObject;
+            return;
+        }
+
+        CameraManager.Instance.MoveToEntity(clickedObject.transform);
     }
 }
