@@ -129,6 +129,7 @@ public class UnitManager : BehaviourSingleton<UnitManager>
     public void DestroyUnit(Unit unit)
     {
         UnitList.Remove(unit);
+        UnitSelectionManager.Instance.Deselect(unit);
         Destroy(unit.gameObject);
     }
 

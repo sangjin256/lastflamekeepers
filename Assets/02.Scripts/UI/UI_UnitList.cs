@@ -82,7 +82,7 @@ public class UI_UnitList : MonoBehaviour
         unitElement.Unit = unit;
         unitElementList.Add(unitElement);
         unit.OnDamaged += Refresh;
-
+        ToolManager.Instance.OnToolChanged += Refresh;
         unitElement.Initialize();
     }
 
