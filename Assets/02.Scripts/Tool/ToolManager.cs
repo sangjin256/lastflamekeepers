@@ -141,6 +141,7 @@ public class ToolManager : BehaviourSingleton<ToolManager>
 
     public bool CheckCanTool(ToolType tooltype)
     {
+        Debug.Log($"{tooltype} : {GetCurrentToolCount(tooltype)} / {GetMaxToolCount(tooltype)}");
         return _currentToolCountList[(int)tooltype] < _maxToolCountList[(int)tooltype];
     }
 
