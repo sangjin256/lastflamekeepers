@@ -18,13 +18,13 @@ public class EnemyInteractTrigger : MonoBehaviour
         {
             return;
         }
-        if (!interactableEntity.CompareTag("Unit"))
+        if (!interactableEntity.CompareTag("Unit") && !interactableEntity.CompareTag("Fire"))
         {
             return;
         }
         if (interactableEntity != _enemy.Target)
         {
-            if (Vector2.Distance(other.transform.position, transform.position) < Vector2.Distance(_enemy.Target.transform.position, transform.position))
+            if (_enemy.Target == FireManager.Instance.GetFire())
             {
                 _enemy.SetTarget(interactableEntity);
             }

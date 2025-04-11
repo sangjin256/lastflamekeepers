@@ -114,7 +114,7 @@ public class Enemy : AInteractableEntity
             {
                 continue;
             }
-            if (!collider.CompareTag("Unit"))
+            if (!collider.CompareTag("Unit") && !collider.CompareTag("Fire"))
             {
                 continue;
             }

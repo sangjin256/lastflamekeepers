@@ -28,27 +28,27 @@ public class UI_UnitData : MonoBehaviour
 
         UnitMaxHealthText.text = unitStat.MaxHealth.AddedValue != 0
             ? unitStat.MaxHealth.AddedValue > 0
-            ? $"{unitStat.MaxHealth.Value} <color=#57AC4B>({unitStat.MaxHealth.AddedValue})</color>"
+            ? $"{unitStat.MaxHealth.Value} <color=#57AC4B>(+{unitStat.MaxHealth.AddedValue})</color>"
             : $"{unitStat.MaxHealth.Value} <color=#B13E38>({unitStat.MaxHealth.AddedValue})</color>"
             : $"{unitStat.MaxHealth.Value}";
         UnitDamageText.text = unitStat.Damage.AddedValue != 0
             ? unitStat.Damage.AddedValue > 0
-            ? $"{unitStat.Damage.Value} <color=#57AC4B>({unitStat.Damage.AddedValue})</color>"
+            ? $"{unitStat.Damage.Value} <color=#57AC4B>(+{unitStat.Damage.AddedValue})</color>"
             : $"{unitStat.Damage.Value} <color=#B13E38>({unitStat.Damage.AddedValue})</color>"
             : $"{unitStat.Damage.Value}";
         UnitAttackSpeedText.text = unitStat.AttackSpeed.AddedValue != 0
             ? unitStat.AttackSpeed.AddedValue > 0
-            ? $"{unitStat.AttackSpeed.Value} <color=#57AC4B>({unitStat.AttackSpeed.AddedValue})</color>"
+            ? $"{unitStat.AttackSpeed.Value} <color=#57AC4B>(+{unitStat.AttackSpeed.AddedValue})</color>"
             : $"{unitStat.AttackSpeed.Value} <color=#B13E38>({unitStat.AttackSpeed.AddedValue})</color>"
             : $"{unitStat.AttackSpeed.Value}";
         UnitMoveSpeedText.text = unitStat.MoveSpeed.AddedValue != 0
             ? unitStat.MoveSpeed.AddedValue > 0
-            ? $"{unitStat.MoveSpeed.Value} <color=#57AC4B>({unitStat.MoveSpeed.AddedValue})</color>"
+            ? $"{unitStat.MoveSpeed.Value} <color=#57AC4B>(+{unitStat.MoveSpeed.AddedValue})</color>"
             : $"{unitStat.MoveSpeed.Value} <color=#B13E38>({unitStat.MoveSpeed.AddedValue})</color>"
             : $"{unitStat.MoveSpeed.Value}";
         UnitWoodSpeedText.text = unitStat.WoodSpeed.AddedValue != 0
             ? unitStat.WoodSpeed.AddedValue > 0
-            ? $"{unitStat.WoodSpeed.Value} <color=#57AC4B>({unitStat.WoodSpeed.AddedValue})</color>"
+            ? $"{unitStat.WoodSpeed.Value} <color=#57AC4B>(+{unitStat.WoodSpeed.AddedValue})</color>"
             : $"{unitStat.WoodSpeed.Value} <color=#B13E38>({unitStat.WoodSpeed.AddedValue})</color>"
             : $"{unitStat.WoodSpeed.Value}";
         UnitRockSpeedText.text = unitStat.RockSpeed.AddedValue != 0
