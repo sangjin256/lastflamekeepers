@@ -18,7 +18,7 @@ public class EnemyInteractTrigger : MonoBehaviour
         {
             return;
         }
-        if (!interactableEntity.CompareTag("Unit"))
+        if (!interactableEntity.CompareTag("Unit") && !interactableEntity.CompareTag("Fire"))
         {
             return;
         }
