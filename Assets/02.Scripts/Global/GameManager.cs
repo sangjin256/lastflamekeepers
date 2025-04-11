@@ -28,6 +28,12 @@ public class GameManager : BehaviourSingleton<GameManager>
         Time.timeScale = 1f;
     }
 
+    public bool IsCreatingUnit()
+    {
+        if (UnitDrawSystem.gameObject.activeSelf) return true;
+        return false;
+    }
+
     public void Success()
     {
         Debug.Log("¼º°ø");

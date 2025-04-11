@@ -33,6 +33,8 @@ public class CameraManager : BehaviourSingleton<CameraManager>
 
     private void Update()
     {
+        if (GameManager.Instance.IsCreatingUnit()) return;
+
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
         if (Mathf.Abs(scrollInput) > 0.01f)
         {
