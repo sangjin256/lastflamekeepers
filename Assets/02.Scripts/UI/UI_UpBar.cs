@@ -26,7 +26,7 @@ public class UI_UpBar : MonoBehaviour
 
     private void Start()
     {
-        UnitManager.Instance.OnUnitListChanged += UnitCountRefresh;
+        UnitManager.Instance.OnUnitCountChanged += UnitCountRefresh;
         ToolManager.Instance.OnToolCountChanged += ToolCountRefresh;
         InventoryResourceManager.Instance.OnInvenDataChanged += InvenResourceRefresh;
         FireManager.Instance.OnFireRangeChanged += FireShadowRefresh;
@@ -49,7 +49,7 @@ public class UI_UpBar : MonoBehaviour
         FireImage.DOAnchorPosY(nextY, 0.2f);
     }
 
-    public void UnitCountRefresh(Unit unit)
+    public void UnitCountRefresh()
     {
         UnitCount.text = $"{UnitManager.Instance.UnitList.Count.ToString()} / {UnitManager.Instance.MaxCountUnit}";
     }

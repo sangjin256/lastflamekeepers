@@ -193,6 +193,8 @@ MonoBehaviour:
   OutputType: 0
   RespawnTime: 0
   HitCount: 0
+  Hit: {fileID: 0}
+  Fall: {fileID: 0}
 --- !u!208 &-6802930052742275150
 NavMeshObstacle:
   m_ObjectHideFlags: 0
