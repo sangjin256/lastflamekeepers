@@ -23,7 +23,7 @@ public class UI_ForgeDetail : UI_BuildingData
             return;
         }
 
-        ToolImage.sprite = ToolSprites[(int)_forge.ToolType];
+        ToolImage.sprite = ToolSprites[(int)_forge.ToolType - 1];
 
         RefreshUI();
     }
