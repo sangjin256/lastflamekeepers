@@ -136,4 +136,24 @@ public class UIManager : BehaviourSingleton<UIManager>
             _currentOpenUI.transform.localPosition = BasicPopUpPosition;
         }
     }
+
+    public void ChangePopUpUI(GameObject newPopUpUI)
+    {
+        if (_currentOpenUI != null)
+        {
+            _currentOpenUI.SetActive(false);
+        }
+
+        if (newPopUpUI != null)
+        {
+            newPopUpUI.SetActive(true);
+        }
+
+        _currentOpenUI = newPopUpUI;
+
+        if (_currentOpenUI == null)
+        {
+            return;
+        }
+    }
 }
