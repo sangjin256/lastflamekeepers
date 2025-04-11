@@ -57,6 +57,7 @@ public class UI_LaboratoryDetail : MonoBehaviour
             int woodCount = ToolManager.Instance.GetWoodCountToUpgrade((ToolType)i + 1);
             if (woodCount == -1)
             {
+                ToolLevelTextList[i].text = "Lv.Max";
                 UpgradeResourceWoodTextList[i].text = $"";
                 UpgradeResourceStoneTextList[i].text = $"";
                 UpgradeButtonList[i].gameObject.SetActive(false);
