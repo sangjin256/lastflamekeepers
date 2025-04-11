@@ -33,12 +33,14 @@ public class UI_UpBar : MonoBehaviour
 
         FireManager.Instance.OnPercentChanged += FirePercentRefresh;
 
+        FireManager.Instance.OnAddWood += InvenResourceRefresh;
+
         WaveManager.Instance.OnEnemyDeadAction += WaveStateRefresh;
     }
 
     public void FirePercentRefresh()
     {
-        FirePercent.text = FireManager.Instance.GetCurrentFirePercent().ToString();
+        FirePercent.text = FireManager.Instance.GetCurrentFirePercentStr();
     }
 
     public void FireShadowRefresh()
