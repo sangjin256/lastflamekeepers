@@ -12,6 +12,5 @@ public abstract class AResource : AInteractableEntity
     public float RespawnTime;
 
     public int HitCount = 0;
-
     public abstract void Initialize(ResourceType resourceType);
 }
