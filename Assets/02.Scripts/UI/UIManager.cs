@@ -104,6 +104,11 @@ public class UIManager : BehaviourSingleton<UIManager>
 
         if (building.BuildingType == BuildingType.Forge)
         {
+            if (!BuildManager.Instance.IsCompleteSelectForgeToolType)
+            {
+                ChangePopUpUI(null);
+                return;
+            }
             ChangePopUpUI(UIBuildingList[(int)BuildingType.Forge - 1].gameObject, isUseBuildingList);
             UIBuildingList[(int)BuildingType.Forge - 1].Initialize(building);
             return;

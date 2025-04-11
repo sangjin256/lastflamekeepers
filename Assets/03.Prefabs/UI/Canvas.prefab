@@ -6878,6 +6878,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1813939040151691278, guid: a8c4309812b32ec42880829b67a943f2, type: 3}
+      propertyPath: m_Horizontal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3014495585681936979, guid: a8c4309812b32ec42880829b67a943f2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7670,6 +7674,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7670487611026880641, guid: 9af7b92ab6d04984284344b17a5837a5, type: 3}
+    - target: {fileID: 7456000271026528189, guid: 4297012054dcab64f85ec29aa1d934c1, type: 3}
+      propertyPath: m_TextWrappingMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
