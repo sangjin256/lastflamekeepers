@@ -45,17 +45,20 @@ public class UI_BuildingData : MonoBehaviour
 
     protected virtual void RefreshUI()
     {
-        BuildingLevelText.text = $"Level {_building.Level + 1}";
+        
 
         BuildingImage.sprite = _building.GetCurrentLevelSprite();
 
         if (_building.IsMaxLevel)
         {
+            BuildingLevelText.text = "Level Max";
             UpgradeButton.gameObject.SetActive(false);
             UpgradeResourceWoodText.text = $"";
             UpgradeResourceStoneText.text = $"";
             return;
         }
+
+        BuildingLevelText.text = $"Level {_building.Level + 1}";
 
         List<int> requiredResources = _building.GetCurrentRequiredResourcesList();
         UpgradeResourceWoodText.text = $"X {requiredResources[0]}";

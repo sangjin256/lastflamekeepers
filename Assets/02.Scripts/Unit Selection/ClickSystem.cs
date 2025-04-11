@@ -16,7 +16,7 @@ public class ClickSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0))
         {
             List<RaycastHit2D> hitList = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 1f, Clilckable).ToList();
             if(hitList.Count != 0)
