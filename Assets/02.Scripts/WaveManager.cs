@@ -19,6 +19,8 @@ public class WaveManager : BehaviourSingleton<WaveManager>
     private List<Vector3> _placedEnemyPositionList;
 
     public System.Action OnEnemyDeadAction;
+    public System.Action<float> OnCoolTimer;
+    public System.Action OnStateChange;
 
     public void Start()
     {
@@ -30,13 +32,21 @@ public class WaveManager : BehaviourSingleton<WaveManager>
     {
         while (true)
         {
-            yield return new WaitForSeconds(WaveInterval);
+            float timer = 0f;
+            while(timer < WaveInterval)
+            {
+                timer += Time.deltaTime;
+                OnCoolTimer?.Invoke(timer / WaveInterval);
+                yield return null;
+            }
 
+            OnStateChange?.Invoke();
             _placedEnemyPositionList = new List<Vector3>();
 
             yield return StartCoroutine(StartWave());
             while (_currentEnemyCount > 0) yield return null;
 
+            OnStateChange?.Invoke();
             CurrentWaveNum++;
             KillCount = 0;
 

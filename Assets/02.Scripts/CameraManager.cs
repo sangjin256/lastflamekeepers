@@ -47,47 +47,40 @@ public class CameraManager : BehaviourSingleton<CameraManager>
         Vector3 viewPortMousePosition = MainCamera.ScreenToViewportPoint(MousePosition);
         Vector3 movePosition = Vector3.zero;
 
-        if (IsFollowing)
+        if (viewPortMousePosition.y > 0.98f || Input.GetKey(KeyCode.W))
         {
-            Debug.Log("따라가는중");
-            Vector3 targetPos = new Vector3(FollowTarget.position.x, FollowTarget.position.y, -10f);
-            transform.position = Vector3.Lerp(transform.position, targetPos, Speed * Time.unscaledDeltaTime);
-            //MainCamera.orthographicSize = Mathf.Lerp(MainCamera.orthographicSize, MinOrthographicSize, Speed * Time.unscaledDeltaTime);
+            movePosition += Vector3.up;
+
+            FollowTarget = null;
+            IsFollowing = false;
         }
-        
-        if(isDragging == false)
+        if (viewPortMousePosition.x < 0.02f || Input.GetKey(KeyCode.A))
         {
-            // 카메라 이동
-            if (viewPortMousePosition.y > 0.98f || Input.GetKey(KeyCode.W))
-            {
-                movePosition += Vector3.up;
+            movePosition += Vector3.left;
 
-                FollowTarget = null;
-                IsFollowing = false;
-            }
-            if (viewPortMousePosition.x < 0.02f || Input.GetKey(KeyCode.A))
-            {
-                movePosition += Vector3.left;
+            FollowTarget = null;
+            IsFollowing = false;
+        }
+        if (viewPortMousePosition.y < 0.02f || Input.GetKey(KeyCode.S))
+        {
+            movePosition += Vector3.down;
 
-                FollowTarget = null;
-                IsFollowing = false;
-            }
-            if (viewPortMousePosition.y < 0.02f || Input.GetKey(KeyCode.S))
-            {
-                movePosition += Vector3.down;
+            FollowTarget = null;
+            IsFollowing = false;
+        }
+        if (viewPortMousePosition.x > 0.98f || Input.GetKey(KeyCode.D))
+        {
+            movePosition += Vector3.right;
 
-                FollowTarget = null;
-                IsFollowing = false;
-            }
-            if (viewPortMousePosition.x > 0.98f || Input.GetKey(KeyCode.D))
-            {
-                movePosition += Vector3.right;
+            FollowTarget = null;
+            IsFollowing = false;
+        }
 
-                FollowTarget = null;
-                IsFollowing = false;
-            }
+        MiddleMouseAction();
 
-            if (movePosition != Vector3.zero)
+        if (isDragging == false)
+        {
+            if(movePosition != Vector3.zero)
             {
                 Vector3 nextPosition = transform.position + movePosition.normalized;
                 if (Global.Instance.BoundaryCheck(nextPosition))
@@ -95,11 +88,14 @@ public class CameraManager : BehaviourSingleton<CameraManager>
                     TargetPosition = nextPosition;
                 }
             }
-
-            transform.position = Vector3.SmoothDamp(transform.position, TargetPosition, ref Velocity, SmoothTime, Speed, Time.unscaledDeltaTime);
         }
 
-        MiddleMouseAction();
+        if (IsFollowing)
+        {
+            Vector3 targetPos = new Vector3(FollowTarget.position.x, FollowTarget.position.y, -10f);
+            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref Velocity, SmoothTime, Speed, Time.unscaledDeltaTime);
+        }
+        else transform.position = Vector3.SmoothDamp(transform.position, TargetPosition, ref Velocity, SmoothTime, Speed, Time.unscaledDeltaTime);
     }
 
     public void MoveToEntity(Transform targetTransform)

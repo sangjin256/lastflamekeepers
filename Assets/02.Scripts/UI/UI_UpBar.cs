@@ -35,7 +35,9 @@ public class UI_UpBar : MonoBehaviour
 
         FireManager.Instance.OnAddWood += InvenResourceRefresh;
 
-        WaveManager.Instance.OnEnemyDeadAction += WaveStateRefresh;
+        WaveManager.Instance.OnEnemyDeadAction += WaveProgressRefresh;
+        WaveManager.Instance.OnCoolTimer += WaveCoolTimeRefresh;
+        WaveManager.Instance.OnStateChange += WaveStateChange;
     }
 
     public void FirePercentRefresh()
@@ -72,9 +74,24 @@ public class UI_UpBar : MonoBehaviour
             $"/ {InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Ash).ToString()}";
     }
 
-    public void WaveStateRefresh()
+    public void WaveProgressRefresh()
     {
-        Debug.Log("웨이브 쿨타임을 이걸로 바꾸기");
         WaveSlider.value = WaveManager.Instance.KillCount / (float)WaveManager.Instance.WaveMaxEnemyCount;
+    }
+
+    public void WaveCoolTimeRefresh(float rate)
+    {
+        WaveSlider.value = rate;
+    }
+
+    public void WaveStateChange()
+    {
+        Image bgImg = WaveSlider.transform.GetChild(0).GetComponent<Image>();
+        Image barImg = WaveSlider.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+
+        Color temp = bgImg.color;
+
+        bgImg.color = barImg.color;
+        barImg.color = temp;
     }
 }

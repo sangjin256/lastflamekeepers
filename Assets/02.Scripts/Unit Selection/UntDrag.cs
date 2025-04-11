@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class UntDrag : MonoBehaviour
 {
@@ -9,13 +11,17 @@ public class UntDrag : MonoBehaviour
     Rect SelectionBox;
 
     Vector2 StartPosition;
-    Vector2 StartWorldPosition;
     Vector2 EndPosition;
+    Vector2 StartWorldPosition;
+    Vector2 EndWorldPosition;
+
+    public LayerMask Clickable;
 
     private void Start()
     {
         StartPosition = Vector2.zero;
         EndPosition = Vector2.zero;
+        EndWorldPosition = Vector2.zero;
     }
 
     private void Update()
@@ -33,6 +39,7 @@ public class UntDrag : MonoBehaviour
 
             SelectUnits();
             EndPosition = Input.mousePosition;
+            EndWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             DrawVisual(true);
             DrawSelection();
         }
@@ -42,6 +49,7 @@ public class UntDrag : MonoBehaviour
             StartPosition =  Vector2.zero;
             StartWorldPosition = Vector2.zero;
             EndPosition = Vector2.zero;
+            EndWorldPosition = Vector2.zero;
             DrawVisual(false);
 
             UnitSelectionManager.Instance.SetDrag(false);
@@ -70,43 +78,64 @@ public class UntDrag : MonoBehaviour
     {
         Vector2 startScreenPosition = Camera.main.WorldToScreenPoint(StartWorldPosition);
         Vector2 InputMousePosition = Input.mousePosition;
+        EndWorldPosition = Camera.main.ScreenToWorldPoint(InputMousePosition);
         if (InputMousePosition.x < startScreenPosition.x)
         {
-            SelectionBox.xMin = InputMousePosition.x;
-            SelectionBox.xMax = startScreenPosition.x;
+            SelectionBox.xMin = EndWorldPosition.x;
+            SelectionBox.xMax = StartWorldPosition.x;
         }
         else
         {
-            SelectionBox.xMin = startScreenPosition.x;
-            SelectionBox.xMax = InputMousePosition.x;
+            SelectionBox.xMin = StartWorldPosition.x;
+            SelectionBox.xMax = EndWorldPosition.x;
         }
 
-        if (InputMousePosition.y < startScreenPosition.y)
+        if (InputMousePosition.y < StartWorldPosition.y)
         {
-            SelectionBox.yMin = InputMousePosition.y;
-            SelectionBox.yMax = startScreenPosition.y;
+            SelectionBox.yMin = EndWorldPosition.y;
+            SelectionBox.yMax = StartWorldPosition.y;
         }
         else
         {
-            SelectionBox.yMin = startScreenPosition.y;
-            SelectionBox.yMax = InputMousePosition.y;
+            SelectionBox.yMin = StartWorldPosition.y;
+            SelectionBox.yMax = EndWorldPosition.y;
         }
     }
 
     private void SelectUnits()
     {
-        foreach (var unit in UnitManager.Instance.UnitList)
+
+        List<Collider2D> colliderList = Physics2D.OverlapAreaAll(new Vector2(SelectionBox.xMin, SelectionBox.xMax), new Vector2(SelectionBox.yMin, SelectionBox.yMax), Clickable).ToList();
+
+        if (colliderList != null && colliderList.Count > 0)
         {
-            if (SelectionBox.Contains(Camera.main.WorldToScreenPoint(unit.transform.position)))
-            // 테스트 코드
+            foreach (var unit in UnitManager.Instance.UnitList)
             {
-                UnitSelectionManager.Instance.DragSelect(unit);
-            }
-            // 드래그 할때랑 클릭할때랑 동시에 사용되서 1프레임 내에서 select deselect가 일어남
-            else
-            {
-                if (UnitSelectionManager.Instance.GetIsDragging()) UnitSelectionManager.Instance.Deselect(unit);
+                Debug.Log("수정필요");
+                if(colliderList.Find(x => x.transform.parent.CompareTag("Unit") && x.transform.parent.GetInstanceID() == unit.gameObject.GetInstanceID()) != null)
+                {
+                    UnitSelectionManager.Instance.DragSelect(unit);
+                }
+                else
+                {
+                    if (UnitSelectionManager.Instance.GetIsDragging()) UnitSelectionManager.Instance.Deselect(unit);
+                }
             }
         }
+
+        
+        //foreach (var unit in UnitManager.Instance.UnitList)
+        //{
+        //    if (SelectionBox.Contains(Camera.main.WorldToScreenPoint(unit.transform.position)))
+        //    // 테스트 코드
+        //    {
+        //        UnitSelectionManager.Instance.DragSelect(unit);
+        //    }
+        //    // 드래그 할때랑 클릭할때랑 동시에 사용되서 1프레임 내에서 select deselect가 일어남
+        //    else
+        //    {
+        //        if (UnitSelectionManager.Instance.GetIsDragging()) UnitSelectionManager.Instance.Deselect(unit);
+        //    }
+        //}
     }
 }
