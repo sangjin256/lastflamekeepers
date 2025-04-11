@@ -136,4 +136,30 @@ public class CameraManager : BehaviourSingleton<CameraManager>
             isDragging = false;
         }
     }
+
+    public void CameraShake(float magnitude, float duration)
+    {
+        StopAllCoroutines();
+        StartCoroutine(ShakeCoroutine(magnitude, duration));
+    }
+
+    private IEnumerator ShakeCoroutine(float magnitude, float duration)
+    {
+        float elapsed = 0.0f;
+
+        Vector2 originalPosition = transform.localPosition;
+
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+
+            transform.localPosition = originalPosition + new Vector2(x, y);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.localPosition = originalPosition;
+    }
 }
