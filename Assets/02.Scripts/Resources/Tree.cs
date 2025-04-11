@@ -1,4 +1,6 @@
 using JetBrains.Annotations;
+using System.Diagnostics;
+using UnityEngine;
 
 public class Tree : AResource
 {
@@ -8,15 +10,18 @@ public class Tree : AResource
         ResourceType = resource.ResourceType;
         Name = resource.Name;
         Durability = resource.Durability;
+        Health = Durability;
         AmountToHit = resource.AmountToHit;
         OutputAmountPerExtract = resource.OutputAmountPerExtract;
         OutputType = resource.OutputType;
         RespawnTime = resource.RespawnTime;
+        _health = Durability;
 
         _interactType = InteractType.Tree;
     }
     public override void TakeDamage(int amount, bool isHeal)
     {
+        UnityEngine.Debug.Log($"{Health} {amount}");
         base.TakeDamage(amount, isHeal);
         HitCount++;
         if (HitCount >= AmountToHit)

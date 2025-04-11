@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6316684900486699025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6272635863698505112}
+  - component: {fileID: 1175573158259650116}
+  m_Layer: 0
+  m_Name: RealToolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6272635863698505112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316684900486699025}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1175573158259650116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316684900486699025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43b217b040e95049956ba9a7c793c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoneAnimatinoClip:
+  - {fileID: 7400000, guid: 1181b56f4f8a51f40814354bf1a00684, type: 2}
+  - {fileID: 7400000, guid: 1181b56f4f8a51f40814354bf1a00684, type: 2}
+  - {fileID: 7400000, guid: 1181b56f4f8a51f40814354bf1a00684, type: 2}
+  - {fileID: 7400000, guid: 1181b56f4f8a51f40814354bf1a00684, type: 2}
+  - {fileID: 7400000, guid: 1181b56f4f8a51f40814354bf1a00684, type: 2}
+  - {fileID: 7400000, guid: 1181b56f4f8a51f40814354bf1a00684, type: 2}
+  - {fileID: 7400000, guid: 1181b56f4f8a51f40814354bf1a00684, type: 2}
+  - {fileID: 7400000, guid: 1181b56f4f8a51f40814354bf1a00684, type: 2}
+  SwordAnimationClip:
+  - {fileID: 7400000, guid: 634d735fce0586a46b0b34d47371278d, type: 2}
+  - {fileID: 7400000, guid: 6b16d0796ab86574fa1516cf2cb6b220, type: 2}
+  - {fileID: 7400000, guid: 2b83a5503c9f8fa4d9cc0af6a4ba9094, type: 2}
+  - {fileID: 7400000, guid: 6b05425fa150e20418232230db2ad88d, type: 2}
+  - {fileID: 7400000, guid: 3aeba1caa9c40514c883180c9e1bff80, type: 2}
+  - {fileID: 7400000, guid: bd4210d0774845b4eb450e9958dcf45d, type: 2}
+  - {fileID: 7400000, guid: 5d0c7e854c22bae419b0fe662f8efc40, type: 2}
+  - {fileID: 7400000, guid: fe596a0d1e6c6be47a5d3ce095a62ed6, type: 2}
+  AxeAnimationClip:
+  - {fileID: 7400000, guid: 209853b6931efdc4c9f9c45edbcc9bab, type: 2}
+  - {fileID: 7400000, guid: 3b63203220103b64e97f2379d4fe1fd1, type: 2}
+  - {fileID: 7400000, guid: 5cf34ed680c76994b86f2a6b3b63d63e, type: 2}
+  - {fileID: 7400000, guid: ab6adbc2ea3c307418b02e3540c0dfe2, type: 2}
+  - {fileID: 7400000, guid: bd16fa2526578094eba013ab5c8ab293, type: 2}
+  - {fileID: 7400000, guid: 8115918718d3b63449f7b0a14ccdfbba, type: 2}
+  - {fileID: 7400000, guid: 643a6a68492d5534d97efc868e5f7a45, type: 2}
+  - {fileID: 7400000, guid: b179f567be60222499e96debffbdbfa4, type: 2}
+  PickaxeAnimationClip:
+  - {fileID: 7400000, guid: 13ffc8aabd3eb9444b8eac4ce9ba128a, type: 2}
+  - {fileID: 7400000, guid: 87a2f531bb59c7c48834d575bfcaf7f1, type: 2}
+  - {fileID: 7400000, guid: 46f015e458f66ed4f91c7c8e5c7e6ba1, type: 2}
+  - {fileID: 7400000, guid: f188ef8c41cf648469b8a64ecc8cdf83, type: 2}
+  - {fileID: 7400000, guid: 2db72494c680e084c9ebb75d51cf0faa, type: 2}
+  - {fileID: 7400000, guid: 6eb469cd1f983a84db969a08645ee5a9, type: 2}
+  - {fileID: 7400000, guid: d6cfac22ec8d3934aab8639b42d25733, type: 2}
+  - {fileID: 7400000, guid: 7058c48deb50b81458e33ab64b309403, type: 2}
+  CrossAnimationClip:
+  - {fileID: 7400000, guid: 8f0fd12a0fe9a254b8c6694cba4c7b40, type: 2}
+  - {fileID: 7400000, guid: 026d40c4a79e67f4d878fe288bbaaeef, type: 2}
+  - {fileID: 7400000, guid: 339392c32839f2c4fb9e105bf151765e, type: 2}
+  - {fileID: 7400000, guid: b1a544d89b9194e4f8822759c5eb889f, type: 2}
+  - {fileID: 7400000, guid: f7f18388a8b350748af2aac9b1ea02e5, type: 2}
+  - {fileID: 7400000, guid: 2ce65ade4ee235c47b20efb2fb28abb7, type: 2}
+  - {fileID: 7400000, guid: ccf80d45ec523f84d97d23022bcc13dd, type: 2}
+  - {fileID: 7400000, guid: afb3391d9838fc84f8b261c4706a5fc0, type: 2}
+  Clilckable:
+    serializedVersion: 2
+    m_Bits: 512
+  ToolImagePrefab:
+  - {fileID: 3769031201077761516, guid: 65403a0c137b53d449d0dc379ce1b211, type: 3}
+  - {fileID: 8234458807556829043, guid: 45d0979fde6286246974c0d4283ef3e9, type: 3}
+  - {fileID: 3769031201077761516, guid: d98388f4590044541868242dc7646abb, type: 3}
+  - {fileID: 1678840476761345705, guid: 623f5dd8255d2b0468c432b2cde26020, type: 3}
+  - {fileID: 8234458807556829043, guid: 40be5c0d5cba76641bb054cc4986ba74, type: 3}
+  handOverToolImage: {fileID: 0}
+  NoneImage:
+  - {fileID: 21300000, guid: 24f5b03f854f2ab4286718b9cbf5c6a9, type: 3}
+  - {fileID: 21300000, guid: 24f5b03f854f2ab4286718b9cbf5c6a9, type: 3}
+  - {fileID: 21300000, guid: 24f5b03f854f2ab4286718b9cbf5c6a9, type: 3}
+  - {fileID: 21300000, guid: 24f5b03f854f2ab4286718b9cbf5c6a9, type: 3}
+  SwordImage:
+  - {fileID: -23826677821667255, guid: 62a63240ef9287143a8b32841021dd45, type: 3}
+  - {fileID: -5813401907056065051, guid: fbf1ee341fa09264d94c01a56a53dfd6, type: 3}
+  - {fileID: 8919388783196816948, guid: e61975fc2d1a5a94e8def55d2c67f6fd, type: 3}
+  - {fileID: 1825581088601743298, guid: 6653e997c1f95444a90bdce2e74c5b80, type: 3}
+  AxeImage:
+  - {fileID: -4141304538712392436, guid: 1f3544eac84546b4793326dc2999d914, type: 3}
+  - {fileID: -264008802658126034, guid: 4bc83ed115f13974c85b5aa4748e01e4, type: 3}
+  - {fileID: 5319320451966265770, guid: 67dbf41bc8d90d74fb67d15702d54256, type: 3}
+  - {fileID: -2962831542094683448, guid: 9a4856dc8cb9c1742826eed60f51c760, type: 3}
+  PickaxeImage:
+  - {fileID: -6682683983046553155, guid: 0dd154f42224f26419e5b7a5a846ea73, type: 3}
+  - {fileID: -7427673674838883187, guid: 79bfe297c71898e44b0a16124f727c91, type: 3}
+  - {fileID: -2991706786630272289, guid: 30fd4dff61f0902409ad13c6da457a42, type: 3}
+  - {fileID: -8239118085199822341, guid: 771d23647d517444483c5be8384acbc6, type: 3}
+  CrossImage:
+  - {fileID: -1961832150147526136, guid: b01562fe6707dad45b705f9ec983a6d9, type: 3}
+  - {fileID: -611558674327110020, guid: df330476193cff6409d13cdab09782b2, type: 3}
+  - {fileID: 1392851558303572984, guid: 125a2893010ac41429616bb77b54df10, type: 3}
+  - {fileID: -6355559452841415122, guid: ae8581c267690704b9dad244a0e145ee, type: 3}

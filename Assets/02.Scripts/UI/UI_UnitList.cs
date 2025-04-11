@@ -16,7 +16,7 @@ public class UI_UnitList : MonoBehaviour
     [SerializeField] private List<Button> _filterButtonList;
 
     public UI_UnitData UnitDetail;
-    private void Start()
+    public void Initialize()
     {
         UnitManager.Instance.OnUnitListChanged += Refresh;
         ToolManager.Instance.OnToolChanged += ReRocate;
@@ -63,7 +63,6 @@ public class UI_UnitList : MonoBehaviour
                 return;
             }
         }
-        Debug.Log("ㅋㄹㄹ");
 
         //추가
         GameObject unitElementObject = Instantiate(UnitListUnitPrefab);
@@ -76,7 +75,6 @@ public class UI_UnitList : MonoBehaviour
             return;
         }
 
-        Debug.Log("들어옴");
         unitElement.transform.SetParent(UnitPrefab_Layout.transform);
         unitElement.transform.localScale = Vector3.one;
         unitElement.transform.position = Vector3.zero;
@@ -92,7 +90,6 @@ public class UI_UnitList : MonoBehaviour
     {
         ToolType prevUnitToolType = unit.gameObject.GetComponentInChildren<UnitTool>().PrevTool.ToolType;
         ToolType currentUnitToolType = unit.gameObject.GetComponentInChildren<UnitTool>().CurrentTool.ToolType;
-
         if (prevUnitToolType == currentUnitToolType)
         {
             return;
@@ -100,12 +97,15 @@ public class UI_UnitList : MonoBehaviour
         List<UI_UnitListElement> currentList = _unitElements[prevUnitToolType];
         List<UI_UnitListElement> destinationList = _unitElements[currentUnitToolType];
 
+        Debug.Log(prevUnitToolType + " " + currentUnitToolType);
 
         for (int i = 0; i < currentList.Count; i++)
         {
             //Equals?
             if (currentList[i].Unit == unit)
             {
+                Debug.Log(prevUnitToolType + " " + currentUnitToolType);
+
                 //currentList[i].transform.SetParent(UnitPrefab_Layout.transform);
                 currentList[i].Refresh();
                 destinationList.Add(currentList[i]);
@@ -113,8 +113,8 @@ public class UI_UnitList : MonoBehaviour
                 
                 return;
             }
-            Debug.LogError("도구 전환 but 재배치 실패");
         }
+        Debug.LogError("도구 전환 but 재배치 실패");
     }
 
     public void UpdateFilter(int toolTypeNumber)

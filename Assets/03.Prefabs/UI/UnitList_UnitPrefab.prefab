@@ -289,6 +289,11 @@ MonoBehaviour:
   - {fileID: -7427673674838883187, guid: 79bfe297c71898e44b0a16124f727c91, type: 3}
   - {fileID: -2991706786630272289, guid: 30fd4dff61f0902409ad13c6da457a42, type: 3}
   - {fileID: -8239118085199822341, guid: 771d23647d517444483c5be8384acbc6, type: 3}
+  CrossSpriteArray:
+  - {fileID: -1961832150147526136, guid: b01562fe6707dad45b705f9ec983a6d9, type: 3}
+  - {fileID: -611558674327110020, guid: df330476193cff6409d13cdab09782b2, type: 3}
+  - {fileID: 1392851558303572984, guid: 125a2893010ac41429616bb77b54df10, type: 3}
+  - {fileID: -6355559452841415122, guid: ae8581c267690704b9dad244a0e145ee, type: 3}
 --- !u!114 &591372629265479258
 MonoBehaviour:
   m_ObjectHideFlags: 0

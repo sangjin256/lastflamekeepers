@@ -15,14 +15,14 @@ public class UI_Accordion : MonoBehaviour
         {
             for (int i = 0; i < buttons.Length; i++)
             {
-                buttons[i].transform.DOLocalMoveX(distanceFormToggle + distanceBetweenButton * i, duration);
+                buttons[i].transform.DOLocalMoveX(distanceFormToggle + distanceBetweenButton * i, duration).SetUpdate(true);
             }
         }
         else
         {
             for (int i = 0; i < buttons.Length; i++)
             {
-                buttons[i].transform.DOLocalMoveX(0, duration);
+                buttons[i].transform.DOLocalMoveX(0, duration).SetUpdate(true);
             }
         }
     }

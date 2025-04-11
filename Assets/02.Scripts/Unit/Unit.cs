@@ -43,6 +43,7 @@ public class Unit : AInteractableEntity
     {
         _interactType = InteractType.Unit;
         _navMeshAgent.speed = _unitStat.MoveSpeed.Value / 10f;
+        _animator.SetFloat("MoveSpeed", _unitStat.MoveSpeed.Value/10f);
         Health = _unitStat.MaxHealth.Value;
         _navMeshAgent.enabled = false;
         _navMeshAgent.enabled = true;
@@ -54,7 +55,7 @@ public class Unit : AInteractableEntity
             return;
         }
 
-        if (_target == null)
+        if (_target == null || !_target.isActiveAndEnabled)
         {
             ToolAnimator.SetBool("IsInteracting", false);
         }
@@ -83,7 +84,7 @@ public class Unit : AInteractableEntity
             _navMeshAgent.avoidancePriority = 60;
             _navMeshAgent.ResetPath();
         }
-        if (_target == null)
+        if (_target == null || !_target.isActiveAndEnabled)
         {
             if (_navMeshAgent.desiredVelocity == Vector3.zero)
             {
@@ -205,7 +206,7 @@ public class Unit : AInteractableEntity
                 continue;
             }
             //if (!_tool.IsInteractable(collider.GetComponent<AInteractableEntity>().InteractType))
-            if (!collider.CompareTag("Enemy"))
+            if (!_unitTool.CurrentTool.IsInteractable(collider.GetComponent<AInteractableEntity>().InteractType))
             {
                 continue;
             }
@@ -217,13 +218,11 @@ public class Unit : AInteractableEntity
 
         if (minDistanceCollider == null)
         {
-            Debug.Log($"{gameObject.name}: zz");
             return;
         }
         Debug.Log(minDistanceCollider.gameObject);
 
         SetTarget(minDistanceCollider.GetComponent<AInteractableEntity>());
-        Debug.Log("¾Æ´ÏÁö");
     }
 
     public bool CheckTargetInInteractTrigger()
@@ -259,6 +258,10 @@ public class Unit : AInteractableEntity
     public override void TakeDamage(int amount, bool isHeal)
     {
         base.TakeDamage(amount, isHeal);
+        if(Health >= _unitStat.MaxHealth.Value)
+        {
+            Health = _unitStat.MaxHealth.Value;
+        }
         OnDamaged?.Invoke(this);
         if (CanInteract)
         {
@@ -269,6 +272,7 @@ public class Unit : AInteractableEntity
         _toolAnimator.SetBool("IsInteracting", false);
         _animator.SetTrigger("Die");
         _navMeshAgent.enabled = false;
+        ToolManager.Instance.RemoveCurrentToolCount(_unitTool.CurrentTool.ToolType, 1);
     }
 
 

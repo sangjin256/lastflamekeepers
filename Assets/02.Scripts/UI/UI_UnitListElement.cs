@@ -26,13 +26,15 @@ public class UI_UnitListElement : MonoBehaviour
     public Sprite[] SwordSpriteArray;
     public Sprite[] AxeSpriteArray;
     public Sprite[] PickAxeSpriteArray;
+    public Sprite[] CrossSpriteArray;
+
 
 
     private Sprite[][] ToolSpriteArray;
     //Ã¼·Â¹Ù
     public void Initialize()
     {
-        ToolSpriteArray = new Sprite[][] {NoneSpriteArray, SwordSpriteArray, AxeSpriteArray, PickAxeSpriteArray};
+        ToolSpriteArray = new Sprite[][] {NoneSpriteArray, SwordSpriteArray, AxeSpriteArray, PickAxeSpriteArray, CrossSpriteArray};
         UnitImage.sprite = Unit.GetComponent<SpriteRenderer>().sprite;
         ToolImage.sprite = ToolSpriteArray[(int)_unit.UnitTool.CurrentTool.ToolType][(int)_unit.UnitTool.CurrentTool.UpgradeLevel];
         UnitName.text = Unit.GetComponent<UnitStat>().Name;

@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class UnitInteractTrigger : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class UnitInteractTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
-        if (interactableEntity == null)
+        if (interactableEntity == null || !interactableEntity.isActiveAndEnabled)
         {
             return;
         }

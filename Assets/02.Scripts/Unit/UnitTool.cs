@@ -47,12 +47,17 @@ public class UnitTool : MonoBehaviour
             }
             case ToolType.Axe:
             {
-                _animator.SetFloat("InteractSpeed", _unitStat.WoodSpeed.Value / 10 + _currentTool.Value);
+                _animator.SetFloat("InteractSpeed", (_unitStat.WoodSpeed.Value + _currentTool.Value)/10);
                 break;
             }
             case ToolType.PickAxe:
             {
-                _animator.SetFloat("InteractSpeed", _unitStat.RockSpeed.Value / 10 + _currentTool.Value);
+                _animator.SetFloat("InteractSpeed", (_unitStat.RockSpeed.Value + _currentTool.Value)/10);
+                break;
+            }
+            case ToolType.Medicine:
+            {
+                _animator.SetFloat("interactSpeed", 1/2);
                 break;
             }
         }
@@ -68,6 +73,9 @@ public class UnitTool : MonoBehaviour
     {
         if(_unit.Target == null)
         {
+            return;
+        }
+        if (!_currentTool.IsInteractable(_unit.Target.InteractType)){
             return;
         }
         _currentTool.Interact(_unit.Target, _unitStat.Damage.Value);
