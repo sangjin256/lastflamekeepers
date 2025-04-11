@@ -14,8 +14,7 @@ public class GameManager : BehaviourSingleton<GameManager>
     {
         yield return new WaitForSeconds(2f);
         Time.timeScale = 0f;
-        int CreateCount = 0;
-        
+
         for(int i = 0; i < 3; i++)
         {
             UnitDrawSystem.gameObject.SetActive(true);
@@ -25,6 +24,8 @@ public class GameManager : BehaviourSingleton<GameManager>
                 yield return null;
             }
         }
+
+        Time.timeScale = 1f;
     }
 
     public void Success()

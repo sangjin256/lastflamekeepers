@@ -17,6 +17,13 @@ public class ClickSystem : MonoBehaviour
 
     private void Update()
     {
+        LeftMouseAction();
+        RightMouseAction();
+        MiddleMouseAction();
+    }
+
+    public void LeftMouseAction()
+    {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             List<RaycastHit2D> hitList = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 1f, Clilckable).ToList();
@@ -56,7 +63,7 @@ public class ClickSystem : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject() && UnitSelectionManager.Instance.GetIsDragging() == false)
         {
             List<RaycastHit2D> hitList = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 1f, Clilckable).ToList();
-            if(hitList.Count != 0)
+            if (hitList.Count != 0)
             {
                 #region 불 클릭
                 RaycastHit2D FireObject = hitList.Find(x => x.collider.transform.parent.CompareTag("Fire"));
@@ -76,32 +83,38 @@ public class ClickSystem : MonoBehaviour
                 #endregion
                 else
                 {
-                    #region 건물 클릭
-                    RaycastHit2D BuildObject = hitList.Find(x => x.collider.transform.parent.CompareTag("Building"));
-                    if (BuildObject)
+                    if (BuildManager.Instance.IsCreateMode == false)
                     {
-                        if (ClickedObject != null && ClickedObject.GetInstanceID() == BuildObject.collider.transform.parent.GetInstanceID())
+                        #region 건물 클릭
+                        RaycastHit2D BuildObject = hitList.Find(x => x.collider.transform.parent.CompareTag("Building"));
+                        if (BuildObject)
                         {
-                            ClickedObject = null;
-                            CameraManager.Instance.MoveToEntity(BuildObject.collider.transform.parent);
-                        }
-                        else
-                        {
-                            ClickedObject = BuildObject.collider.gameObject;
-                            Debug.Log("빌딩 창");
-                            ABaseBuilding building = ClickedObject.GetComponentInParent<ABaseBuilding>();
+                            if (ClickedObject != null && ClickedObject.GetInstanceID() == BuildObject.collider.transform.parent.GetInstanceID())
+                            {
+                                ClickedObject = null;
+                                CameraManager.Instance.MoveToEntity(BuildObject.collider.transform.parent);
+                            }
+                            else
+                            {
+                                ClickedObject = BuildObject.collider.gameObject;
+                                Debug.Log("빌딩 창");
+                                ABaseBuilding building = ClickedObject.GetComponentInParent<ABaseBuilding>();
 
-                            UIManager.Instance.OpenBuildingDetail(building, false);
+                                UIManager.Instance.OpenBuildingDetail(building, false);
+                            }
                         }
+                        #endregion
                     }
-                    #endregion
                 }
             }
         }
+    }
 
+    public void RightMouseAction()
+    {
         if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
         {
-            if(UnitSelectionManager.Instance.SelectedUnitList.Count != 0)
+            if (UnitSelectionManager.Instance.SelectedUnitList.Count != 0)
             {
                 Vector3 WorldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 if (FireManager.Instance.IsWithInFireRange(WorldMousePosition) == false)
@@ -130,5 +143,10 @@ public class ClickSystem : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void MiddleMouseAction()
+    {
+
     }
 }
