@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Tree : AResource
 {
@@ -18,6 +19,23 @@ public class Tree : AResource
         _health = Durability;
 
         _interactType = InteractType.Tree;
+        FireManager.Instance.OnFireRangeChanged += CheckWithInRange;
+    }
+    private NavMeshObstacle _navMeshObstacle;
+    private UnityEngine.Vector2 centerPos;
+    private void Start()
+    {
+        _navMeshObstacle = GetComponent<NavMeshObstacle>();
+        centerPos = transform.position + _navMeshObstacle.center;
+
+        CheckWithInRange();
+    }
+    public void CheckWithInRange()
+    {
+        if (IsWithInFireRange != FireManager.Instance.IsWithInFireRange(centerPos))
+        {
+            IsWithInFireRange = !IsWithInFireRange;
+        }
     }
     public override void TakeDamage(int amount, bool isHeal)
     {
