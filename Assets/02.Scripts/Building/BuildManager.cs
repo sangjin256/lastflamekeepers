@@ -34,6 +34,8 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     // 건물 설치 비용
     private Dictionary<BuildingType, List<int>> _requiredResourcesDicList;
 
+    private List<string> _compareTapStringList = new List<string>{ "Fire", "Water", "Resource", "Unit", "Enemy"};
+
     private void Start()
     {
         // 데이터 받아오기
@@ -157,9 +159,13 @@ public class BuildManager : BehaviourSingleton<BuildManager>
                     return false;
                 }
             }
-            else if (collider.CompareTag("Fire") || collider.CompareTag("Water") || collider.CompareTag("Resource"))
+
+            foreach (string tag in _compareTapStringList)
             {
-                return false;
+                if (collider.CompareTag(tag))
+                {
+                    return false;
+                }
             }
         }
 
@@ -266,11 +272,17 @@ public class BuildManager : BehaviourSingleton<BuildManager>
 
         IsCreateMode = true;
 
+        // UI 건물 설정
         UIManager.Instance.SetCanBuildStart(true);
         GameObject newBuilding = Instantiate(BuildingPrefabs[buildingTypeWithTool]);
-        newBuilding.tag = "Untagged";
+
+        // 프리뷰 건물
         _previewBuilding = newBuilding.GetComponent<ABaseBuilding>();
         _previewBuildingCollider = newBuilding.GetComponent<BoxCollider2D>();
+
+        // 프리뷰 건물 설정
+        newBuilding.tag = "Untagged";
+        _previewBuilding.SetNavMeshObstacle(false);
     }
 
     public void EndBuildingMode()
