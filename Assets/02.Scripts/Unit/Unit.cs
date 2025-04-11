@@ -73,17 +73,19 @@ public class Unit : AInteractableEntity
                     //_rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
                     _navMeshAgent.nextPosition = transform.position;
 
-                    if (transform.position.x < _target.transform.position.x ^ IsFacingRight)
-                    {
-                        if (Mathf.Abs(transform.position.x - _target.transform.position.x) > 0.1f)
-                        {
-                            Flip();
-                        }
-                    }
+                    
                 }
                 else
                 {
                     _navMeshAgent.ResetPath();
+                }
+
+                if (transform.position.x < _target.transform.position.x ^ IsFacingRight)
+                {
+                    if (Mathf.Abs(transform.position.x - _target.transform.position.x) > 0.1f)
+                    {
+                        Flip();
+                    }
                 }
             }
         }
@@ -124,7 +126,7 @@ public class Unit : AInteractableEntity
             {
                 Runaway = true;
                 _navMeshAgent.ResetPath();
-                _navMeshAgent.SetDestination(Vector2.zero);
+                SetTarget(Vector2.zero);
             }
         }
         else
