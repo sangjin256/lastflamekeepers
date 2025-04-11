@@ -4468,7 +4468,7 @@ PrefabInstance:
     - target: {fileID: 79326213360959080, guid: 8380d0b548135c84cb751875ec77f77f, type: 3}
       propertyPath: FireImage
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2919284803333938524}
     - target: {fileID: 705607947997409869, guid: 8380d0b548135c84cb751875ec77f77f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4946,6 +4946,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8380d0b548135c84cb751875ec77f77f, type: 3}
+--- !u!224 &2919284803333938524 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4536256941876689752, guid: 8380d0b548135c84cb751875ec77f77f, type: 3}
+  m_PrefabInstance: {fileID: 1618876563567142404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7443709275870979729 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8158896955188969621, guid: 8380d0b548135c84cb751875ec77f77f, type: 3}
