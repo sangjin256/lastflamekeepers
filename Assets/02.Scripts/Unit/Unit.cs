@@ -282,7 +282,7 @@ public class Unit : AInteractableEntity
         if (_target != null && !_unitTool.CurrentTool.IsInteractable(_target.InteractType))
         {
             SetTargetNull();
-            SetTarget(transform.position);
+            _navMeshAgent.ResetPath();
         }
     }
 
@@ -290,7 +290,7 @@ public class Unit : AInteractableEntity
     {
         _unitTool.SetTool(ToolManager.Instance.GetTool((ToolType)tool));
         SetTargetNull();
-        FindTarget();
+        _navMeshAgent.ResetPath();
     }
 
     public void DestroyThis()

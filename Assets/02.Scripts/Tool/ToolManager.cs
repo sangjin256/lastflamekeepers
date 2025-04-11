@@ -186,14 +186,15 @@ public class ToolManager : BehaviourSingleton<ToolManager>
         // Ω∫≈» ¥√∏Æ±‚
         Tool.Value += _toolDataList[(int)toolType].Upgrade_AddValueList[Tool.UpgradeLevel];
 
-        foreach(Unit unit  in UnitManager.Instance.UnitList)
+
+        Tool.UpgradeLevel++;
+        foreach (Unit unit in UnitManager.Instance.UnitList)
         {
-            if(unit.UnitTool.CurrentTool == Tool)
+            if (unit.UnitTool.CurrentTool == Tool)
             {
                 TrySetTool(unit, toolType);
             }
         }
-        Tool.UpgradeLevel++;
     }
 
     public void AddCurrentToolCount(ToolType toolType, int amount)
