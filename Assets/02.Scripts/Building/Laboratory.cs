@@ -22,6 +22,24 @@ public class Laboratory : ABaseBuilding
         }
 
         ToolType toolType = (ToolType)toolTypeNumber;
+
+        if (!InventoryResourceManager.Instance.TryRemoveCurrentResourceCount(
+            InventoryResourceType.Wood, 
+            ToolManager.Instance.GetWoodCountToUpgrade(toolType)
+            ))
+        {
+            Debug.Log("나무 자원 부족");
+            return;
+        }
+
+        if (!InventoryResourceManager.Instance.TryRemoveCurrentResourceCount(
+            InventoryResourceType.Stone,
+            ToolManager.Instance.GetStoneCountToUpgrade(toolType)
+            ))
+        {
+            Debug.Log("돌 자원 부족");
+            return;
+        }
         ToolManager.Instance.UpgradeTool(toolType);
     }
 

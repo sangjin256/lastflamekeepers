@@ -13,7 +13,10 @@ public class UI_UnitDrawSystem : MonoBehaviour
     public GameObject[] SelectedList;
     private int _selectedIndex;
 
-    List<Unit> randomUnitList = new List<Unit>();
+    private List<Unit> randomUnitList = new List<Unit>();
+    private List<Vector2> CircleSpawnPointList = new List<Vector2>();
+    private int spawnPointIndex = 0;
+    private const int MaxSpawnIndex = 8;
 
 
 
@@ -21,6 +24,20 @@ public class UI_UnitDrawSystem : MonoBehaviour
     {
         _toggleArray = GetComponentsInChildren<Toggle>();
         _toggleGroup = GetComponent<ToggleGroup>();
+
+        float positionX;
+        float positionY;
+        float angleStep = 360f / MaxSpawnIndex;
+        float angle = 0;
+
+        for(int i = 0; i < 8; i++)
+        {
+            positionX = Mathf.Sin((angle * Mathf.PI) / 180);
+            positionY = Mathf.Cos((angle * Mathf.PI) / 180);
+            Vector2 position = new Vector2(positionX, positionY);
+            CircleSpawnPointList.Add(position);
+            angle += angleStep;
+        }
     }
     private void OnEnable()
     {
@@ -65,7 +82,14 @@ public class UI_UnitDrawSystem : MonoBehaviour
         {
             return;
         }
-        UnitManager.Instance.SpawnUnit(randomUnitList[_selectedIndex], Vector2.left * 3);
+
+        UnitManager.Instance.SpawnUnit(randomUnitList[_selectedIndex], CircleSpawnPointList[spawnPointIndex]);
+        spawnPointIndex++;
+        if(spawnPointIndex >= MaxSpawnIndex)
+        {
+            spawnPointIndex = 0;
+        }
+
         randomUnitList.Remove(randomUnitList[_selectedIndex]);
         
         for(int i = randomUnitList.Count - 1; i>= 0; i--)
