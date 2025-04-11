@@ -20,7 +20,6 @@ public class UntDrag : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(UnitSelectionManager.Instance.SelectedUnitList.Count);
         if (Input.GetMouseButtonDown(0))
         {
             StartPosition = Input.mousePosition;
