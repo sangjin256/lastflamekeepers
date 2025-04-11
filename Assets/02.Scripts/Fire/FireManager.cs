@@ -9,6 +9,8 @@ using DG.Tweening;
 
 public class FireManager : BehaviourSingleton<FireManager>
 {
+    private Fire _fire;
+
     [Header("불 범위 설정")]
     [SerializeField] int MaxRange = 43;
     [SerializeField] const int MinRangeDeath = 3;
@@ -36,10 +38,15 @@ public class FireManager : BehaviourSingleton<FireManager>
 
     private void Start()
     {
+        _fire = FindAnyObjectByType<Fire>();
         _fireLight = transform.GetChild(0).GetComponent<FunkyCode.Light2D>();
         Global.Instance.OnDataLoaded += _LoadFire;
     }
 
+    public AInteractableEntity GetFire()
+    {
+        return _fire;
+    }
     public void _LoadFire()
     {
         WoodToLvUp = DataTable.Instance.GetFireLightData(StartTID + CurrentRange - MinRangeData).WoodAmout;

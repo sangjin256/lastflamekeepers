@@ -49,6 +49,7 @@ public class WaveManager : BehaviourSingleton<WaveManager>
         int enemyHealth = WaveDataDic[CurrentWaveNum].EnemyHealth;
         int enemyDamage = WaveDataDic[CurrentWaveNum].EnemyDamage;
         WaveMaxEnemyCount = WaveDataDic[CurrentWaveNum].EnemyCount;
+        int enemyDropAshCount = WaveDataDic[CurrentWaveNum].EnemyAsh;
 
         int termCount = Random.Range(1, 3);
         float termTimer = Random.Range(2f, 5f);
@@ -61,14 +62,14 @@ public class WaveManager : BehaviourSingleton<WaveManager>
             {
                 spawnCount = WaveMaxEnemyCount - spawned;
             }
-            spawned += SpawnEnemyCluster(enemyHealth, enemyDamage, spawnCount);
+            spawned += SpawnEnemyCluster(enemyHealth, enemyDamage, spawnCount, enemyDropAshCount);
 
             yield return new WaitForSeconds(Random.Range(4f, 6f));
         }
     }
 
     // 스폰 개수 반환
-    public int SpawnEnemyCluster(int health, int damage, int spawnCount)
+    public int SpawnEnemyCluster(int health, int damage, int spawnCount, int dropAshCount)
     {
         int tries = 0;
         int spawned = 0;
@@ -97,7 +98,7 @@ public class WaveManager : BehaviourSingleton<WaveManager>
             if (tooClose) continue;
 
             EnemyStat enemyStat = Instantiate(EnemyPrefab[0], spawnPoint, Quaternion.identity).GetComponent<EnemyStat>();
-            enemyStat.Initialize(health, damage);
+            enemyStat.Initialize(health, damage, dropAshCount);
             _currentEnemyCount++;
             spawned++;
         }

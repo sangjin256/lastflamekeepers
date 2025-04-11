@@ -53,7 +53,7 @@ public class Enemy : AInteractableEntity
             //Target = Center;
             Animator.SetBool("IsAttacking", false);
 
-            _navMeshAgent.SetDestination(Vector3.zero);
+            SetTarget(FireManager.Instance.GetFire());
             return;
         }
 
@@ -177,6 +177,7 @@ public class Enemy : AInteractableEntity
             return;
         }
         WaveManager.Instance.OnEnemyDeath();
+        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Ash, _enemyStat.DropAshCount);
 
         GetComponent<CircleCollider2D>().enabled = false;
         _target = null;
