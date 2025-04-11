@@ -13,8 +13,9 @@ public class SettingManager : MonoBehaviour
     private readonly Resolution[] supportedResolutions = new Resolution[]
     {
         new Resolution { width = 1280, height = 720 },
-        new Resolution { width = 1600, height = 900 },
-        new Resolution { width = 1920, height = 1080 }
+        new Resolution { width = 1920, height = 1080 },
+        new Resolution { width = 2560, height = 1440 },
+        new Resolution { width = 3840, height = 2160 },
     };
 
     void Start()

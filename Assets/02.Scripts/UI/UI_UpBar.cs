@@ -74,6 +74,7 @@ public class UI_UpBar : MonoBehaviour
 
     public void WaveStateRefresh()
     {
+        Debug.Log("웨이브 쿨타임을 이걸로 바꾸기");
         WaveSlider.value = WaveManager.Instance.KillCount / (float)WaveManager.Instance.WaveMaxEnemyCount;
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class ClickSystem : MonoBehaviour
 {
@@ -69,7 +70,7 @@ public class ClickSystem : MonoBehaviour
                 RaycastHit2D FireObject = hitList.Find(x => x.collider.transform.parent.CompareTag("Fire"));
                 if (FireObject)
                 {
-                    if (ClickedObject != null && ClickedObject.GetInstanceID() == FireObject.collider.GetInstanceID())
+                    if (ClickedObject != null && ClickedObject.transform.parent.GetInstanceID() == FireObject.collider.transform.parent.GetInstanceID())
                     {
                         ClickedObject = null;
                         CameraManager.Instance.MoveToEntity(FireObject.collider.transform.parent);
@@ -89,7 +90,7 @@ public class ClickSystem : MonoBehaviour
                         RaycastHit2D BuildObject = hitList.Find(x => x.collider.transform.parent.CompareTag("Building"));
                         if (BuildObject)
                         {
-                            if (ClickedObject != null && ClickedObject.GetInstanceID() == BuildObject.collider.transform.parent.GetInstanceID())
+                            if (ClickedObject != null && ClickedObject.transform.parent.GetInstanceID() == BuildObject.collider.transform.parent.GetInstanceID())
                             {
                                 ClickedObject = null;
                                 CameraManager.Instance.MoveToEntity(BuildObject.collider.transform.parent);
@@ -124,7 +125,7 @@ public class ClickSystem : MonoBehaviour
 
                 RaycastHit2D hit = Physics2D.Raycast(WorldMousePosition, Vector2.zero, 1f, Clilckable);
                 // ¶¥ÀÌ¸é ÁÂÇ¥ Àü´Þ
-                if (hit.collider == null)
+                if (hit.collider == null || hit.collider.transform.parent.CompareTag("Fire"))
                 {
                     UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(WorldMousePosition));
                 }
