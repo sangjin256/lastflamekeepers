@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class UI_UnitDrawSystem : MonoBehaviour
     private int spawnPointIndex = 0;
     private const int MaxSpawnIndex = 8;
 
-
+    public DOTweenAnimation MoveTweenAnimation;
 
     private void Awake()
     {
@@ -39,6 +40,8 @@ public class UI_UnitDrawSystem : MonoBehaviour
             angle += angleStep;
         }
     }
+
+
     private void OnEnable()
     {
         Debug.Log("ZDFZSG");
@@ -52,6 +55,8 @@ public class UI_UnitDrawSystem : MonoBehaviour
         {
             selected.SetActive(false);
         }
+
+        MoveTweenAnimation.DORestartById("MoveTween");
     }
 
     
