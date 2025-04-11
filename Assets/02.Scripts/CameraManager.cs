@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using Unity.VisualScripting;
 
 public class CameraManager : BehaviourSingleton<CameraManager>
 {
@@ -137,26 +136,31 @@ public class CameraManager : BehaviourSingleton<CameraManager>
         }
     }
 
+    // 카메라 쉐이킹
+    private Coroutine _cameraShakeCoroutine;
     public void CameraShake(float magnitude, float duration)
     {
-        StopAllCoroutines();
-        StartCoroutine(ShakeCoroutine(magnitude, duration));
+        if (_cameraShakeCoroutine != null)
+        {
+            StopCoroutine(_cameraShakeCoroutine);
+        }
+        _cameraShakeCoroutine = StartCoroutine(ShakeCoroutine(magnitude, duration));
     }
 
     private IEnumerator ShakeCoroutine(float magnitude, float duration)
     {
         float elapsed = 0.0f;
 
-        Vector2 originalPosition = transform.localPosition;
+        Vector3 originalPosition = transform.localPosition;
 
         while (elapsed < duration)
         {
             float x = Random.Range(-1f, 1f) * magnitude;
             float y = Random.Range(-1f, 1f) * magnitude;
 
-            transform.localPosition = originalPosition + new Vector2(x, y);
+            transform.localPosition = originalPosition + new Vector3(x, y, 0);
 
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             yield return null;
         }
 
