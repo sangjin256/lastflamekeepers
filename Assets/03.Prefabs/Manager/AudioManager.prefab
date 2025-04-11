@@ -45,5 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mixer: {fileID: 24100000, guid: 0bd7aee5434869a4d8356200887e91f2, type: 2}
-  WoodList: []
-  StoneList: []
+  _bgmMixerGroup: {fileID: -4680517351859315363, guid: 0bd7aee5434869a4d8356200887e91f2, type: 2}
+  _sfxMixerGroup: {fileID: -5080311791554151026, guid: 0bd7aee5434869a4d8356200887e91f2, type: 2}
+  TreeAudioList:
+  - {fileID: 8300000, guid: 82bde107cae88104cbbbf811cc8d6863, type: 3}
+  - {fileID: 8300000, guid: a0443d5239c78e6479d351ff4fbcd6ef, type: 3}
+  RockAudioList:
+  - {fileID: 8300000, guid: 9921ae4d8876dba4a9353a29ea9ef4c6, type: 3}
+  - {fileID: 8300000, guid: 8fec11790a8a7eb409df986ca65a85cb, type: 3}
+  UnitAudioList: []
+  EnemyAudioList: []
+  BGMList: []
+  poolSize: 20
