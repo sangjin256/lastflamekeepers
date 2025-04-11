@@ -67,8 +67,8 @@ public class UI_UnitList : MonoBehaviour
         //Ãß°¡
         GameObject unitElementObject = Instantiate(UnitListUnitPrefab);
         UI_UnitListElement unitElement = unitElementObject.GetComponent<UI_UnitListElement>();
-        unitElementObject.GetComponent<Button>().onClick.AddListener(() => UnitDetail.Initialize(unit));
-        unitElementObject.GetComponent<Button>().onClick.AddListener(() => UnitDetail.transform.parent.gameObject.SetActive(true));
+        //unitElementObject.GetComponent<Button>().onClick.AddListener(() => UnitDetail.Initialize(unit));
+        //unitElementObject.GetComponent<Button>().onClick.AddListener(() => UnitDetail.transform.parent.gameObject.SetActive(true));
         unitElementObject.GetComponent<Button>().onClick.AddListener(() => UIManager.Instance.OpenUnitDetail(unit, true));
 
         if (unitElement == null)
