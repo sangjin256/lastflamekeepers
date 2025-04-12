@@ -44,8 +44,6 @@ public class Enemy : AInteractableEntity
     }
     private void Update()
     {
-
-        Debug.Log(_navMeshAgent.isStopped);
         if (!CanInteract)
         {
             return;
