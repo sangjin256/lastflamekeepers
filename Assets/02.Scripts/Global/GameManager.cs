@@ -1,12 +1,17 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : BehaviourSingleton<GameManager>
 {
     public UI_UnitDrawSystem UnitDrawSystem;
 
+    public GameObject DefeatScreen;
+    public GameObject WinScreen;
+
     private void Start()
     {
+        Time.timeScale = 1f;
         StartCoroutine(StartGame());
     }
 
@@ -38,14 +43,33 @@ public class GameManager : BehaviourSingleton<GameManager>
         return false;
     }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void GoToTitle()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
     public void Success()
     {
-        Debug.Log("성공");
+        Time.timeScale = 0f;
+        WinScreen.SetActive(true);
+        AudioManager.Instance.PlayBGM(2);
     }
 
     public void Defeat()
     {
-        Debug.Log("패배");
+        Time.timeScale = 0f;
+        DefeatScreen.SetActive(true);
+        AudioManager.Instance.PlayBGM(2);
     }
 
     public void PauseGame()
