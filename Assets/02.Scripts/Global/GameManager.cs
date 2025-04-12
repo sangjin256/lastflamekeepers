@@ -45,11 +45,13 @@ public class GameManager : BehaviourSingleton<GameManager>
 
     public void Restart()
     {
+        DG.Tweening.DOTween.KillAll();
         SceneManager.LoadScene(1);
     }
 
     public void GoToTitle()
     {
+        DG.Tweening.DOTween.KillAll();
         SceneManager.LoadScene(0);
     }
 
@@ -60,15 +62,16 @@ public class GameManager : BehaviourSingleton<GameManager>
 
     public void Success()
     {
-        Time.timeScale = 0f;
         WinScreen.SetActive(true);
+        StopAllCoroutines();
         AudioManager.Instance.PlayBGM(2);
     }
 
+    [ContextMenu("HI")]
     public void Defeat()
     {
-        Time.timeScale = 0f;
         DefeatScreen.SetActive(true);
+        StopAllCoroutines();
         AudioManager.Instance.PlayBGM(3);
     }
 
