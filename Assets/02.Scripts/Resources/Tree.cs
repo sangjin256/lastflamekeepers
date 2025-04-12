@@ -38,7 +38,7 @@ public class Tree : AResource
     }
     public void CheckWithInRange()
     {
-        if (IsWithInFireRange != FireManager.Instance.IsWithInFireRange(centerPos))
+        if (IsWithInFireRange != FireManager.Instance.IsUnitWithInFireRange(centerPos))
         {
             IsWithInFireRange = !IsWithInFireRange;
         }
