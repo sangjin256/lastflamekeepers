@@ -35,13 +35,17 @@ public class UntDrag : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            if (SelectionBox.width >= 0.1f) UnitSelectionManager.Instance.SetDrag(true);
 
-            SelectUnits();
             EndPosition = Input.mousePosition;
             EndWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            DrawVisual(true);
             DrawSelection();
+
+            if (SelectionBox.width >= 0.1f)
+            {
+                UnitSelectionManager.Instance.SetDrag(true);
+                DrawVisual(true);
+                SelectUnits();
+            }
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -78,64 +82,43 @@ public class UntDrag : MonoBehaviour
     {
         Vector2 startScreenPosition = Camera.main.WorldToScreenPoint(StartWorldPosition);
         Vector2 InputMousePosition = Input.mousePosition;
-        EndWorldPosition = Camera.main.ScreenToWorldPoint(InputMousePosition);
         if (InputMousePosition.x < startScreenPosition.x)
         {
-            SelectionBox.xMin = EndWorldPosition.x;
-            SelectionBox.xMax = StartWorldPosition.x;
+            SelectionBox.xMin = InputMousePosition.x;
+            SelectionBox.xMax = startScreenPosition.x;
         }
         else
         {
-            SelectionBox.xMin = StartWorldPosition.x;
-            SelectionBox.xMax = EndWorldPosition.x;
+            SelectionBox.xMin = startScreenPosition.x;
+            SelectionBox.xMax = InputMousePosition.x;
         }
 
-        if (InputMousePosition.y < StartWorldPosition.y)
+        if (InputMousePosition.y < startScreenPosition.y)
         {
-            SelectionBox.yMin = EndWorldPosition.y;
-            SelectionBox.yMax = StartWorldPosition.y;
+            SelectionBox.yMin = InputMousePosition.y;
+            SelectionBox.yMax = startScreenPosition.y;
         }
         else
         {
-            SelectionBox.yMin = StartWorldPosition.y;
-            SelectionBox.yMax = EndWorldPosition.y;
+            SelectionBox.yMin = startScreenPosition.y;
+            SelectionBox.yMax = InputMousePosition.y;
         }
     }
 
     private void SelectUnits()
     {
-
-        List<Collider2D> colliderList = Physics2D.OverlapAreaAll(new Vector2(SelectionBox.xMin, SelectionBox.xMax), new Vector2(SelectionBox.yMin, SelectionBox.yMax), Clickable).ToList();
-
-        if (colliderList != null && colliderList.Count > 0)
+        foreach (var unit in UnitManager.Instance.UnitList)
         {
-            foreach (var unit in UnitManager.Instance.UnitList)
+            if (SelectionBox.Contains(Camera.main.WorldToScreenPoint(unit.transform.position + Vector3.up * 0.2f)))
+            // 테스트 코드
             {
-                Debug.Log("수정필요");
-                if(colliderList.Find(x => x.transform.parent.CompareTag("Unit") && x.transform.parent.GetInstanceID() == unit.gameObject.GetInstanceID()) != null)
-                {
-                    UnitSelectionManager.Instance.DragSelect(unit);
-                }
-                else
-                {
-                    if (UnitSelectionManager.Instance.GetIsDragging()) UnitSelectionManager.Instance.Deselect(unit);
-                }
+                UnitSelectionManager.Instance.DragSelect(unit);
+            }
+            // 드래그 할때랑 클릭할때랑 동시에 사용되서 1프레임 내에서 select deselect가 일어남
+            else
+            {
+                if (UnitSelectionManager.Instance.GetIsDragging()) UnitSelectionManager.Instance.Deselect(unit);
             }
         }
-
-        
-        //foreach (var unit in UnitManager.Instance.UnitList)
-        //{
-        //    if (SelectionBox.Contains(Camera.main.WorldToScreenPoint(unit.transform.position)))
-        //    // 테스트 코드
-        //    {
-        //        UnitSelectionManager.Instance.DragSelect(unit);
-        //    }
-        //    // 드래그 할때랑 클릭할때랑 동시에 사용되서 1프레임 내에서 select deselect가 일어남
-        //    else
-        //    {
-        //        if (UnitSelectionManager.Instance.GetIsDragging()) UnitSelectionManager.Instance.Deselect(unit);
-        //    }
-        //}
     }
 }
