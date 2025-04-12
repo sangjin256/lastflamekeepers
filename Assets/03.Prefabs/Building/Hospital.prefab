@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 4072708817449669240}
   - component: {fileID: 9148429206990921136}
   - component: {fileID: 528319248111869454}
+  - component: {fileID: 1194353835284249370}
   m_Layer: 7
   m_Name: Hospital
   m_TagString: Building
@@ -302,7 +303,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 46a8c6fee33e46a4887927367724e7ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -439,3 +440,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.7, y: 2.22}
   m_EdgeRadius: 0
+--- !u!114 &1194353835284249370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5710107533802132493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentShaderType: 4
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
