@@ -32,6 +32,7 @@ public class Unit : AInteractableEntity
     public Canvas canvas;
 
     public Renderer Renderer;
+    public MaterialPropertyBlock _materialPropertyBlock;
     private void Awake()
     {
         _unitStat = GetComponent<UnitStat>();
@@ -45,6 +46,7 @@ public class Unit : AInteractableEntity
         _toolAnimator = transform.GetChild(2).GetComponent<Animator>();
 
         Renderer = GetComponent<Renderer>();
+        _materialPropertyBlock = new MaterialPropertyBlock();
     }
 
     private void Start()
@@ -302,6 +304,14 @@ public class Unit : AInteractableEntity
         {
             Health = _unitStat.MaxHealth.Value;
         }
+        if (!isHeal)
+        {
+            CancelInvoke(nameof(Recover));
+            _materialPropertyBlock.SetFloat("_HitEffectBlend", 1);
+            _materialPropertyBlock.SetFloat("_OffsetUvX", 0.02f);
+            Renderer.SetPropertyBlock(_materialPropertyBlock);
+            Invoke(nameof(Recover), 0.2f);
+        }
         HPBar.value = Health;
         HPBar.gameObject.SetActive(true);
         CancelInvoke(nameof(HideHPBar));
@@ -323,6 +333,12 @@ public class Unit : AInteractableEntity
         UnitSelectionManager.Instance.Deselect(this);
     }
 
+    public void Recover()
+    {
+        _materialPropertyBlock.SetFloat("_HitEffectBlend", 0);
+        _materialPropertyBlock.SetFloat("_OffsetUvX", 0);
+        Renderer.SetPropertyBlock(_materialPropertyBlock);
+    }
     public void HideHPBar()
     {
         HPBar.gameObject.SetActive(false);
