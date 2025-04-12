@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8258795380945031522}
   - component: {fileID: 6750070459558617678}
   - component: {fileID: 8424377349123856427}
+  - component: {fileID: -7509033477901587469}
   m_Layer: 0
   m_Name: Forge
   m_TagString: Building
@@ -62,7 +63,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 46a8c6fee33e46a4887927367724e7ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -199,6 +200,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.2, y: 1.7}
   m_EdgeRadius: 0
+--- !u!114 &-7509033477901587469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302084077083264215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentShaderType: 0
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
 --- !u!1 &1325429762449357014
 GameObject:
   m_ObjectHideFlags: 0
