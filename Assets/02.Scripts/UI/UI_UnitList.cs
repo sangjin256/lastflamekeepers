@@ -49,8 +49,6 @@ public class UI_UnitList : MonoBehaviour
     }
     private void Refresh(Unit unit)
     {
-        Debug.Log("¤¤¤¤¤¤");
-
         ToolType unitToolType = unit.UnitTool.CurrentTool.ToolType;
         List<UI_UnitListElement> unitElementList = _unitElements[unitToolType];
         for (int i = 0; i < unitElementList.Count; i++)

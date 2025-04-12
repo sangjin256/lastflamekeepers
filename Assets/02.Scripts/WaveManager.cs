@@ -129,7 +129,5 @@ public class WaveManager : BehaviourSingleton<WaveManager>
         {
             WaveDataDic.Add(i + 1, DataTable.Instance.GetWaveDataList()[i]);
         }
-
-        StartCoroutine(WaveSystemCoroutine());
     }
 }

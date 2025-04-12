@@ -51,7 +51,7 @@ public class AudioManager : BehaviourSingleton<AudioManager>
         _mixer.SetFloat("SFX", volume);
     }
 
-    public void PlayBGM(int index, float fadeTime = 1.5f)
+    public void PlayBGM(int index, float fadeTime = 2f)
     {
         if (fadeCoroutine != null)
             StopCoroutine(fadeCoroutine);
