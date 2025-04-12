@@ -29,13 +29,12 @@ public class AudioManager : BehaviourSingleton<AudioManager>
 
     private void Awake()
     {
+        Time.timeScale = 1.0f;
         for (int i = 0; i < poolSize; i++)
         {
             var source = Instantiate(AudioSourceChildObject, transform.position, Quaternion.identity, gameObject.transform).GetComponent<AudioSource>();
             audioSourceList.Add(source);
         }
-
-        PlayBGM(0);
     }
 
     public void SetBGMVolume(float sliderValue)
