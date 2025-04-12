@@ -30,6 +30,8 @@ public class Unit : AInteractableEntity
 
     public Slider HPBar;
     public Canvas canvas;
+
+    public Renderer Renderer;
     private void Awake()
     {
         _unitStat = GetComponent<UnitStat>();
@@ -41,6 +43,8 @@ public class Unit : AInteractableEntity
         _searchCollider = transform.GetChild(1).GetComponent<CircleCollider2D>();
         _animator = GetComponent<Animator>();
         _toolAnimator = transform.GetChild(2).GetComponent<Animator>();
+
+        Renderer = GetComponent<Renderer>();
     }
 
     private void Start()
@@ -98,7 +102,7 @@ public class Unit : AInteractableEntity
             }
         }
 
-        if(_navMeshAgent.hasPath && _navMeshAgent.remainingDistance < _navMeshAgent.stoppingDistance)
+        if(_navMeshAgent.hasPath && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
         {
             _navMeshAgent.avoidancePriority = 60;
             _navMeshAgent.ResetPath();

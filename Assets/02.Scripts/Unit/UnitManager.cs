@@ -130,8 +130,10 @@ public class UnitManager : BehaviourSingleton<UnitManager>
 
     public void DestroyUnit(Unit unit)
     {
-        UnitList.Remove(unit);
-        UnitSelectionManager.Instance.Deselect(unit);
+        if (UnitList.Remove(unit))
+        {
+            UnitSelectionManager.Instance.Deselect(unit);
+        }
         OnUnitCountChanged?.Invoke();
 
         Destroy(unit.gameObject);

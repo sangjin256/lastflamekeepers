@@ -8,13 +8,18 @@ public class UnitSelectionManager : BehaviourSingleton<UnitSelectionManager>
     public List<Unit> SelectedUnitList = new List<Unit>();
 
     private bool IsDragging = false;
+    private MaterialPropertyBlock _materialPropertyBlock;
 
+    private void Start()
+    {
+        _materialPropertyBlock = new MaterialPropertyBlock();
+    }
     public void ClickSelect(Unit unitToAdd)
     {
         DeselectAll();
         SelectedUnitList.Add(unitToAdd);
 
-        SelectTest(unitToAdd.gameObject);
+        SelectTest(unitToAdd);
     }
 
     public void ShiftClickSelect(Unit unitToAdd)
@@ -23,13 +28,13 @@ public class UnitSelectionManager : BehaviourSingleton<UnitSelectionManager>
         {
             SelectedUnitList.Add(unitToAdd);
 
-            SelectTest(unitToAdd.gameObject);
+            SelectTest(unitToAdd);
         }
         else
         {
             SelectedUnitList.Remove(unitToAdd);
 
-            DeSelectTest(unitToAdd.gameObject);
+            DeSelectTest(unitToAdd);
         }
     }
 
@@ -39,7 +44,7 @@ public class UnitSelectionManager : BehaviourSingleton<UnitSelectionManager>
         {
             SelectedUnitList.Add(unitToAdd);
 
-            SelectTest(unitToAdd.gameObject);
+            SelectTest(unitToAdd);
         }
     }
 
@@ -53,23 +58,34 @@ public class UnitSelectionManager : BehaviourSingleton<UnitSelectionManager>
     {
         SelectedUnitList.Remove(unitToSelect);
 
-        DeSelectTest(unitToSelect.gameObject);
+        DeSelectTest(unitToSelect);
     }
 
-    public void SelectTest(GameObject unitSelect)
+    public void SelectTest(Unit unitSelect)
     {
-        unitSelect.GetComponent<SpriteRenderer>().color = Color.red;
+        //unitSelect.GetComponent<SpriteRenderer>().color = Color.red;
+        //unitSelect.GetComponent<SpriteRenderer>().material.SetFloat("_OutlineAlpha", 1);
+        _materialPropertyBlock.SetFloat("_OutlineAlpha", 1);
+        unitSelect.Renderer.SetPropertyBlock(_materialPropertyBlock);
+
     }
-    public void DeSelectTest(GameObject unitSelect)
+    public void DeSelectTest(Unit unitSelect)
     {
-        unitSelect.GetComponent<SpriteRenderer>().color = Color.white;
+        //unitSelect.GetComponent<SpriteRenderer>().color = Color.white;
+        //unitSelect.GetComponent<SpriteRenderer>().material.SetFloat("_OutlineAlpha", 0);
+        _materialPropertyBlock.SetFloat("_OutlineAlpha", 0);
+        unitSelect.Renderer.SetPropertyBlock(_materialPropertyBlock);
+        Debug.Log("de");
     }
 
     public void DeselectAllTest()
     {
-        foreach(Unit unit in SelectedUnitList)
+        _materialPropertyBlock.SetFloat("_OutlineAlpha", 0);
+        foreach (Unit unit in SelectedUnitList)
         {
-            unit.GetComponent<SpriteRenderer>().color = Color.white;
+            //unit.GetComponent<SpriteRenderer>().material.SetFloat("_OutlineAlpha", 0);
+            unit.Renderer.SetPropertyBlock(_materialPropertyBlock);
+
         }
     }
 
