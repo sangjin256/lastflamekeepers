@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 4252380535868114522}
   - component: {fileID: 8699764727608948939}
   - component: {fileID: -7260595751526436293}
+  - component: {fileID: 5317469082382565273}
   m_Layer: 7
   m_Name: Rock_2
   m_TagString: Resource
@@ -140,7 +141,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 1a5f61561a08dab42b60dae11350c930, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -295,7 +296,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5080311791554151026, guid: 0bd7aee5434869a4d8356200887e91f2, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 9921ae4d8876dba4a9353a29ea9ef4c6, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 9921ae4d8876dba4a9353a29ea9ef4c6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -392,7 +393,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5080311791554151026, guid: 0bd7aee5434869a4d8356200887e91f2, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 8fec11790a8a7eb409df986ca65a85cb, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 8fec11790a8a7eb409df986ca65a85cb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -479,3 +480,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5317469082382565273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353196807227275509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentShaderType: 4
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0

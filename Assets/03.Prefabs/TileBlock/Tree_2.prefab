@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -5295563461540479113}
   - component: {fileID: -6933559330347880733}
   - component: {fileID: 1616402986415318439}
+  - component: {fileID: -7902767844456137111}
   m_Layer: 7
   m_Name: Tree_2
   m_TagString: Resource
@@ -60,7 +61,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 1a5f61561a08dab42b60dae11350c930, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,8 +116,7 @@ MonoBehaviour:
   OutputType: 0
   RespawnTime: 0
   HitCount: 0
-  Hit: {fileID: 0}
-  Fall: {fileID: 0}
+  Renderer: {fileID: 0}
 --- !u!208 &-5295563461540479113
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -207,6 +207,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.2}
   m_Size: {x: 0.55, y: 0.4}
   m_Direction: 1
+--- !u!114 &-7902767844456137111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413061942490225082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentShaderType: 4
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
 --- !u!1 &8277507527019854582
 GameObject:
   m_ObjectHideFlags: 0

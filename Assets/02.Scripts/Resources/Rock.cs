@@ -1,8 +1,11 @@
 using System.Numerics;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class Rock : AResource
 {
+    public Renderer Renderer;
+    public MaterialPropertyBlock _materialPropertyBlock;
     public override void Initialize(ResourceType resourceType)
     {
         FieldResourceData resource = ResourceManager.Instance.GetResource(resourceType);
@@ -19,6 +22,9 @@ public class Rock : AResource
         _interactType = InteractType.Rock;
         IsWithInFireRange = true;
         FireManager.Instance.OnFireRangeChanged += CheckWithInRange;
+
+        Renderer = GetComponent<Renderer>();
+        _materialPropertyBlock = new MaterialPropertyBlock();
     }
     private NavMeshObstacle _navMeshObstacle;
     private UnityEngine.Vector2 centerPos;
@@ -39,6 +45,10 @@ public class Rock : AResource
     public override void TakeDamage(int amount, bool isHeal)
     {
         base.TakeDamage(amount, isHeal);
+        _materialPropertyBlock.SetFloat("_ShakeUvX", 0.3f);
+        CancelInvoke(nameof(Recover));
+        Renderer.SetPropertyBlock(_materialPropertyBlock);
+        Invoke(nameof(Recover), 0.2f);
         HitCount++;
         if (HitCount >= AmountToHit)
         {
@@ -54,5 +64,11 @@ public class Rock : AResource
 
         AudioManager.Instance.PlayResourceAudio(ResourceType, transform.position, true);
         gameObject.SetActive(false);
+    }
+
+    public void Recover()
+    {
+        _materialPropertyBlock.SetFloat("_ShakeUvX", 0);
+        Renderer.SetPropertyBlock(_materialPropertyBlock);
     }
 }
