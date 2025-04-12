@@ -33,13 +33,10 @@ public class ClickSystem : MonoBehaviour
             //-------------
             if (ClickedObject != null)
             {
-                ABaseBuilding building = ClickedObject.GetComponentInParent<ABaseBuilding>();
-                if (building != null)
-                {
-                    _materialPropertyBlock.SetFloat("_OutlineAlpha", 0);
-                    building.Renderer.SetPropertyBlock(_materialPropertyBlock);
-                }
+                _materialPropertyBlock.SetFloat("_OutlineAlpha", 0);
+                ClickedObject.transform.parent.GetComponent<SpriteRenderer>().SetPropertyBlock(_materialPropertyBlock);
             }
+
             //----------------
             if (hitList.Count != 0)
             {
@@ -61,6 +58,7 @@ public class ClickSystem : MonoBehaviour
                             UIManager.Instance.OpenUnitDetail(unit, false);
                         }
                         UnitSelectionManager.Instance.ClickSelect(unit);
+                        ClickedObject = unitObject.collider.gameObject;
                     }
                 }
                 #endregion
@@ -85,7 +83,6 @@ public class ClickSystem : MonoBehaviour
                 {
                     if (ClickedObject != null && ClickedObject.transform.parent.GetInstanceID() == FireObject.collider.transform.parent.GetInstanceID())
                     {
-                        ClickedObject = null;
                         CameraManager.Instance.MoveToEntity(FireObject.collider.transform.parent);
                     }
                     else
@@ -108,17 +105,23 @@ public class ClickSystem : MonoBehaviour
                                 ABaseBuilding building = ClickedObject.GetComponentInParent<ABaseBuilding>();
                                 _materialPropertyBlock.SetFloat("_OutlineAlpha", 1);
                                 building.Renderer.SetPropertyBlock(_materialPropertyBlock);
-                                ClickedObject = null;
                                 CameraManager.Instance.MoveToEntity(BuildObject.collider.transform.parent);
                             }
                             else
                             {
+                                if (ClickedObject != null)
+                                {
+                                    _materialPropertyBlock.SetFloat("_OutlineAlpha", 0);
+                                    ClickedObject.transform.parent.GetComponent<SpriteRenderer>().SetPropertyBlock(_materialPropertyBlock);
+                                }
+
                                 ClickedObject = BuildObject.collider.gameObject;
-                                Debug.Log("ºôµù Ã¢");
+
                                 ABaseBuilding building = ClickedObject.GetComponentInParent<ABaseBuilding>();
                                 _materialPropertyBlock.SetFloat("_OutlineAlpha", 1);
                                 building.Renderer.SetPropertyBlock(_materialPropertyBlock);
                                 UIManager.Instance.OpenBuildingDetail(building, false);
+
                             }
                         }
                         #endregion
