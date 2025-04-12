@@ -83,7 +83,7 @@ public class UI_UnitList : MonoBehaviour
 
         unitElement.transform.SetParent(UnitPrefab_Layout.transform);
         unitElement.transform.localScale = Vector3.one;
-        unitElement.transform.position = Vector3.zero;
+        unitElement.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
 
         unitElement.Unit = unit;
         unitElementList.Add(unitElement);

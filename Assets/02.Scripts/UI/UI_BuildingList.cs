@@ -76,7 +76,7 @@ public class UI_BuildingList : MonoBehaviour
 
         buildingElement.transform.SetParent(BuildPrefab_Layout.transform);
         buildingElement.transform.localScale = Vector3.one;
-        buildingElement.transform.position = Vector3.zero;
+        buildingElement.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
 
         buildingElement.SetBuilding(building);
         buildingElementList.Add(buildingElement);
