@@ -48,7 +48,7 @@ public class UI_UnitListElement : MonoBehaviour
         UnitHealthSlider.value = _unit.Health;
         if(_unit.Health < 0)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 

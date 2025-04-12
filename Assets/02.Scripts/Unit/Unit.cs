@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Unit : AInteractableEntity
 //:IInteractable
@@ -26,6 +27,9 @@ public class Unit : AInteractableEntity
     public bool MissTarget = false;
     public bool Runaway = false;
     public Action<Unit> OnDamaged;
+
+    public Slider HPBar;
+    public Canvas canvas;
     private void Awake()
     {
         _unitStat = GetComponent<UnitStat>();
@@ -47,6 +51,9 @@ public class Unit : AInteractableEntity
         Health = _unitStat.MaxHealth.Value;
         _navMeshAgent.enabled = false;
         _navMeshAgent.enabled = true;
+
+        HPBar.maxValue = _unitStat.MaxHealth.Value;
+        HPBar.value = Health;
     }
     private void Update()
     {
@@ -78,6 +85,7 @@ public class Unit : AInteractableEntity
                 else
                 {
                     _navMeshAgent.ResetPath();
+                    _animator.SetBool("IsRunning", false);
                 }
 
                 if (transform.position.x < _target.transform.position.x ^ IsFacingRight)
@@ -146,6 +154,7 @@ public class Unit : AInteractableEntity
     {
         IsFacingRight = !IsFacingRight;
         transform.Rotate(0, 180, 0);
+        canvas.transform.Rotate(0, 180, 0);
     }
 
     public void SetTarget(AInteractableEntity interactable)
@@ -289,6 +298,11 @@ public class Unit : AInteractableEntity
         {
             Health = _unitStat.MaxHealth.Value;
         }
+        HPBar.value = Health;
+        HPBar.gameObject.SetActive(true);
+        CancelInvoke(nameof(HideHPBar));
+        Invoke(nameof(HideHPBar), 3);
+
         OnDamaged?.Invoke(this);
         if (CanInteract)
         {
@@ -303,9 +317,12 @@ public class Unit : AInteractableEntity
 
         //시체 사라진 후가 아닌 쓰러졌을 때 바로?
         UnitSelectionManager.Instance.Deselect(this);
-        UnitManager.Instance.DestroyUnit(this);
     }
 
+    public void HideHPBar()
+    {
+        HPBar.gameObject.SetActive(false);
+    }
 
     public void SetTool(ATool tool)
     {
@@ -314,6 +331,10 @@ public class Unit : AInteractableEntity
         {
             SetTargetNull();
             _navMeshAgent.ResetPath();
+            if (_unitTool.CurrentTool.ToolType == ToolType.Sword)
+            {
+                FindTarget();
+            }
         }
     }
 
@@ -322,10 +343,14 @@ public class Unit : AInteractableEntity
         _unitTool.SetTool(ToolManager.Instance.GetTool((ToolType)tool));
         SetTargetNull();
         _navMeshAgent.ResetPath();
+        if (_unitTool.CurrentTool.ToolType == ToolType.Sword)
+        {
+            FindTarget();
+        }
     }
 
     public void DestroyThis()
     {
-        Destroy(gameObject);
+        UnitManager.Instance.DestroyUnit(this);
     }
 }

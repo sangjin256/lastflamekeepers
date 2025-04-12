@@ -12,6 +12,7 @@ public class AudioManager : BehaviourSingleton<AudioManager>
     [SerializeField] private List<AudioClip> RockAudioList;
     [SerializeField] private List<AudioClip> UnitAudioList;
     [SerializeField] private List<AudioClip> EnemyAudioList;
+    [SerializeField] private List<AudioClip> ButtonClickList;
     [SerializeField] private List<AudioClip> BGMList;
 
     [Header("Audio Pool")]
@@ -62,6 +63,39 @@ public class AudioManager : BehaviourSingleton<AudioManager>
             if (isDone) audioSource.resource = RockAudioList[1];
             else audioSource.resource = RockAudioList[0];
         }
+        audioSource.Play();
+    }
+
+    public void PlayUnitAudio(UnitAudioType type)
+    {
+        AudioSource audioSource = GetAvailableAudioSource();
+        audioSource.outputAudioMixerGroup = _sfxMixerGroup;
+        audioSource.resource = UnitAudioList[(int)type];
+        audioSource.Play();
+    }
+
+    public void PlayEnemyAudio(EnemyAudioType type)
+    {
+        AudioSource audioSource = GetAvailableAudioSource();
+        audioSource.outputAudioMixerGroup = _sfxMixerGroup;
+        audioSource.resource = EnemyAudioList[(int)type];
+        switch (type)
+        {
+            case EnemyAudioType.Attack:
+                break;
+            case EnemyAudioType.Hit:
+                break;
+            case EnemyAudioType.Die:
+                break;
+        }
+        audioSource.Play();
+    }
+
+    public void PlayClickAudio(int index)
+    {
+        AudioSource audioSource = GetAvailableAudioSource();
+        audioSource.outputAudioMixerGroup = _sfxMixerGroup;
+        audioSource.resource = ButtonClickList[index];
         audioSource.Play();
     }
 

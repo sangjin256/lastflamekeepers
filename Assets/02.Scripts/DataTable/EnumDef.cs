@@ -87,3 +87,31 @@ public enum InteractType
     Unit = 4,
 }
 
+public enum UnitAudioType
+{
+    ///<summary>공격</summary>
+    Attack = 0,
+    ///<summary>맞음</summary>
+    Hit = 1,
+    ///<summary>죽음</summary>
+    Die = 2,
+    ///<summary>검</summary>
+    Sword = 3,
+    ///<summary>도끼</summary>
+    Axe = 4,
+    ///<summary>곡괭이</summary>
+    PickAxe = 5,
+    ///<summary>치료제</summary>
+    Medicine = 6,
+}
+
+public enum EnemyAudioType
+{
+    ///<summary>공격</summary>
+    Attack = 0,
+    ///<summary>맞음</summary>
+    Hit = 1,
+    ///<summary>죽음</summary>
+    Die = 2,
+}
+

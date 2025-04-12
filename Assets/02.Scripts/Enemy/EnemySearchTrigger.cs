@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemySearchTrigger : MonoBehaviour
 {
@@ -11,25 +12,20 @@ public class EnemySearchTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //fire가 아니면
-        if (_enemy.Target != null)
+        if(other == null)
         {
             return;
         }
-        //if (!_tool.IsInteractable(interactable.InteractType))
-        //{
-        //    return;
-        //}
-
-        if (!other.CompareTag("Unit") && !other.CompareTag("Fire"))
+        if (!other.CompareTag("Unit"))
         {
             
             return;
         }
 
+        _enemy.FindTarget();
         //if (_enemy.NavMeshAgent.desiredVelocity == Vector3.zero)
         //{
-            _enemy.SetTarget(other.GetComponent<AInteractableEntity>());
+            //_enemy.SetTarget(other.GetComponent<AInteractableEntity>());
         //}
     }
 
@@ -41,12 +37,20 @@ public class EnemySearchTrigger : MonoBehaviour
         {
             return;
         }
-        if (!interactableEntity.CanInteract)
-        {
+        //if (!interactableEntity.CanInteract)
+        //{
             _enemy.Animator.SetBool("IsAttacking", false);
+            bool flag = _enemy.NavMeshAgent.isStopped;
+
             _enemy.NavMeshAgent.ResetPath();
-            _enemy.ResumeNavMeshAgent();
+            if (flag)
+            {
+                _enemy.StopNavMeshAgent();
+            }
+            _enemy.SetTargetNull();
             _enemy.FindTarget();
-        }
+        //}
+
+
     }
 }

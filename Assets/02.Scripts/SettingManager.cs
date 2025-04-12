@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 
 public class SettingManager : MonoBehaviour
@@ -72,5 +73,11 @@ public class SettingManager : MonoBehaviour
     public void OnCloseSetting(GameObject panel)
     {
         panel.SetActive(false);
+    }
+
+    public void ExitToDesktop()
+    {
+        DOTween.KillAll();
+        Application.Quit();
     }
 }

@@ -68,7 +68,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 3
+  m_Radius: 2
 --- !u!114 &8216857090036694896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,6 +427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 200
   _canInteract: 1
+  IsWithInFireRange: 1
   _target: {fileID: 0}
   MoveSpeed: 3
   _interactCollider: {fileID: 0}

@@ -60,6 +60,11 @@ public class UI_UnitList : MonoBehaviour
             if (unitElementList[i].Unit == unit)
             {
                 unitElementList[i].Refresh();
+                if (unitElementList[i].UnitHealthSlider.value <= 0)
+                {
+                    unit.OnDamaged -= Refresh;
+                    unitElementList.RemoveAt(i);
+                }
                 return;
             }
         }
@@ -134,5 +139,4 @@ public class UI_UnitList : MonoBehaviour
             }
         }
     }
-
 }
