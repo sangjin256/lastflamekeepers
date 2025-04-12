@@ -69,10 +69,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d5d6f61a25974f44fa65c29f658b8360, type: 3}
   - {fileID: 8300000, guid: 02694e3426fdb2f4fb68dcf121806dc2, type: 3}
   - {fileID: 8300000, guid: 902133d0c89dad242a6f3929c231e83b, type: 3}
-  BuildAudioList: []
+  BuildAudioList:
+  - {fileID: 8300000, guid: 20bcbf7a572fb6b4ebca048f587c74b9, type: 3}
   BGMList:
-  - {fileID: 8300000, guid: 931e15c9715e4794bab81ecbe63d7898, type: 3}
-  - {fileID: 8300000, guid: 90b6bd91915371447a1836a4cf39adc3, type: 3}
+  - {fileID: 8300000, guid: e9901faa4cca43543b5dab0cefc82d42, type: 3}
+  - {fileID: 8300000, guid: 18eec42b7fb61c346a7b7d017cd892e6, type: 3}
   WaveAudioList:
   - {fileID: 8300000, guid: 93e4b1d73ed0aa5489dc92ae7ebb80a4, type: 3}
   - {fileID: 8300000, guid: 536ed7f938eb16d4cbabf980b7da44a4, type: 3}

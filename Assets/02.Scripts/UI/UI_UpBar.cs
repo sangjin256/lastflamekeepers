@@ -70,8 +70,7 @@ public class UI_UpBar : MonoBehaviour
             $"/ {InventoryResourceManager.Instance.GetMaxResourceCount(InventoryResourceType.Wood).ToString()}";
         StoneCount.text = $"{InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Stone).ToString()} " +
             $"/ {InventoryResourceManager.Instance.GetMaxResourceCount(InventoryResourceType.Stone)}";
-        AshCount.text = $"{InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Ash).ToString()} " +
-            $"/ {InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Ash).ToString()}";
+        AshCount.text = $"{InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Ash).ToString()}";
     }
 
     public void WaveProgressRefresh()
