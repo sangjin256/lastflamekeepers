@@ -2928,7 +2928,6 @@ GameObject:
   - component: {fileID: 6618468187753549733}
   - component: {fileID: 4771828463264442659}
   - component: {fileID: 1592527528750925080}
-  - component: {fileID: 829288210302380505}
   m_Layer: 5
   m_Name: SettingPanel
   m_TagString: Untagged
@@ -3018,24 +3017,3 @@ MonoBehaviour:
   windowToggle: {fileID: 6891333332284336851}
   bgmSlider: {fileID: 4881727825855107704}
   sfxSlider: {fileID: 3864360110576373659}
---- !u!114 &829288210302380505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9054185775721342435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b107443e435fd4bb197e36110d7a8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mixer: {fileID: 24100000, guid: 0bd7aee5434869a4d8356200887e91f2, type: 2}
-  _bgmMixerGroup: {fileID: 0}
-  _sfxMixerGroup: {fileID: 0}
-  TreeAudioList: []
-  RockAudioList: []
-  UnitAudioList: []
-  EnemyAudioList: []
-  BGMList: []
-  poolSize: 20
