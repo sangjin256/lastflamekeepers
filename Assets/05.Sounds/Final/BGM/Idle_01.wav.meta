@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/05.Sounds/Final/BGM/Idle_01.wav.meta
 guid: 931e15c9715e4794bab81ecbe63d7898
+========
+guid: e9901faa4cca43543b5dab0cefc82d42
+>>>>>>>> main:Assets/05.Sounds/Final/BGM/1.mp3.meta
 AudioImporter:
   externalObjects: {}
   serializedVersion: 8
