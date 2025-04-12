@@ -91,8 +91,17 @@ public class CameraManager : BehaviourSingleton<CameraManager>
 
         if (IsFollowing)
         {
-            Vector3 targetPos = new Vector3(FollowTarget.position.x, FollowTarget.position.y, -10f);
-            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref Velocity, SmoothTime, Speed, Time.unscaledDeltaTime);
+            if (FollowTarget.Equals(null))
+            {
+                IsFollowing = false;
+                FollowTarget = null;
+            }
+            else
+            {
+
+                Vector3 targetPos = new Vector3(FollowTarget.position.x, FollowTarget.position.y, -10f);
+                transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref Velocity, SmoothTime, Speed, Time.unscaledDeltaTime);
+            }
         }
         else transform.position = Vector3.SmoothDamp(transform.position, TargetPosition, ref Velocity, SmoothTime, Speed, Time.unscaledDeltaTime);
     }

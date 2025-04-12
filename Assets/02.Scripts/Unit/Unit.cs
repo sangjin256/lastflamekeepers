@@ -26,6 +26,7 @@ public class Unit : AInteractableEntity
     public bool MissTarget = false;
     public bool Runaway = false;
     public Action<Unit> OnDamaged;
+
     private void Awake()
     {
         _unitStat = GetComponent<UnitStat>();
@@ -290,6 +291,7 @@ public class Unit : AInteractableEntity
             Health = _unitStat.MaxHealth.Value;
         }
         OnDamaged?.Invoke(this);
+        //AudioManager.Instance.PlayUnitAudio(UnitAudioType.Hit);
         if (CanInteract)
         {
             return;
@@ -300,6 +302,7 @@ public class Unit : AInteractableEntity
         _animator.SetTrigger("Die");
         _navMeshAgent.enabled = false;
         ToolManager.Instance.RemoveCurrentToolCount(_unitTool.CurrentTool.ToolType, 1);
+        AudioManager.Instance.PlayUnitAudio(UnitAudioType.Die, transform.position);
 
         //시체 사라진 후가 아닌 쓰러졌을 때 바로?
         UnitSelectionManager.Instance.Deselect(this);
