@@ -87,10 +87,10 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         _disabledBuildingStack = new Stack<(ABaseBuilding, float)>();
 
         //// ****************** 테스트 용 ******************
-        InventoryResourceManager.Instance.TryAddMaxResourceCount(InventoryResourceType.Wood, 300);
-        InventoryResourceManager.Instance.TryAddMaxResourceCount(InventoryResourceType.Stone, 300);
-        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, 300);
-        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Stone, 300);
+        //InventoryResourceManager.Instance.TryAddMaxResourceCount(InventoryResourceType.Wood, 300);
+        //InventoryResourceManager.Instance.TryAddMaxResourceCount(InventoryResourceType.Stone, 300);
+        //InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, 300);
+        //InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Stone, 300);
         //// **********************************************
     }
 
