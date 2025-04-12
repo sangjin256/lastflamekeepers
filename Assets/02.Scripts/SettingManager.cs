@@ -54,8 +54,8 @@ public class SettingManager : MonoBehaviour
         sfxSlider.onValueChanged.AddListener(AudioManager.Instance.SetSFXVolume);
 
         // �ʱⰪ
-        bgmSlider.value = 0.5f;
-        sfxSlider.value = 0.5f;
+        bgmSlider.value = 1f;
+        sfxSlider.value = 1f;
     }
 
     void ChangeResolution(int index)
