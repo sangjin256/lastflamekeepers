@@ -37,7 +37,7 @@ public class Rock : AResource
     }
     public void CheckWithInRange()
     {
-        if (IsWithInFireRange != FireManager.Instance.IsUnitWithInFireRange(transform.position + _navMeshObstacle.center))
+        if (IsWithInFireRange != FireManager.Instance.IsWithInFireRange(centerPos))
         {
             IsWithInFireRange = !IsWithInFireRange;
         }

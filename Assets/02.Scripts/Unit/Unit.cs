@@ -174,15 +174,11 @@ public class Unit : AInteractableEntity
         {
             return;
         }
-        if (!interactable.IsWithInFireRange)
-        {
-            return;
-        }
+
         if (!_unitTool.CurrentTool.IsInteractable(interactable.InteractType))
         {
             return;
         }
-
         _target = interactable;
         if (CheckTargetInInteractTrigger())
         {
@@ -247,17 +243,13 @@ public class Unit : AInteractableEntity
         {
             return;
         }
-        float minDistance = float.MaxValue;
+        float minDistance = _searchCollider.radius + 1;
         Collider2D minDistanceCollider = null;
         foreach (Collider2D collider in colliders)
         {
             if (collider.transform == transform)
             {
                 continue;
-            }
-            if(collider == null)
-            {
-                return;
             }
             if(!collider.GetComponent<AInteractableEntity>().IsWithInFireRange && collider.GetComponent<AInteractableEntity>().InteractType != InteractType.Enemy)
             {

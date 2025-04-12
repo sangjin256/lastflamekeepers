@@ -48,7 +48,7 @@ public class Enemy : AInteractableEntity
         {
             return;
         }
-        if (IsWithInFireRange != FireManager.Instance.IsUnitWithInFireRange(transform.position))
+        if (IsWithInFireRange != FireManager.Instance.IsWithInFireRange(transform.position))
         {
             IsWithInFireRange = !IsWithInFireRange;
         }
@@ -113,7 +113,7 @@ public class Enemy : AInteractableEntity
         {
             return;
         }
-        float minDistance = float.MaxValue;
+        float minDistance = _searchCollider.radius + 1;
         Collider2D minDistanceCollider = null;
         foreach (Collider2D collider in colliders)
         {

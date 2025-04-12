@@ -229,7 +229,7 @@ public class FireManager : BehaviourSingleton<FireManager>
     public bool IsUnitWithInFireRange(Vector2 position)
     {
         float distance = Vector2.SqrMagnitude(position);
-        return distance <= CurrentSquareRange - 10;
+        return distance <= CurrentSquareRange - 20;
     }
 
     public bool IsWithInFireRange(float squareDistance)
