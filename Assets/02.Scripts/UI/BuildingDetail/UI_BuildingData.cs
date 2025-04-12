@@ -51,14 +51,14 @@ public class UI_BuildingData : MonoBehaviour
 
         if (_building.IsMaxLevel)
         {
-            BuildingLevelText.text = "Level Max";
+            BuildingLevelText.text = "Max";
             UpgradeButton.gameObject.SetActive(false);
             UpgradeResourceWoodText.text = $"";
             UpgradeResourceStoneText.text = $"";
             return;
         }
 
-        BuildingLevelText.text = $"Level {_building.Level + 1}";
+        BuildingLevelText.text = $"{_building.Level + 1}";
 
         List<int> requiredResources = _building.GetCurrentRequiredResourcesList();
         UpgradeResourceWoodText.text = $"X {requiredResources[0]}";

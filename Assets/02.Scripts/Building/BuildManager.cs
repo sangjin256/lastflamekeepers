@@ -186,6 +186,8 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         GameObject newBuilding = Instantiate(BuildingPrefabs[(int)_previewBuilding.BuildingType]);
         newBuilding.transform.position = _previewBuilding.transform.position;
 
+        CameraManager.Instance.CameraShake(0.5f, 0.3f);
+
         // 새로운 건물 설정
         ABaseBuilding building = newBuilding.GetComponent<ABaseBuilding>();
         if (building == null)
