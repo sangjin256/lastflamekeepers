@@ -48,7 +48,7 @@ public class Enemy : AInteractableEntity
         {
             return;
         }
-        if (IsWithInFireRange != FireManager.Instance.IsUnitWithInFireRange(transform.position))
+        if (IsWithInFireRange != FireManager.Instance.IsWithInFireRange(transform.position))
         {
             IsWithInFireRange = !IsWithInFireRange;
         }
