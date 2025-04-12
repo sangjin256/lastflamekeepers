@@ -137,6 +137,10 @@ public class Unit : AInteractableEntity
                 _navMeshAgent.ResetPath();
                 SetTarget(Vector2.zero);
             }
+            else
+            {
+                SetTarget(Vector2.zero);
+            }
         }
         else
         {
