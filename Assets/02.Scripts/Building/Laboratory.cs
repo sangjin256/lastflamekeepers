@@ -21,6 +21,11 @@ public class Laboratory : ABaseBuilding
             return;
         }
 
+        if (!IsActive)
+        {
+            return;
+        }
+
         ToolType toolType = (ToolType)toolTypeNumber;
 
         if (!InventoryResourceManager.Instance.TryRemoveCurrentResourceCount(

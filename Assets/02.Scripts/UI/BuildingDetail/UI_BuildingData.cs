@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UI_BuildingData : MonoBehaviour
 {
     protected ABaseBuilding _building;
+    public ABaseBuilding Building => _building;
 
     [Header("건물 정보")]
     public Image BuildingImage;

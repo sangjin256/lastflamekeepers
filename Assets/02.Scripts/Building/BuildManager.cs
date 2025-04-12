@@ -18,6 +18,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
     public Color CannotBuildColor = Color.red;
 
     public Action<ABaseBuilding> OnChangeBuildingList;
+    public Action<ABaseBuilding> OnChangeBuildingActive;
 
 
     // 소환된 건물들
@@ -329,6 +330,8 @@ public class BuildManager : BehaviourSingleton<BuildManager>
                 building.Item1.ChangeColor(CanBuildColor);
 
                 building.Item1.SetActive(true);
+
+                OnChangeBuildingActive.Invoke(building.Item1);
             }
         }
         else
@@ -353,6 +356,8 @@ public class BuildManager : BehaviourSingleton<BuildManager>
                 building.Item1.ChangeColor(CannotBuildColor);
                 
                 building.Item1.SetActive(false);
+
+                OnChangeBuildingActive.Invoke(building.Item1);
             }
         }
 

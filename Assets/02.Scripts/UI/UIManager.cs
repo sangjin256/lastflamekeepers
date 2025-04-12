@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,6 +43,7 @@ public class UIManager : BehaviourSingleton<UIManager>
 
     private void Start()
     {
+        BuildManager.Instance.OnChangeBuildingActive += CheckDeActiveBuildingPopUp;
         for (int i = 0; i <= (int)BuildingType.Forge; i++)
         {
             int index = i;
@@ -99,6 +101,11 @@ public class UIManager : BehaviourSingleton<UIManager>
 
     public void OpenBuildingDetail(ABaseBuilding building, bool isUseBuildingList)
     {
+        if (!building.IsActive)
+        {
+            return;
+        }
+
         int detailPositionIndex = isUseBuildingList ? 1 : 0;
 
         if (isUseBuildingList)
@@ -217,5 +224,39 @@ public class UIManager : BehaviourSingleton<UIManager>
     public void OnSettingButton(GameObject settingPanel)
     {
         settingPanel.SetActive(true);
+    }
+
+    private void CheckDeActiveBuildingPopUp(ABaseBuilding building)
+    {
+        if (_currentOpenUI == null)
+        {
+            return;
+        }
+
+        if (building.IsActive)
+        {
+            return;
+        }
+
+        UI_BuildingData buildingData = _currentOpenUI.GetComponent<UI_BuildingData>();
+        if (buildingData)
+        {
+            if (buildingData.Building == building)
+            {
+                ChangePopUpUI(null);
+            }
+            return;
+        }
+
+        UI_LaboratoryDetail laboratoryDetail = _currentOpenUI.GetComponent<UI_LaboratoryDetail>();
+        if (laboratoryDetail)
+        {
+            if (laboratoryDetail.Laboratory == building)
+            {
+                ChangePopUpUI(null);
+            }
+
+            return;
+        }
     }
 }

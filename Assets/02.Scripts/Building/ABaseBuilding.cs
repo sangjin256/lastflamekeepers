@@ -80,6 +80,11 @@ public abstract class ABaseBuilding : MonoBehaviour
 
     public virtual bool UpgradeBuilding()
     {
+        if (!_isActive)
+        {
+            return false;
+        }
+
         if (_level >= _maxLevel)
         {
             Debug.Log("MaxLevel");

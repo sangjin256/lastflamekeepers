@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UI_LaboratoryDetail : MonoBehaviour
 {
     protected Laboratory _laboratory;
+    public Laboratory Laboratory => _laboratory;
 
     [Header("건물 정보")]
     public Image BuildingImage;

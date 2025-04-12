@@ -21,6 +21,7 @@ public class UI_BuildingList : MonoBehaviour
     private void Start()
     {
         BuildManager.Instance.OnChangeBuildingList += RefreshBuildingList;
+        BuildManager.Instance.OnChangeBuildingActive += RefreshBuildingList;
 
         _buildingElements = new Dictionary<BuildingType, List<UI_BuildingListElement>>();
         for (int i = 0; i <= (int)BuildingType.Forge; i++)
