@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemySearchTrigger : MonoBehaviour
 {
@@ -36,12 +37,20 @@ public class EnemySearchTrigger : MonoBehaviour
         {
             return;
         }
-        if (!interactableEntity.CanInteract)
-        {
+        //if (!interactableEntity.CanInteract)
+        //{
             _enemy.Animator.SetBool("IsAttacking", false);
+            bool flag = _enemy.NavMeshAgent.isStopped;
+
             _enemy.NavMeshAgent.ResetPath();
+            if (flag)
+            {
+                _enemy.StopNavMeshAgent();
+            }
             _enemy.SetTargetNull();
             _enemy.FindTarget();
-        }
+        //}
+
+
     }
 }

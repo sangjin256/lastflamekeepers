@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using static UnityEngine.GraphicsBuffer;
 
 public class EnemyInteractTrigger : MonoBehaviour
@@ -24,10 +25,11 @@ public class EnemyInteractTrigger : MonoBehaviour
         }
         if (interactableEntity != _enemy.Target)
         {
-            if (_enemy.Target == FireManager.Instance.GetFire())
-            {
-                _enemy.SetTarget(interactableEntity);
-            }
+            //if (_enemy.Target == FireManager.Instance.GetFire())
+            //{
+            //    _enemy.SetTarget(interactableEntity);
+            //}
+            _enemy.SetTarget(interactableEntity);
             return;
         }
         _enemy.StopNavMeshAgent();
@@ -50,7 +52,9 @@ public class EnemyInteractTrigger : MonoBehaviour
         {
             return;
         }
+
         _enemy.Animator.SetBool("IsAttacking", false);
+
 
         //µµ¸Á°¡°Å³ª Á×Àº °æ¿ì »õ·Î¿î ´ë»ó Å½»ö
         //if (!interactableEntity.CanInteract)
@@ -59,8 +63,5 @@ public class EnemyInteractTrigger : MonoBehaviour
 
 
         //_enemy.ResumeNavMeshAgent();
-
-
-        _enemy.FindTarget();
     }
 }
