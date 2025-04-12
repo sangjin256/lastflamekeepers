@@ -7,12 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat-AllIn1SpriteShader
+  m_Name: Mat-AllIn1SpriteShader 1
   m_Shader: {fileID: 4800000, guid: a36b7719ff0465b42ab1407d67672c5f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - HITEFFECT_ON
   - OUTBASEPIXELPERF_ON
   - OUTBASE_ON
   m_InvalidKeywords: []
@@ -171,10 +170,10 @@ Material:
     - _OutlineDistortTexXSpeed: 5
     - _OutlineDistortTexYSpeed: 5
     - _OutlineGlow: 1
-    - _OutlinePixelWidth: 1
+    - _OutlinePixelWidth: 4
     - _OutlineTexXSpeed: 10
     - _OutlineTexYSpeed: 0
-    - _OutlineWidth: 0.004
+    - _OutlineWidth: 0
     - _OverlayBlend: 1
     - _OverlayGlow: 1
     - _OverlayTextureScrollXSpeed: 0.25

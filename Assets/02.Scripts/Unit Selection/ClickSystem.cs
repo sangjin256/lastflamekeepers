@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.UIElements;
 
 public class ClickSystem : MonoBehaviour
 {
@@ -10,10 +11,11 @@ public class ClickSystem : MonoBehaviour
     public LayerMask Ground;
 
     private GameObject ClickedObject;
+    private MaterialPropertyBlock _materialPropertyBlock;
 
     private void Start()
     {
-        
+        _materialPropertyBlock = new MaterialPropertyBlock();
     }
 
     private void Update()
@@ -28,6 +30,17 @@ public class ClickSystem : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             List<RaycastHit2D> hitList = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 1f, Clilckable).ToList();
+            //-------------
+            if (ClickedObject != null)
+            {
+                ABaseBuilding building = ClickedObject.GetComponentInParent<ABaseBuilding>();
+                if (building != null)
+                {
+                    _materialPropertyBlock.SetFloat("_OutlineAlpha", 0);
+                    building.Renderer.SetPropertyBlock(_materialPropertyBlock);
+                }
+            }
+            //----------------
             if (hitList.Count != 0)
             {
                 #region Unit Å¬¸¯
@@ -92,6 +105,9 @@ public class ClickSystem : MonoBehaviour
                         {
                             if (ClickedObject != null && ClickedObject.transform.parent.GetInstanceID() == BuildObject.collider.transform.parent.GetInstanceID())
                             {
+                                ABaseBuilding building = ClickedObject.GetComponentInParent<ABaseBuilding>();
+                                _materialPropertyBlock.SetFloat("_OutlineAlpha", 1);
+                                building.Renderer.SetPropertyBlock(_materialPropertyBlock);
                                 ClickedObject = null;
                                 CameraManager.Instance.MoveToEntity(BuildObject.collider.transform.parent);
                             }
@@ -100,7 +116,8 @@ public class ClickSystem : MonoBehaviour
                                 ClickedObject = BuildObject.collider.gameObject;
                                 Debug.Log("ºôµù Ã¢");
                                 ABaseBuilding building = ClickedObject.GetComponentInParent<ABaseBuilding>();
-
+                                _materialPropertyBlock.SetFloat("_OutlineAlpha", 1);
+                                building.Renderer.SetPropertyBlock(_materialPropertyBlock);
                                 UIManager.Instance.OpenBuildingDetail(building, false);
                             }
                         }

@@ -247,6 +247,10 @@ public class Unit : AInteractableEntity
             {
                 continue;
             }
+            if(!collider.GetComponent<AInteractableEntity>().IsWithInFireRange && collider.GetComponent<AInteractableEntity>().InteractType != InteractType.Enemy)
+            {
+                continue;
+            }
             //if (!_tool.IsInteractable(collider.GetComponent<AInteractableEntity>().InteractType))
             if (!_unitTool.CurrentTool.IsInteractable(collider.GetComponent<AInteractableEntity>().InteractType))
             {
@@ -308,7 +312,6 @@ public class Unit : AInteractableEntity
         {
             CancelInvoke(nameof(Recover));
             _materialPropertyBlock.SetFloat("_HitEffectBlend", 1);
-            _materialPropertyBlock.SetFloat("_OffsetUvX", 0.02f);
             Renderer.SetPropertyBlock(_materialPropertyBlock);
             Invoke(nameof(Recover), 0.2f);
         }
@@ -336,7 +339,6 @@ public class Unit : AInteractableEntity
     public void Recover()
     {
         _materialPropertyBlock.SetFloat("_HitEffectBlend", 0);
-        _materialPropertyBlock.SetFloat("_OffsetUvX", 0);
         Renderer.SetPropertyBlock(_materialPropertyBlock);
     }
     public void HideHPBar()
