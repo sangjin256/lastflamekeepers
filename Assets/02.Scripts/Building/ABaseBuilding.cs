@@ -37,6 +37,7 @@ public abstract class ABaseBuilding : MonoBehaviour
 
     // 색상 변경
     private SpriteRenderer _spriteRenderer;
+    public Renderer Renderer => _spriteRenderer;
     private NavMeshObstacle _navMeshObstacle;
 
     private void Awake()

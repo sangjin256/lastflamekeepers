@@ -31,6 +31,8 @@ public class Unit : AInteractableEntity
     public Slider HPBar;
     public Canvas canvas;
 
+    public Renderer Renderer;
+    public MaterialPropertyBlock _materialPropertyBlock;
     private void Awake()
     {
         _unitStat = GetComponent<UnitStat>();
@@ -42,6 +44,9 @@ public class Unit : AInteractableEntity
         _searchCollider = transform.GetChild(1).GetComponent<CircleCollider2D>();
         _animator = GetComponent<Animator>();
         _toolAnimator = transform.GetChild(2).GetComponent<Animator>();
+
+        Renderer = GetComponent<Renderer>();
+        _materialPropertyBlock = new MaterialPropertyBlock();
     }
 
     private void Start()
@@ -99,7 +104,7 @@ public class Unit : AInteractableEntity
             }
         }
 
-        if(_navMeshAgent.hasPath && _navMeshAgent.remainingDistance < _navMeshAgent.stoppingDistance)
+        if(_navMeshAgent.hasPath && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
         {
             _navMeshAgent.avoidancePriority = 60;
             _navMeshAgent.ResetPath();
@@ -246,6 +251,10 @@ public class Unit : AInteractableEntity
             {
                 continue;
             }
+            if(!collider.GetComponent<AInteractableEntity>().IsWithInFireRange && collider.GetComponent<AInteractableEntity>().InteractType != InteractType.Enemy)
+            {
+                continue;
+            }
             //if (!_tool.IsInteractable(collider.GetComponent<AInteractableEntity>().InteractType))
             if (!_unitTool.CurrentTool.IsInteractable(collider.GetComponent<AInteractableEntity>().InteractType))
             {
@@ -303,13 +312,19 @@ public class Unit : AInteractableEntity
         {
             Health = _unitStat.MaxHealth.Value;
         }
+        if (!isHeal)
+        {
+            CancelInvoke(nameof(Recover));
+            _materialPropertyBlock.SetFloat("_HitEffectBlend", 1);
+            Renderer.SetPropertyBlock(_materialPropertyBlock);
+            Invoke(nameof(Recover), 0.2f);
+        }
         HPBar.value = Health;
         HPBar.gameObject.SetActive(true);
         CancelInvoke(nameof(HideHPBar));
         Invoke(nameof(HideHPBar), 3);
 
         OnDamaged?.Invoke(this);
-        //AudioManager.Instance.PlayUnitAudio(UnitAudioType.Hit);
         if (CanInteract)
         {
             return;
@@ -320,12 +335,16 @@ public class Unit : AInteractableEntity
         _animator.SetTrigger("Die");
         _navMeshAgent.enabled = false;
         ToolManager.Instance.RemoveCurrentToolCount(_unitTool.CurrentTool.ToolType, 1);
-        AudioManager.Instance.PlayUnitAudio(UnitAudioType.Die, transform.position);
 
         //시체 사라진 후가 아닌 쓰러졌을 때 바로?
         UnitSelectionManager.Instance.Deselect(this);
     }
 
+    public void Recover()
+    {
+        _materialPropertyBlock.SetFloat("_HitEffectBlend", 0);
+        Renderer.SetPropertyBlock(_materialPropertyBlock);
+    }
     public void HideHPBar()
     {
         HPBar.gameObject.SetActive(false);
