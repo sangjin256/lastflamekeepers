@@ -44,7 +44,6 @@ public class UI_UnitDrawSystem : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("ZDFZSG");
         for (int i = 0; i < 3; i++)
         {
             randomUnitList.Add(UnitManager.Instance.GenerateRandomUnit());
@@ -72,7 +71,6 @@ public class UI_UnitDrawSystem : MonoBehaviour
             if (_toggleArray[i].isOn)
             {
                 _selectedIndex = i;
-                Debug.Log("zzzss");
                 break;
             }
             _selectedIndex = -1;
