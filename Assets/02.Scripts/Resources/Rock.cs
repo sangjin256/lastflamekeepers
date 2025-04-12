@@ -37,11 +37,7 @@ public class Rock : AResource
     }
     public void CheckWithInRange()
     {
-<<<<<<< Updated upstream
         if (IsWithInFireRange != FireManager.Instance.IsUnitWithInFireRange(transform.position + _navMeshObstacle.center))
-=======
-        if (IsWithInFireRange != FireManager.Instance.IsWithInFireRange(transform.position + _navMeshObstacle.center))
->>>>>>> Stashed changes
         {
             IsWithInFireRange = !IsWithInFireRange;
         }
