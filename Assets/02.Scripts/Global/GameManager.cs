@@ -25,7 +25,11 @@ public class GameManager : BehaviourSingleton<GameManager>
             }
         }
 
+
+
         Time.timeScale = 1f;
+
+        StartCoroutine(WaveManager.Instance.WaveSystemCoroutine());
     }
 
     public bool IsCreatingUnit()

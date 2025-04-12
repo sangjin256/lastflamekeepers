@@ -16,7 +16,6 @@ public class AudioManager : BehaviourSingleton<AudioManager>
     [SerializeField] private List<AudioClip> BuildAudioList;
     [SerializeField] private List<AudioClip> BGMList;
 
-
     [SerializeField] private List<AudioClip> WaveAudioList;
 
     [Header("Audio Pool")]
@@ -51,7 +50,8 @@ public class AudioManager : BehaviourSingleton<AudioManager>
         _mixer.SetFloat("SFX", volume);
     }
 
-    public void PlayBGM(int index, float fadeTime = 1.5f)
+
+    public void PlayBGM(int index, float fadeTime = 2f)
     {
         if (fadeCoroutine != null)
             StopCoroutine(fadeCoroutine);
@@ -74,6 +74,8 @@ public class AudioManager : BehaviourSingleton<AudioManager>
         // 3. 볼륨 다시 올리기
         yield return StartCoroutine(SetMixerVolume("BGM", -80f, currentVolume, fadeTime / 2f));
     }
+
+
 
     private IEnumerator SetMixerVolume(string exposedParam, float from, float to, float duration)
     {

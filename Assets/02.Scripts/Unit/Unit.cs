@@ -140,7 +140,11 @@ public class Unit : AInteractableEntity
             {
                 Runaway = true;
                 _navMeshAgent.ResetPath();
-                SetTarget(Vector2.zero);
+                _navMeshAgent.SetDestination(Vector2.zero);
+            }
+            else
+            {
+                _navMeshAgent.SetDestination(Vector2.zero);
             }
         }
         else

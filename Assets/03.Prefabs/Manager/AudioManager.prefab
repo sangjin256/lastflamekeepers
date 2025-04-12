@@ -74,6 +74,8 @@ MonoBehaviour:
   BGMList:
   - {fileID: 8300000, guid: e9901faa4cca43543b5dab0cefc82d42, type: 3}
   - {fileID: 8300000, guid: 18eec42b7fb61c346a7b7d017cd892e6, type: 3}
+  - {fileID: 8300000, guid: 2419c359adf51fd4b9975a2da6b4972d, type: 3}
+  - {fileID: 8300000, guid: 3e43435eed7e6084f9aec94e56f5d923, type: 3}
   WaveAudioList:
   - {fileID: 8300000, guid: 93e4b1d73ed0aa5489dc92ae7ebb80a4, type: 3}
   - {fileID: 8300000, guid: 536ed7f938eb16d4cbabf980b7da44a4, type: 3}
