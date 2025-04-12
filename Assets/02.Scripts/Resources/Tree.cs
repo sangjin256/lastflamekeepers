@@ -49,11 +49,11 @@ public class Tree : AResource
         }
         if (CanInteract)
         {
-            AudioManager.Instance.PlayResourceAudio(ResourceType, false);
+            AudioManager.Instance.PlayResourceAudio(ResourceType, transform.position, false);
             return;
         }
 
-        AudioManager.Instance.PlayResourceAudio(ResourceType, true);
+        AudioManager.Instance.PlayResourceAudio(ResourceType, transform.position, true);
         gameObject.SetActive(false);
     }
 }

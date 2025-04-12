@@ -78,6 +78,7 @@ public class UnitTool : MonoBehaviour
         if (!_currentTool.IsInteractable(_unit.Target.InteractType)){
             return;
         }
+        AudioManager.Instance.PlayUnitAudio(UnitAudioType.Attack, transform.position);
         _currentTool.Interact(_unit.Target, _unitStat.Damage.Value);
     }
 

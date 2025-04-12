@@ -162,6 +162,7 @@ public class Enemy : AInteractableEntity
     //AnimationEvent
     public void Interact()
     {
+        AudioManager.Instance.PlayEnemyAudio(EnemyAudioType.Attack, transform.position);
         _target.TakeDamage(_enemyStat.Damage, false);
     }
 
@@ -179,6 +180,7 @@ public class Enemy : AInteractableEntity
         base.TakeDamage(amount, isHeal);
         //Debug.Log($"{transform.name}: damage({amount}) health({Health})");
 
+        //AudioManager.Instance.PlayEnemyAudio(EnemyAudioType.Hit);
         if (CanInteract)
         {
             return;
@@ -189,6 +191,8 @@ public class Enemy : AInteractableEntity
         GetComponent<CircleCollider2D>().enabled = false;
         _target = null;
         _animator.SetTrigger("Die");
+        AudioManager.Instance.PlayEnemyAudio(EnemyAudioType.Die, transform.position);
+
         _navMeshAgent.enabled = false;
     }
 

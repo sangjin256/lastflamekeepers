@@ -43,9 +43,10 @@ public class WaveManager : BehaviourSingleton<WaveManager>
             OnStateChange?.Invoke();
             _placedEnemyPositionList = new List<Vector3>();
 
+            AudioManager.Instance.PlayBGM(1);
             yield return StartCoroutine(StartWave());
             while (_currentEnemyCount > 0) yield return null;
-
+            AudioManager.Instance.PlayBGM(0);
             OnStateChange?.Invoke();
             CurrentWaveNum++;
             KillCount = 0;
