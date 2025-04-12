@@ -19,8 +19,6 @@ public class UI_UnitDrawSystem : MonoBehaviour
     private int spawnPointIndex = 0;
     private const int MaxSpawnIndex = 8;
 
-    public DOTweenAnimation MoveTweenAnimation;
-
     private void Awake()
     {
         _toggleArray = GetComponentsInChildren<Toggle>();
@@ -55,8 +53,6 @@ public class UI_UnitDrawSystem : MonoBehaviour
         {
             selected.SetActive(false);
         }
-
-        MoveTweenAnimation.DORestartById("MoveTween");
     }
 
     
