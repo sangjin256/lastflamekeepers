@@ -88,8 +88,8 @@ public class ClickSystem : MonoBehaviour
                     else
                     {
                         ClickedObject = FireObject.collider.gameObject;
-                        UIManager.Instance.OnClickFire();
                     }
+                    UIManager.Instance.OnClickFire();
                 }
                 #endregion
                 else
