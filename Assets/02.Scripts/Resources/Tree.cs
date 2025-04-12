@@ -47,8 +47,13 @@ public class Tree : AResource
             HitCount = 0;
             InventoryResourceManager.Instance.TryAddCurrentResourceCount(OutputType, OutputAmountPerExtract);
         }
-        if (CanInteract) return;
+        if (CanInteract)
+        {
+            AudioManager.Instance.PlayResourceAudio(ResourceType, false);
+            return;
+        }
 
+        AudioManager.Instance.PlayResourceAudio(ResourceType, true);
         gameObject.SetActive(false);
     }
 }

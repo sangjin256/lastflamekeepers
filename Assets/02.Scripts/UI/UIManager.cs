@@ -32,6 +32,8 @@ public class UIManager : BehaviourSingleton<UIManager>
 
     private GameObject _clickedObject = null;
 
+    public List<Vector2> PopUpPositionList;
+
 
     public void SetCanBuildStart(bool canBuildStart)
     {
@@ -69,7 +71,7 @@ public class UIManager : BehaviourSingleton<UIManager>
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ChangePopUpUI(null, false);
+            ChangePopUpUI(null);
         }
     }
 
@@ -85,7 +87,7 @@ public class UIManager : BehaviourSingleton<UIManager>
             return;
         }
 
-        ChangePopUpUI(null, false);
+        ChangePopUpUI(null);
 
         BuildingListPopup.SetActive(false);
     }
@@ -97,6 +99,8 @@ public class UIManager : BehaviourSingleton<UIManager>
 
     public void OpenBuildingDetail(ABaseBuilding building, bool isUseBuildingList)
     {
+        int detailPositionIndex = isUseBuildingList ? 1 : 0;
+
         if (isUseBuildingList)
         {
             TryMoveCameraToObject(building.gameObject);
@@ -105,7 +109,7 @@ public class UIManager : BehaviourSingleton<UIManager>
 
         if (building.BuildingType == BuildingType.Laboratory)
         {
-            ChangePopUpUI(UILaboratory.gameObject, isUseBuildingList);
+            ChangePopUpUI(UILaboratory.gameObject, detailPositionIndex);
             UILaboratory.Initialize(building);
             return;
         }
@@ -117,17 +121,23 @@ public class UIManager : BehaviourSingleton<UIManager>
                 ChangePopUpUI(null);
                 return;
             }
-            ChangePopUpUI(UIBuildingList[(int)BuildingType.Forge - 1].gameObject, isUseBuildingList);
+            ChangePopUpUI(UIBuildingList[(int)BuildingType.Forge - 1].gameObject, detailPositionIndex);
             UIBuildingList[(int)BuildingType.Forge - 1].Initialize(building);
             return;
         }
 
-        ChangePopUpUI(UIBuildingList[(int)building.BuildingType].gameObject, isUseBuildingList);
+        ChangePopUpUI(UIBuildingList[(int)building.BuildingType].gameObject, detailPositionIndex);
         UIBuildingList[(int)building.BuildingType].Initialize(building);
     }
 
-    public void ChangePopUpUI(GameObject newPopUpUI, bool isUseBuildingList)
+    public void ChangePopUpUI(GameObject newPopUpUI, int popUpPositionListIndex)
     {
+        if (popUpPositionListIndex >= PopUpPositionList.Count)
+        {
+            Debug.Log("¿À¹ö·¦ ÀÎµ¦½º");
+            return;
+        }
+
         if (_currentOpenUI != null)
         {
             _currentOpenUI.SetActive(false);
@@ -145,16 +155,16 @@ public class UIManager : BehaviourSingleton<UIManager>
             return;
         }
 
-        if (isUseBuildingList)
+        if (popUpPositionListIndex == 0)
         {
-            _currentOpenUI.GetComponent<RectTransform>().pivot = _middleLeftPivot;
-            _currentOpenUI.transform.localPosition = BulidingListPopUpPosition;
+            _currentOpenUI.GetComponent<RectTransform>().pivot = _centerPivot;
         }
         else
         {
-            _currentOpenUI.GetComponent<RectTransform>().pivot = _centerPivot;
-            _currentOpenUI.transform.localPosition = BasicPopUpPosition;
+            _currentOpenUI.GetComponent<RectTransform>().pivot = _middleLeftPivot;
         }
+
+        _currentOpenUI.transform.localPosition = PopUpPositionList[popUpPositionListIndex];
     }
 
     public void ChangePopUpUI(GameObject newPopUpUI)
@@ -177,14 +187,20 @@ public class UIManager : BehaviourSingleton<UIManager>
         }
     }
 
+    
+
     public void OpenUnitDetail(Unit unit, bool isUseUnitList)
     {
+        UnitDetail.Initialize(unit);
+        UnitDetail.transform.parent.gameObject.SetActive(true);
+
         if (isUseUnitList)
         {
             TryMoveCameraToObject(unit.gameObject);
+            ChangePopUpUI(UnitDetail.gameObject, 2);
+            return;
         }
-        UnitDetail.Initialize(unit);
-        UnitDetail.transform.parent.gameObject.SetActive(true);
+        ChangePopUpUI(UnitDetail.gameObject, 0);
     }
 
     private void TryMoveCameraToObject(GameObject clickedObject)

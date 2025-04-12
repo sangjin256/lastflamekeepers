@@ -32,6 +32,7 @@ public class UnitManager : BehaviourSingleton<UnitManager>
     private float[] _getFeatureProbabilty = { 0.9f, 0.3f, 0.3f };
 
     public Action<Unit> OnUnitListChanged;
+    public Action OnUnitCountChanged;
     private void Start()
     {
         Global.Instance.OnDataLoaded += LoadData;
@@ -124,12 +125,15 @@ public class UnitManager : BehaviourSingleton<UnitManager>
         FireManager.Instance.AshChangedAfterUnitCreate();
 
         OnUnitListChanged?.Invoke(unit);
+        OnUnitCountChanged?.Invoke();
     }
 
     public void DestroyUnit(Unit unit)
     {
         UnitList.Remove(unit);
         UnitSelectionManager.Instance.Deselect(unit);
+        OnUnitCountChanged?.Invoke();
+
         Destroy(unit.gameObject);
     }
 
@@ -155,10 +159,12 @@ public class UnitManager : BehaviourSingleton<UnitManager>
     public void AddMaxCountUnit(int amount)
     {
         _maxCoutUnit += amount;
+        OnUnitCountChanged?.Invoke();
     }
     public void RemoveMaxCountUnit(int amount)
     {
         _maxCoutUnit -= amount;
+        OnUnitCountChanged?.Invoke();
     }
     public void LoadData()
     {
@@ -191,6 +197,8 @@ public class UnitManager : BehaviourSingleton<UnitManager>
             Feature feature = new Feature(FeatureDataList[index]);
             _negativeFeatureList.Add(feature);
         }
+
+        OnUnitCountChanged?.Invoke();
 
         //테스트용
         //List<Unit> randomUnitList = new List<Unit>();

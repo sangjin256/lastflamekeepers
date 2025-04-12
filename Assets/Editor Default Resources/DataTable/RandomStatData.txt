@@ -1,4 +1,4 @@
-10000	Health	50	150	
+10000	Health	100	150	
 10001	Damage	10	20	
 10002	AttackSpeed	10	20	
 10003	MoveSpeed	10	20	

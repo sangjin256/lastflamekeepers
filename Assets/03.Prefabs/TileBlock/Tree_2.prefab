@@ -106,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 0
   _canInteract: 1
+  IsWithInFireRange: 1
   ResourceType: 0
   Name: 
   Durability: 0
@@ -114,6 +115,8 @@ MonoBehaviour:
   OutputType: 0
   RespawnTime: 0
   HitCount: 0
+  Hit: {fileID: 0}
+  Fall: {fileID: 0}
 --- !u!208 &-5295563461540479113
 NavMeshObstacle:
   m_ObjectHideFlags: 0
