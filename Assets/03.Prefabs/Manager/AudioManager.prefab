@@ -133,6 +133,14 @@ PrefabInstance:
       value: AudioSourceObject
       objectReference: {fileID: 0}
     - target: {fileID: 8907330035797263547, guid: bc452c1741ac807459fbffc76fc5f30a, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8907330035797263547, guid: bc452c1741ac807459fbffc76fc5f30a, type: 3}
+      propertyPath: m_Volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8907330035797263547, guid: bc452c1741ac807459fbffc76fc5f30a, type: 3}
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 8300000, guid: e9901faa4cca43543b5dab0cefc82d42, type: 3}
