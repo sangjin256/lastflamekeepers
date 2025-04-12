@@ -69,7 +69,7 @@ public class GameManager : BehaviourSingleton<GameManager>
     {
         Time.timeScale = 0f;
         DefeatScreen.SetActive(true);
-        AudioManager.Instance.PlayBGM(2);
+        AudioManager.Instance.PlayBGM(3);
     }
 
     public void PauseGame()
