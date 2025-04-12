@@ -213,4 +213,9 @@ public class UIManager : BehaviourSingleton<UIManager>
 
         CameraManager.Instance.MoveToEntity(clickedObject.transform);
     }
+
+    public void OnSettingButton(GameObject settingPanel)
+    {
+        settingPanel.SetActive(true);
+    }
 }
