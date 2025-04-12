@@ -47,7 +47,7 @@ namespace FunkyCode
 				return instance;
 			}
 
-			foreach(var manager in UnityEngine.Object.FindObjectsOfType<LightingManager2D>())
+			foreach(var manager in UnityEngine.Object.FindObjectsByType<LightingManager2D>(FindObjectsSortMode.None))
 			{
 				instance = manager;
 
