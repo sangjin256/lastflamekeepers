@@ -17,7 +17,7 @@ public class GameManager : BehaviourSingleton<GameManager>
 
     public IEnumerator StartGame()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         Time.timeScale = 0f;
 
         for(int i = 0; i < 3; i++)
