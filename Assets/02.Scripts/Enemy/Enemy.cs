@@ -21,6 +21,8 @@ public class Enemy : AInteractableEntity
     public Transform Center;
     public bool IsFacingRight = true;
     public bool MissTarget = false;
+
+    private LayerMask _interactableLayer;
     private void Awake()
     {
         _enemyStat = GetComponent<EnemyStat>();
@@ -36,10 +38,12 @@ public class Enemy : AInteractableEntity
     private void Start()
     {
         _interactType = InteractType.Enemy;
+        _interactableLayer = LayerMask.GetMask("Interactable");
+        _navMeshAgent.enabled = false;
+        _navMeshAgent.enabled = true;
     }
     private void Update()
     {
-     
         if (!CanInteract)
         {
             return;
@@ -57,9 +61,12 @@ public class Enemy : AInteractableEntity
             return;
         }
 
-        _navMeshAgent.SetDestination(_target.transform.position);
-        //_rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
-        _navMeshAgent.nextPosition = transform.position;
+        if (!_navMeshAgent.isStopped)
+        {
+            _navMeshAgent.SetDestination(_target.transform.position);
+            //_rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
+            _navMeshAgent.nextPosition = transform.position;
+        }
 
         if (transform.position.x < _target.transform.position.x ^ IsFacingRight)
         {
@@ -89,19 +96,19 @@ public class Enemy : AInteractableEntity
             StopNavMeshAgent();
             Animator.SetBool("IsAttacking", true);
         }
-        else
-        {
-            ResumeNavMeshAgent();
-        }
     }
 
+    public void SetTargetNull()
+    {
+        _target = null;
+    }
     public void FindTarget()
     {
         if (!CanInteract)
         {
             return;
         }
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _searchCollider.radius, LayerMask.GetMask("Interactable"));
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _searchCollider.radius, _interactableLayer);
         if (colliders.Length == 0)
         {
             return;
@@ -114,7 +121,7 @@ public class Enemy : AInteractableEntity
             {
                 continue;
             }
-            if (!collider.CompareTag("Unit") && !collider.CompareTag("Fire"))
+            if (!collider.CompareTag("Unit"))
             {
                 continue;
             }
@@ -133,7 +140,7 @@ public class Enemy : AInteractableEntity
         {
             return;
         }
-
+        
         SetTarget(minDistanceCollider.GetComponent<AInteractableEntity>());
         //MissTarget = false;
     }

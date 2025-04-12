@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UI_UnitData : MonoBehaviour
 {
+    private Unit _unit;
     public Image UnitImage;
     public TextMeshProUGUI UnitNameText;
     public TextMeshProUGUI UnitMaxHealthText;
@@ -19,13 +20,46 @@ public class UI_UnitData : MonoBehaviour
     public List<TextMeshProUGUI> _unitPositiveFeatureTextList;
     public List<TextMeshProUGUI> _unitNegativeFeatureTextList;
 
+    public Slider HPBar;
+    public TextMeshProUGUI hpText;
+
     public void Initialize(Unit unit)
     {
+        if (HPBar != null)
+        {
+            if (_unit == unit)
+            {
+                HPBar.value = unit.Health;
+                hpText.text = $"{HPBar.value} / {HPBar.maxValue}";
 
+                if (HPBar.value <= 0)
+                {
+                    gameObject.SetActive(false);
+                    _unit.OnDamaged -= Initialize;
+                    _unit = null;
+                }
+                return;
+            }
+            else
+            {
+                if (_unit != null)
+                {
+                    _unit.OnDamaged -= Initialize;
+                }
+                _unit = unit;
+                unit.OnDamaged += Initialize;
+            }
+        }
         UnitStat unitStat = unit.GetComponent<UnitStat>();
         UnitImage.sprite = unit.GetComponent<SpriteRenderer>().sprite;
         UnitNameText.text = unitStat.Name;
 
+        if (HPBar != null)
+        {
+            HPBar.maxValue = unitStat.MaxHealth.Value;
+            HPBar.value = unit.Health;
+            hpText.text = $"{HPBar.value} / {HPBar.maxValue}";
+        }
         UnitMaxHealthText.text = unitStat.MaxHealth.AddedValue != 0
             ? unitStat.MaxHealth.AddedValue > 0
             ? $"{unitStat.MaxHealth.Value} <color=#57AC4B>(+{unitStat.MaxHealth.AddedValue})</color>"

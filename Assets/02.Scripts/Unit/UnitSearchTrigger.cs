@@ -52,7 +52,7 @@ public class UnitSearchTrigger : MonoBehaviour
             _unitTool.IsInteracting = false;
             _unit.ToolAnimator.SetBool("IsInteracting", false);
             _unit.NavMeshAgent.ResetPath();
-            
+            _unit.SetTargetNull();
             _unit.ResumeNavMeshAgent();
             _unit.FindTarget();
         }
