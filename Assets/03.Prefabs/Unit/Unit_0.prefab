@@ -196,6 +196,7 @@ MonoBehaviour:
   Runaway: 0
   HPBar: {fileID: 2468326071654906563}
   canvas: {fileID: 5805193603956297739}
+  Renderer: {fileID: 0}
 --- !u!114 &8924370958228913697
 MonoBehaviour:
   m_ObjectHideFlags: 0

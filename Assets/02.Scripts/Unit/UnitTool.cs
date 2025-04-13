@@ -41,22 +41,22 @@ public class UnitTool : MonoBehaviour
         {
             case ToolType.Sword:
             {
-                _animator.SetFloat("InteractSpeed", _unitStat.AttackSpeed.Value / 10);
+                _animator.SetFloat("InteractSpeed", _unitStat.AttackSpeed.Value / 10f);
                 break;
             }
             case ToolType.Axe:
             {
-                _animator.SetFloat("InteractSpeed", (_unitStat.WoodSpeed.Value + _currentTool.Value)/10);
+                _animator.SetFloat("InteractSpeed", (_unitStat.WoodSpeed.Value + _currentTool.Value)/10f);
                 break;
             }
             case ToolType.PickAxe:
             {
-                _animator.SetFloat("InteractSpeed", (_unitStat.RockSpeed.Value + _currentTool.Value)/10);
+                _animator.SetFloat("InteractSpeed", (_unitStat.RockSpeed.Value + _currentTool.Value)/10f);
                 break;
             }
             case ToolType.Medicine:
             {
-                _animator.SetFloat("interactSpeed", 1/2);
+                _animator.SetFloat("interactSpeed", 1/2f);
                 break;
             }
         }

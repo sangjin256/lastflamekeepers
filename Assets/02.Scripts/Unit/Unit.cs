@@ -34,6 +34,8 @@ public class Unit : AInteractableEntity
 
     public Renderer Renderer;
     public MaterialPropertyBlock _materialPropertyBlock;
+
+    private bool flag;
     private void Awake()
     {
         _unitStat = GetComponent<UnitStat>();
@@ -108,6 +110,11 @@ public class Unit : AInteractableEntity
             }
         }
 
+        if(flag == true && !_unitTool.IsInteracting)
+        {
+            flag = false;
+            Flip();
+        }
         if(_navMeshAgent.hasPath && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
         {
             _navMeshAgent.avoidancePriority = 60;
@@ -221,9 +228,11 @@ public class Unit : AInteractableEntity
         _navMeshAgent.SetDestination(randomPoint);
         _target = null;
 
+        
         if(transform.position.x < randomPoint.x ^ IsFacingRight)
         {
-            Flip();
+            flag = true;
+            //Flip();
         }
 
     }

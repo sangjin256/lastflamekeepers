@@ -95,12 +95,19 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         //// **********************************************
     }
 
+    [ContextMenu("AddMaxResource")]
+    public void AddMaxResourceTest()
+    {
+        InventoryResourceManager.Instance.TryAddMaxResourceCount(InventoryResourceType.Wood, 900);
+        InventoryResourceManager.Instance.TryAddMaxResourceCount(InventoryResourceType.Stone, 900);
+        InventoryResourceManager.Instance.TryAddMaxResourceCount(InventoryResourceType.Ash, 900);
+    }
     [ContextMenu("AddResource")]
     public void AddResourceTest()
     {
-        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, 100);
-        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Stone, 100);
-        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Ash, 100);
+        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, 900);
+        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Stone, 900);
+        InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Ash, 900);
     }
 
     private void Update()

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEditor;
 
 public class AudioManager : BehaviourSingleton<AudioManager>
 {
@@ -29,6 +30,11 @@ public class AudioManager : BehaviourSingleton<AudioManager>
 
     private void Awake()
     {
+
+#if UNITY_EDITOR
+        Cursor.SetCursor(PlayerSettings.defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
+#endif
+
         Time.timeScale = 1.0f;
         for (int i = 0; i < poolSize; i++)
         {
@@ -168,7 +174,7 @@ public class AudioManager : BehaviourSingleton<AudioManager>
 
     private AudioSource GetAvailableAudioSource()
     {
-        foreach(AudioSource source in audioSourceList)
+        foreach (AudioSource source in audioSourceList)
         {
             if (!source.isPlaying) return source;
         }
