@@ -19,7 +19,8 @@ public class UnitInteractTrigger : MonoBehaviour
         {
             return;
         }
-        if (interactableEntity != _unit.Target)
+  
+        if (_unit.Target !=null && interactableEntity != _unit.Target)
         {
             return;
         }
@@ -27,7 +28,10 @@ public class UnitInteractTrigger : MonoBehaviour
         {
             return;
         }
-
+        if(_unit.Target == null)
+        {
+            _unit.SetTarget(interactableEntity);
+        }
         _unit.StopNavMeshAgent();
         _unit.ToolAnimator.SetBool("IsInteracting", true);
     }

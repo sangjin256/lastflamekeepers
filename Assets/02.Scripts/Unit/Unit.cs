@@ -82,9 +82,12 @@ public class Unit : AInteractableEntity
             {
                 if (_target.IsWithInFireRange)
                 {
-                    _navMeshAgent.SetDestination(_target.transform.position);
-                    //_rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
-                    _navMeshAgent.nextPosition = transform.position;
+                    if (!_unitTool.IsInteracting)
+                    {
+                        _navMeshAgent.SetDestination(_target.transform.position);
+                        //_rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
+                        _navMeshAgent.nextPosition = transform.position;
+                    }
 
                     
                 }
@@ -140,11 +143,13 @@ public class Unit : AInteractableEntity
             {
                 Runaway = true;
                 _navMeshAgent.ResetPath();
-                _navMeshAgent.SetDestination(Vector2.zero);
+                //_navMeshAgent.SetDestination(Vector2.zero);
+                SetTarget(Vector2.zero);
             }
             else
             {
                 _navMeshAgent.SetDestination(Vector2.zero);
+                //SetTarget(Vector2.zero);
             }
         }
         else
@@ -169,16 +174,22 @@ public class Unit : AInteractableEntity
 
     public void SetTarget(AInteractableEntity interactable)
     {
+        _navMeshAgent.ResetPath();
+        _toolAnimator.SetBool("IsInteracting", false);
         _navMeshAgent.avoidancePriority = 50;
         if (!CanInteract)
         {
             return;
         }
-
+        if (!interactable.IsWithInFireRange)
+        {
+            return;
+        }
         if (!_unitTool.CurrentTool.IsInteractable(interactable.InteractType))
         {
             return;
         }
+
         _target = interactable;
         if (CheckTargetInInteractTrigger())
         {
@@ -200,7 +211,10 @@ public class Unit : AInteractableEntity
         {
             return;
         }
-       
+        if (!FireManager.Instance.IsUnitWithInFireRange(point))
+        {
+            return;
+        }  
 
         Vector2 randomPoint = point + UnityEngine.Random.insideUnitCircle / 2;
         _navMeshAgent.SetDestination(randomPoint);
@@ -243,13 +257,17 @@ public class Unit : AInteractableEntity
         {
             return;
         }
-        float minDistance = _searchCollider.radius + 1;
+        float minDistance = float.MaxValue;
         Collider2D minDistanceCollider = null;
         foreach (Collider2D collider in colliders)
         {
             if (collider.transform == transform)
             {
                 continue;
+            }
+            if(collider == null)
+            {
+                return;
             }
             if(!collider.GetComponent<AInteractableEntity>().IsWithInFireRange && collider.GetComponent<AInteractableEntity>().InteractType != InteractType.Enemy)
             {
@@ -357,20 +375,10 @@ public class Unit : AInteractableEntity
         {
             SetTargetNull();
             _navMeshAgent.ResetPath();
-            if (_unitTool.CurrentTool.ToolType == ToolType.Sword)
-            {
-                FindTarget();
-            }
         }
-    }
-
-    public void SetTool(int tool)
-    {
-        _unitTool.SetTool(ToolManager.Instance.GetTool((ToolType)tool));
-        SetTargetNull();
-        _navMeshAgent.ResetPath();
         if (_unitTool.CurrentTool.ToolType == ToolType.Sword)
         {
+            Debug.Log($"¼ÂÅø: {_unitTool.CurrentTool.ToolType}");
             FindTarget();
         }
     }

@@ -31,7 +31,6 @@ public class UnitTool : MonoBehaviour
         SetTool(ToolManager.Instance.GetTool(ToolType.None));
     }
 
-    
     public void SetTool(ATool tool)
     {
         _prevTool = _currentTool;

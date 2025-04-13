@@ -23,6 +23,9 @@ public class Enemy : AInteractableEntity
     public bool MissTarget = false;
 
     private LayerMask _interactableLayer;
+
+    public Renderer Renderer;
+    public MaterialPropertyBlock _materialPropertyBlock;
     private void Awake()
     {
         _enemyStat = GetComponent<EnemyStat>();
@@ -34,6 +37,9 @@ public class Enemy : AInteractableEntity
 
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        Renderer = GetComponent<Renderer>();
+        _materialPropertyBlock = new MaterialPropertyBlock();
     }
     private void Start()
     {
@@ -113,7 +119,7 @@ public class Enemy : AInteractableEntity
         {
             return;
         }
-        float minDistance = _searchCollider.radius + 1;
+        float minDistance = float.MaxValue;
         Collider2D minDistanceCollider = null;
         foreach (Collider2D collider in colliders)
         {
@@ -178,6 +184,10 @@ public class Enemy : AInteractableEntity
     public override void TakeDamage(int amount, bool isHeal)
     {
         base.TakeDamage(amount, isHeal);
+        CancelInvoke(nameof(Recover));
+        _materialPropertyBlock.SetFloat("_HitEffectBlend", 1);
+        Renderer.SetPropertyBlock(_materialPropertyBlock);
+        Invoke(nameof(Recover), 0.2f);
         //Debug.Log($"{transform.name}: damage({amount}) health({Health})");
 
         //AudioManager.Instance.PlayEnemyAudio(EnemyAudioType.Hit);
@@ -195,7 +205,11 @@ public class Enemy : AInteractableEntity
 
         _navMeshAgent.enabled = false;
     }
-
+    public void Recover()
+    {
+        _materialPropertyBlock.SetFloat("_HitEffectBlend", 0);
+        Renderer.SetPropertyBlock(_materialPropertyBlock);
+    }
     public void DestroyThis()
     {
         Destroy(gameObject);

@@ -156,6 +156,8 @@ public class ClickSystem : MonoBehaviour
                 }
                 else if (hit.collider.transform.parent.CompareTag("Resource"))
                 {
+                    UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => Debug.Log(x.gameObject.name + "clicksystem"));
+
                     UnitSelectionManager.Instance.SelectedUnitList?.ForEach(x => x.SetTarget(hit.collider.GetComponentInParent<AInteractableEntity>()));
                 }
                 else if (hit.collider.transform.parent.CompareTag("Unit"))
