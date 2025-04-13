@@ -56,7 +56,7 @@ public class UnitTool : MonoBehaviour
             }
             case ToolType.Medicine:
             {
-                _animator.SetFloat("interactSpeed", 1/2f);
+                _animator.SetFloat("interactSpeed", 1/4f);
                 break;
             }
         }
