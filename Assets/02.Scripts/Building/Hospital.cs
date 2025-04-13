@@ -30,7 +30,7 @@ public class Hospital : ABaseBuilding
         }
 
         // ToolManager의 Medicine 최댓값 증가
-        ToolManager.Instance.AddMaxToolCount(ToolType.Medicine, _buildData.Upgrade_AddValueList[Level]);
+        ToolManager.Instance.AddMaxToolCount(ToolType.Medicine, _buildData.Upgrade_AddValueList[Level - 1]);
         _medicineCapacity += _buildData.Upgrade_AddValueList[Level];
 
         Debug.Log($"Medicine : {_medicineCapacity}");
