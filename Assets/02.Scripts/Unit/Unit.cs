@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -97,7 +98,7 @@ public class Unit : AInteractableEntity
                     _animator.SetBool("IsRunning", false);
                 }
 
-                if (transform.position.x < _target.transform.position.x ^ IsFacingRight)
+                if (transform.position.x < _target.transform.position.x ^ IsFacingRight && !_unitTool.IsInteracting)
                 {
                     if (Mathf.Abs(transform.position.x - _target.transform.position.x) > 0.1f)
                     {
@@ -278,9 +279,11 @@ public class Unit : AInteractableEntity
             {
                 continue;
             }
-            if (Vector2.Distance(collider.transform.position, transform.position) < minDistance)
+            float distance = Vector2.Distance(collider.transform.position, transform.position);
+            if (distance < minDistance)
             {
                 minDistanceCollider = collider;
+                minDistance = distance;
             }
         }
 

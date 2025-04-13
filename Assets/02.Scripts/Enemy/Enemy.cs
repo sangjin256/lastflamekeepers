@@ -136,9 +136,12 @@ public class Enemy : AInteractableEntity
                 continue;
             }
 
-            if (Vector2.Distance(collider.transform.position, transform.position) < minDistance)
+            Debug.Log($"{collider.transform.gameObject.name} - 거리:{Vector2.Distance(collider.transform.position, transform.position)} - min거리{minDistance}" );
+            float distance = Vector2.Distance(collider.transform.position, transform.position);
+            if (distance < minDistance)
             {
                 minDistanceCollider = collider;
+                minDistance = distance;
             }
         }
 
@@ -146,6 +149,7 @@ public class Enemy : AInteractableEntity
         {
             return;
         }
+        Debug.Log(minDistanceCollider.transform.gameObject.name);
         
         SetTarget(minDistanceCollider.GetComponent<AInteractableEntity>());
         //MissTarget = false;
