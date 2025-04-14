@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5822305842440808912}
   - component: {fileID: 6348633665437831031}
   - component: {fileID: 1340746590553203009}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,6 @@ MonoBehaviour:
   Runaway: 0
   HPBar: {fileID: 6825473096531827421}
   canvas: {fileID: 5822305842440808912}
-  Renderer: {fileID: 0}
 --- !u!114 &8924370958228913697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentShaderType: 0
+  currentShaderType: 4
   normalStrength: 5
   normalSmoothing: 1
   computingNormal: 0

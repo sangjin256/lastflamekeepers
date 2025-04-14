@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8628406254951360781}
   - component: {fileID: 8474584167333388709}
   - component: {fileID: 7258584561558145960}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 4882241254356339239}
   - component: {fileID: -2486937367554506456}
   - component: {fileID: -2530850854636841160}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: House
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.884835, y: 2.0375}
+    oldSize: {x: 1.8218751, y: 1.975}
     newSize: {x: 1.8218751, y: 1.975}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
