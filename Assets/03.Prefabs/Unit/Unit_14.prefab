@@ -196,6 +196,7 @@ MonoBehaviour:
   Runaway: 0
   HPBar: {fileID: 6170969750362965641}
   canvas: {fileID: 9129755904741117009}
+  Renderer: {fileID: 0}
 --- !u!114 &8924370958228913697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentShaderType: 4
+  currentShaderType: 0
   normalStrength: 5
   normalSmoothing: 1
   computingNormal: 0
@@ -857,7 +858,7 @@ GameObject:
   - component: {fileID: 9129755904741117009}
   - component: {fileID: 1184716528591184946}
   - component: {fileID: 262440213217294298}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
