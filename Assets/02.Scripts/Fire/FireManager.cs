@@ -105,7 +105,7 @@ public class FireManager : BehaviourSingleton<FireManager>
 
     public bool CheckCanAddUnit()
     {
-        if(InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Ash) >= AshToUnit)
+        if(InventoryResourceManager.Instance.GetCurrentResourceCount(InventoryResourceType.Ash) >= AshToUnit && UnitManager.Instance.UnitList.Count < UnitManager.Instance.MaxCountUnit)
         {
             return true;
         }

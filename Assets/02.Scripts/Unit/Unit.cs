@@ -66,6 +66,7 @@ public class Unit : AInteractableEntity
     }
     private void Update()
     {
+        Debug.Log(_navMeshAgent.enabled);
         if (!CanInteract)
         {
             return;
