@@ -189,7 +189,7 @@ public class FireManager : BehaviourSingleton<FireManager>
 
     public void ReduceFire()
     {
-        if (CurrentRange - 1 <= MinRangeData)
+        if (CurrentRange - 1 < MinRangeData)
         {
             if(CurrentRange - 1 <= MinRangeDeath)
             {
@@ -205,11 +205,20 @@ public class FireManager : BehaviourSingleton<FireManager>
                 NextFirePercent = DataTable.Instance.GetFireLightData(StartTID).NextFirePercent;
             }
         }
+        else if(CurrentRange - 1 == MinRangeData)
+        {
+            CurrentRange--;
+            CurrentFirePercent = 1;
+            CurrentWood = 0;
+            DOTween.To(() => _fireLight.size, x => _fireLight.size = x, CurrentRange, 0.5f).SetEase(Ease.OutCubic);
+            WoodToLvUp = DataTable.Instance.GetFireLightData(StartTID).WoodAmout;
+            NextFirePercent = DataTable.Instance.GetFireLightData(StartTID).NextFirePercent;
+        }
         else
         {
-            CurrentFirePercent--;
             CurrentWood = 0;
             CurrentRange--;
+            CurrentFirePercent = DataTable.instance.GetFireLightData(StartTID + CurrentRange - MinRangeData - 1).NextFirePercent;
             DOTween.To(() => _fireLight.size, x => _fireLight.size = x, CurrentRange, 0.5f).SetEase(Ease.OutCubic); 
             WoodToLvUp = DataTable.Instance.GetFireLightData(StartTID + CurrentRange - MinRangeData).WoodAmout;
             NextFirePercent = DataTable.Instance.GetFireLightData(StartTID + CurrentRange - MinRangeData).NextFirePercent;
