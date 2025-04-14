@@ -27,6 +27,7 @@ public class FireManager : BehaviourSingleton<FireManager>
 
     private float CurrentFirePercent = 1f;
     private float NextFirePercent = 0;
+    private float PrevFirePercent = 0;
     private int CurrentWood = 0;
 
     [SerializeField] float CurrentSquareRange => CurrentRange * CurrentRange;
@@ -49,10 +50,10 @@ public class FireManager : BehaviourSingleton<FireManager>
     }
     public void _LoadFire()
     {
-        WoodToLvUp = DataTable.Instance.GetFireLightData(StartTID + CurrentRange - MinRangeData).WoodAmout;
-        NextFirePercent = DataTable.Instance.GetFireLightData(StartTID + CurrentRange - MinRangeData).NextFirePercent;
-        AshToUnit = DataTable.Instance.GetFireUnitData(StartTID + CurrentRange - MinRangeData).AshAmout;
-        AshLevel = DataTable.Instance.GetFireUnitData(StartTID + CurrentRange - MinRangeData).Level;
+        WoodToLvUp = DataTable.Instance.GetFireLightData(StartTID).WoodAmout;
+        NextFirePercent = DataTable.Instance.GetFireLightData(StartTID).NextFirePercent;
+        AshToUnit = DataTable.Instance.GetFireUnitData(StartTID).AshAmout;
+        AshLevel = DataTable.Instance.GetFireUnitData(StartTID).Level;
 
         OnAddWood?.Invoke();
         OnPercentChanged?.Invoke();
@@ -174,14 +175,17 @@ public class FireManager : BehaviourSingleton<FireManager>
 
             DOTween.To(() => _fireLight.size, x => _fireLight.size = x, CurrentRange, 0.5f).SetEase(Ease.OutCubic);
             WoodToLvUp = DataTable.Instance.GetFireLightData(StartTID).WoodAmout;
+            PrevFirePercent = NextFirePercent;
             NextFirePercent = DataTable.Instance.GetFireLightData(StartTID).NextFirePercent;
         }
         else
         {
-            CurrentRange+=2;
+            CurrentRange += 2;
+            
             DOTween.To(() => _fireLight.size, x => _fireLight.size = x, CurrentRange, 0.5f).SetEase(Ease.OutCubic);
-            WoodToLvUp = DataTable.Instance.GetFireLightData(StartTID + CurrentRange - MinRangeData).WoodAmout;
-            NextFirePercent = DataTable.Instance.GetFireLightData(StartTID + CurrentRange - MinRangeData).NextFirePercent;
+            WoodToLvUp = DataTable.Instance.GetFireLightData(StartTID + (CurrentRange - MinRangeData) / 2).WoodAmout;
+            PrevFirePercent = NextFirePercent;
+            NextFirePercent = DataTable.Instance.GetFireLightData(StartTID + (CurrentRange - MinRangeData) / 2).NextFirePercent;
         }
 
         OnFireRangeChanged?.Invoke();
@@ -189,11 +193,17 @@ public class FireManager : BehaviourSingleton<FireManager>
 
     public void ReduceFire()
     {
-        if (CurrentRange - 2 < MinRangeData)
+        if (CurrentRange <= MinRangeData)
         {
-            if(CurrentRange - 2 <= MinRangeDeath)
+            if(CurrentRange <= MinRangeDeath)
             {
                 GameManager.Instance.Defeat();
+                return;
+            }
+            
+            if (CurrentFirePercent > 1)
+            {
+                CurrentFirePercent--;
             }
             else
             {
@@ -205,23 +215,45 @@ public class FireManager : BehaviourSingleton<FireManager>
                 NextFirePercent = DataTable.Instance.GetFireLightData(StartTID).NextFirePercent;
             }
         }
-        else if(CurrentRange - 2 == MinRangeData)
-        {
-            CurrentRange-=2;
-            CurrentFirePercent = 1;
-            CurrentWood = 0;
-            DOTween.To(() => _fireLight.size, x => _fireLight.size = x, CurrentRange, 0.5f).SetEase(Ease.OutCubic);
-            WoodToLvUp = DataTable.Instance.GetFireLightData(StartTID).WoodAmout;
-            NextFirePercent = DataTable.Instance.GetFireLightData(StartTID).NextFirePercent;
-        }
+        //else if(CurrentRange == MinRangeData)
+        //{
+        //    CurrentFirePercent--;
+        //    if (CurrentFirePercent <= PrevFirePercent)
+        //    {
+        //        CurrentRange -= 2;
+        //        DOTween.To(() => _fireLight.size, x => _fireLight.size = x, CurrentRange, 0.5f).SetEase(Ease.OutCubic);
+        //        NextFirePercent = PrevFirePercent;
+        //        PrevFirePercent = DataTable.Instance.GetFireLightData(StartTID + (CurrentRange - MinRangeData) / 2).NextFirePercent;
+        //        WoodToLvUp = DataTable.Instance.GetFireLightData(StartTID + (CurrentRange - MinRangeData) / 2).WoodAmout;
+        //    }
+        //    //CurrentRange -=2;
+        //    //CurrentFirePercent = 1;
+        //    //CurrentWood = 0;
+        //    //DOTween.To(() => _fireLight.size, x => _fireLight.size = x, CurrentRange, 0.5f).SetEase(Ease.OutCubic);
+        //    //WoodToLvUp = DataTable.Instance.GetFireLightData(StartTID).WoodAmout;
+        //    //NextFirePercent = DataTable.Instance.GetFireLightData(StartTID).NextFirePercent;
+        //}
         else
         {
             CurrentWood = 0;
-            CurrentRange-=2;
-            CurrentFirePercent = DataTable.instance.GetFireLightData(StartTID + CurrentRange - MinRangeData - 1).NextFirePercent;
-            DOTween.To(() => _fireLight.size, x => _fireLight.size = x, CurrentRange, 0.5f).SetEase(Ease.OutCubic); 
-            WoodToLvUp = DataTable.Instance.GetFireLightData(StartTID + CurrentRange - MinRangeData).WoodAmout;
-            NextFirePercent = DataTable.Instance.GetFireLightData(StartTID + CurrentRange - MinRangeData).NextFirePercent;
+            CurrentFirePercent--;
+            if (CurrentFirePercent == 4)
+            {
+                int a = 3;
+            }
+            if (CurrentFirePercent <= PrevFirePercent)
+            {
+                CurrentRange -= 2;
+                DOTween.To(() => _fireLight.size, x => _fireLight.size = x, CurrentRange, 0.5f).SetEase(Ease.OutCubic);
+                NextFirePercent = PrevFirePercent;
+                PrevFirePercent = DataTable.Instance.GetFireLightData(StartTID + (CurrentRange - MinRangeData) / 2).NextFirePercent;
+                WoodToLvUp = DataTable.Instance.GetFireLightData(StartTID + (CurrentRange - MinRangeData) / 2).WoodAmout;
+            }
+            
+            // CurrentFirePercent = DataTable.instance.GetFireLightData(StartTID + (CurrentRange - MinRangeData)/2 +1).NextFirePercent;
+           
+            
+            
         }
         OnAddWood?.Invoke();
         OnFireRangeChanged?.Invoke();
