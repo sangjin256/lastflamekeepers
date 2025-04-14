@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7894968315097250257}
   - component: {fileID: 6319066720288940823}
   - component: {fileID: -7909543294055496427}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Storage
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.88459086, y: 0.725}
+    oldSize: {x: 0.82187504, y: 0.6625}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
