@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7069854713469170888}
   - component: {fileID: 7787235569552005302}
   - component: {fileID: 8800688908210089303}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 1590316338716112857}
   - component: {fileID: 1557655290578245006}
   - component: {fileID: -681594007658931476}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Laboratory
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.9468751, y: 2.8500001}
+    oldSize: {x: 2.003614, y: 2.90625}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentShaderType: 4
+  currentShaderType: 0
   normalStrength: 5
   normalSmoothing: 1
   computingNormal: 0
