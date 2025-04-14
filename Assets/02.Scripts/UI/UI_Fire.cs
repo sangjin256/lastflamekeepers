@@ -23,6 +23,7 @@ public class UI_Fire : MonoBehaviour
     {
         UnitManager.Instance.OnUnitListChanged += UnitRefresh;
         FireManager.Instance.OnAddWood += FireRefresh;
+        InventoryResourceManager.Instance.OnInvenDataChanged += FireRefresh;
     }
 
     public void UnitRefresh(Unit unit)

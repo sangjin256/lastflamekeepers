@@ -50,6 +50,10 @@ public class Enemy : AInteractableEntity
     }
     private void Update()
     {
+        if (!_navMeshAgent.enabled)
+        {
+            return;
+        }
         if (!CanInteract)
         {
             return;
@@ -96,6 +100,10 @@ public class Enemy : AInteractableEntity
 
     public void SetTarget(AInteractableEntity interactable)
     {
+        if (!_navMeshAgent.enabled)
+        {
+            return;
+        }
         _target = interactable;
         if (CheckTargetInInteractTrigger())
         {
@@ -110,6 +118,10 @@ public class Enemy : AInteractableEntity
     }
     public void FindTarget()
     {
+        if (!_navMeshAgent.enabled)
+        {
+            return;
+        }
         if (!CanInteract)
         {
             return;

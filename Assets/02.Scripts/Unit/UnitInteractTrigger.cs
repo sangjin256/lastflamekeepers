@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using static UnityEngine.GraphicsBuffer;
 
 public class UnitInteractTrigger : MonoBehaviour
@@ -14,6 +15,10 @@ public class UnitInteractTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!_unit.NavMeshAgent.enabled)
+        {
+            return;
+        }
         AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
         if (interactableEntity == null || !interactableEntity.isActiveAndEnabled)
         {
@@ -45,6 +50,10 @@ public class UnitInteractTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (!_unit.NavMeshAgent.enabled)
+        {
+            return;
+        }
         AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
         if (interactableEntity == null)
         {

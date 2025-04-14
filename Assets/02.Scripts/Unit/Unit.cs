@@ -66,7 +66,10 @@ public class Unit : AInteractableEntity
     }
     private void Update()
     {
-        Debug.Log(_navMeshAgent.enabled);
+        if (!_navMeshAgent.enabled)
+        {
+            return;
+        }
         if (!CanInteract)
         {
             return;
@@ -183,6 +186,10 @@ public class Unit : AInteractableEntity
 
     public void SetTarget(AInteractableEntity interactable)
     {
+        if (!_navMeshAgent.enabled)
+        {
+            return;
+        }
         _navMeshAgent.ResetPath();
         _toolAnimator.SetBool("IsInteracting", false);
         _navMeshAgent.avoidancePriority = 50;
@@ -214,6 +221,10 @@ public class Unit : AInteractableEntity
     // TODO: 인원 수 전달해서 그에 따른 랜덤 도착 범위 설정
     public void SetTarget(Vector2 point)
     {
+        if (!_navMeshAgent.enabled)
+        {
+            return;
+        }
         _navMeshAgent.avoidancePriority = 50;
 
         if (!CanInteract)
@@ -258,6 +269,10 @@ public class Unit : AInteractableEntity
 
     public void FindTarget()
     {
+        if (!_navMeshAgent.enabled)
+        {
+            return;
+        }
         if (!CanInteract)
         {
             return;
