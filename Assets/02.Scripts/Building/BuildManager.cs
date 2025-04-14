@@ -279,6 +279,7 @@ public class BuildManager : BehaviourSingleton<BuildManager>
         {
             Debug.Log("돌 자원 부족");
             UIManager.Instance.SetCanBuildStart(false);
+            InventoryResourceManager.Instance.TryAddCurrentResourceCount(InventoryResourceType.Wood, _requiredResourcesDicList[buildingType][0]);
             return;
         }
 
