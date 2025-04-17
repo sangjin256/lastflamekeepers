@@ -70,7 +70,7 @@ public class UnitTool : MonoBehaviour
 
     public void Interact()
     {
-        if(_unit.Target == null)
+        if(_unit.Target == null || !_unit.Target.CanInteract)
         {
             return;
         }

@@ -185,6 +185,10 @@ public class Enemy : AInteractableEntity
     public void Interact()
     {
         AudioManager.Instance.PlayEnemyAudio(EnemyAudioType.Attack, transform.position);
+        if(_target == null || !_target.CanInteract)
+        {
+            return;
+        }
         _target.TakeDamage(_enemyStat.Damage, false);
     }
 
