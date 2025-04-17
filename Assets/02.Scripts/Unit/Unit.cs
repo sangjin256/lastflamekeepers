@@ -91,9 +91,12 @@ public class Unit : AInteractableEntity
                 {
                     if (!_unitTool.IsInteracting)
                     {
-                        _navMeshAgent.SetDestination(_target.transform.position);
-                        //_rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
-                        _navMeshAgent.nextPosition = transform.position;
+                        if (_target.InteractType == InteractType.Enemy || _target.InteractType == InteractType.Unit)
+                        {
+                            _navMeshAgent.SetDestination(_target.transform.position);
+                            //_rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
+                            //_navMeshAgent.nextPosition = transform.position;
+                        }
                     }
 
                     
@@ -119,7 +122,9 @@ public class Unit : AInteractableEntity
             flag = false;
             Flip();
         }
-        if(_navMeshAgent.hasPath && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
+
+        
+        if(_target == null && _navMeshAgent.hasPath && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
         {
             _navMeshAgent.avoidancePriority = 60;
             _navMeshAgent.ResetPath();

@@ -6,6 +6,8 @@ public class Rock : AResource
 {
     public Renderer Renderer;
     public MaterialPropertyBlock _materialPropertyBlock;
+    private NavMeshObstacle _navMeshObstacle;
+    private UnityEngine.Vector2 centerPos;
     public override void Initialize(ResourceType resourceType)
     {
         FieldResourceData resource = ResourceManager.Instance.GetResource(resourceType);
@@ -23,13 +25,13 @@ public class Rock : AResource
         IsWithInFireRange = true;
         FireManager.Instance.OnFireRangeChanged += CheckWithInRange;
 
-        Renderer = GetComponent<Renderer>();
-        _materialPropertyBlock = new MaterialPropertyBlock();
+
     }
-    private NavMeshObstacle _navMeshObstacle;
-    private UnityEngine.Vector2 centerPos;
+
     private void Start()
     {
+        Renderer = GetComponent<Renderer>();
+        _materialPropertyBlock = new MaterialPropertyBlock();
         _navMeshObstacle = GetComponent<NavMeshObstacle>();
         centerPos = transform.position + _navMeshObstacle.center;
 
@@ -40,6 +42,9 @@ public class Rock : AResource
         if (IsWithInFireRange != FireManager.Instance.IsUnitWithInFireRange(centerPos))
         {
             IsWithInFireRange = !IsWithInFireRange;
+
+            //_navMeshObstacle.carving = IsWithInFireRange;
+            _navMeshObstacle.enabled = IsWithInFireRange;
         }
     }
     public override void TakeDamage(int amount, bool isHeal)

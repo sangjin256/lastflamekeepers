@@ -133,7 +133,7 @@ public class ClickSystem : MonoBehaviour
 
     public void RightMouseAction()
     {
-        if (Input.GetMouseButton(1) && !EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
         {
             if (UnitSelectionManager.Instance.SelectedUnitList.Count != 0)
             {
