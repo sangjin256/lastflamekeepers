@@ -196,6 +196,7 @@ MonoBehaviour:
   Runaway: 0
   HPBar: {fileID: 1087224761367836433}
   canvas: {fileID: 1427059428838095670}
+  Renderer: {fileID: 0}
 --- !u!114 &8924370958228913697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +227,7 @@ NavMeshAgent:
   m_StoppingDistance: 0.15
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
-  m_AutoRepath: 1
+  m_AutoRepath: 0
   m_Height: 0.001
   m_BaseOffset: 0
   m_WalkableMask: 1
@@ -365,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentShaderType: 4
+  currentShaderType: 0
   normalStrength: 5
   normalSmoothing: 1
   computingNormal: 0
@@ -539,7 +540,7 @@ GameObject:
   - component: {fileID: 1427059428838095670}
   - component: {fileID: 8664979874259435308}
   - component: {fileID: 2549820464097118946}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

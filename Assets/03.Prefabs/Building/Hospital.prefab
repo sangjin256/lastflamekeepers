@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7245870022505850198}
   - component: {fileID: 550679845544816640}
   - component: {fileID: 8266156561354335437}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 9148429206990921136}
   - component: {fileID: 528319248111869454}
   - component: {fileID: 1194353835284249370}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Hospital
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.9468751, y: 2.853125}
+    oldSize: {x: 2.003614, y: 2.909375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentShaderType: 4
+  currentShaderType: 0
   normalStrength: 5
   normalSmoothing: 1
   computingNormal: 0

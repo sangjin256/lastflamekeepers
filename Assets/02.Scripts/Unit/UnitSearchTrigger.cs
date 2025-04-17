@@ -13,7 +13,11 @@ public class UnitSearchTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(_unitTool.CurrentTool.ToolType != ToolType.Sword)
+        if (!_unit.NavMeshAgent.enabled)
+        {
+            return;
+        }
+        if (_unitTool.CurrentTool.ToolType != ToolType.Sword)
         {
             return;
         }
@@ -36,6 +40,10 @@ public class UnitSearchTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (!_unit.NavMeshAgent.enabled)
+        {
+            return;
+        }
         AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
 
         if (interactableEntity != _unit.Target)

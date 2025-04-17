@@ -12,7 +12,11 @@ public class EnemySearchTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other == null)
+        if (!_enemy.NavMeshAgent.enabled)
+        {
+            return;
+        }
+        if (other == null)
         {
             return;
         }
@@ -31,6 +35,10 @@ public class EnemySearchTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (!_enemy.NavMeshAgent.enabled)
+        {
+            return;
+        }
         AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
 
         if (interactableEntity != _enemy.Target)

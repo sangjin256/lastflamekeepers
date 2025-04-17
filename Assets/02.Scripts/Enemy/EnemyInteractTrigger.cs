@@ -13,7 +13,10 @@ public class EnemyInteractTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
+        if (!_enemy.NavMeshAgent.enabled)
+        {
+            return;
+        }
         AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
         if (interactableEntity == null)
         {
@@ -38,6 +41,10 @@ public class EnemyInteractTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (!_enemy.NavMeshAgent.enabled)
+        {
+            return;
+        }
         AInteractableEntity interactableEntity = other.GetComponent<AInteractableEntity>();
         //¿Ã∑≤ªÛ»≤¿Ã?
         if (interactableEntity == null)

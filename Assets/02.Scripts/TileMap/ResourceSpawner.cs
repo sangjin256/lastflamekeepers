@@ -42,7 +42,7 @@ public class ResourceSpawner : MonoBehaviour
 
                     // 리소스매니저에 넣기
                 }
-                else if (roll < 0.75f)
+                else
                 {
                     ClusterInstantiate(point.position, tile.gameObject, ResourceType.Tree, Random.Range(2f, 6f), Random.Range(1f, 4f), TreePrefabList);
 
