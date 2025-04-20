@@ -193,6 +193,7 @@ MonoBehaviour:
   OutputAmountPerExtract: 0
   OutputType: 0
   RespawnTime: 0
+  ObstacleTilemap: {fileID: 0}
   HitCount: 0
   Renderer: {fileID: 0}
 --- !u!208 &-6802930052742275150
@@ -202,7 +203,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1413061942490225082}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.27, y: 0.175, z: 0.5}

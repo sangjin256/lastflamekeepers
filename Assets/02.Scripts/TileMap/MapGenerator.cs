@@ -47,7 +47,6 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
-
         ResourceSpawner.InitializeAllResourceAsync();
         NavMeshManager.Instance.BakeSurface();
     }

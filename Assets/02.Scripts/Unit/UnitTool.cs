@@ -63,7 +63,6 @@ public class UnitTool : MonoBehaviour
         _overrideController["Idle"] = ToolManager.Instance.ToolAnimationClip[(int)_currentTool.ToolType, _currentTool.UpgradeLevel, 0];
         _overrideController["Interact"] = ToolManager.Instance.ToolAnimationClip[(int)_currentTool.ToolType, _currentTool.UpgradeLevel, 1];
 
-        Debug.Log($"{tool.ToolType}");
         IsInteracting = false;
         _animator.SetBool("IsInteracting", false);
     }

@@ -108,7 +108,7 @@ public class UnitManager : BehaviourSingleton<UnitManager>
 
         }
 
-        unitStat.DebugStat();
+        // unitStat.DebugStat();
 
         unitGameObject.SetActive(false);
 

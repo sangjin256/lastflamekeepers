@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using Unity.VisualScripting.InputSystem;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public abstract class AResource : AInteractableEntity
 {
@@ -11,6 +12,8 @@ public abstract class AResource : AInteractableEntity
     public int OutputAmountPerExtract;
     public InventoryResourceType OutputType;
     public float RespawnTime;
+
+    public Tilemap ObstacleTilemap;
 
     public int HitCount = 0;
     public abstract void Initialize(ResourceType resourceType);
