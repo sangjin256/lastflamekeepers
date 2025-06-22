@@ -41,8 +41,17 @@ public class AudioManager : BehaviourSingleton<AudioManager>
             var source = Instantiate(AudioSourceChildObject, transform.position, Quaternion.identity, gameObject.transform).GetComponent<AudioSource>();
             audioSourceList.Add(source);
         }
+        WarmUpBGM();
+        BGMAudioSource.resource = BGMList[0];
+        BGMAudioSource.Play();
     }
 
+    public void WarmUpBGM()
+    {
+        BGMAudioSource.resource = BGMList[1];
+        BGMAudioSource.Play();
+        BGMAudioSource.Stop();
+    }
     public void SetBGMVolume(float sliderValue)
     {
         float volume = Mathf.Log10(sliderValue <= 0.001f ? 0.001f : sliderValue) * 20;
@@ -61,7 +70,7 @@ public class AudioManager : BehaviourSingleton<AudioManager>
         if (fadeCoroutine != null)
             StopCoroutine(fadeCoroutine);
 
-        //fadeCoroutine = StartCoroutine(FadeToClip(index, fadeTime));
+        fadeCoroutine = StartCoroutine(FadeToClip(index, fadeTime));
     }
 
     private IEnumerator FadeToClip(int index, float fadeTime)
