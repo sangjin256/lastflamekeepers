@@ -219,11 +219,8 @@ MonoBehaviour:
   IsWithInFireRange: 1
   _unitStat: {fileID: 0}
   _target: {fileID: 0}
-  MissTarget: 0
-  Runaway: 0
   HPBar: {fileID: 6721380183135894556}
   canvas: {fileID: 1235730396627084102}
-  Renderer: {fileID: 0}
 --- !u!114 &8924370958228913697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +251,7 @@ NavMeshAgent:
   m_StoppingDistance: 0.15
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
-  m_AutoRepath: 0
+  m_AutoRepath: 1
   m_Height: 0.001
   m_BaseOffset: 0
   m_WalkableMask: 1
