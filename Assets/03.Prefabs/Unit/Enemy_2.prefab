@@ -436,6 +436,7 @@ MonoBehaviour:
   Center: {fileID: 0}
   IsFacingRight: 1
   MissTarget: 0
+  Renderer: {fileID: 0}
 --- !u!114 &8983954623798878622
 MonoBehaviour:
   m_ObjectHideFlags: 0

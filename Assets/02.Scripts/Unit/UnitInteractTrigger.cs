@@ -15,7 +15,7 @@ public class UnitInteractTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!_unit.NavMeshAgent.enabled)
+        if (!_unit.Agent.enabled)
         {
             return;
         }
@@ -50,7 +50,7 @@ public class UnitInteractTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!_unit.NavMeshAgent.enabled)
+        if (!_unit.Agent.enabled)
         {
             return;
         }

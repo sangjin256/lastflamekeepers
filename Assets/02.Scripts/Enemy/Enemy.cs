@@ -50,21 +50,17 @@ public class Enemy : AInteractableEntity
     }
     private void Update()
     {
-        if (!_navMeshAgent.enabled)
+        if (!_navMeshAgent.enabled || !CanInteract)
         {
             return;
         }
-        if (!CanInteract)
-        {
-            return;
-        }
+
         if (IsWithInFireRange != FireManager.Instance.IsWithInFireRange(transform.position))
         {
             IsWithInFireRange = !IsWithInFireRange;
         }
         if (_target == null)
         {
-            //Target = Center;
             Animator.SetBool("IsAttacking", false);
 
             SetTarget(FireManager.Instance.GetFire());
@@ -82,15 +78,6 @@ public class Enemy : AInteractableEntity
         {
             Flip();
         }
-
-        //if (_navMeshAgent.velocity == Vector3.zero)
-        //{
-        //    _animator.SetBool("IsRunning", false);
-        //}
-        //else
-        //{
-        //    _animator.SetBool("IsRunning", true);
-        //}
     }
     public void Flip()
     {

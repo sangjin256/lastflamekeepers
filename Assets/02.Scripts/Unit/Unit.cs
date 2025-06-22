@@ -10,12 +10,13 @@ public class Unit : AInteractableEntity
     [SerializeField] private UnitStat _unitStat;
     private UnitTool _unitTool;
     public UnitTool UnitTool => _unitTool;
-    private NavMeshAgent _navMeshAgent;
-    public NavMeshAgent NavMeshAgent => _navMeshAgent;
+
+    private NavMeshAgent _agent;
+    public NavMeshAgent Agent => _agent;
+
     public AInteractableEntity _target;
     public AInteractableEntity Target => _target;
-    //테스트용
-    //public GameObject _target;
+
     private CircleCollider2D _interactCollider;
     private CircleCollider2D _searchCollider;
 
@@ -24,114 +25,152 @@ public class Unit : AInteractableEntity
     public Animator ToolAnimator => _toolAnimator;
 
 
-    private bool IsFacingRight = true;
-    public bool MissTarget = false;
-    public bool Runaway = false;
+    private bool _isFacingRight = true;
+    private bool _isAvoidingDark = false;
+    private bool _shouldFlip;
+
     public Action<Unit> OnDamaged;
 
     public Slider HPBar;
     public Canvas canvas;
 
-    public Renderer Renderer;
-    public MaterialPropertyBlock _materialPropertyBlock;
+    private Renderer _renderer;
+    public Renderer Renderer => _renderer;
+    private MaterialPropertyBlock _materialPropertyBlock;
 
-    private bool flag;
     private void Awake()
     {
         _unitStat = GetComponent<UnitStat>();
         _unitTool = GetComponentInChildren<UnitTool>();
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-        _navMeshAgent.updateRotation = false;
-        _navMeshAgent.updateUpAxis = false;
+        _agent = GetComponent<NavMeshAgent>();
+
         _interactCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
         _searchCollider = transform.GetChild(1).GetComponent<CircleCollider2D>();
         _animator = GetComponent<Animator>();
         _toolAnimator = transform.GetChild(2).GetComponent<Animator>();
 
-        Renderer = GetComponent<Renderer>();
-        _materialPropertyBlock = new MaterialPropertyBlock();
+        _renderer = GetComponent<Renderer>();
     }
 
     private void Start()
     {
         _interactType = InteractType.Unit;
-        _navMeshAgent.speed = _unitStat.MoveSpeed.Value / 10f;
-        _animator.SetFloat("MoveSpeed", _unitStat.MoveSpeed.Value/10f);
+        SetMoveSpeed(_unitStat.MoveSpeed.Value);
         Health = _unitStat.MaxHealth.Value;
-        _navMeshAgent.enabled = false;
-        _navMeshAgent.enabled = true;
+
+        _agent.updateRotation = false;
+        _agent.updateUpAxis = false;
+        //실제 위치와 NavMesh 시스템 동기화
+        _agent.enabled = false;
+        _agent.enabled = true;
 
         HPBar.maxValue = _unitStat.MaxHealth.Value;
         HPBar.value = Health;
+
+        _materialPropertyBlock = new MaterialPropertyBlock();
     }
     private void Update()
     {
-        if (!_navMeshAgent.enabled)
+        if (!_agent.enabled || !CanInteract)
         {
             return;
         }
-        if (!CanInteract)
+
+        // When Unit has no target
+        if (_target == null || !_target.isActiveAndEnabled || !_target.CanInteract)
         {
-            return;
+            ToolAnimator.SetBool("IsInteracting", false);
         }
+
+        // When Unit has a target in FireRange
+        else if (_target.IsWithInFireRange)
+        {
+            if (!_unitTool.IsInteracting && (_target.InteractType == InteractType.Enemy || _target.InteractType == InteractType.Unit))
+            {
+                _agent.SetDestination(_target.transform.position);
+            }
+            //Flip according to target direction
+            if (transform.position.x < _target.transform.position.x ^ _isFacingRight && !_unitTool.IsInteracting)
+            {
+                if (Mathf.Abs(transform.position.x - _target.transform.position.x) > 0.1f)
+                {
+                    Flip();
+                }
+            }
+        }
+        // When target disappears into the dark
+        else
+        {
+            _agent.ResetPath();
+            SetTargetNull();
+            _animator.SetBool("IsRunning", false);
+        }
+
+        //Flip after interaction is complete
+        if (_shouldFlip == true && !_unitTool.IsInteracting)
+        {
+            _shouldFlip = false;
+            Flip();
+        }
+
+        SetRunningAnimation();
+        RunAwayFromDark();
+    }
+
+    public void Flip()
+    {
+        _isFacingRight = !_isFacingRight;
+        transform.Rotate(0, 180, 0);
+        canvas.transform.Rotate(0, 180, 0);
+    }
+
+    public void SetMoveSpeed(float speed)
+    {
+        _agent.speed = speed / 10f;
+        _animator.SetFloat("MoveSpeed", speed / 10f);
+    }
+
+    public void RunAwayFromDark()
+    {
+        //Check if unit is out of Fire Range
         if (IsWithInFireRange != FireManager.Instance.IsUnitWithInFireRange(transform.position))
         {
             IsWithInFireRange = !IsWithInFireRange;
         }
 
-        if (_target == null || !_target.isActiveAndEnabled)
+        if (!IsWithInFireRange)
         {
-            ToolAnimator.SetBool("IsInteracting", false);
+            if (!_isAvoidingDark)
+            {
+                _isAvoidingDark = true;
+                _agent.ResetPath();
+                SetTarget(Vector2.zero);
+            }
+            else
+            {
+                _agent.SetDestination(Vector2.zero);
+            }
         }
         else
         {
-            if (_target.CanInteract)
+            if (_isAvoidingDark)
             {
-                if (_target.IsWithInFireRange)
-                {
-                    if (!_unitTool.IsInteracting)
-                    {
-                        if (_target.InteractType == InteractType.Enemy || _target.InteractType == InteractType.Unit)
-                        {
-                            _navMeshAgent.SetDestination(_target.transform.position);
-                            //_rigidbody.linearVelocity = _navMeshAgent.desiredVelocity;
-                            //_navMeshAgent.nextPosition = transform.position;
-                        }
-                    }
-
-                    
-                }
-                else
-                {
-                    _navMeshAgent.ResetPath();
-                    _animator.SetBool("IsRunning", false);
-                }
-
-                if (transform.position.x < _target.transform.position.x ^ IsFacingRight && !_unitTool.IsInteracting)
-                {
-                    if (Mathf.Abs(transform.position.x - _target.transform.position.x) > 0.1f)
-                    {
-                        Flip();
-                    }
-                }
+                _isAvoidingDark = false;
+                _agent.ResetPath();
             }
         }
+    }
 
-        if(flag == true && !_unitTool.IsInteracting)
+    public void SetRunningAnimation()
+    {
+        if (_target == null && _agent.hasPath && _agent.remainingDistance <= _agent.stoppingDistance)
         {
-            flag = false;
-            Flip();
-        }
-
-        
-        if(_target == null && _navMeshAgent.hasPath && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
-        {
-            _navMeshAgent.avoidancePriority = 60;
-            _navMeshAgent.ResetPath();
+            _agent.avoidancePriority = 60;
+            _agent.ResetPath();
         }
         if (_target == null || !_target.isActiveAndEnabled)
         {
-            if (_navMeshAgent.desiredVelocity == Vector3.zero)
+            if (_agent.desiredVelocity == Vector3.zero)
             {
                 _animator.SetBool("IsRunning", false);
             }
@@ -144,60 +183,21 @@ public class Unit : AInteractableEntity
         {
             _animator.SetBool("IsRunning", false);
         }
-        else if(!_unitTool.IsInteracting)
+        else if (!_unitTool.IsInteracting)
         {
             _animator.SetBool("IsRunning", true);
         }
-
-        //땅바닥 찍었을 경우
-        //if (_target == null && _navMeshAgent.desiredVelocity.x != 0 && (_navMeshAgent.desiredVelocity.x > 0 ^ IsFacingRight))
-        //{
-        //    Flip();
-        //}
-        if (!IsWithInFireRange)
-        {
-            if (!Runaway)
-            {
-                Runaway = true;
-                _navMeshAgent.ResetPath();
-                //_navMeshAgent.SetDestination(Vector2.zero);
-                SetTarget(Vector2.zero);
-            }
-            else
-            {
-                _navMeshAgent.SetDestination(Vector2.zero);
-                //SetTarget(Vector2.zero);
-            }
-        }
-        else
-        {
-            if (Runaway)
-            {
-                Runaway = false;
-                _navMeshAgent.ResetPath();
-            }
-        }
-
-
-
-    }
-
-    public void Flip()
-    {
-        IsFacingRight = !IsFacingRight;
-        transform.Rotate(0, 180, 0);
-        canvas.transform.Rotate(0, 180, 0);
     }
 
     public void SetTarget(AInteractableEntity interactable)
     {
-        if (!_navMeshAgent.enabled)
+        if (!_agent.enabled)
         {
             return;
         }
-        _navMeshAgent.ResetPath();
+        _agent.ResetPath();
         _toolAnimator.SetBool("IsInteracting", false);
-        _navMeshAgent.avoidancePriority = 50;
+        _agent.avoidancePriority = 50;
         if (!CanInteract)
         {
             return;
@@ -220,51 +220,35 @@ public class Unit : AInteractableEntity
         else
         {
             ResumeNavMeshAgent();
+            _agent.SetDestination(_target.transform.position);
         }
     }
 
     // TODO: 인원 수 전달해서 그에 따른 랜덤 도착 범위 설정
     public void SetTarget(Vector2 point)
     {
-        if (!_navMeshAgent.enabled)
+        if (!_agent.enabled)
         {
             return;
         }
-        _navMeshAgent.avoidancePriority = 50;
+        _agent.avoidancePriority = 50;
 
         if (!CanInteract)
         {
             return;
         }
-        if (!FireManager.Instance.IsUnitWithInFireRange(point))
-        {
-            return;
-        }  
 
         Vector2 randomPoint = point + UnityEngine.Random.insideUnitCircle / 2;
-        _navMeshAgent.SetDestination(randomPoint);
+        _agent.SetDestination(randomPoint);
         _target = null;
 
-        
-        if(transform.position.x < randomPoint.x ^ IsFacingRight)
+
+        if (transform.position.x < randomPoint.x ^ _isFacingRight)
         {
-            flag = true;
+            _shouldFlip = true;
             //Flip();
         }
 
-    }
-
-    public void SetTarget(Transform point)
-    {
-        _navMeshAgent.avoidancePriority = 50;
-
-        if (!CanInteract)
-        {
-            return;
-        }
-
-        _navMeshAgent.SetDestination(point.position);
-        _target = null;
     }
 
     public void SetTargetNull()
@@ -274,7 +258,7 @@ public class Unit : AInteractableEntity
 
     public void FindTarget()
     {
-        if (!_navMeshAgent.enabled)
+        if (!_agent.enabled)
         {
             return;
         }
@@ -296,11 +280,11 @@ public class Unit : AInteractableEntity
             {
                 continue;
             }
-            if(collider == null)
+            if (collider == null)
             {
                 return;
             }
-            if(!collider.GetComponent<AInteractableEntity>().IsWithInFireRange && collider.GetComponent<AInteractableEntity>().InteractType != InteractType.Enemy)
+            if (!collider.GetComponent<AInteractableEntity>().IsWithInFireRange && collider.GetComponent<AInteractableEntity>().InteractType != InteractType.Enemy)
             {
                 continue;
             }
@@ -343,23 +327,23 @@ public class Unit : AInteractableEntity
 
     public void StopNavMeshAgent()
     {
-        if (_navMeshAgent.enabled)
+        if (_agent.enabled)
         {
-            _navMeshAgent.isStopped = true;
+            _agent.isStopped = true;
         }
     }
     public void ResumeNavMeshAgent()
     {
-        if (_navMeshAgent.enabled)
+        if (_agent.enabled)
         {
-            _navMeshAgent.isStopped = false;
+            _agent.isStopped = false;
         }
     }
 
     public override void TakeDamage(int amount, bool isHeal)
     {
         base.TakeDamage(amount, isHeal);
-        if(Health >= _unitStat.MaxHealth.Value)
+        if (Health >= _unitStat.MaxHealth.Value)
         {
             Health = _unitStat.MaxHealth.Value;
         }
@@ -367,7 +351,7 @@ public class Unit : AInteractableEntity
         {
             CancelInvoke(nameof(Recover));
             _materialPropertyBlock.SetFloat("_HitEffectBlend", 1);
-            Renderer.SetPropertyBlock(_materialPropertyBlock);
+            _renderer.SetPropertyBlock(_materialPropertyBlock);
             Invoke(nameof(Recover), 0.2f);
         }
         HPBar.value = Health;
@@ -381,10 +365,11 @@ public class Unit : AInteractableEntity
             return;
         }
         GetComponent<CircleCollider2D>().enabled = false;
+        _agent.enabled = false;
         _target = null;
-        _toolAnimator.SetBool("IsInteracting", false);
+        //_toolAnimator.SetBool("IsInteracting", false);
+        _toolAnimator.Play("Idle");
         _animator.SetTrigger("Die");
-        _navMeshAgent.enabled = false;
         ToolManager.Instance.RemoveCurrentToolCount(_unitTool.CurrentTool.ToolType, 1);
 
         //시체 사라진 후가 아닌 쓰러졌을 때 바로?
@@ -394,7 +379,7 @@ public class Unit : AInteractableEntity
     public void Recover()
     {
         _materialPropertyBlock.SetFloat("_HitEffectBlend", 0);
-        Renderer.SetPropertyBlock(_materialPropertyBlock);
+        _renderer.SetPropertyBlock(_materialPropertyBlock);
     }
     public void HideHPBar()
     {
@@ -407,7 +392,7 @@ public class Unit : AInteractableEntity
         if (_target != null && !_unitTool.CurrentTool.IsInteractable(_target.InteractType))
         {
             SetTargetNull();
-            _navMeshAgent.ResetPath();
+            _agent.ResetPath();
         }
         if (_unitTool.CurrentTool.ToolType == ToolType.Sword)
         {
@@ -416,6 +401,7 @@ public class Unit : AInteractableEntity
         }
     }
 
+    //Animation Event
     public void DestroyThis()
     {
         UnitManager.Instance.DestroyUnit(this);

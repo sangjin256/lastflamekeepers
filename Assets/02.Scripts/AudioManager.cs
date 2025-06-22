@@ -61,7 +61,7 @@ public class AudioManager : BehaviourSingleton<AudioManager>
         if (fadeCoroutine != null)
             StopCoroutine(fadeCoroutine);
 
-        fadeCoroutine = StartCoroutine(FadeToClip(index, fadeTime));
+        //fadeCoroutine = StartCoroutine(FadeToClip(index, fadeTime));
     }
 
     private IEnumerator FadeToClip(int index, float fadeTime)

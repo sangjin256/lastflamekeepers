@@ -13,7 +13,7 @@ public class UnitSearchTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!_unit.NavMeshAgent.enabled)
+        if (!_unit.Agent.enabled)
         {
             return;
         }
@@ -32,7 +32,7 @@ public class UnitSearchTrigger : MonoBehaviour
 
         _unit.SetTarget(other.GetComponent<AInteractableEntity>());
 
-        if (_unit.NavMeshAgent.desiredVelocity == Vector3.zero)
+        if (_unit.Agent.desiredVelocity == Vector3.zero)
         {
             _unit.SetTarget(other.GetComponent<AInteractableEntity>());
         }
@@ -40,7 +40,7 @@ public class UnitSearchTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!_unit.NavMeshAgent.enabled)
+        if (!_unit.Agent.enabled)
         {
             return;
         }
@@ -59,7 +59,7 @@ public class UnitSearchTrigger : MonoBehaviour
 
             _unitTool.IsInteracting = false;
             _unit.ToolAnimator.SetBool("IsInteracting", false);
-            _unit.NavMeshAgent.ResetPath();
+            _unit.Agent.ResetPath();
             _unit.SetTargetNull();
             _unit.ResumeNavMeshAgent();
             _unit.FindTarget();
